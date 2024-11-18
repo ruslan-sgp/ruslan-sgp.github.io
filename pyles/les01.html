@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 1</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <style>
+    body {
+      padding-left: 2rem;
+    }
+
+    .emphBar {
+      background-color: #bdbdbd;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      height: 5rem;
+      z-index: -10;
+    }
+
+    h3.lesTitle {
+      margin-top: 0;
+      margin-bottom: 4rem;
+      padding-top: 0;
+    }
+
+    p {
+      margin-top: 3rem;
+    }
+
+    pre {
+      padding-left: 2rem;
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+
+  <div class="emphBar">
+  </div>
+
+  <h3 id="урок-1" class="lesTitle">Урок 1</h3>
+
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <ol>
+    <li>
+      <p><strong>Программа Google Meet</strong></p>
+    </li>
+    <li>
+      <p><strong>Знакомство с Python</strong></p>
+      <ul>
+        <li>Возможности языка Python.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Установка и запуск Python</strong></p>
+      <ul>
+        <li>Установка интерпретатора Python.</li>
+        <li>Запуск с помощью команды <code>py</code> или <code>python</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Использование Python в интерактивном режиме</strong></p>
+      <ul>
+        <li>Работа с интерактивной оболочкой Python для выполнения простых команд.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Строковые и числовые данные</strong></p>
+      <ul>
+        <li>Знакомство с типами данных: строки и числа.</li>
+        <li>Примеры операций с этими типами.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Арифметические выражения</strong></p>
+      <ul>
+        <li>Использование арифметических выражений в программах: умножение (<code>*</code>), сложение (<code>+</code>),
+          вычитание (<code>-</code>) и деление (<code>/</code>).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Функции и аргументы</strong></p>
+      <ul>
+        <li>Знакомство с функциями, такими как <code>print()</code> и <code>exit()</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Вывод информации на экран</strong></p>
+      <ul>
+        <li>Использование функции <code>print()</code> для отображения текста и результатов вычислений.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Установка и знакомство с VS Code</strong></p>
+      <ul>
+        <li>Установка среды разработки Visual Studio Code.</li>
+        <li>Знакомство с интерфейсом.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Создание папки для проекта и файлов Python</strong></p>
+      <ul>
+        <li>Организация проекта и работа с папками.</li>
+        <li>Создание, редактирование и запуск файлов Python.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Установка расширений VS Code</strong></p>
+      <ul>
+        <li>Установка расширений для работы с Python в VS Code (например, Python Extension).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Использование переменных</strong></p>
+      <ul>
+        <li>Создание переменных для хранения данных.</li>
+        <li>Использование переменных в вычислениях и выводе на экран.</li>
+      </ul>
+    </li>
+  </ol>
+  <p>Пример кода:</p>
+  
+  <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Привет, мир!&#x27;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-number">10</span>+<span class="hljs-number">15</span>*<span class="hljs-number">25</span>)
+x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">20</span>
+<span class="hljs-built_in">print</span>(x + y)
+z = <span class="hljs-string">&#x27;hi &#x27;</span>
+<span class="hljs-built_in">print</span>(x * z)
+</code></pre>
+
+
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/agtiOou9ImM?si=7T5nPQOVXM_HCSjo"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</body>
+
+</html>

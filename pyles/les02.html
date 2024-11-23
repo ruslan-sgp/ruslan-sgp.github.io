@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="les.css">
+  <title>&Ucy;&rcy;&ocy;&kcy; 2</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <ol>
+    <li>
+      <p><strong>Ввод данных с клавиатуры</strong></p>
+      <ul>
+        <li>Использование функции <code>input()</code> для получения данных от пользователя.</li>
+        <li>Примеры ввода текстовых данных и чисел.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Конкатенация строк</strong></p>
+      <ul>
+        <li>Объединение строк при помощи оператора <code>+</code>.</li>
+        <li>Пример вывода сообщения с &quot;склеиванием&quot; текста и переменных.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>f-строки (интерполяция строк)</strong></p>
+      <ul>
+        <li>Форматирование строк с подстановкой значений переменных.</li>
+        <li>Упрощение вывода сложных строк.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Типы данных переменных</strong></p>
+      <ul>
+        <li>Знакомство с основными типами: <code>str</code> (строки) и <code>int</code> (целые числа).</li>
+        <li>Определение типов переменных с помощью функции <code>type()</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Преобразование типов</strong></p>
+      <ul>
+        <li>Применение функции <code>int()</code> для преобразования строки в число.</li>
+        <li>Использование функции <code>str()</code> для обратного преобразования.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Тройные кавычки</strong></p>
+      <ul>
+        <li>Использование тройных кавычек для написания многострочного текста.</li>
+        <li>Пример многострочного вывода.</li>
+      </ul>
+    </li>
+  </ol>
+  <hr>
+  <h3 id="пример-кода">Пример кода:</h3>
+  <pre><code class="language-python"><span class="hljs-comment"># ========================================</span>
+<span class="hljs-comment">#  Commentaries and input</span>
+<span class="hljs-comment"># ========================================</span>
+
+
+<span class="hljs-comment"># greet the user</span>
+name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Hello! What is your name? &#x27;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Hello, &#x27;</span> + name + <span class="hljs-string">&#x27;!&#x27;</span>)
+
+<span class="hljs-comment"># get number of apples</span>
+a = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;How many apples do you have? &#x27;</span>)
+
+<span class="hljs-comment"># get number of bananas</span>
+b = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;How many bananas do you have? &#x27;</span>)
+
+
+<span class="hljs-comment"># ========================================</span>
+<span class="hljs-comment"># Formatting strings</span>
+<span class="hljs-comment"># ========================================</span>
+
+
+<span class="hljs-comment"># show the total number of fruits</span>
+<span class="hljs-comment"># use string concatenation</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;You have &#x27;</span> + a + <span class="hljs-string">&#x27; apples and &#x27;</span> + b + <span class="hljs-string">&#x27; bananas.&#x27;</span>)
+
+<span class="hljs-comment"># use string interpolation</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;In total you have <span class="hljs-subst">{a}</span> apples and <span class="hljs-subst">{b}</span> bananas.&#x27;</span>)
+
+
+<span class="hljs-comment"># ========================================</span>
+<span class="hljs-comment"># Type conversion</span>
+<span class="hljs-comment"># ========================================</span>
+
+
+<span class="hljs-comment"># adds two strings together, not two numbers</span>
+total = a + b
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;In total you have <span class="hljs-subst">{total}</span> fruits (WRONG!).&#x27;</span>)
+
+<span class="hljs-comment"># print type information</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;Type of a is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(a)}</span>, type of b is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(b)}</span>&#x27;</span>)
+
+<span class="hljs-comment"># convert types</span>
+numApples = <span class="hljs-built_in">int</span>(a)
+numBananas = <span class="hljs-built_in">int</span>(b)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;
+Type of numApples is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(numApples)}</span>
+Type of numBananas is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(numBananas)}</span>
+&quot;&quot;&quot;</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;In total you have <span class="hljs-subst">{numApples + numBananas}</span> fruits.&#x27;</span>)
+</code></pre>
+
+
+
+</body>
+
+</html>

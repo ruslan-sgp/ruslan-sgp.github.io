@@ -5,19 +5,19 @@ body {
 
 @media (min-width: 480px) {
   body {
-    padding-left: 2vw; /* Starts increasing */
+    padding-left: 2vw;
   }
 }
 
 @media (min-width: 768px) {
   body {
-    padding-left: 3.5vw; /* Wider screens */
+    padding-left: 3.5vw;
   }
 }
 
 @media (min-width: 1200px) {
   body {
-    padding-left: 5vw; /* Maximum padding */
+    padding-left: 5vw;
   }
 }
 

@@ -147,7 +147,7 @@
       <p><strong>Ввод данных с клавиатуры</strong></p>
       <ul>
         <li>Использование функции <code>input()</code> для получения данных от пользователя.</li>
-        <li>Примеры ввода текстовых данных и чисел с сохранением в переменную.</li>
+        <li>Ввод текстовых данных и чисел с сохранением в переменную.</li>
       </ul>
     </li>
     <li>
@@ -242,6 +242,10 @@ total = a + b
 numApples = <span class="hljs-built_in">int</span>(a)
 numBananas = <span class="hljs-built_in">int</span>(b)
 
+<span class="hljs-comment"># this will not work, because a number is added to a string</span>
+<span class="hljs-comment"># TypeError will be thrown</span>
+<span class="hljs-comment"># print(&#x27;You have &#x27; + numApples + &#x27; apples&#x27;) # WRONG!</span>
+
 <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;
 Type of numApples is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(numApples)}</span>
 Type of numBananas is <span class="hljs-subst">{<span class="hljs-built_in">type</span>(numBananas)}</span>
@@ -249,6 +253,11 @@ Type of numBananas is <span class="hljs-subst">{<span class="hljs-built_in">type
 
 <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;In total you have <span class="hljs-subst">{numApples + numBananas}</span> fruits.&#x27;</span>)
 </code></pre>
+  <h3 id="запись-занятия">Запись занятия</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/2DkZ08_mfbA?si=24KyinRGgZwEI565"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 

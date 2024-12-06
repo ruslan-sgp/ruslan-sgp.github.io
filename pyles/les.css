@@ -48,3 +48,7 @@ p {
 pre {
   padding-left: 2rem;
 }
+
+pre, code {
+  background-color: #f4f6ff;
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Ucy;&rcy;&ocy;&kcy; 3</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-3">Урок 3</h1>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <h3 id="nameerror">NameError</h3>
+  <ul>
+    <li>Объявление переменных (define) перед использованием
+      <ul>
+        <li>Пример: Если вы попытаетесь использовать переменную <code>x</code> до её объявления, Python выдаст ошибку
+          <code>NameError</code>.
+          <pre><code class="language-python"><span class="hljs-built_in">print</span>(x)  <span class="hljs-comment"># NameError: name &#x27;x&#x27; is not defined</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>Опечатка в названии переменной
+      <ul>
+        <li>Пример: Если вы объявили переменную <code>count</code>, но по ошибке написали <code>coutn</code>, Python
+          также выдаст ошибку <code>NameError</code>.
+          <pre><code class="language-python">count = <span class="hljs-number">10</span>
+<span class="hljs-built_in">print</span>(coutn)  <span class="hljs-comment"># NameError: name &#x27;coutn&#x27; is not defined</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>Python показывает строку и место в строке для каждой ошибки
+      <ul>
+        <li>
+          <p>Пример: Если ошибка возникла в строке 5, Python укажет на это место.</p>
+          <pre><code>Traceback (most recent call last):
+File &quot;d:\Dev\Code\ITClub\Python\PY02\les03\hw.py&quot;, line 5, in &lt;module&gt;
+  print(x)
+        ^
+NameError: name 'x' is not defined
+</code></pre>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="важность-значимых-названий-переменных">Важность значимых названий переменных</h3>
+  <ul>
+    <li>Делают код удобным для понимания
+      <ul>
+        <li>Пример: Использование переменной <code>total_price</code> вместо <code>tp</code> делает код более читаемым.
+          <pre><code class="language-python">total_price = <span class="hljs-number">100</span>  <span class="hljs-comment"># Хорошо</span>
+tp = <span class="hljs-number">100</span>  <span class="hljs-comment"># Плохо</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>Использование комментариев, отступов, и т.п. также делает код понятным и приятным для чтения</li>
+  </ul>
+  <h3 id="вывод-и-форматирование-данных">Вывод и форматирование данных</h3>
+  <ul>
+    <li>Создание колонок при помощи пробелов
+      <ul>
+        <li>Пример:
+          <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Item    Price&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Apple    $1.00&quot;</span>)
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>Вставка значений в строки
+      <ul>
+        <li>Переменные или выражения
+          <ul>
+            <li>Пример:
+              <pre><code class="language-python">item = <span class="hljs-string">&quot;Apple&quot;</span>
+price = <span class="hljs-number">1.00</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{item}</span>    $<span class="hljs-subst">{price}</span>&quot;</span>)
+</code></pre>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="синтаксис-скобки-кавычки-запятые-и-тд">Синтаксис: скобки, кавычки, запятые, и т.д.</h3>
+  <ul>
+    <li>Пример: круглые скобки при вызове функций
+      <ul>
+        <li>Пример:
+          <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># Круглые скобки используются для вызова функции print</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>Возвращение результата функции и сохранение в переменной
+      <ul>
+        <li>Пример:
+          <pre><code class="language-python">result = <span class="hljs-built_in">max</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># Результат функции max сохраняется в переменной result</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="чему-научились">Чему научились</h2>
+  <h3 id="подсчет-количества-элементов-в-корзине-и-их-стоимости">Подсчет количества элементов в корзине и их стоимости
+  </h3>
+  <ul>
+    <li>Пример:
+      <pre><code class="language-python">num_apples = <span class="hljs-number">2</span>
+num_bananas = <span class="hljs-number">3</span>
+num_pears = <span class="hljs-number">1</span>
+
+price_apples = <span class="hljs-number">30</span>
+price_bananas = <span class="hljs-number">20</span>
+price_pears = <span class="hljs-number">25</span>
+
+sum_apples = price_apples * num_apples
+sum_bananas = price_bananas * num_bananas
+sum_pears = price_pears * num_pears
+
+total_items = num_apples + num_bananas + num_pears
+total_price = sum_apples + sum_bananas + sum_pears
+</code></pre>
+    </li>
+  </ul>
+  <h3 id="вывод-данных-в-виде-колонок">Вывод данных в виде колонок</h3>
+  <ul>
+    <li>Пример:
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;Корзина:
+1. Яблоки        <span class="hljs-subst">{num_apples}</span> шт.    <span class="hljs-subst">{price_apples}</span> руб/шт    <span class="hljs-subst">{sum_apples}</span> руб.
+2. Бананы        <span class="hljs-subst">{num_bananas}</span> шт.    <span class="hljs-subst">{price_bananas}</span> руб/шт    <span class="hljs-subst">{sum_bananas}</span> руб
+3. Груши         <span class="hljs-subst">{num_pears}</span> шт.    <span class="hljs-subst">{price_pears}</span> руб/шт    <span class="hljs-subst">{sum_pears}</span> руб
+-----------------------------------------
+Итоговая стоимость: <span class="hljs-subst">{total_price}</span> руб.&quot;&quot;&quot;</span>
+)
+</code></pre>
+    </li>
+  </ul>
+  <h3 id="преобразование-типа-для-выполнения-арифметических-операций">Преобразование типа для выполнения арифметических
+    операций</h3>
+  <ul>
+    <li>Пример:
+      <pre><code class="language-python">price = <span class="hljs-string">&quot;30&quot;</span>
+quantity = <span class="hljs-number">2</span>
+total_price = <span class="hljs-built_in">int</span>(price) * quantity
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Total price: <span class="hljs-subst">{total_price}</span> руб.&quot;</span>)
+</code></pre>
+    </li>
+  </ul>
+  <h3 id="использование-горячих-клавиш-в-vs-code">Использование горячих клавиш в VS Code</h3>
+  <ul>
+    <li>Alt+Стрелки вверх и вниз для перемещения целых строк
+      <ul>
+        <li>Пример: Выделите строку и нажмите Alt+Стрелка вверх, чтобы переместить её на одну строку выше.</li>
+      </ul>
+    </li>
+    <li>Alt+Shift+Стрелки вверх и вниз для дублирования строк
+      <ul>
+        <li>Пример: Выделите строку и нажмите Alt+Shift+Стрелка вниз, чтобы дублировать её.</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/BLtVbCLax4E?si=6hYz5m3gi5HfTv_Z"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="домашнее-задание">Домашнее задание:</h2>
+  <p>Ввести две переменные и отобразить результаты арифметических операций: сложение, вычитание, умножение, деление</p>
+  <p>Пример:</p>
+  <pre><code>Сложение:    a + b   =   15
+Вычитание:   a - b   =   5
+Умножение:   a * b   =   50
+Деление:     a / b   =   2.0
+</code></pre>
+
+  <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</body>
+
+</html>

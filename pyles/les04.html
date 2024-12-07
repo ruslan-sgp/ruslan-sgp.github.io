@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Ucy;&rcy;&ocy;&kcy; 4</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4">Урок 4</h1>
+  <h2 id="разбор-дз-и-пройденного-материала">Разбор ДЗ и пройденного материала</h2>
+  <ol>
+    <li>
+      <p><strong>Приоритет операций и скобки</strong>:</p>
+      <ul>
+        <li>Операции в Python выполняются в определенном порядке. Например, умножение и деление выполняются перед
+          сложением и вычитанием.</li>
+        <li>Скобки используются для изменения порядка выполнения операций.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Переменное количество аргументов функции</strong>:</p>
+      <ul>
+        <li>Функции могут иметь фиксированное либо переменное число аргументов</li>
+        <li>Например, функция <code>input()</code> всегда имеет один аргумент, а функция <code>print()</code> может
+          вызываться с любым количеством аргументов</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-comment"># Функция с фиксированным количеством аргументов</span>
+x = <span class="hljs-built_in">input</span>(<span class="hljs-string">&#x27;Введите значение x: &#x27;</span>)
+
+<span class="hljs-comment"># Функция с переменным количеством аргументов</span>
+<span class="hljs-built_in">print</span>()
+<span class="hljs-built_in">print</span>(x)
+<span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Использование переменных для часто повторяющихся выражений</strong>:</p>
+      <p>Переменные помогают избежать дублирования кода и делают его более читаемым.</p>
+      <p>Пример:</p>
+      <pre><code class="language-python">base_url = <span class="hljs-string">&quot;https://example.com&quot;</span>
+url1 = base_url + <span class="hljs-string">&quot;/page1&quot;</span>
+url2 = base_url + <span class="hljs-string">&quot;/page2&quot;</span>
+<span class="hljs-built_in">print</span>(url1)
+<span class="hljs-built_in">print</span>(url2)
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Тип float</strong>:</p>
+      <p>Тип <code>float</code> используется для представления чисел с плавающей запятой (десятичных).</p>
+      <p>Пример:</p>
+      <pre><code class="language-python">pi = <span class="hljs-number">3.14159</span>
+radius = <span class="hljs-number">5.0</span>
+area = pi * radius ** <span class="hljs-number">2</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(area)) <span class="hljs-comment"># Вывод: &lt;class &#x27;float&#x27;&gt;</span>
+</code></pre>
+    </li>
+  </ol>
+  <h2 id="что-нового-мы-узнали">Что нового мы узнали</h2>
+  <h3 id="типы-коллекций-в-python">Типы коллекций в Python</h3>
+  <ol>
+    <li>
+      <p><strong>Кортежи</strong>:</p>
+      <p>Кортежи — это неизменяемые последовательности элементов.</p>
+      <p>Пример:</p>
+      <pre><code class="language-python">my_tuple = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(my_tuple)) <span class="hljs-comment"># Вывод: &lt;class &#x27;tuple&#x27;&gt;</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Списки</strong>:</p>
+      <p>Списки — это изменяемые последовательности элементов. (На следующем уроке изучим как добавлять и удалять
+        элементы из списка.)</p>
+      <p>Пример:</p>
+      <pre><code class="language-python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(my_list)) <span class="hljs-comment"># Вывод: &lt;class &#x27;list&#x27;&gt;</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Итерация — перебор элементов коллекции</strong>:</p>
+      <p><strong>Цикл for</strong>:</p>
+      <p>Используется для перебора элементов коллекции.</p>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-comment"># Цикл for для перебора элементов списка</span>
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> my_list:
+   <span class="hljs-built_in">print</span>(item)
+</code></pre>
+      <p>Отступы важны в Python для определения блоков кода.</p>
+    </li>
+  </ol>
+  <h3 id="работа-в-vs-code">Работа в VS Code</h3>
+  <ul>
+    <li>
+      <p><strong>Комбинация клавиш Ctrl+Enter</strong>:</p>
+      <p>Используется для добавления новой строки ниже.</p>
+    </li>
+  </ul>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/EQ9HHr14CkE?si=8MvSzbl2WkcybKTM"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="домашнее-задание">Домашнее задание:</h2>
+  <h3 id="задание-1">Задание 1</h3>
+  <p>Напишите программу, которая выводит 10 произвольных чисел и их квадраты, например:</p>
+  <pre><code>3 в квадрате = 9
+7 в квадрате = 49
+2 в квадрате = 4
+10 в квадрате = 100
+5 в квадрате = 25
+-4 в квадрате = 16
+8 в квадрате = 64
+1 в квадрате = 1
+-2 в квадрате = 4
+6 в квадрате = 36
+</code></pre>
+  <h3 id="задание-2">Задание 2</h3>
+  <p>Пусть есть список из 9 стран:</p>
+  <pre><code class="language-python">countries = [
+    <span class="hljs-string">&quot;Japan&quot;</span>,
+    <span class="hljs-string">&quot;Brazil&quot;</span>,
+    <span class="hljs-string">&quot;Russia&quot;</span>,
+    <span class="hljs-string">&quot;Canada&quot;</span>,
+    <span class="hljs-string">&quot;Germany&quot;</span>,
+    <span class="hljs-string">&quot;Australia&quot;</span>,
+    <span class="hljs-string">&quot;India&quot;</span>,
+    <span class="hljs-string">&quot;United States&quot;</span>,
+    <span class="hljs-string">&quot;France&quot;</span>
+]
+</code></pre>
+  <p>Напишите программу, которая выводит пронумерованный список этих стран. Например:</p>
+  <pre><code>1. Japan
+2. Brazil
+3. Russia
+4. Canada
+5. Germany
+6. Australia
+7. India
+8. United States
+9. France
+</code></pre>
+
+
+
+</body>
+
+</html>

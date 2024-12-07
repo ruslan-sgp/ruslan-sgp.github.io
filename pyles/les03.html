@@ -146,7 +146,8 @@
   <h2 id="что-мы-узнали">Что мы узнали</h2>
   <h3 id="nameerror">NameError</h3>
   <ul>
-    <li>Объявление переменных (define) перед использованием
+    <li>
+      <p>Объявление переменных (define) перед использованием</p>
       <ul>
         <li>Пример: Если вы попытаетесь использовать переменную <code>x</code> до её объявления, Python выдаст ошибку
           <code>NameError</code>.
@@ -155,7 +156,8 @@
         </li>
       </ul>
     </li>
-    <li>Опечатка в названии переменной
+    <li>
+      <p>Опечатка в названии переменной</p>
       <ul>
         <li>Пример: Если вы объявили переменную <code>count</code>, но по ошибке написали <code>coutn</code>, Python
           также выдаст ошибку <code>NameError</code>.
@@ -165,10 +167,10 @@
         </li>
       </ul>
     </li>
-    <li>Python показывает строку и место в строке для каждой ошибки
+    <li>
+      <p>Python показывает строку и место в строке для каждой ошибки</p>
       <ul>
-        <li>
-          <p>Пример: Если ошибка возникла в строке 5, Python укажет на это место.</p>
+        <li>Пример: Если ошибка возникла в строке 5, Python укажет на это место.
           <pre><code>Traceback (most recent call last):
 File &quot;d:\Dev\Code\ITClub\Python\PY02\les03\hw.py&quot;, line 5, in &lt;module&gt;
   print(x)
@@ -181,7 +183,8 @@ NameError: name 'x' is not defined
   </ul>
   <h3 id="важность-значимых-названий-переменных">Важность значимых названий переменных</h3>
   <ul>
-    <li>Делают код удобным для понимания
+    <li>
+      <p>Названия переменных должны отражать их назначение. Это делает код понятным и удобным, упрощает работу</p>
       <ul>
         <li>Пример: Использование переменной <code>total_price</code> вместо <code>tp</code> делает код более читаемым.
           <pre><code class="language-python">total_price = <span class="hljs-number">100</span>  <span class="hljs-comment"># Хорошо</span>
@@ -190,100 +193,76 @@ tp = <span class="hljs-number">100</span>  <span class="hljs-comment"># Плох
         </li>
       </ul>
     </li>
-    <li>Использование комментариев, отступов, и т.п. также делает код понятным и приятным для чтения</li>
-  </ul>
-  <h3 id="вывод-и-форматирование-данных">Вывод и форматирование данных</h3>
-  <ul>
-    <li>Создание колонок при помощи пробелов
+    <li>
+      <p>Использование комментариев, отступов, и т.п. также делает код понятным и приятным для чтения</p>
       <ul>
-        <li>Пример:
-          <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Item    Price&quot;</span>)
-<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Apple    $1.00&quot;</span>)
+        <li>
+          <p>Пример: сравним два примера кода, которые делают одно и то же, но оформлены по-разному:</p>
+          <p>А) Плохо отформатированный код</p>
+          <pre><code class="language-python">math_grade=<span class="hljs-number">85</span>
+science_grade=<span class="hljs-number">92</span>
+history_grade=<span class="hljs-number">78</span>
+total_grades=math_grade+science_grade+history_grade
+average_grade=total_grades/<span class="hljs-number">3</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Средний балл студента:&quot;</span>,average_grade)
 </code></pre>
-        </li>
-      </ul>
-    </li>
-    <li>Вставка значений в строки
-      <ul>
-        <li>Переменные или выражения
-          <ul>
-            <li>Пример:
-              <pre><code class="language-python">item = <span class="hljs-string">&quot;Apple&quot;</span>
-price = <span class="hljs-number">1.00</span>
-<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{item}</span>    $<span class="hljs-subst">{price}</span>&quot;</span>)
+          <p>Б) Хорошо отформатированный код</p>
+          <pre><code class="language-python"><span class="hljs-comment"># Оценки по предметам</span>
+math_grade = <span class="hljs-number">85</span>
+science_grade = <span class="hljs-number">92</span>
+history_grade = <span class="hljs-number">78</span>
+
+<span class="hljs-comment"># Вычисление общей суммы оценок</span>
+total_grades = math_grade + science_grade + history_grade
+
+<span class="hljs-comment"># Вычисление среднего балла</span>
+average_grade = total_grades / <span class="hljs-number">3</span>
+
+<span class="hljs-comment"># Вывод результата</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Средний балл студента:&quot;</span>, average_grade)
 </code></pre>
-            </li>
-          </ul>
         </li>
       </ul>
     </li>
   </ul>
   <h3 id="синтаксис-скобки-кавычки-запятые-и-тд">Синтаксис: скобки, кавычки, запятые, и т.д.</h3>
-  <ul>
-    <li>Пример: круглые скобки при вызове функций
-      <ul>
-        <li>Пример:
-          <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># Круглые скобки используются для вызова функции print</span>
+  <p>При написании кода важно соблюдать правильный синтаксис, чтобы избежать ошибки <code>SyntaxError</code></p>
+  <pre><code>  File &quot;d:\Dev\Code\ITClub\Python\PY02\les03\hw.py&quot;, line 25
+    print(x/)
+            ^
+SyntaxError: invalid syntax
 </code></pre>
-        </li>
-      </ul>
-    </li>
-    <li>Возвращение результата функции и сохранение в переменной
-      <ul>
-        <li>Пример:
-          <pre><code class="language-python">result = <span class="hljs-built_in">max</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># Результат функции max сохраняется в переменной result</span>
+  <p>Пример:</p>
+  <pre><code class="language-python">a = <span class="hljs-number">1</span>
+b = <span class="hljs-number">2</span>
+c = <span class="hljs-number">3</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Исходные числа:&quot;</span>, a, b, c)  <span class="hljs-comment"># кавычки в начале и конце строки</span>
+                                   <span class="hljs-comment"># аргументы через запятую</span>
+
+average = (a + b + c) / <span class="hljs-number">3</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Среднее значение&quot;</span>, average)  <span class="hljs-comment"># Круглые скобки для вызова функции print</span>
 </code></pre>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <h3 id="результат-функции-и-сохранение-в-переменной">Результат функции и сохранение в переменной</h3>
+  <p>Используем присваивание для сохранения результата выполнения функции в переменной</p>
+  <p>Пример:</p>
+  <pre><code class="language-python">result = <span class="hljs-built_in">max</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)  <span class="hljs-comment"># Результат функции max сохраняется в переменной result</span>
+</code></pre>
   <h2 id="чему-научились">Чему научились</h2>
-  <h3 id="подсчет-количества-элементов-в-корзине-и-их-стоимости">Подсчет количества элементов в корзине и их стоимости
-  </h3>
   <ul>
-    <li>Пример:
-      <pre><code class="language-python">num_apples = <span class="hljs-number">2</span>
-num_bananas = <span class="hljs-number">3</span>
-num_pears = <span class="hljs-number">1</span>
-
-price_apples = <span class="hljs-number">30</span>
-price_bananas = <span class="hljs-number">20</span>
-price_pears = <span class="hljs-number">25</span>
-
-sum_apples = price_apples * num_apples
-sum_bananas = price_bananas * num_bananas
-sum_pears = price_pears * num_pears
-
-total_items = num_apples + num_bananas + num_pears
-total_price = sum_apples + sum_bananas + sum_pears
-</code></pre>
-    </li>
+    <li>подсчет количества элементов в корзине и их стоимости</li>
+    <li>вывод и форматирование данных</li>
+    <li>вывод данных в виде колонок при помощи пробелов, отступов</li>
+    <li>вставка значений переменных и выражений в строки</li>
   </ul>
-  <h3 id="вывод-данных-в-виде-колонок">Вывод данных в виде колонок</h3>
-  <ul>
-    <li>Пример:
-      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;Корзина:
-1. Яблоки        <span class="hljs-subst">{num_apples}</span> шт.    <span class="hljs-subst">{price_apples}</span> руб/шт    <span class="hljs-subst">{sum_apples}</span> руб.
-2. Бананы        <span class="hljs-subst">{num_bananas}</span> шт.    <span class="hljs-subst">{price_bananas}</span> руб/шт    <span class="hljs-subst">{sum_bananas}</span> руб
-3. Груши         <span class="hljs-subst">{num_pears}</span> шт.    <span class="hljs-subst">{price_pears}</span> руб/шт    <span class="hljs-subst">{sum_pears}</span> руб
------------------------------------------
-Итоговая стоимость: <span class="hljs-subst">{total_price}</span> руб.&quot;&quot;&quot;</span>
-)
+  <p>Преобразование типа для выполнения арифметических операций:</p>
+  <pre><code class="language-python"> price = <span class="hljs-string">&quot;30&quot;</span>
+ quantity = <span class="hljs-number">2</span>
+ total_price = <span class="hljs-built_in">int</span>(price) * quantity
+ <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Total price: <span class="hljs-subst">{total_price}</span> руб.&quot;</span>)
 </code></pre>
-    </li>
-  </ul>
-  <h3 id="преобразование-типа-для-выполнения-арифметических-операций">Преобразование типа для выполнения арифметических
-    операций</h3>
-  <ul>
-    <li>Пример:
-      <pre><code class="language-python">price = <span class="hljs-string">&quot;30&quot;</span>
-quantity = <span class="hljs-number">2</span>
-total_price = <span class="hljs-built_in">int</span>(price) * quantity
-<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Total price: <span class="hljs-subst">{total_price}</span> руб.&quot;</span>)
-</code></pre>
-    </li>
-  </ul>
-  <h3 id="использование-горячих-клавиш-в-vs-code">Использование горячих клавиш в VS Code</h3>
+  <p>Использование горячих клавиш в VS Code:</p>
   <ul>
     <li>Alt+Стрелки вверх и вниз для перемещения целых строк
       <ul>
@@ -296,21 +275,48 @@ total_price = <span class="hljs-built_in">int</span>(price) * quantity
       </ul>
     </li>
   </ul>
+  <h2 id="пример-кода">Пример кода</h2>
+  <pre><code class="language-python">num_apples = <span class="hljs-number">2</span>
+num_bananas = <span class="hljs-number">3</span>
+num_pears = <span class="hljs-number">1</span>
+
+price_apples = <span class="hljs-number">30</span>
+price_bananas = <span class="hljs-number">20</span>
+price_pears = <span class="hljs-number">25</span>
+
+sum_apples = price_apples * num_apples
+sum_bananas = price_bananas * num_bananas
+sum_pears = price_pears * num_pears
+
+<span class="hljs-built_in">print</span>(
+    <span class="hljs-string">f&quot;&quot;&quot;Корзина:
+1. Яблоки        <span class="hljs-subst">{num_apples}</span> шт.    <span class="hljs-subst">{price_apples}</span> руб/шт    <span class="hljs-subst">{sum_apples}</span> руб.
+2. Бананы        <span class="hljs-subst">{num_bananas}</span> шт.    <span class="hljs-subst">{price_bananas}</span> руб/шт    <span class="hljs-subst">{sum_bananas}</span> руб
+3. Груши         <span class="hljs-subst">{num_pears}</span> шт.    <span class="hljs-subst">{price_pears}</span> руб/шт    <span class="hljs-subst">{sum_pears}</span> руб
+-----------------------------------------
+Итоговая стоимость: <span class="hljs-subst">{sum_apples + sum_bananas + sum_pears}</span> руб.&quot;&quot;&quot;</span>
+)
+</code></pre>
   <h2 id="запись-занятия">Запись занятия</h2>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/BLtVbCLax4E?si=6hYz5m3gi5HfTv_Z"
     title="YouTube video player" frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <h2 id="домашнее-задание">Домашнее задание:</h2>
-  <p>Ввести две переменные и отобразить результаты арифметических операций: сложение, вычитание, умножение, деление</p>
+  <p>Программа получает два числа от пользователя и выводит результаты арифметических операций: сложение, вычитание,
+    умножение, деление, а также среднее этих чисел.</p>
   <p>Пример:</p>
-  <pre><code>Сложение:    a + b   =   15
-Вычитание:   a - b   =   5
-Умножение:   a * b   =   50
-Деление:     a / b   =   2.0
+  <pre><code>Введите первое число: 10
+Введите второе число: 5
+
+Сложение:    15
+Вычитание:   5
+Умножение:   50
+Деление:     2.0
+Среднее:     7.5
 </code></pre>
 
-  <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
 
 </body>
 

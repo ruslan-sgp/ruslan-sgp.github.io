@@ -149,7 +149,14 @@
         <li>Операции в Python выполняются в определенном порядке. Например, умножение и деление выполняются перед
           сложением и вычитанием.</li>
         <li>Скобки используются для изменения порядка выполнения операций.</li>
+        <li>При вызове функции сначала выполняются операции внутри скобок (аргументы), а затем результаты этих операций
+          используются</li>
       </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;1&#x27;</span>)))  <span class="hljs-comment"># сначала вызовется функция int с аргументом &#x27;1&#x27;,</span>
+                       <span class="hljs-comment"># затем type с аргументом 1,</span>
+                       <span class="hljs-comment"># затем результат будет выведен на экран функцией print</span>
+</code></pre>
     </li>
     <li>
       <p><strong>Переменное количество аргументов функции</strong>:</p>

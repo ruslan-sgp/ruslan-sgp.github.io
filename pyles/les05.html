@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Ucy;&rcy;&ocy;&kcy; 5</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-5">Урок 5</h1>
+  <h2 id="разбор-дз-и-пройденного-материала">Разбор ДЗ и пройденного материала</h2>
+  <p>Пример решения:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Список стран</span>
+countries = [
+    <span class="hljs-string">&quot;Japan&quot;</span>,
+    <span class="hljs-string">&quot;Brazil&quot;</span>,
+    <span class="hljs-string">&quot;Russia&quot;</span>,
+    <span class="hljs-string">&quot;Canada&quot;</span>,
+    <span class="hljs-string">&quot;Germany&quot;</span>,
+    <span class="hljs-string">&quot;Australia&quot;</span>,
+    <span class="hljs-string">&quot;India&quot;</span>,
+    <span class="hljs-string">&quot;United States&quot;</span>,
+    <span class="hljs-string">&quot;France&quot;</span>
+]
+
+<span class="hljs-comment"># Вывод пронумерованного списка</span>
+line_number = <span class="hljs-number">1</span>
+<span class="hljs-keyword">for</span> country <span class="hljs-keyword">in</span> countries:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{line_number}</span>. <span class="hljs-subst">{country}</span>&quot;</span>)
+    line_number = line_number + <span class="hljs-number">1</span>
+</code></pre>
+  <p>Обратите внимание:</p>
+  <ul>
+    <li>
+      <p>в этом примере мы используем переменную <code>line_number</code> для вывода номера строки</p>
+    </li>
+    <li>
+      <p>в каждой итерации цикла мы увеличиваем значение <code>line_number</code> на 1</p>
+    </li>
+    <li>
+      <p>увеличение значения <code>line_number</code> на 1 происходит после вывода страны, чтобы номер строки
+        соответствовал выводу</p>
+    </li>
+    <li>
+      <p>выражение, присваемое переменной <code>line_number</code>, содержит эту переменную, что позволяет ей
+        увеличиваться на 1 в каждой итерации цикла</p>
+    </li>
+    <li>
+      <p>используется f-строка (интерполяция строк) для вывода номера и названия страны:
+        <code>f&quot;{index}. {country}&quot;</code></p>
+    </li>
+    <li>
+      <p>можно также использовать конкатенацию строк, результат будет тот же:</p>
+      <pre><code class="language-python"><span class="hljs-comment"># А) склеить строку и передать единым аргументом</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">str</span>(line_number) + <span class="hljs-string">&quot;. &quot;</span> + country)
+
+<span class="hljs-comment"># Б) передать два аргумента</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">str</span>(line_number) + <span class="hljs-string">&quot;.&quot;</span>, country)
+</code></pre>
+    </li>
+    <li>
+      <p>в этом случае мы используем <code>str(line_number)</code> для преобразования <code>line_number</code> в строку,
+        чтобы добавить к номеру точку</p>
+    </li>
+    <li>
+      <p>имена переменных могут содержать цифры и знак подчеркивания, но не должны начинаться с цифры:</p>
+      <pre><code class="language-python"><span class="hljs-comment"># правильно</span>
+
+a1 = <span class="hljs-number">10</span>
+a2 = <span class="hljs-number">20</span>
+
+b_1 = <span class="hljs-number">5</span>
+line_10 = <span class="hljs-string">&#x27;hello&#x27;</span>
+
+<span class="hljs-comment"># неправильно</span>
+
+1a = <span class="hljs-number">10</span> <span class="hljs-comment"># ошибка! имена переменных не могут начинаться с цифры</span>
+</code></pre>
+    </li>
+  </ul>
+  <h2 id="что-нового-мы-узнали">Что нового мы узнали</h2>
+  <h3 id="коллекции---списки-и-кортежи">Коллекции - списки и кортежи</h3>
+  <ol>
+    <li>
+      <p><strong>Доступ к элементам по индексу</strong></p>
+      <ul>
+        <li>Как списки, так и кортежи позволяют доступ к элементам по индексу.</li>
+        <li>Пример:
+          <pre><code class="language-python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+my_tuple = (<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
+<span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">0</span>])  <span class="hljs-comment"># Вывод: 1</span>
+<span class="hljs-built_in">print</span>(my_tuple[<span class="hljs-number">1</span>])  <span class="hljs-comment"># Вывод: 20</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Индексация начинается с 0</strong></p>
+      <ul>
+        <li>В Python индексация начинается с 0, что означает, что первый элемент имеет индекс 0.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">0</span>])  <span class="hljs-comment"># Первый элемент списка</span>
+<span class="hljs-built_in">print</span>(my_tuple[<span class="hljs-number">0</span>])  <span class="hljs-comment"># Первый элемент кортежа</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Изменение элемента по индексу</strong></p>
+      <ul>
+        <li>Списки являются изменяемыми (mutable), и вы можете изменять элементы по индексу.</li>
+        <li>Кортежи являются неизменяемыми (immutable), и попытка изменить элемент приведет к ошибке.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python">my_list[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>  <span class="hljs-comment"># Изменение первого элемента списка</span>
+<span class="hljs-comment"># my_tuple[0] = 10  # Это вызовет ошибку TypeError</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Метод append</strong></p>
+      <ul>
+        <li>Списки имеют метод <code>append()</code>, который позволяет добавлять элементы в конец списка.</li>
+        <li>Кортежи не имеют метода <code>append()</code>, и попытка его использовать приведет к ошибке.</li>
+        <li>Пример:
+          <pre><code class="language-python">my_list.append(<span class="hljs-number">5</span>)  <span class="hljs-comment"># Добавление элемента в список</span>
+<span class="hljs-comment"># my_tuple.append(5)  # Это вызовет ошибку AttributeError</span>
+</code></pre>
+        </li>
+        <li>Можно создать пустой список, затем добавить в него элементы:
+          <pre><code class="language-python">my_list = []
+my_list.append(<span class="hljs-number">1</span>)
+my_list.append(<span class="hljs-number">2</span>)
+my_list.append(<span class="hljs-number">3</span>)
+<span class="hljs-built_in">print</span>(my_list)  <span class="hljs-comment"># Вывод: [1, 2, 3]</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Конкатенация</strong></p>
+      <ul>
+        <li>Оба типа коллекций поддерживают конкатенацию с помощью оператора <code>+</code>.
+          Пример:
+          <pre><code class="language-python">list1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+list2 = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+combined_list = list1 + list2  <span class="hljs-comment"># [1, 2, 3, 4]</span>
+
+tuple1 = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+tuple2 = (<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+combined_tuple = tuple1 + tuple2  <span class="hljs-comment"># (1, 2, 3, 4)</span>
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Ошибка TypeError при попытке изменить элемент кортежа</strong></p>
+      <ul>
+        <li>Если вы попытаетесь изменить элемент кортежа, то получите ошибку <code>TypeError</code>.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-comment"># my_tuple[0] = 10  # Это вызовет TypeError: &#x27;tuple&#x27; object does not support item assignment</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>IndexError</strong></p>
+      <ul>
+        <li>Если вы попытаетесь получить доступ к элементу по индексу, который выходит за пределы длины коллекции, вы
+          получите ошибку <code>IndexError</code>.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">10</span>])  <span class="hljs-comment"># Это вызовет IndexError: list index out of range</span>
+<span class="hljs-built_in">print</span>(my_tuple[<span class="hljs-number">10</span>])  <span class="hljs-comment"># Это также вызовет IndexError: tuple index out of range</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>AttributeError при попытке добавить элемент в кортеж</strong></p>
+      <ul>
+        <li>Если вы попытаетесь использовать метод <code>append()</code> на кортеже, вы получите ошибку
+          <code>AttributeError</code>.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python">my_tuple.append(<span class="hljs-number">5</span>)  <span class="hljs-comment"># Это вызовет AttributeError: &#x27;tuple&#x27; object has no attribute &#x27;append&#x27;</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Тип элементов колеекции</strong></p>
+      <ul>
+        <li>элементами коллекции (кортежа или списка) могут быть не только числа, но и другие данные:</li>
+      </ul>
+      <pre><code class="language-python"><span class="hljs-comment"># Список с элементами разных типов: int, str, float</span>
+my_list = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-number">3.14</span>]
+<span class="hljs-built_in">print</span>(my_list) <span class="hljs-comment"># Вывод: [1, &#x27;hello&#x27;, 3.14]</span>
+
+<span class="hljs-comment"># Кортежи с элементами разных типов: имя и возраст студента</span>
+student_1 = (<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-number">14</span>)
+student_2 = (<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-number">15</span>)
+student_3 = (<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">16</span>)
+<span class="hljs-built_in">print</span>(student_1) <span class="hljs-comment"># Вывод: (&#x27;John&#x27;, 14)</span>
+
+<span class="hljs-comment"># элементами списка могут быть переменные</span>
+a = <span class="hljs-number">5</span>
+b = <span class="hljs-number">10</span>
+c = <span class="hljs-number">20</span>
+my_list = [a, b, c] <span class="hljs-comment"># содержание списка: [5, 10, 20]</span>
+<span class="hljs-built_in">print</span>(my_list) <span class="hljs-comment"># Вывод: [5, 10, 20]</span>
+
+<span class="hljs-comment"># создадим список с данными студентов</span>
+students = [student_1, student_2, student_3]
+<span class="hljs-keyword">for</span> student <span class="hljs-keyword">in</span> students:
+    <span class="hljs-built_in">print</span>(student)
+<span class="hljs-comment"># Вывод:</span>
+<span class="hljs-comment"># (&#x27;John&#x27;, 14)</span>
+<span class="hljs-comment"># (&#x27;Alice&#x27;, 15)</span>
+<span class="hljs-comment"># (&#x27;Bob&#x27;, 16)</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Строки как коллекции</strong></p>
+      <ul>
+        <li>Строки в Python также являются коллекциями</li>
+        <li>Они являются неизменяемыми - вы можете получить доступ к символам строки по индексу, но не можете изменять
+          их.</li>
+      </ul>
+      <p>Пример:</p>
+      <pre><code class="language-python">my_string = <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-built_in">print</span>(my_string[<span class="hljs-number">0</span>])  <span class="hljs-comment"># Вывод: H</span>
+<span class="hljs-built_in">print</span>(my_string[<span class="hljs-number">1</span>])  <span class="hljs-comment"># Вывод: e</span>
+<span class="hljs-comment"># my_string[0] = &#x27;h&#x27;  # Это вызовет TypeError</span>
+</code></pre>
+    </li>
+  </ol>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wmvj6J_IDg0?si=e6oGbPDOT-1TmuhN"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <h3 id="задание-1">Задание 1</h3>
+  <p>Пусть есть два списка: имена людей и их возрасты:</p>
+  <pre><code class="language-python">names = (<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>)
+ages = (<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>)
+</code></pre>
+  <p>(можно скопировать этот код себе в программу)</p>
+  <p>Напишите программу, которая выводит имя и возраст каждого человека на отдельной строке. Результат должен быть
+    таким:</p>
+  <pre><code>John 14
+Alice 15
+Bob 16
+</code></pre>
+  <h3 id="задание-2">Задание 2</h3>
+  <p>а) Написать программу, которая вычисляет сумму всех чисел в списке.</p>
+  <p>Например:</p>
+  <pre><code class="language-python">numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+</code></pre>
+  <p>Результат выполнения программы должен быть 15.</p>
+  <p>б) для этого же списка посчитать среднее ариметическое значение. Результат выполнения программы должен быть 3.0.
+  </p>
+  <h3 id="задание-3">Задание 3</h3>
+  <p>Пусть есть следующий список, элементами которого являются кортежи:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># List of tuples representing IT events</span>
+it_events = [
+    (<span class="hljs-number">1835</span>, <span class="hljs-string">&quot;Morse Code Invented&quot;</span>, <span class="hljs-string">&quot;Samuel Morse develops Morse Code, a system of encoding textual information.&quot;</span>),
+    (<span class="hljs-number">1993</span>, <span class="hljs-string">&quot;First Digital Colour Printing Press&quot;</span>, <span class="hljs-string">&quot;Benny Landau unveils the E-Print 1000, marking a significant advancement in printing technology.&quot;</span>),
+    (<span class="hljs-number">1996</span>, <span class="hljs-string">&quot;First Internet-Enabled Mobile Device&quot;</span>, <span class="hljs-string">&quot;The Nokia 9000 Communicator is released in Finland, enabling mobile internet access.&quot;</span>),
+    (<span class="hljs-number">1998</span>, <span class="hljs-string">&quot;Google Established&quot;</span>, <span class="hljs-string">&quot;Larry Page and Sergey Brin found Google, which becomes a leading search engine.&quot;</span>),
+    (<span class="hljs-number">2000</span>, <span class="hljs-string">&quot;First Tablet Computer Developed&quot;</span>, <span class="hljs-string">&quot;Microsoft creates the first tablet computer, paving the way for future mobile devices.&quot;</span>),
+    (<span class="hljs-number">2003</span>, <span class="hljs-string">&quot;Launch of WordPress&quot;</span>, <span class="hljs-string">&quot;WordPress is launched as an open-source content management system, revolutionizing website creation.&quot;</span>),
+    (<span class="hljs-number">2004</span>, <span class="hljs-string">&quot;Emergence of Web 2.0&quot;</span>, <span class="hljs-string">&quot;The concept of Web 2.0 emerges, emphasizing user-generated content and social media platforms.&quot;</span>),
+    (<span class="hljs-number">2005</span>, <span class="hljs-string">&quot;YouTube Launched&quot;</span>, <span class="hljs-string">&quot;YouTube is introduced as a video-sharing platform, transforming how video content is consumed online.&quot;</span>),
+    (<span class="hljs-number">2007</span>, <span class="hljs-string">&quot;Launch of the iPhone&quot;</span>, <span class="hljs-string">&quot;Apple debuts the iPhone, revolutionizing the smartphone industry with its touchscreen interface.&quot;</span>),
+    (<span class="hljs-number">2009</span>, <span class="hljs-string">&quot;Bitcoin Developed&quot;</span>, <span class="hljs-string">&quot;Bitcoin is created by an anonymous programmer under the pseudonym Satoshi Nakamoto, introducing cryptocurrency to the world.&quot;</span>),
+    (<span class="hljs-number">2010</span>, <span class="hljs-string">&quot;Release of the iPad&quot;</span>, <span class="hljs-string">&quot;Apple launches the iPad, popularizing tablet computing.&quot;</span>),
+    (<span class="hljs-number">2016</span>, <span class="hljs-string">&quot;Supercomputers Reach 100 Petaflops&quot;</span>, <span class="hljs-string">&quot;Advancements in computing power lead supercomputers to achieve unprecedented processing speeds.&quot;</span>),
+    (<span class="hljs-number">2020</span>, <span class="hljs-string">&quot;Release of GPT-3&quot;</span>, <span class="hljs-string">&quot;OpenAI releases GPT-3, a powerful text-generating AI model that advances natural language processing capabilities.&quot;</span>),
+    (<span class="hljs-number">2022</span>, <span class="hljs-string">&quot;Launch of ChatGPT&quot;</span>, <span class="hljs-string">&quot;OpenAI introduces ChatGPT, further enhancing conversational AI and chatbot technology.&quot;</span>),
+    (<span class="hljs-number">2023</span>, <span class="hljs-string">&quot;Microsoft Releases ChatGPT-Powered Bing&quot;</span>, <span class="hljs-string">&quot;Microsoft integrates ChatGPT into Bing, showcasing advancements in search engine technology and AI applications.&quot;</span>)
+]
+</code></pre>
+  <p>Напишите программу, которая выводит эти данные в следующем виде:</p>
+  <pre><code>1835: Morse Code Invented
+189 years ago
+Samuel Morse develops Morse Code, a system of encoding textual information.
+
+1993: First Digital Colour Printing Press
+31 years ago
+Benny Landau unveils the E-Print 1000, marking a significant advancement in printing technology.
+
+1996: First Internet-Enabled Mobile Device
+28 years ago
+The Nokia 9000 Communicator is released in Finland, enabling mobile internet access.
+</code></pre>
+  <p>... и так далее.</p>
+
+
+  <hr>
+  <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+
+</body>
+
+</html>

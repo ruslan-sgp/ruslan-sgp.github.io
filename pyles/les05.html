@@ -352,11 +352,16 @@ student_2 = (<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hl
 student_3 = (<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">16</span>)
 <span class="hljs-built_in">print</span>(student_1) <span class="hljs-comment"># Вывод: (&#x27;John&#x27;, 14)</span>
 
-<span class="hljs-comment"># элементами списка могут быть переменные</span>
+<span class="hljs-comment"># при создании списка можно указать переменные в качестве элементов</span>
+<span class="hljs-comment"># при этом будут скопированы значения этих переменных</span>
 a = <span class="hljs-number">5</span>
 b = <span class="hljs-number">10</span>
 c = <span class="hljs-number">20</span>
+
 my_list = [a, b, c] <span class="hljs-comment"># содержание списка: [5, 10, 20]</span>
+<span class="hljs-built_in">print</span>(my_list) <span class="hljs-comment"># Вывод: [5, 10, 20]</span>
+
+a = <span class="hljs-number">10</span> <span class="hljs-comment"># изменилось значение переменной, но список остался прежним</span>
 <span class="hljs-built_in">print</span>(my_list) <span class="hljs-comment"># Вывод: [5, 10, 20]</span>
 
 <span class="hljs-comment"># создадим список с данными студентов</span>

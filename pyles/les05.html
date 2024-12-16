@@ -165,7 +165,7 @@
 <body class="vscode-body vscode-light">
   <h1 id="урок-5">Урок 5</h1>
   <h2 id="разбор-дз-и-пройденного-материала">Разбор ДЗ и пройденного материала</h2>
-  <p>Пример решения:</p>
+  <p><span id="countries">Пример</span> решения:</p>
   <pre><code class="language-python"><span class="hljs-comment"># Список стран</span>
 countries = [
     <span class="hljs-string">&quot;Japan&quot;</span>,
@@ -240,7 +240,8 @@ line_10 = <span class="hljs-string">&#x27;hello&#x27;</span>
     <li>
       <p><strong>Доступ к элементам по индексу</strong></p>
       <ul>
-        <li>Как списки, так и кортежи позволяют доступ к элементам по индексу.</li>
+        <li>Как списки, так и кортежи позволяют доступ к элементам по номеру, который называется
+          <strong>индексом</strong>.</li>
         <li>Пример:
           <pre><code class="language-python">my_list = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
 my_tuple = (<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
@@ -449,6 +450,104 @@ Benny Landau unveils the E-Print 1000, marking a significant advancement in prin
 The Nokia 9000 Communicator is released in Finland, enabling mobile internet access.
 </code></pre>
   <p>... и так далее.</p>
+  <h3 id="подсказка-к-домашнему-заданию">Подсказка к домашнему заданию</h3>
+  <details>
+    <summary>Задание 1</summary>
+    <ul>
+      <li>нам нужно вывести элементы коллекции по отдельности, значит будем использовать цикл <code>for</code></li>
+      <li>для начала сделаем итерацию по списку имён. Запустите следующий код и проверьте результат:</li>
+    </ul>
+    <pre><code class="language-python">names = (<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>)
+ages = (<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>)
+
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:
+  <span class="hljs-built_in">print</span>(name)
+</code></pre>
+    <ul>
+      <li>это выводит только список имён, теперь к каждому имени нужно добавить возраст
+        <ul>
+          <li>то есть, к первому имени из списка <code>names</code> добавить первое значение из списка
+            <code>ages</code>; ко второму значению из <code>names</code> добавить второе значение из <code>ages</code> и
+            так далее</li>
+        </ul>
+      </li>
+      <li>номера элементов в коллекциях начинаются с 0 и увеличиваются на 1 при переходе к следующему элементу</li>
+      <li>создадим переменную-счётчик <code>n</code> с номером текущего элемента с начальным значением 0, и будем её
+        увеличивать на 1 в каждой итерации цикла
+        <ul>
+          <li>так же мы делали в задании со <a href="#countries">списком стран</a></li>
+        </ul>
+      </li>
+      <li>если напечатать значение <code>n</code> в каждой итерации, то получим индекс элемента в первой колонке:</li>
+    </ul>
+    <pre><code class="language-python">names = (<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>)
+ages = (<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>)
+
+n = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:
+  <span class="hljs-built_in">print</span>(n, name)
+  n = n + <span class="hljs-number">1</span>
+</code></pre>
+    <p>Запустите код и проверьте результат.</p>
+    <ul>
+      <li>теперь используем переменную <code>n</code> в качестве индекса для получения элемента из <code>ages</code>
+      </li>
+    </ul>
+    <details>
+      <summary>Решение</summary>
+      <pre><code class="language-python">names = (<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Bob&#x27;</span>)
+ages = (<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>)
+
+n = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:
+  <span class="hljs-built_in">print</span>(name, ages[n])
+  n = n + <span class="hljs-number">1</span>
+</code></pre>
+    </details>
+  </details>
+  <details>
+    <summary>Задание 2</summary>
+    <p>А) подсчёт суммы</p>
+    <ul>
+      <li>перед циклом создайте переменную <code>sum</code>, которая в начале равна 0</li>
+      <li>в каждой итерации прибавляйте к этой переменной значение текущего элемента из списка</li>
+      <li>после всех итераций значение переменной <code>sum</code> будет равно сумме всех элементов</li>
+    </ul>
+    <p>Б) среднее арифметическое</p>
+    <ul>
+      <li>необходимо подсчитать количество элементов в списке</li>
+      <li>перед циклом создайте переменную-счётчик <code>count</code>, равную 0</li>
+      <li>в каждой итерации добавляйте к этой переменной 1</li>
+      <li>после всех итераций значение переменной <code>count</code> будет равно количеству элементов в списке</li>
+      <li>среднее узнаем разделив сумму элементов (<code>sum</code> из предыдущего шага) на их количество
+        <code>count</code></li>
+    </ul>
+  </details>
+  <details>
+    <summary>Задание 3</summary>
+    <p>Особенностью этого задания является то, что элементами списка являются кортежи. Кортежи вложены в список, это
+      называется вложенный кортеж. Тем не менее, мы можем извлекать кортежи из списка, как обычные элементы.</p>
+    <ul>
+      <li>поскольку нам нужно выводить каждый элемент коллекции, потребуется цикл <code>for</code>:</li>
+    </ul>
+    <pre><code class="language-python"><span class="hljs-keyword">for</span> event <span class="hljs-keyword">in</span> it_events:
+  <span class="hljs-built_in">print</span>(event)
+</code></pre>
+    <p>Запустите этот код и проверьте результат. На каждой строке печатается целый кортеж.</p>
+    <ul>
+      <li>нужно выводить год, название и описание события по отдельности. Для этого получаем значения из кортежа
+        отдельно по индексу:
+        <ul>
+          <li>год это event[0]</li>
+          <li>название это event[1]</li>
+          <li>описание это event[2]</li>
+        </ul>
+      </li>
+      <li>можно вывести эти значения при помощи <code>print</code> в нужном формате, как мы это делали на <a
+          href="les04.html">прошлых уроках</a></li>
+      <li>чтобы узнать сколько лет назад произошло событие, нужно вычесть из текущего года 2024 год события</li>
+    </ul>
+  </details>
 
 
   <hr>

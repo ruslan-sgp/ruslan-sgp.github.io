@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bubble Sort &ncy;&acy; C&plus;&plus;</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="bubble-sort-на-c">Bubble Sort на C++</h1>
+  <h2 id="инсталляция-c-в-vs-code">Инсталляция C++ в VS Code</h2>
+  <p><a href="https://code.visualstudio.com/docs/cpp/config-mingw">Расширение для VS Code</a></p>
+  <hr>
+  <h2 id="пузырьковая-сортировка---bubble-sort">Пузырьковая сортировка - Bubble Sort</h2>
+  <p>Этот код реализует алгоритм сортировки пузырьком, который является простым методом сортировки. Он многократно
+    проходит по списку, сравнивает соседние элементы и меняет их местами, если они расположены в неправильном порядке.
+    Процесс повторяется до тех пор, пока список не будет отсортирован.</p>
+  <h3 id="разбор-кода">Разбор кода</h3>
+  <pre><code class="language-cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span>
+</code></pre>
+  <ul>
+    <li>Библиотека iostream</li>
+    <li><strong>Объяснение</strong>: Эта строка включает стандартную библиотеку ввода-вывода в C++. Она позволяет
+      программе использовать <code>cout</code> для вывода и <code>cin</code> для ввода.</li>
+  </ul>
+  <pre><code class="language-cpp"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;
+</code></pre>
+  <ul>
+    <li>Пространство имен std</li>
+    <li><strong>Объяснение</strong>: Эта строка позволяет программе использовать все сущности в пространстве имен
+      <code>std</code> без необходимости добавлять префикс <code>std::</code>. Например, можно использовать
+      <code>cout</code> вместо <code>std::cout</code>.
+    </li>
+    <li><strong>Иллюстрация</strong>:</li>
+  </ul>
+  <pre><code class="language-cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span> arr[], <span class="hljs-type">int</span> n)</span> </span>{
+</code></pre>
+  <ul>
+    <li>Функция bubbleSort</li>
+    <li><code>arr[]</code> - входной массив</li>
+    <li><code>n</code> - размер массива</li>
+    <li><strong>Объяснение</strong>: Эта строка определяет функцию с именем <code>bubbleSort</code>, которая принимает
+      массив целых чисел (<code>arr</code>) и его размер (<code>n</code>) в качестве параметров. Функция будет
+      сортировать массив в порядке возрастания.</li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n<span class="hljs-number">-1</span>; i++) {
+</code></pre>
+  <ul>
+    <li>Внешний цикл (i = 0 до n-2)</li>
+    <li><strong>Объяснение</strong>: Этот внешний цикл выполняется от <code>0</code> до <code>n-2</code>. Он
+      представляет собой каждый проход по массиву. Каждый проход гарантирует, что наибольший неотсортированный элемент
+      перемещается на свое правильное место.</li>
+  </ul>
+  <pre><code class="language-cpp">        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n-i<span class="hljs-number">-1</span>; j++) {
+</code></pre>
+  <ul>
+    <li>Внутренний цикл (j = 0 до n-i-2)</li>
+    <li><strong>Объяснение</strong>: Этот внутренний цикл выполняется от <code>0</code> до <code>n-i-2</code>. Он
+      сравнивает соседние элементы в массиве. По мере увеличения <code>i</code> количество сравнений уменьшается, потому
+      что последние <code>i</code> элементов уже отсортированы.</li>
+  </ul>
+  <pre><code class="language-cpp">            <span class="hljs-keyword">if</span> (arr[j] &gt; arr[j+<span class="hljs-number">1</span>]) {
+</code></pre>
+  <ul>
+    <li>Сравнить arr[j] и arr[j+1]</li>
+    <li><strong>Объяснение</strong>: Это условное выражение проверяет, больше ли текущий элемент (<code>arr[j]</code>)
+      следующего элемента (<code>arr[j+1]</code>). Если это так, это указывает на то, что они расположены в неправильном
+      порядке и должны быть обменяны местами.</li>
+  </ul>
+  <pre><code class="language-cpp">                <span class="hljs-type">int</span> temp = arr[j];
+                arr[j] = arr[j+<span class="hljs-number">1</span>];
+                arr[j+<span class="hljs-number">1</span>] = temp;
+</code></pre>
+  <ul>
+    <li>Перестановка элементов, если они не расположены по порядку</li>
+    <li><strong>Объяснение</strong>: Эти три строки выполняют операцию обмена. Временная переменная (<code>temp</code>)
+      используется для хранения значения <code>arr[j]</code>, что позволяет нам перезаписать его значением
+      <code>arr[j+1]</code>, а затем присвоить <code>temp</code> значению <code>arr[j+1]</code>.
+    </li>
+  </ul>
+  <p>После завершения всех проходов массив будет отсортирован.</p>
+  <h3 id="главная-функция">Главная функция</h3>
+  <pre><code class="language-cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Эта строка определяет главную функцию, с которой начинается выполнение программы.
+    </li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-type">int</span> arr[] = {<span class="hljs-number">95</span>, <span class="hljs-number">10</span>, <span class="hljs-number">75</span>, <span class="hljs-number">12</span>, <span class="hljs-number">64</span>, <span class="hljs-number">34</span>, <span class="hljs-number">25</span>, <span class="hljs-number">12</span>, <span class="hljs-number">22</span>, <span class="hljs-number">11</span>, <span class="hljs-number">90</span>};
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Инициализируется массив целых чисел с именем <code>arr</code>, содержащий набор
+      неотсортированных целых чисел.</li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-type">int</span> n = <span class="hljs-built_in">sizeof</span>(arr)/<span class="hljs-built_in">sizeof</span>(arr[<span class="hljs-number">0</span>]);
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Эта строка вычисляет количество элементов в массиве, деля общий размер массива на
+      размер одного элемента. Это значение сохраняется в переменной <code>n</code>.</li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-built_in">bubbleSort</span>(arr, n);
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Вызывается ранее определенная функция <code>bubbleSort</code> с параметрами
+      <code>arr</code> и его размером <code>n</code>, сортируя массив на месте.
+    </li>
+  </ul>
+  <pre><code class="language-cpp">    cout &lt;&lt; <span class="hljs-string">&quot;Отсортированный массив: \n&quot;</span>;
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Эта строка выводит сообщение о том, что далее будет отсортированный массив.</li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {
+        cout &lt;&lt; arr[i] &lt;&lt; <span class="hljs-string">&quot; &quot;</span>;
+    }
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Этот цикл проходит по каждому элементу отсортированного массива и выводит его с
+      пробелом.</li>
+  </ul>
+  <pre><code class="language-cpp">    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+  <ul>
+    <li><strong>Объяснение</strong>: Эта строка указывает на то, что программа завершена успешно и возвращает управление
+      операционной системе.</li>
+  </ul>
+  <h3 id="финальный-вывод">Финальный вывод</h3>
+  <p>Когда эта программа выполняется, она сортирует предоставленный массив с помощью сортировки пузырьком и выводит:</p>
+  <pre><code>Отсортированный массив:
+10 11 12 12 22 25 34 64 75 90 95 
+</code></pre>
+  <p>Этот разбор должен дать вам четкое понимание того, как работает каждая часть этой реализации сортировки пузырьком!
+  </p>
+
+
+
+  <hr>
+  <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+
+</body>
+
+</html>

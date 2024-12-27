@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>&Ucy;&rcy;&ocy;&kcy; 6</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-6">Урок 6</h1>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <h3 id="графика-turtle-в-python">Графика Turtle в Python</h3>
+  <p><strong>Turtle</strong> — это встроенный модуль Python, который позволяет создавать графические изображения с
+    помощью &quot;черепашки&quot;, управляемой через команды.</p>
+  <h3 id="подготовка-к-использованию-графики-turtle">Подготовка к использованию графики Turtle</h3>
+  <ol>
+    <li>
+      <p><strong>Импорт модуля:</strong></p>
+      <pre><code class="language-python"><span class="hljs-keyword">import</span> turtle
+</code></pre>
+      <ul>
+        <li><strong>Понятие модуля:</strong> Модуль — это файл или библиотека кода, которая предоставляет дополнительные
+          функции и классы. Turtle — один из стандартных модулей Python.</li>
+        <li><strong>Импорт модуля:</strong> С помощью <code>import</code> мы загружаем модуль в нашу программу. После
+          этого мы можем использовать функции и классы модуля в нашем коде.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Создание черепашки:</strong></p>
+      <pre><code class="language-python">t = turtle.Turtle()
+</code></pre>
+      <ul>
+        <li>Здесь создается объект черепашки <code>t</code>, который мы используем для рисования.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Объекты:</strong></p>
+      <ul>
+        <li><strong>Объект:</strong> Черепашка <code>t</code> — это объект, который имеет свои свойства (например, цвет
+          пера) и методы (например, <code>forward</code>).</li>
+        <li><strong>Метод и Функция:</strong> Методы похожи на функции, но они связаны с объектом. Например,
+          <code>t.forward(100)</code> — это метод объекта <code>t</code> &quot;черепашка&quot;.</li>
+        <li><strong>Конструктор:</strong> <code>turtle.Turtle()</code> — это специальный метод, который создает объект.
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <p>В целом, код для создания черепашки и начала работы с ней выглядит так:</p>
+  <pre><code class="language-Python"><span class="hljs-comment"># импорт модуля</span>
+<span class="hljs-keyword">import</span> turtle
+<span class="hljs-comment"># создание черепашки</span>
+t = turtle.Turtle()
+<span class="hljs-comment"># вызов методов черепашки</span>
+t.forward(<span class="hljs-number">100</span>)
+t.left(<span class="hljs-number">90</span>)
+</code></pre>
+  <h3 id="рисование-фигур-при-помощи-turtle">Рисование фигур при помощи Turtle</h3>
+  <p>Движение и рисование линий:</p>
+  <pre><code class="language-python">t.forward(<span class="hljs-number">100</span>)  <span class="hljs-comment"># черепашка двигается вперед на 100 пикселей</span>
+t.left(<span class="hljs-number">90</span>)      <span class="hljs-comment"># поворот влево на 90 градусов</span>
+t.right(<span class="hljs-number">45</span>)     <span class="hljs-comment"># поворот вправо на 45 градусов</span>
+</code></pre>
+  <h3 id="использование-циклов-для-повторяющихся-действий">Использование циклов для повторяющихся действий</h3>
+  <h4 id="квадрат">Квадрат:</h4>
+  <pre><code class="language-python"><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):
+    t.forward(<span class="hljs-number">100</span>)
+    t.left(<span class="hljs-number">90</span>)
+</code></pre>
+  <ul>
+    <li>Используем цикл <code>for</code> для повторения одинаковых действий.</li>
+    <li>здесь переменная цикла называется <code>_</code>. Данное имя показывает, что значение переменной не
+      используется, но оно необходимо для цикла.</li>
+  </ul>
+  <h4 id="многоугольник">Многоугольник:</h4>
+  <p>Общий случай для замкнутого многоугольника с <code>n</code> сторонами:</p>
+  <pre><code class="language-python">sides = <span class="hljs-number">6</span>  <span class="hljs-comment"># количество сторон</span>
+angle = <span class="hljs-number">360</span> / sides  <span class="hljs-comment"># угол поворота</span>
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(sides):
+    t.forward(<span class="hljs-number">100</span>)
+    t.left(angle)
+</code></pre>
+  <h3 id="рисование-узоров-и-фракталов">Рисование узоров и фракталов</h3>
+  <p>Пример спирали:</p>
+  <pre><code class="language-python">colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>, <span class="hljs-string">&#x27;purple&#x27;</span>]
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">50</span>):
+    t.pencolor(colors[i % <span class="hljs-built_in">len</span>(colors)])
+    t.forward(<span class="hljs-number">10</span> + i * <span class="hljs-number">2</span>)
+    t.left(<span class="hljs-number">45</span>)
+</code></pre>
+  <hr>
+  <h2 id="использование-координатной-системы">Использование координатной системы</h2>
+  <p>Черепашка может перемещаться в определенные координаты:</p>
+  <pre><code class="language-python">t.goto(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>)  <span class="hljs-comment"># перемещается в точку (50, 50) по координатной плоскости</span>
+</code></pre>
+  <p>Система координат:</p>
+  <ul>
+    <li>Центр холста — точка (0, 0).</li>
+    <li>X увеличивается вправо, Y — вверх.</li>
+  </ul>
+  <hr>
+  <h2 id="дополнительные-функции-и-методы-turtle">Дополнительные функции и методы Turtle</h2>
+  <ul>
+    <li><strong>Подъем и опускание пера:</strong>
+      <pre><code class="language-python">t.penup()    <span class="hljs-comment"># перестает рисовать</span>
+t.pendown()  <span class="hljs-comment"># снова начинает рисовать</span>
+</code></pre>
+    </li>
+    <li><strong>Цвет и ширина линии:</strong>
+      <pre><code class="language-python">t.pencolor(<span class="hljs-string">&#x27;blue&#x27;</span>)  <span class="hljs-comment"># устанавливает цвет пера</span>
+t.width(<span class="hljs-number">5</span>)          <span class="hljs-comment"># устанавливает толщину линии</span>
+</code></pre>
+    </li>
+    <li><strong>Помощь с методами:</strong>
+      <pre><code class="language-python"><span class="hljs-built_in">help</span>(t)             <span class="hljs-comment"># общая информация о методах черепашки</span>
+<span class="hljs-built_in">help</span>(t.forward)     <span class="hljs-comment"># справка по методу forward</span>
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h2 id="константы-и-переменные">Константы и переменные</h2>
+  <ul>
+    <li><strong>Константа:</strong> Значение, которое не изменяется во время выполнения программы.</li>
+    <li><strong>Соглашения в Python:</strong> Константы принято писать заглавными буквами:
+      <pre><code class="language-python">SIDE_LENGTH = <span class="hljs-number">100</span>  <span class="hljs-comment"># константа для длины стороны</span>
+</code></pre>
+    </li>
+    <li>Использование констант в качестве параметров алгоритма:
+      <pre><code class="language-python">  SIDE_LENGTH = <span class="hljs-number">100</span>  <span class="hljs-comment"># длина стороны многоугольника</span>
+  NUM_SIDES = <span class="hljs-number">6</span>      <span class="hljs-comment"># количество сторон многоугольника</span>
+  ANGLE = <span class="hljs-number">360</span> / NUM_SIDES  <span class="hljs-comment"># угол поворота</span>
+
+  <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(NUM_SIDES):
+      t.forward(SIDE_LENGTH)
+      t.left(ANGLE)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h2 id="новые-функции-python">Новые функции Python</h2>
+  <ul>
+    <li><strong><code>range</code>:</strong> Создает последовательность чисел:
+      <pre><code class="language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):  <span class="hljs-comment"># числа от 0 до 4</span>
+    <span class="hljs-built_in">print</span>(i)
+</code></pre>
+    </li>
+    <li><strong><code>len</code>:</strong> Возвращает длину списка или строки:
+      <pre><code class="language-python">colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>]
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(colors))  <span class="hljs-comment"># вывод: 3</span>
+</code></pre>
+    </li>
+  </ul>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/EWpwX7JR4yY?si=gTapIwcC06FSKnkN"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="итог">Итог</h2>
+  <h3 id="чему-мы-научились">Чему мы научились:</h3>
+  <ul>
+    <li>Работа с модулем Turtle.</li>
+    <li>Использование циклов и методов для рисования фигур.</li>
+    <li>Применение констант и переменных для упрощения программ.</li>
+    <li>Использование координатной системы и различных методов для управления черепашкой.</li>
+  </ul>
+  <h3 id="рекомендации-для-самостоятельной-практики">Рекомендации для самостоятельной практики:</h3>
+  <ol>
+    <li>Нарисуйте звезду с помощью черепашки.</li>
+    <li>Попробуйте изменить цвет и толщину линий для различных фигур.</li>
+    <li>Создайте собственный узор или спираль.</li>
+  </ol>
+  <h3 id="домашнее-задание">Домашнее задание:</h3>
+  <ol>
+    <li>Нарисовать слово ПРИВЕТ, используя черепашку.</li>
+    <li>Написать программу, которая рисует звезду.</li>
+    <li>Создать простой рисунок при помощи Turtle, например:</li>
+  </ol>
+  <picture>
+    <svg width="360px" viewBox="0 0 142 141" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16.5" y="51.5" width="109" height="89" fill="#FDAF32" stroke="black" />
+      <rect x="26.5" y="70.5" width="39" height="50" fill="#16E2F0" stroke="black" />
+      <rect x="76.5" y="71.5" width="39" height="69" fill="#CF4F0E" stroke="black" />
+      <rect x="101.5" y="11.5" width="9" height="22" fill="#7D4520" stroke="black" />
+      <path d="M2.35448 52L71 0.624523L139.646 52H2.35448Z" fill="#B76B39" stroke="black" />
+      <line x1="83.416" y1="108.723" x2="87.416" y2="114.723" stroke="black" />
+      <line x1="46.5" y1="71" x2="46.5" y2="121" stroke="black" />
+      <line x1="46" y1="95.5" x2="65" y2="95.5" stroke="black" />
+    </svg>
+  </picture>
+  <p>Другие идеи рисунков можно найти в интернет: <a
+      href="https://www.brainkart.com/article/Straight-Lines-and-Curved-Lines_45007/">пример</a>.</p>
+  <p>Подсказка:</p>
+  <ul>
+    <li>метод <code>circle</code> поможет нарисовать круг или дугу</li>
+    <li>для закраски фигуры можно использовать метод <code>fillcolor</code></li>
+  </ul>
+
+
+
+</body>
+
+</html>

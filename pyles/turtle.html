@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Ecy;&kcy;&scy;&pcy;&iecy;&rcy;&icy;&mcy;&iecy;&ncy;&tcy;&ycy; &scy; &mcy;&ocy;&dcy;&ucy;&lcy;&iecy;&mcy;
+    Turtle &vcy; Python</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="эксперименты-с-модулем-turtle-в-python">Эксперименты с модулем Turtle в Python</h1>
+  <p>Познакомимся с модулем <code>turtle</code> в Python, научимся создавать рисунки и экспериментировать с кодом.</p>
+  <h3 id="1-введение-в-turtle"><strong>1. Введение в Turtle</strong></h3>
+  <h4 id="что-такое-turtle">Что такое Turtle?</h4>
+  <ul>
+    <li><code>Turtle</code> — это встроенный в Python модуль, который позволяет рисовать графику с помощью
+      &quot;черепахи&quot;, которая перемещается по экрану.</li>
+    <li>Это отличный инструмент для изучения основ программирования и создания визуальных эффектов.</li>
+  </ul>
+  <h4 id="как-добавить-turtle-в-программу">Как добавить turtle в программу?</h4>
+  <p>А. Вставьте следующую строку в начало вашего кода:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *   <span class="hljs-comment"># импортировать все функции из модуля turtle</span>
+</code></pre>
+  <p>Затем используйте функции из модуля <code>turtle</code>, например:</p>
+  <pre><code class="language-python">forward(<span class="hljs-number">100</span>)  <span class="hljs-comment"># передвинуть черепаху на 100 единиц вперёд</span>
+left(<span class="hljs-number">90</span>)      <span class="hljs-comment"># повернуть черепаху влево на 90 градусов</span>
+</code></pre>
+  <p>... и так далее.</p>
+  <p>Б. Создайте объект черепахи с помощью <code>Turtle()</code>, затем используйте <em>методы</em> этого объекта для
+    рисования:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> Turtle   <span class="hljs-comment"># импортировать класс Turtle из модуля turtle</span>
+t = Turtle()                <span class="hljs-comment"># создать объект черепахи</span>
+t.forward(<span class="hljs-number">100</span>)              <span class="hljs-comment"># передвинуть черепаху на 100 единиц вперёд</span>
+t.left(<span class="hljs-number">90</span>)                  <span class="hljs-comment"># повернуть черепаху влево на 90 градусов</span>
+</code></pre>
+  <p>Примечание:</p>
+  <ol>
+    <li>
+      <p>методы - это функции, которые принадлежат объекту. В этом примере <code>forward</code> и <code>left</code>
+        принадлежат объекту <code>t</code>.</p>
+    </li>
+    <li>
+      <p><code>t</code> - это экземпляр (объект) класса <code>Turtle</code>.</p>
+    </li>
+  </ol>
+  <h4 id="базовые-команды">Базовые команды:</h4>
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> turtle
+
+<span class="hljs-comment"># Создаем объект черепахи</span>
+t = turtle.Turtle()
+
+<span class="hljs-comment"># Движение черепахи</span>
+t.forward(<span class="hljs-number">100</span>)  <span class="hljs-comment"># Движение вперед на 100 единиц</span>
+t.right(<span class="hljs-number">90</span>)     <span class="hljs-comment"># Поворот направо на 90 градусов</span>
+t.forward(<span class="hljs-number">100</span>)
+t.left(<span class="hljs-number">45</span>)      <span class="hljs-comment"># Поворот налево на 45 градусов</span>
+t.backward(<span class="hljs-number">50</span>)  <span class="hljs-comment"># Движение назад на 50 единиц</span>
+
+<span class="hljs-comment"># Завершение рисования</span>
+turtle.done()
+</code></pre>
+  <hr>
+  <h3 id="2-рисование-простых-фигур"><strong>2. Рисование простых фигур</strong></h3>
+  <ul>
+    <li>
+      <p><strong>Квадрат:</strong></p>
+      <pre><code class="language-python"><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):
+    t.forward(<span class="hljs-number">100</span>)
+    t.right(<span class="hljs-number">90</span>)
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Круг:</strong></p>
+      <pre><code class="language-python">t.circle(<span class="hljs-number">50</span>)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="3-использование-циклов-для-создания-узоров"><strong>3. Использование циклов для создания узоров</strong></h3>
+  <ul>
+    <li><strong>Спираль:</strong>
+      <pre><code class="language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">36</span>):
+    t.forward(i * <span class="hljs-number">5</span>)
+    t.right(<span class="hljs-number">20</span>)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="4-работа-с-цветами"><strong>4. Работа с цветами</strong></h3>
+  <ul>
+    <li><strong>Изменение цвета пера и заливки:</strong>
+      <pre><code class="language-python">t.color(<span class="hljs-string">&quot;blue&quot;</span>)          <span class="hljs-comment"># Цвет пера</span>
+t.fillcolor(<span class="hljs-string">&quot;yellow&quot;</span>)    <span class="hljs-comment"># Цвет заливки</span>
+t.begin_fill()           <span class="hljs-comment"># Начало заливки</span>
+t.circle(<span class="hljs-number">50</span>)             <span class="hljs-comment"># Рисование круга</span>
+t.end_fill()             <span class="hljs-comment"># Конец заливки</span>
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="5-настройка-черепахи"><strong>5. Настройка черепахи</strong></h3>
+  <ul>
+    <li><strong>Изменение формы и скорости:</strong>
+      <pre><code class="language-python">t.shape(<span class="hljs-string">&quot;turtle&quot;</span>)  <span class="hljs-comment"># Форма черепахи</span>
+t.speed(<span class="hljs-number">5</span>)         <span class="hljs-comment"># Скорость (1 = медленно, 10 = быстро)</span>
+t.pensize(<span class="hljs-number">3</span>)       <span class="hljs-comment"># Толщина пера</span>
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="6-создание-функций-для-повторного-использования"><strong>6. Создание функций для повторного
+      использования</strong></h3>
+  <ul>
+    <li><strong>Функция для рисования звезды:</strong>
+      <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_star</span>(<span class="hljs-params">size</span>):
+    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+        t.forward(size)
+        t.right(<span class="hljs-number">144</span>)
+
+draw_star(<span class="hljs-number">100</span>)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="7-эксперименты-со-случайностью"><strong>7. Эксперименты со случайностью</strong></h3>
+  <ul>
+    <li><strong>Использование модуля <code>random</code>:</strong>
+      <pre><code class="language-python"><span class="hljs-keyword">import</span> random
+
+colors = [<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;purple&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>]
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">20</span>):
+    t.color(random.choice(colors))
+    t.forward(random.randint(<span class="hljs-number">50</span>, <span class="hljs-number">150</span>))
+    t.right(random.randint(<span class="hljs-number">0</span>, <span class="hljs-number">360</span>))
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="8-создание-интерактивных-программ"><strong>8. Создание интерактивных программ</strong></h3>
+  <ul>
+    <li><strong>Управление черепахой с клавиатуры:</strong>
+      <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">move_forward</span>():
+    t.forward(<span class="hljs-number">50</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">turn_left</span>():
+    t.left(<span class="hljs-number">90</span>)
+
+<span class="hljs-comment"># Настройка клавиш</span>
+turtle.listen()
+turtle.onkey(move_forward, <span class="hljs-string">&quot;Up&quot;</span>)
+turtle.onkey(turn_left, <span class="hljs-string">&quot;Left&quot;</span>)
+
+turtle.done()
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="9-комбинирование-концепций"><strong>9. Комбинирование концепций</strong></h3>
+  <ul>
+    <li><strong>Рисование спирали с изменяющимся размером:</strong>
+      <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_spiral</span>(<span class="hljs-params">size, angle</span>):
+    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">100</span>):
+        t.forward(size)
+        t.right(angle)
+        size += <span class="hljs-number">2</span>
+
+draw_spiral(<span class="hljs-number">5</span>, <span class="hljs-number">91</span>)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="10-дополнительные-возможности"><strong>10. Дополнительные возможности</strong></h3>
+  <ul>
+    <li>
+      <p><strong>Настройка окна:</strong></p>
+      <pre><code class="language-python">screen = turtle.Screen()
+screen.bgcolor(<span class="hljs-string">&quot;black&quot;</span>)  <span class="hljs-comment"># Цвет фона</span>
+screen.title(<span class="hljs-string">&quot;Мое искусство с Turtle&quot;</span>)  <span class="hljs-comment"># Заголовок окна</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Сохранение рисунка:</strong></p>
+      <pre><code class="language-python"><span class="hljs-keyword">import</span> turtle
+
+t = turtle.Turtle()
+t.circle(<span class="hljs-number">100</span>)
+
+<span class="hljs-comment"># Сохранение рисунка в формате .eps</span>
+canvas = turtle.getcanvas()
+canvas.postscript(file=<span class="hljs-string">&quot;circle.eps&quot;</span>)
+</code></pre>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="11-задания-для-самостоятельной-работы"><strong>11. Задания для самостоятельной работы</strong></h3>
+  <ul>
+    <li>Попробуйте создать:
+      <ul>
+        <li>Фракталы (например, снежинка Коха, треугольник Серпинского).</li>
+        <li>Геометрические узоры (например, мозаики, спирали).</li>
+        <li>Анимации (например, движущиеся объекты, прыгающие шары).</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="12-изучение-примеров"><strong>12. Изучение примеров</strong></h3>
+  <ul>
+    <li>Ищите примеры кода с Turtle в интернете.</li>
+    <li>Модифицируйте существующий код, чтобы понять, как он работает, и создавайте свои уникальные проекты.</li>
+  </ul>
+  <hr>
+  <h3 id="13-документирование-экспериментов"><strong>13. Документирование экспериментов</strong></h3>
+  <ul>
+    <li>Ведите блокнот или добавляйте комментарии в код, чтобы отслеживать свои эксперименты и прогресс.</li>
+    <li>Делитесь своими работами с другими, чтобы получать обратную связь и новые идеи.</li>
+  </ul>
+  <hr>
+  <h3 id="заключение"><strong>Заключение:</strong></h3>
+  <p>Модуль <code>turtle</code> — это мощный инструмент для изучения Python и создания визуальных проектов.
+    Экспериментируйте, комбинируйте идеи и получайте удовольствие от программирования! 🐢🎨</p>
+  <hr>
+  <h3 id="домашнее-задание"><strong>Домашнее задание:</strong></h3>
+  <ol>
+    <li>Создайте программу, которая рисует цветочный узор.</li>
+    <li>Напишите код для рисования фрактала (например, <a href="https://en.wikipedia.org/wiki/Koch_snowflake">снежинки
+        Коха</a>).</li>
+    <li>Сделайте интерактивную программу, где пользователь может управлять черепахой с клавиатуры.</li>
+  </ol>
+  <hr>
+  <p>Удачи в ваших экспериментах с Turtle! 🚀</p>
+
+  <hr>
+  <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+
+</body>
+
+</html>

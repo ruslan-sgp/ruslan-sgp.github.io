@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Ucy;&rcy;&ocy;&kcy; 6</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-6">Урок 6</h1>
+  <h2 id="работа-в-vs-code">Работа в VS Code</h2>
+  <p>Полезные комбинации клавиш:</p>
+  <h3 id="1-ctrl--space-вызов-подсказок"><strong>1. Ctrl + Space (Вызов подсказок)</strong></h3>
+  <ul>
+    <li><strong>Что делает</strong>: Открывает меню IntelliSense, которое предлагает варианты автодополнения кода,
+      подсказки по функциям и документацию.</li>
+    <li><strong>Когда использовать</strong>: Когда вы пишете код и хотите увидеть доступные методы, переменные или
+      модули. Например, если вы наберете <code>import turtle</code> и нажмете <code>Ctrl + Space</code>, вы увидите все
+      функции, доступные в модуле <code>turtle</code>.</li>
+  </ul>
+  <h3 id="2-ctrl--shift--space-подсказки-по-параметрам"><strong>2. Ctrl + Shift + Space (Подсказки по
+      параметрам)</strong></h3>
+  <ul>
+    <li><strong>Что делает</strong>: Показывает параметры функции или метода, которые вы используете.</li>
+    <li><strong>Когда использовать</strong>: Когда вы вызываете функцию и хотите увидеть, какие аргументы она принимает.
+      Например, если вы наберете <code>print(</code>, нажатие <code>Ctrl + Shift + Space</code> покажет параметры
+      функции <code>print</code>.</li>
+  </ul>
+  <h3 id="3-ctrl--click-переход-к-определению"><strong>3. Ctrl + Click (Переход к определению)</strong></h3>
+  <ul>
+    <li><strong>Что делает</strong>: Переводит вас к определению функции, класса или переменной.</li>
+    <li><strong>Когда использовать</strong>: Когда вы хотите быстро перейти к исходному коду функции или класса, который
+      используете. Просто нажмите <code>Ctrl</code> и щелкните по названию функции или переменной.</li>
+  </ul>
+  <p>Эти сочетания клавиш помогут вам писать код быстрее и эффективнее. 🚀</p>
+  <h2 id="практика-turtle">Практика turtle</h2>
+  <p>Создание сетки координат:</p>
+  <img src="file:///d:\Dev\Code\ITClub\Python\PY02\les07\coord.svg">
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+
+speed(<span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># главные оси</span>
+
+width(<span class="hljs-number">3</span>)
+showturtle()
+forward(<span class="hljs-number">400</span>)
+stamp()
+backward(<span class="hljs-number">800</span>)
+home()
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">400</span>)
+stamp()
+backward(<span class="hljs-number">800</span>)
+<span class="hljs-comment"># hideturtle()</span>
+
+<span class="hljs-comment"># сетка координат</span>
+
+width(<span class="hljs-number">1</span>)
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+forward(<span class="hljs-number">200</span>)
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">400</span>)
+backward(<span class="hljs-number">800</span>)
+forward(<span class="hljs-number">400</span>)
+right(<span class="hljs-number">90</span>)
+penup()
+forward(<span class="hljs-number">200</span>)
+pendown()
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">400</span>)
+backward(<span class="hljs-number">800</span>)
+forward(<span class="hljs-number">400</span>)
+right(<span class="hljs-number">90</span>)
+penup()
+forward(<span class="hljs-number">600</span>)
+right(<span class="hljs-number">90</span>)
+pendown()
+forward(<span class="hljs-number">400</span>)
+backward(<span class="hljs-number">800</span>)
+forward(<span class="hljs-number">400</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">200</span>)
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">400</span>)
+backward(<span class="hljs-number">800</span>)
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">800</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">200</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">800</span>)
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">400</span>)
+right(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">800</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">200</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">800</span>)
+        
+done()
+</code></pre>
+  <h3 id="домашнее-задание">Домашнее задание</h3>
+  <ul>
+    <li>
+      <p>создайте account на <a href="https://github.com/">GitHub</a></p>
+      <ul>
+        <li>используйте email на иностранном сервере (например, gmail)</li>
+      </ul>
+    </li>
+    <li>
+      <p>создайте файл <code>README.md</code> на языке <a
+          href="https://www.markdownguide.org/basic-syntax/">markdown</a> следующего содержания:</p>
+    </li>
+  </ul>
+  <pre><code class="language-md"><span class="hljs-section"># Обо мне</span>
+
+фото (приготовьте фото)
+
+
+<span class="hljs-section">## Мои лучшие 5 качеств</span>
+
+<span class="hljs-bullet">*</span> ..........
+<span class="hljs-bullet">*</span> ..........
+<span class="hljs-bullet">*</span> ..........
+<span class="hljs-bullet">*</span> ..........
+<span class="hljs-bullet">*</span> ..........
+
+
+<span class="hljs-section">## Мои программы</span>
+
+<span class="hljs-bullet">1.</span> Графика Python
+
+
+</code></pre>
+  <ul>
+    <li>приготовьте ваше фото для веб-страницы, и напишите о себе в <code>README.md</code></li>
+  </ul>
+  <h3 id="дополнительный-материал">Дополнительный материал</h3>
+  <p><a href="turtle.html">Введение в Turtle</a></p>
+
+
+  <hr>
+  <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+
+</body>
+
+</html>

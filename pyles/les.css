@@ -28,6 +28,7 @@ h1[id] {
   font-size: 1.25em;
   border: none;
   color: #7c3e00;
+  text-align: center;
 }
 
 h1[id]::before {
@@ -66,7 +67,7 @@ footer {
 footer::after {
   content: " ";
   display: block;
-  background-color: #ffc551;
+  background-color: #e0a94a;
   height: 5rem;
   left: 0;
   right: 0;

@@ -27,12 +27,13 @@ h1[id] {
   padding-top: 0;
   font-size: 1.25em;
   border: none;
+  color: #7c3e00;
 }
 
 h1[id]::before {
   content: " ";
   display: block;
-  background-color: #bdbdbd;
+  background-color: #ffc551;
   position: absolute;
   left: 0;
   top: 0;
@@ -56,4 +57,20 @@ pre {
 
 pre, code {
   background-color: #f4f6ff;
+}
+
+footer {
+  margin-top: 5rem;
+}
+
+footer::after {
+  content: " ";
+  display: block;
+  background-color: #ffc551;
+  height: 5rem;
+  left: 0;
+  right: 0;
+  z-index: -10;
+  position: absolute;
+  margin-top: -4.2rem;
 }

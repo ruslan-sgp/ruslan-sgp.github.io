@@ -88,3 +88,7 @@ footer a {
 footer a:hover {
   color: #a0522d;
 }
+
+.mb {
+  margin-block: 4rem;
+}

@@ -166,6 +166,7 @@
 <body class="vscode-body vscode-light">
   <h1 id="эксперименты-с-модулем-turtle-в-python">Эксперименты с модулем Turtle в Python</h1>
   <p>Познакомимся с модулем <code>turtle</code> в Python, научимся создавать рисунки и экспериментировать с кодом.</p>
+  <img src="./snowflake.svg" />
   <h2 id="1-введение-в-turtle"><strong>1. Введение в Turtle</strong></h2>
   <h3 id="что-такое-turtle">Что такое turtle?</h3>
   <ul>
@@ -477,7 +478,17 @@ canvas.postscript(file=<span class="hljs-string">&quot;circle.eps&quot;</span>)
     <li>
       <p><strong>Очистка экрана:</strong></p>
       <pre><code class="language-python">t.clear()               <span class="hljs-comment"># стереть рисунок</span>
+t.reset()              <span class="hljs-comment"># стереть рисунок и вернуть исходное состояние черепашки</span>
 turtle.clearscreen()    <span class="hljs-comment"># очистить экран</span>
+</code></pre>
+    </li>
+    <li>
+      <p><strong>Разное:</strong></p>
+      <pre><code class="language-python">t.penup()       <span class="hljs-comment"># поднять перо</span>
+t.pendown()     <span class="hljs-comment"># опустить перо</span>
+t.stamp()       <span class="hljs-comment"># отпечатать черепашку</span>
+t.hideturtle()  <span class="hljs-comment"># скрыть черепашку</span>
+t.done()        <span class="hljs-comment"># ожидать нажатия клавиши перед закрытием экрана</span>
 </code></pre>
     </li>
   </ul>

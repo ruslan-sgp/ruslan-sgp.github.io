@@ -92,3 +92,8 @@ footer a:hover {
 .mb {
   margin-block: 4rem;
 }
+
+
+img {
+  max-width: 800px;
+}

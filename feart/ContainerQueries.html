@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&Icy;&scy;&pcy;&ocy;&lcy;&softcy;&zcy;&ocy;&vcy;&acy;&ncy;&icy;&iecy; &zcy;&acy;&pcy;&rcy;&ocy;&scy;&ocy;&vcy; &kcy; &kcy;&ocy;&ncy;&tcy;&iecy;&jcy;&ncy;&iecy;&rcy;&acy;&mcy; CSS &dcy;&lcy;&yacy; &scy;&ocy;&zcy;&dcy;&acy;&ncy;&icy;&yacy; &acy;&dcy;&acy;&pcy;&tcy;&icy;&vcy;&ncy;&ocy;&gcy;&ocy; &dcy;&icy;&zcy;&acy;&jcy;&ncy;&acy;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="использование-запросов-к-контейнерам-css-для-создания-адаптивного-дизайна">Использование запросов к контейнерам CSS для создания адаптивного дизайна</h1>
+<p>Современный веб-дизайн требует гибкости и адаптивности, чтобы сайты корректно отображались на устройствах с разными размерами экранов. Одним из мощных инструментов для достижения этой цели являются <strong>запросы к контейнерам CSS</strong> (Container Queries). Этот относительно новый подход позволяет разработчикам создавать адаптивные интерфейсы, основываясь на размерах родительского контейнера, а не на размерах всего окна браузера. В этой статье мы рассмотрим, как использовать запросы к контейнерам для создания адаптивного дизайна.</p>
+<h2 id="что-такое-запросы-к-контейнерам">Что такое запросы к контейнерам?</h2>
+<p>Запросы к контейнерам — это технология, которая позволяет применять стили к элементам в зависимости от размеров их родительского контейнера. В отличие от медиа-запросов, которые реагируют на размеры окна браузера, запросы к контейнерам дают больше гибкости, позволяя адаптировать содержимое внутри конкретного блока.</p>
+<p>Например, если у вас есть карточка товара, которая может отображаться в разных контекстах (например, в списке товаров или в отдельной галерее), запросы к контейнерам позволяют адаптировать её стили в зависимости от доступного пространства внутри родительского контейнера.</p>
+<h2 id="как-работают-запросы-к-контейнерам">Как работают запросы к контейнерам?</h2>
+<p>Чтобы использовать запросы к контейнерам, нужно выполнить два основных шага:</p>
+<ol>
+<li><strong>Определить контейнер</strong>: Укажите, какой элемент будет выступать в роли контейнера. Это делается с помощью свойства <code>container-type</code> или <code>container</code>.</li>
+<li><strong>Написать запросы к контейнеру</strong>: Используйте правило <code>@container</code>, чтобы применить стили в зависимости от размеров контейнера.</li>
+</ol>
+<h3 id="пример-использования">Пример использования</h3>
+<p>Рассмотрим простой пример. Допустим, у нас есть карточка товара, которая должна менять свой внешний вид в зависимости от ширины родительского контейнера.</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;product.jpg&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Product Image&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Название товара<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Описание товара<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Купить<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Сначала определим контейнер:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.product-container</span> {
+  container-type: inline-size; <span class="hljs-comment">/* Контейнер будет реагировать на изменения ширины */</span>
+}
+</code></pre>
+<p>Теперь напишем запросы к контейнеру:</p>
+<pre><code class="language-css"><span class="hljs-keyword">@container</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">400px</span>) {
+  <span class="hljs-selector-class">.product-card</span> {
+    <span class="hljs-attribute">flex-direction</span>: column;
+    <span class="hljs-attribute">text-align</span>: center;
+  }
+
+  <span class="hljs-selector-class">.product-card</span> <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span>;
+    <span class="hljs-attribute">height</span>: auto;
+  }
+}
+
+<span class="hljs-keyword">@container</span> (<span class="hljs-attribute">min-width</span>: <span class="hljs-number">401px</span>) {
+  <span class="hljs-selector-class">.product-card</span> {
+    <span class="hljs-attribute">display</span>: flex;
+    <span class="hljs-attribute">align-items</span>: center;
+    <span class="hljs-attribute">gap</span>: <span class="hljs-number">20px</span>;
+  }
+
+  <span class="hljs-selector-class">.product-card</span> <span class="hljs-selector-tag">img</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">150px</span>;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;
+  }
+}
+</code></pre>
+<p>В этом примере, если ширина контейнера <code>.product-container</code> меньше 400px, карточка товара будет отображаться в вертикальном направлении с центрированным текстом. Если ширина контейнера больше 400px, карточка будет отображаться в горизонтальном направлении с изображением фиксированного размера.</p>
+<h2 id="преимущества-запросов-к-контейнерам">Преимущества запросов к контейнерам</h2>
+<ol>
+<li><strong>Гибкость</strong>: Запросы к контейнерам позволяют создавать более гибкие и модульные компоненты, которые могут адаптироваться к разным контекстам.</li>
+<li><strong>Упрощение кода</strong>: В отличие от медиа-запросов, которые часто требуют дублирования кода для разных размеров экрана, запросы к контейнерам позволяют управлять стилями на уровне отдельных компонентов.</li>
+<li><strong>Улучшение читаемости</strong>: Код становится более понятным, так как стили компонента находятся в одном месте и зависят от его собственного контекста.</li>
+</ol>
+<h2 id="поддержка-браузерами">Поддержка браузерами</h2>
+<p>На момент написания статьи запросы к контейнерам поддерживаются большинством современных браузеров, включая Chrome, Firefox и Edge. Однако, если вам нужно обеспечить поддержку в старых браузерах, можно использовать полифиллы или альтернативные подходы, такие как медиа-запросы.</p>
+<h2 id="заключение">Заключение</h2>
+<p>Запросы к контейнерам CSS — это мощный инструмент для создания адаптивного дизайна, который позволяет разработчикам создавать более гибкие и модульные интерфейсы. Используя эту технологию, вы можете адаптировать компоненты в зависимости от их контекста, что делает ваш код более читаемым и поддерживаемым. Если вы ещё не пробовали запросы к контейнерам в своих проектах, самое время начать экспериментировать и открыть для себя новые возможности веб-дизайна.</p>
+
+            
+            
+        </body>
+        </html>

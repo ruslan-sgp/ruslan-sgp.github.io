@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>&Ocy;&bcy;&zcy;&ocy;&rcy; styled-components &icy; Emotion &dcy;&lcy;&yacy;
+    &scy;&ocy;&zcy;&dcy;&acy;&ncy;&icy;&yacy; &rcy;&acy;&scy;&shcy;&icy;&rcy;&iecy;&ncy;&ncy;&ocy;&gcy;&ocy;
+    &scy;&tcy;&icy;&lcy;&yacy; &vcy; React &icy; Vue</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="обзор-styled-components-и-emotion-для-создания-расширенного-стиля-в-react-и-vue">Обзор styled-components и
+    Emotion для создания расширенного стиля в React и Vue</h1>
+  <p>В современной веб-разработке стилизация компонентов играет ключевую роль в создании удобных, поддерживаемых и
+    масштабируемых приложений. Библиотеки <strong>styled-components</strong> и <strong>Emotion</strong> стали
+    популярными инструментами для работы с CSS-in-JS, предоставляя разработчикам мощные возможности для создания
+    расширенных стилей в таких фреймворках, как React и Vue. В этой статье мы рассмотрим особенности этих библиотек, их
+    преимущества и недостатки, а также примеры использования.</p>
+  <h2 id="что-такое-css-in-js">Что такое CSS-in-JS?</h2>
+  <p>CSS-in-JS — это подход, при котором стили пишутся непосредственно в JavaScript-коде. Это позволяет создавать
+    изолированные стили для компонентов, избегая глобальных конфликтов и упрощая управление стилями в больших
+    приложениях. Библиотеки <strong>styled-components</strong> и <strong>Emotion</strong> являются одними из самых
+    популярных решений в этой области.</p>
+  <hr>
+  <h2 id="styled-components">Styled-components</h2>
+  <p><strong>Styled-components</strong> — это библиотека для создания стилизованных компонентов в React. Она позволяет
+    писать CSS-код непосредственно в JavaScript, используя шаблонные литералы.</p>
+  <h3 id="основные-особенности">Основные особенности:</h3>
+  <ul>
+    <li><strong>Изоляция стилей</strong>: Каждый компонент имеет свои уникальные стили, что предотвращает конфликты.
+    </li>
+    <li><strong>Динамические стили</strong>: Возможность передавать пропсы в стили, что позволяет изменять их в
+      зависимости от состояния компонента.</li>
+    <li><strong>Тематизация</strong>: Встроенная поддержка тем, что упрощает создание единого дизайна для всего
+      приложения.</li>
+    <li><strong>Синтаксис, близкий к CSS</strong>: Использование шаблонных литералов делает код интуитивно понятным.
+    </li>
+  </ul>
+  <h3 id="пример-использования-в-react">Пример использования в React:</h3>
+  <pre><code class="language-javascript"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;styled-components&#x27;</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-title class_">Button</span> = styled.<span class="hljs-property">button</span><span class="hljs-string">`
+  background-color: <span class="hljs-subst">${props =&gt; props.primary ? <span class="hljs-string">&#x27;blue&#x27;</span> : <span class="hljs-string">&#x27;gray&#x27;</span>}</span>;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &amp;:hover {
+    opacity: 0.8;
+  }
+`</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span> <span class="hljs-attr">primary</span>&gt;</span>Primary Button<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>&gt;</span>Secondary Button<span class="hljs-tag">&lt;/<span class="hljs-name">Button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <h3 id="преимущества">Преимущества:</h3>
+  <ul>
+    <li>Простота использования.</li>
+    <li>Хорошая интеграция с React.</li>
+    <li>Поддержка серверного рендеринга (SSR).</li>
+  </ul>
+  <h3 id="недостатки">Недостатки:</h3>
+  <ul>
+    <li>Меньшая гибкость по сравнению с Emotion.</li>
+    <li>Ограниченная поддержка Vue.</li>
+  </ul>
+  <hr>
+  <h2 id="emotion">Emotion</h2>
+  <p><strong>Emotion</strong> — это более универсальная библиотека для работы с CSS-in-JS, которая поддерживает как
+    React, так и Vue. Она предоставляет больше возможностей для кастомизации и оптимизации.</p>
+  <h3 id="основные-особенности-1">Основные особенности:</h3>
+  <ul>
+    <li><strong>Гибкость</strong>: Поддержка как шаблонных литералов, так и объектов JavaScript.</li>
+    <li><strong>Высокая производительность</strong>: Оптимизированная работа с большими приложениями.</li>
+    <li><strong>Поддержка SSR</strong>: Встроенная поддержка серверного рендеринга.</li>
+    <li><strong>Плагины и расширения</strong>: Возможность использования дополнительных инструментов для улучшения
+      разработки.</li>
+  </ul>
+  <h3 id="пример-использования-в-react-1">Пример использования в React:</h3>
+  <pre><code class="language-javascript"><span class="hljs-comment">/** <span class="hljs-doctag">@jsxImportSource</span> <span class="hljs-doctag">@emotion</span>/react */</span>
+<span class="hljs-keyword">import</span> { css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@emotion/react&#x27;</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">buttonStyle</span> = (<span class="hljs-params">primary</span>) =&gt; css`<span class="language-css">
+  <span class="hljs-attribute">background-color</span>: </span><span class="hljs-subst">${primary ? <span class="hljs-string">&#x27;blue&#x27;</span> : <span class="hljs-string">&#x27;gray&#x27;</span>}</span><span class="language-css">;
+  <span class="hljs-attribute">color</span>: white;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+  <span class="hljs-attribute">border</span>: none;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+  <span class="hljs-attribute">cursor</span>: pointer;
+
+  &amp;<span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.8</span>;
+  }
+`</span>;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">css</span>=<span class="hljs-string">{buttonStyle(true)}</span>&gt;</span>Primary Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">css</span>=<span class="hljs-string">{buttonStyle(false)}</span>&gt;</span>Secondary Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <h3 id="пример-использования-во-vue">Пример использования во Vue:</h3>
+  <pre><code class="language-javascript">&lt;template&gt;
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;buttonStyle(true)&quot;</span>&gt;</span>Primary Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+  <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">:class</span>=<span class="hljs-string">&quot;buttonStyle(false)&quot;</span>&gt;</span>Secondary Button<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
+&lt;/template&gt;
+
+<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">
+<span class="hljs-keyword">import</span> { css } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@emotion/css&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-attr">methods</span>: {
+    <span class="hljs-title function_">buttonStyle</span>(<span class="hljs-params">primary</span>) {
+      <span class="hljs-keyword">return</span> css`<span class="language-css">
+        <span class="hljs-attribute">background-color</span>: </span><span class="hljs-subst">${primary ? <span class="hljs-string">&#x27;blue&#x27;</span> : <span class="hljs-string">&#x27;gray&#x27;</span>}</span><span class="language-css">;
+        <span class="hljs-attribute">color</span>: white;
+        <span class="hljs-attribute">padding</span>: <span class="hljs-number">10px</span> <span class="hljs-number">20px</span>;
+        <span class="hljs-attribute">border</span>: none;
+        <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">5px</span>;
+        <span class="hljs-attribute">cursor</span>: pointer;
+
+        &amp;<span class="hljs-selector-pseudo">:hover</span> {
+          <span class="hljs-attribute">opacity</span>: <span class="hljs-number">0.8</span>;
+        }
+      `</span>;
+    },
+  },
+};
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+  <h3 id="преимущества-1">Преимущества:</h3>
+  <ul>
+    <li>Поддержка React и Vue.</li>
+    <li>Большая гибкость в написании стилей.</li>
+    <li>Высокая производительность.</li>
+  </ul>
+  <h3 id="недостатки-1">Недостатки:</h3>
+  <ul>
+    <li>Более сложный синтаксис по сравнению с styled-components.</li>
+    <li>Требует большего внимания к настройке.</li>
+  </ul>
+  <hr>
+  <h2 id="сравнение-styled-components-и-emotion">Сравнение styled-components и Emotion</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Характеристика</th>
+        <th>Styled-components</th>
+        <th>Emotion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Поддержка React</td>
+        <td>Да</td>
+        <td>Да</td>
+      </tr>
+      <tr>
+        <td>Поддержка Vue</td>
+        <td>Ограниченная</td>
+        <td>Да</td>
+      </tr>
+      <tr>
+        <td>Синтаксис</td>
+        <td>Шаблонные литералы</td>
+        <td>Шаблонные литералы и объекты</td>
+      </tr>
+      <tr>
+        <td>Производительность</td>
+        <td>Хорошая</td>
+        <td>Высокая</td>
+      </tr>
+      <tr>
+        <td>Гибкость</td>
+        <td>Средняя</td>
+        <td>Высокая</td>
+      </tr>
+      <tr>
+        <td>Тематизация</td>
+        <td>Встроенная</td>
+        <td>Требует настройки</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h2 id="когда-использовать-styled-components">Когда использовать styled-components?</h2>
+  <ul>
+    <li>Если вы работаете исключительно с React.</li>
+    <li>Если вам нужна простота и минимальная настройка.</li>
+    <li>Если вы предпочитаете синтаксис, близкий к CSS.</li>
+  </ul>
+  <h2 id="когда-использовать-emotion">Когда использовать Emotion?</h2>
+  <ul>
+    <li>Если вам нужна поддержка Vue.</li>
+    <li>Если требуется высокая производительность и гибкость.</li>
+    <li>Если вы готовы потратить время на настройку и изучение дополнительных возможностей.</li>
+  </ul>
+  <hr>
+  <h2 id="заключение">Заключение</h2>
+  <p>Обе библиотеки, <strong>styled-components</strong> и <strong>Emotion</strong>, предоставляют мощные инструменты для
+    работы с CSS-in-JS. Выбор между ними зависит от ваших предпочтений, стека технологий и требований проекта. Если вы
+    ищете простое и быстрое решение для React, <strong>styled-components</strong> станет отличным выбором. Если же вам
+    нужна универсальность и гибкость, особенно в проектах с использованием Vue, <strong>Emotion</strong> будет более
+    подходящим вариантом.</p>
+  <p>В любом случае, обе библиотеки помогут вам создавать современные, стилизованные и поддерживаемые веб-приложения.
+  </p>
+
+  <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</body>
+
+</html>

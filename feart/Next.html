@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>&ast;&ast;1&period; &CHcy;&tcy;&ocy; &tcy;&acy;&kcy;&ocy;&iecy; &rcy;&iecy;&ncy;&dcy;&iecy;&rcy;&icy;&ncy;&gcy;
+    &ncy;&acy; &scy;&tcy;&ocy;&rcy;&ocy;&ncy;&iecy; &scy;&iecy;&rcy;&vcy;&iecy;&rcy;&acy;&quest;&ast;&ast;</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <p><strong>Методы рендеринга на стороне сервера с использованием Next.js</strong></p>
+  <p>Next.js — это мощный фреймворк для React, который предоставляет инструменты для серверного рендеринга (Server-Side
+    Rendering, SSR), статической генерации (Static Site Generation, SSG) и гибридного подхода к созданию веб-приложений.
+    В этой статье мы рассмотрим основные методы рендеринга на стороне сервера, которые можно использовать в Next.js, их
+    преимущества и примеры реализации.</p>
+  <hr>
+  <h3 id="1-что-такое-рендеринг-на-стороне-сервера"><strong>1. Что такое рендеринг на стороне сервера?</strong></h3>
+  <p>Рендеринг на стороне сервера — это процесс, при котором HTML-страница генерируется на сервере перед её отправкой
+    клиенту. Это позволяет ускорить загрузку страницы, улучшить SEO и обеспечить лучшую пользовательскую
+    производительность, особенно на медленных устройствах.</p>
+  <p>SSR активно используется для приложений, где контент изменяется динамически и должен быть доступен для индексации
+    поисковыми системами.</p>
+  <hr>
+  <h3 id="2-методы-рендеринга-в-nextjs"><strong>2. Методы рендеринга в Next.js</strong></h3>
+  <p>Next.js предоставляет гибкость в выборе метода рендеринга для каждой страницы. Рассмотрим основные подходы:</p>
+  <h4 id="a-server-side-rendering-ssr"><strong>a) Server-Side Rendering (SSR)</strong></h4>
+  <p>Этот метод предполагает генерацию HTML на сервере каждый раз, когда приходит запрос от клиента. В Next.js он
+    используется с функцией <code>getServerSideProps</code>.</p>
+  <p><strong>Когда использовать SSR:</strong></p>
+  <ul>
+    <li>Когда данные меняются часто и требуется их актуальность при каждом запросе.</li>
+    <li>Для страниц с динамическим контентом (например, страницы профиля, новостные ленты).</li>
+  </ul>
+  <p><strong>Пример реализации SSR:</strong></p>
+  <pre><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getServerSideProps</span>(<span class="hljs-params">context</span>) {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>);
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">props</span>: { data }, <span class="hljs-comment">// Данные передаются в компонент страницы</span>
+  };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params">{ data }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Данные с сервера<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify(data, null, 2)}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <hr>
+  <h4 id="b-static-site-generation-ssg"><strong>b) Static Site Generation (SSG)</strong></h4>
+  <p>SSG позволяет создавать статические HTML-страницы на этапе сборки (build time). Это полезно для страниц, которые
+    редко меняются.</p>
+  <p><strong>Когда использовать SSG:</strong></p>
+  <ul>
+    <li>Для контента, который не требует частого обновления (например, документация, блоги).</li>
+    <li>Когда важно обеспечить максимальную производительность за счёт использования статических страниц.</li>
+  </ul>
+  <p><strong>Пример реализации SSG:</strong></p>
+  <pre><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getStaticProps</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>);
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">props</span>: { data }, <span class="hljs-comment">// Данные передаются в компонент страницы</span>
+  };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params">{ data }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Статически сгенерированные данные<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify(data, null, 2)}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <p><strong>Вариант с динамическими маршрутами (getStaticPaths):</strong></p>
+  <p>Если требуется создать страницы для динамических маршрутов (например, <code>/posts/1</code>,
+    <code>/posts/2</code>), можно использовать функцию <code>getStaticPaths</code>:</p>
+  <pre><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getStaticPaths</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/posts&#x27;</span>);
+  <span class="hljs-keyword">const</span> posts = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+
+  <span class="hljs-keyword">const</span> paths = posts.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">post</span> =&gt;</span> ({
+    <span class="hljs-attr">params</span>: { <span class="hljs-attr">id</span>: post.<span class="hljs-property">id</span>.<span class="hljs-title function_">toString</span>() },
+  }));
+
+  <span class="hljs-keyword">return</span> { paths, <span class="hljs-attr">fallback</span>: <span class="hljs-literal">false</span> };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getStaticProps</span>(<span class="hljs-params">{ params }</span>) {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">`https://api.example.com/posts/<span class="hljs-subst">${params.id}</span>`</span>);
+  <span class="hljs-keyword">const</span> post = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">props</span>: { post },
+  };
+}
+</code></pre>
+  <hr>
+  <h4 id="c-incremental-static-regeneration-isr"><strong>c) Incremental Static Regeneration (ISR)</strong></h4>
+  <p>ISR позволяет обновлять статически сгенерированные страницы без необходимости полного пересборки приложения. Для
+    этого используется параметр <code>revalidate</code> в <code>getStaticProps</code>.</p>
+  <p><strong>Когда использовать ISR:</strong></p>
+  <ul>
+    <li>Для контента, который обновляется с определённой частотой (например, новости, акции).</li>
+    <li>Чтобы избежать частой полной сборки проекта.</li>
+  </ul>
+  <p><strong>Пример реализации ISR:</strong></p>
+  <pre><code class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getStaticProps</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>);
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> res.<span class="hljs-title function_">json</span>();
+
+  <span class="hljs-keyword">return</span> {
+    <span class="hljs-attr">props</span>: { data },
+    <span class="hljs-attr">revalidate</span>: <span class="hljs-number">10</span>, <span class="hljs-comment">// Обновление данных каждые 10 секунд</span>
+  };
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params">{ data }</span>) {
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Данные с ISR<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify(data, null, 2)}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <hr>
+  <h4 id="d-клиентский-рендеринг-csr"><strong>d) Клиентский рендеринг (CSR)</strong></h4>
+  <p>Хотя это не метод серверного рендеринга, в Next.js можно использовать клиентский рендеринг. Это удобно для страниц,
+    которые полностью зависят от взаимодействия пользователя и не требуют SEO.</p>
+  <p><strong>Пример реализации CSR:</strong></p>
+  <pre><code class="language-javascript"><span class="hljs-keyword">import</span> { useEffect, useState } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">Page</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> [data, setData] = <span class="hljs-title function_">useState</span>(<span class="hljs-literal">null</span>);
+
+  <span class="hljs-title function_">useEffect</span>(<span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&#x27;https://api.example.com/data&#x27;</span>)
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> res.<span class="hljs-title function_">json</span>())
+      .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-title function_">setData</span>(data));
+  }, []);
+
+  <span class="hljs-keyword">if</span> (!data) <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Загрузка...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;
+
+  <span class="hljs-keyword">return</span> (
+    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Данные с клиента<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify(data, null, 2)}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+  );
+}
+</code></pre>
+  <hr>
+  <h3 id="3-гибридный-подход"><strong>3. Гибридный подход</strong></h3>
+  <p>Next.js позволяет комбинировать различные методы рендеринга в одном приложении. Например, вы можете использовать
+    SSG для страниц с постоянным контентом, SSR для страниц с динамическим контентом, а CSR — для интерактивных частей.
+  </p>
+  <hr>
+  <h3 id="4-преимущества-использования-ssr-в-nextjs"><strong>4. Преимущества использования SSR в Next.js</strong></h3>
+  <ul>
+    <li><strong>SEO-оптимизация:</strong> Поисковые системы получают предварительно сгенерированный HTML.</li>
+    <li><strong>Улучшенная производительность:</strong> Контент доступен пользователю сразу после загрузки страницы.
+    </li>
+    <li><strong>Гибкость:</strong> Возможность выбирать наиболее подходящий метод рендеринга для каждой страницы.</li>
+  </ul>
+  <hr>
+  <h3 id="заключение"><strong>Заключение</strong></h3>
+  <p>Next.js предоставляет широкий набор инструментов для рендеринга на стороне сервера. Выбор подхода зависит от ваших
+    потребностей в актуальности данных, производительности и SEO. Используя Server-Side Rendering, Static Site
+    Generation или их комбинацию, можно создавать быстрые, гибкие и масштабируемые приложения.</p>
+
+  <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</body>
+
+</html>

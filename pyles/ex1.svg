@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="862.66669"
+   height="864"
+   viewBox="0 0 862.66669 864"
+   sodipodi:docname="turtle1.eps"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath18">
+      <path
+         d="M 0,7 V 6473 H 6463 V 7 Z"
+         id="path16" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="ink_ext_XXXXXX"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,864)">
+    <g
+       id="g10"
+       transform="scale(0.1)">
+      <g
+         id="g12">
+        <g
+           id="g14"
+           clip-path="url(#clipPath18)">
+          <path
+             d="m 3247.99,3222.01 599.7,2998.5 599.7,-2998.5 -1799.1,1799.1 h 2398.8 l -1799.1,-1799.1"
+             style="fill:none;stroke:#ff0000;stroke-width:29.985;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path20" />
+          <g
+             id="g22"
+             transform="scale(10)">
+            <text
+               xml:space="preserve"
+               transform="matrix(1,0,0,-1,324.199,323.245)"
+               style="font-variant:normal;font-weight:normal;font-size:4.7976px;font-family:Helvetica;-inkscape-font-specification:Helvetica;writing-mode:lr-tb;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+               id="text32"><tspan
+                 x="0 1.5976008 4.2650666 5.5987992 8.2662649 10.93373 12.267463 14.934929 16.268661 18.936127 21.603592"
+                 y="0"
+                 sodipodi:role="line"
+                 id="tspan24">(0.00,0.00)</tspan><tspan
+                 x="59.970299 61.567902 64.235367 66.902832 69.570297 70.90403 73.571495 76.23896 77.572693 80.240158 82.907623 85.575089 86.908821 89.576286 92.243752"
+                 y="-299.85001"
+                 sodipodi:role="line"
+                 id="tspan26">(100.00,500.00)</tspan><tspan
+                 x="119.9402 121.5378 124.20527 126.87273 129.54019 130.87393 133.5414 136.20886 137.54259 140.21005 141.54379 144.21126 146.87872"
+                 y="0"
+                 sodipodi:role="line"
+                 id="tspan28">(200.00,0.00)</tspan><tspan
+                 x="-59.969799 -58.3722 -56.774597 -54.107132 -51.439667 -48.772202 -47.438469 -44.771004 -42.103539 -40.769806 -38.102341 -35.434875 -32.767406 -31.433676 -28.766209 -26.098743 179.9102 181.5078 184.17526 186.84273 189.51019 190.84393 193.5114 196.17886 197.51259 200.18005 202.84752 205.51498 206.84872 209.51619 212.18365"
+                 y="-179.91"
+                 sodipodi:role="line"
+                 id="tspan30">(-100.00,300.00)(300.00,300.00)</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

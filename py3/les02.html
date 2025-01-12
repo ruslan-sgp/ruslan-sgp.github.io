@@ -631,12 +631,322 @@ a = <span class="hljs-number">5.5</span>
 🫐 Blueberries
 🥥 Coconut
 </code></pre>
+  <h2 id="дополнительная-информация">Дополнительная информация</h2>
+  <p>Вот список операторов в Python, сгруппированных по категориям:</p>
+  <h3 id="1-арифметические-операторы"><strong>1. Арифметические операторы</strong></h3>
+  <p>Используются для математических операций.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>+</code></td>
+        <td>Сложение</td>
+        <td><code>5 + 3</code></td>
+        <td><code>8</code></td>
+      </tr>
+      <tr>
+        <td><code>-</code></td>
+        <td>Вычитание</td>
+        <td><code>5 - 3</code></td>
+        <td><code>2</code></td>
+      </tr>
+      <tr>
+        <td><code>*</code></td>
+        <td>Умножение</td>
+        <td><code>5 * 3</code></td>
+        <td><code>15</code></td>
+      </tr>
+      <tr>
+        <td><code>/</code></td>
+        <td>Деление</td>
+        <td><code>5 / 3</code></td>
+        <td><code>1.666...</code></td>
+      </tr>
+      <tr>
+        <td><code>//</code></td>
+        <td>Целочисленное деление</td>
+        <td><code>5 // 3</code></td>
+        <td><code>1</code></td>
+      </tr>
+      <tr>
+        <td><code>%</code></td>
+        <td>Остаток от деления</td>
+        <td><code>5 % 3</code></td>
+        <td><code>2</code></td>
+      </tr>
+      <tr>
+        <td><code>**</code></td>
+        <td>Возведение в степень</td>
+        <td><code>2 ** 3</code></td>
+        <td><code>8</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="2-операторы-сравнения-реляционные"><strong>2. Операторы сравнения (реляционные)</strong></h3>
+  <p>Используются для сравнения значений, возвращают <code>True</code> или <code>False</code>.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>==</code></td>
+        <td>Равно</td>
+        <td><code>5 == 3</code></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>!=</code></td>
+        <td>Не равно</td>
+        <td><code>5 != 3</code></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>&gt;</code></td>
+        <td>Больше</td>
+        <td><code>5 &gt; 3</code></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;</code></td>
+        <td>Меньше</td>
+        <td><code>5 &lt; 3</code></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>&gt;=</code></td>
+        <td>Больше или равно</td>
+        <td><code>5 &gt;= 3</code></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;=</code></td>
+        <td>Меньше или равно</td>
+        <td><code>5 &lt;= 3</code></td>
+        <td><code>False</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="3-логические-операторы"><strong>3. Логические операторы</strong></h3>
+  <p>Используются для объединения условных выражений.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>and</code></td>
+        <td>Логическое И</td>
+        <td><code>True and False</code></td>
+        <td><code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>or</code></td>
+        <td>Логическое ИЛИ</td>
+        <td><code>True or False</code></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>not</code></td>
+        <td>Логическое НЕ</td>
+        <td><code>not True</code></td>
+        <td><code>False</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="4-операторы-присваивания"><strong>4. Операторы присваивания</strong></h3>
+  <p>Используются для присваивания значений переменным.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Эквивалентно</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>=</code></td>
+        <td>Присваивание</td>
+        <td><code>x = 5</code></td>
+        <td><code>x = 5</code></td>
+      </tr>
+      <tr>
+        <td><code>+=</code></td>
+        <td>Сложение с присваиванием</td>
+        <td><code>x += 3</code></td>
+        <td><code>x = x + 3</code></td>
+      </tr>
+      <tr>
+        <td><code>-=</code></td>
+        <td>Вычитание с присваиванием</td>
+        <td><code>x -= 3</code></td>
+        <td><code>x = x - 3</code></td>
+      </tr>
+      <tr>
+        <td><code>*=</code></td>
+        <td>Умножение с присваиванием</td>
+        <td><code>x *= 3</code></td>
+        <td><code>x = x * 3</code></td>
+      </tr>
+      <tr>
+        <td><code>/=</code></td>
+        <td>Деление с присваиванием</td>
+        <td><code>x /= 3</code></td>
+        <td><code>x = x / 3</code></td>
+      </tr>
+      <tr>
+        <td><code>//=</code></td>
+        <td>Целочисленное деление с присваиванием</td>
+        <td><code>x //= 3</code></td>
+        <td><code>x = x // 3</code></td>
+      </tr>
+      <tr>
+        <td><code>%=</code></td>
+        <td>Остаток от деления с присваиванием</td>
+        <td><code>x %= 3</code></td>
+        <td><code>x = x % 3</code></td>
+      </tr>
+      <tr>
+        <td><code>**=</code></td>
+        <td>Возведение в степень с присваиванием</td>
+        <td><code>x **= 3</code></td>
+        <td><code>x = x ** 3</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="5-побитовые-операторы"><strong>5. Побитовые операторы</strong></h3>
+  <p>Работают на уровне битов.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&amp;</code></td>
+        <td>И</td>
+        <td><code>5 &amp; 3</code></td>
+        <td><code>1</code></td>
+      </tr>
+      <tr>
+        <td>`</td>
+        <td>`</td>
+        <td>ИЛИ</td>
+        <td>`5</td>
+      </tr>
+      <tr>
+        <td><code>^</code></td>
+        <td>Исключающее ИЛИ</td>
+        <td><code>5 ^ 3</code></td>
+        <td><code>6</code></td>
+      </tr>
+      <tr>
+        <td><code>~</code></td>
+        <td>НЕ</td>
+        <td><code>~5</code></td>
+        <td><code>-6</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;&lt;</code></td>
+        <td>Сдвиг влево</td>
+        <td><code>5 &lt;&lt; 1</code></td>
+        <td><code>10</code></td>
+      </tr>
+      <tr>
+        <td><code>&gt;&gt;</code></td>
+        <td>Сдвиг вправо</td>
+        <td><code>5 &gt;&gt; 1</code></td>
+        <td><code>2</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="6-операторы-вхождения"><strong>6. Операторы вхождения</strong></h3>
+  <p>Проверяют, содержится ли значение в коллекции.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>in</code></td>
+        <td>Содержится в коллекции</td>
+        <td><code>'a' in 'apple'</code></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>not in</code></td>
+        <td>Не содержится</td>
+        <td><code>'x' not in 'apple'</code></td>
+        <td><code>True</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="7-операторы-идентичности"><strong>7. Операторы идентичности</strong></h3>
+  <p>Проверяют, являются ли два объекта одним и тем же.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Оператор</th>
+        <th>Описание</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>is</code></td>
+        <td>Тот же объект</td>
+        <td><code>x is y</code></td>
+        <td><code>True</code>/<code>False</code></td>
+      </tr>
+      <tr>
+        <td><code>is not</code></td>
+        <td>Не тот же объект</td>
+        <td><code>x is not y</code></td>
+        <td><code>True</code>/<code>False</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="8-специальные-операторы"><strong>8. Специальные операторы</strong></h3>
+  <ul>
+    <li><strong>Тернарный условный оператор:</strong>
+      <pre><code class="language-python">result = <span class="hljs-string">&quot;Да&quot;</span> <span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;Нет&quot;</span>
+</code></pre>
+    </li>
+  </ul>
+
 
   <footer>
     <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
   </footer>
-
-
 
 </body>
 

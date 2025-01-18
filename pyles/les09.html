@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 9 - Волшебство Python и Turtle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2 - Основы Python</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-9">Урок 9</h1>
+  <p>Сегодня мы повторяли ранее изученный материал и продолжали погружаться глубже в волшебство Python и Turtle! 🐢✨</p>
+  <h2 id="раскрываем-тайны-рисования">Раскрываем тайны рисования</h2>
+  <h3 id="-первое-упражнение-звёзды">🌟 Первое упражнение: Звёзды!</h3>
+  <p>Звёзды — это не только красиво, но и отличный способ прокачать свои навыки:</p>
+  <ul>
+    <li>
+      <p><strong>Мы использовали два способа рисовать звёзды:</strong></p>
+      <ol>
+        <li>С помощью магического <code>goto</code>.</li>
+        <li>Используя <code>forward</code> и повороты.</li>
+      </ol>
+    </li>
+    <li>
+      <p><strong>Цикл <code>for</code> — секретное оружие художника.</strong><br>
+        Вместо десяток строк кода — всего пару строк и звезда готова!</p>
+    </li>
+    <li>
+      <p><strong>Функции — твои суперспособности.</strong></p>
+      <ul>
+        <li>Создавай их с помощью <s>ключевого</s> волшебного слова <code>def</code>.</li>
+      </ul>
+    </li>
+  </ul>
+  <p><img src="def.png" alt="Объявление функций при помощи def"></p>
+  <ul>
+    <li>
+      <p>Прокачиваем, добавляя аргументы! Например, сделай функцию, которая рисует звёзды разного размера при помощи
+        аргумента <code>size</code>. (пример кода: <a href="les08.html">на прошлом уроке</a>)</p>
+    </li>
+    <li>
+      <p><strong>Многоконечные звёзды:</strong></p>
+      <ul>
+        <li>Изменяя число циклов, и подбирая угол между сторонами, мы рисовали многоконечные звёзды.</li>
+        <li>Сколько бы концов ни было, всё будет точно и красиво!</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Проверь код из <a href="les08.html">прошлого урока</a>, чтобы не забыть секреты!</strong></p>
+  <h3 id="️-рисуем-координатную-сетку">🗺️ Рисуем координатную сетку</h3>
+  <p>Как стать мастером координат? Секрет в том, чтобы разбить всё на маленькие шаги:</p>
+  <ul>
+    <li>
+      <p><strong>Циклы для повторяющихся линий:</strong><br>
+        Вспомни, как легко рисовать одинаковые штуки с помощью <code>for</code>.</p>
+    </li>
+    <li>
+      <p><strong>Переменные:</strong><br>
+        Используем <code>size</code>, <code>nlines</code>, <code>step</code>, чтобы наш код был понятным и гибким.</p>
+    </li>
+    <li>
+      <p><strong>Координаты:</strong><br>
+        Учимся вычислять, куда должна двигаться черепашка!</p>
+    </li>
+    <li>
+      <p><strong>Подписи к линиям:</strong><br>
+        Используем функцию <code>write</code>!</p>
+    </li>
+  </ul>
+  <p>Вот магический код:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+
+width(<span class="hljs-number">5</span>)
+speed(<span class="hljs-number">0</span>)
+size = <span class="hljs-number">500</span>
+
+<span class="hljs-comment"># нарисовать ось Ox</span>
+penup()
+goto(-size, <span class="hljs-number">0</span>)
+pendown()
+goto(size, <span class="hljs-number">0</span>)
+setheading(<span class="hljs-number">0</span>)
+stamp()
+
+<span class="hljs-comment"># нарисовать ось Oy</span>
+penup()
+goto(<span class="hljs-number">0</span>, -size)
+pendown()
+goto(<span class="hljs-number">0</span>, size)
+setheading(<span class="hljs-number">90</span>)
+stamp()
+
+<span class="hljs-comment"># нарисовать дополнительные линии</span>
+width(<span class="hljs-number">2</span>)
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+nlines = <span class="hljs-number">5</span>
+step = size / nlines
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, nlines):
+    <span class="hljs-comment"># рисуем горизонтальную линию выше оси Ox</span>
+    penup()
+    y = i * step
+    goto(-size, y)
+    pendown()
+    goto(size, y)
+    write(y)
+
+    <span class="hljs-comment"># рисуем горизонтальную линию ниже оси Ox</span>
+    penup()
+    goto(-size, -y)
+    pendown()
+    goto(size, -y)
+    write(-y)
+
+    <span class="hljs-comment"># рисуем вертикальную линию правее оси Oy</span>
+    penup()
+    goto(y, -size)
+    pendown()
+    goto(y, size)
+    write(y)
+
+    <span class="hljs-comment"># рисуем вертикальную линию левее оси Oy</span>
+    penup()
+    goto(-y, -size)
+    pendown()
+    goto(-y, size)
+    write(-y)
+
+done()
+</code></pre>
+  <p>🔍 <strong>Результат:</strong> Готовая координатная сетка:<br>
+    <img src="09.coord.svg" alt="Координатная сетка">
+  </p>
+  <h3 id="-дом-из-мечты">🏠 Дом из мечты</h3>
+  <p>Теперь добавим немного творчества и построим дом.</p>
+  <ul>
+    <li>Используем файл <code>coord</code> при помощи <code>import</code>, чтобы видеть, где рисуем.</li>
+    <li>Добавляем цвета для красоты.</li>
+  </ul>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> coord <span class="hljs-keyword">import</span> step
+
+width(<span class="hljs-number">4</span>)
+color(<span class="hljs-string">&quot;brown&quot;</span>)
+
+<span class="hljs-comment"># рисуем стены</span>
+penup()
+setheading(<span class="hljs-number">270</span>)
+goto(-<span class="hljs-number">3</span> * step, step)
+begin_fill()
+fillcolor(<span class="hljs-string">&#x27;sienna3&#x27;</span>)
+pendown()
+forward(<span class="hljs-number">5</span> * step)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">6</span> * step)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">5</span> * step)
+end_fill()
+
+<span class="hljs-comment"># рисуем крышу</span>
+penup()
+begin_fill()
+goto(-<span class="hljs-number">4</span>*step,step)
+pendown()
+goto(<span class="hljs-number">4</span>*step,step)
+goto(<span class="hljs-number">0</span>,<span class="hljs-number">4</span>*step)
+goto(-<span class="hljs-number">4</span>*step,step)
+fillcolor(<span class="hljs-string">&#x27;salmon4&#x27;</span>)
+end_fill()
+
+done()
+</code></pre>
+  <p>🏡 <strong>Результат:</strong><br>
+    <img src="09.house.svg" alt="Рисунок дома">
+  </p>
+  <h3 id="-вопросы-для-размышления-и-обсуждения">🧠 Вопросы для размышления и обсуждения</h3>
+  <ul>
+    <li>Какой угол поворота нужно выбрать для рисования пятиконечной звезды?</li>
+    <li>А если у звезды больше или меньше концов? Как посчитать углы?</li>
+  </ul>
+  <p>👉 Подсказка: читаем ответы <a
+      href="https://stackoverflow.com/questions/75268563/not-able-to-understand-why-the-angles-for-drawing-star-using-pythons-turtle-mod">здесь</a>.
+  </p>
+  <h3 id="-домашнее-задание">📝 Домашнее задание</h3>
+  <p><strong>Миссия:</strong> Доработать дом.</p>
+  <ul>
+    <li>Добавь окна, дверь, сад вокруг.</li>
+    <li>Идеи можно взять из <a href="les06.html">урока 6</a>.</li>
+  </ul>
+  <h3 id="-дополнительные-материалы">📚 Дополнительные материалы</h3>
+  <p>🎨 <a href="https://cs111.wellesley.edu/labs/lab02/colors">Таблица цветов для Turtle</a></p>
+  <p>💡 <strong>Совет:</strong> Экспериментируй! Попробуй менять размеры, углы и цвета. Чем больше пробуешь, тем
+    интереснее результат!</p>
+  <p>Делись результатами и задавай вопросы! У тебя отлично получается!</p>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

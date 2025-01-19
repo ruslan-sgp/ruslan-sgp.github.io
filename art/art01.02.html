@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 9 - Волшебство Python и Turtle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2 - Практика рисования</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <p>Изучаем новые инструменты и практикуемся на простых упражнениях</p>
+  <h4 id="1-лассо-lasso-tool">1. <strong>Лассо (Lasso Tool)</strong></h4>
+  <ul>
+    <li><strong>Что это?</strong><br>
+      Инструмент для выделения нужной части рисунка.</li>
+    <li><strong>Где найти?</strong><br>
+      Нажми на значок &quot;S&quot; (Selection Tool) в верхнем меню.</li>
+    <li><strong>Как использовать?</strong>
+      <ol>
+        <li>Выбери режим выделения: <strong>Рука</strong>, <strong>Прямоугольник</strong>, <strong>Эллипс</strong> или
+          <strong>Многоугольник</strong>.
+        </li>
+        <li>Обведи или нарисуй область, которую хочешь выделить.</li>
+      </ol>
+    </li>
+    <li><strong>Совет:</strong> Используй лассо, чтобы изолировать детали, которые нужно изменить или переместить.</li>
+  </ul>
+  <h4 id="2-выделение-selection">2. <strong>Выделение (Selection)</strong></h4>
+  <ul>
+    <li><strong>Что это?</strong><br>
+      Выбор части изображения для работы только с ней.</li>
+    <li><strong>Режимы выделения:</strong>
+      <ul>
+        <li><strong>Freehand (ручное)</strong> – рисуешь вручную область выделения.</li>
+        <li><strong>Automatic (авто)</strong> – нажми на область, чтобы выделить всю похожую часть.</li>
+        <li><strong>Rectangle/Ellipse (прямоугольник/овал)</strong> – геометрические выделения.</li>
+      </ul>
+    </li>
+    <li><strong>Как снять выделение?</strong><br>
+      Нажми кнопку <strong>&quot;Invert&quot; (инвертировать)</strong> или просто нажми в пустое место.</li>
+  </ul>
+  <h4 id="3-преобразование-transform-tool">3. <strong>Преобразование (Transform Tool)</strong></h4>
+  <ul>
+    <li><strong>Что это?</strong><br>
+      Позволяет изменять размер, поворачивать или деформировать выделенные части.</li>
+    <li><strong>Где найти?</strong><br>
+      Нажми на стрелочку в верхнем меню.</li>
+    <li><strong>Как использовать?</strong>
+      <ul>
+        <li>Режимы:
+          <ul>
+            <li><strong>Freeform (свободное)</strong> – растягивай в любом направлении.</li>
+            <li><strong>Uniform (равномерное)</strong> – сохраняется пропорция.</li>
+            <li><strong>Distort (искажение)</strong> – тяни углы отдельно.</li>
+            <li><strong>Warp (деформация)</strong> – позволяет изогнуть часть рисунка.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Совет:</strong> Удерживай палец на экране, чтобы угол поворота фиксировался кратно 15°.</li>
+  </ul>
+  <h4 id="4-эффекты-наложения-blend-modes">4. <strong>Эффекты наложения (Blend Modes)</strong></h4>
+  <ul>
+    <li><strong>Что это?</strong><br>
+      Способ взаимодействия слоёв друг с другом (например, затемнение или осветление).</li>
+    <li><strong>Где найти?</strong><br>
+      Нажми на букву &quot;N&quot; на слое.</li>
+    <li><strong>Популярные режимы:</strong>
+      <ul>
+        <li><strong>Multiply</strong> – затемняет.</li>
+        <li><strong>Screen</strong> – осветляет.</li>
+        <li><strong>Overlay</strong> – усиливает цвета.</li>
+        <li><strong>Soft Light</strong> – мягкое наложение.</li>
+      </ul>
+    </li>
+    <li><strong>Совет:</strong> Экспериментируй с прозрачностью слоя для лучшего результата.</li>
+  </ul>
+  <h4 id="5-прикрепление-clipping-masks">5. <strong>Прикрепление (Clipping Masks)</strong></h4>
+  <ul>
+    <li><strong>Что это?</strong><br>
+      Позволяет рисовать или добавлять эффекты только внутри одного слоя.</li>
+    <li><strong>Как сделать?</strong>
+      <ol>
+        <li>Создай новый слой над базовым.</li>
+        <li>Нажми на слой и выбери <strong>&quot;Clipping Mask&quot;</strong>.</li>
+      </ol>
+    </li>
+    <li><strong>Пример:</strong> Добавь тени или текстуру на объект, не выходя за его границы.</li>
+  </ul>
+  <p><strong>Советы для тренировки:</strong></p>
+  <ul>
+    <li>Практикуй выделение и деформацию, создавая простые формы.</li>
+    <li>Пробуй разные эффекты наложения на текст или фото.</li>
+    <li>Используй прикрепление для добавления света и теней.</li>
+  </ul>
+  <p><strong>Домашнее задание:</strong><br>
+    Создай рисунок с выделенными объектами, применяя эффекты наложения и прикрепления.</p>
+  <h2 id="упражнения-для-домашней-работы">Упражнения для домашней работы:</h2>
+  <ul>
+    <li>в блокноте на листках без клеток и линеек рисуй ровные линиии, наклонные линии, перекрещивающиеся линии, как
+      показано в примерах</li>
+    <li>заполни страницу. Практикуйся, чтобы у тебя получались ровные линии</li>
+  </ul>
+  <h2 id="дополниительный-материал">Дополниительный материал:</h2>
+  <p><a
+      href="https://www.easydrawingtips.com/beginner-drawing-exercises-tutorial/">https://www.easydrawingtips.com/beginner-drawing-exercises-tutorial/</a>
+  </p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/1nz1cSv0AKA?si=-D3aDb0oTBZ2H_Vw"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+    <footer>
+      <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+    </footer>
+  
+  
+</body>
+
+</html>

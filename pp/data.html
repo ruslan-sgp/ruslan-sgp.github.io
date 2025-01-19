@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <table>
+<thead>
+<tr>
+<th>№</th>
+<th>Наименование организации</th>
+<th>ИНН</th>
+<th>Адрес</th>
+<th>Контактное лицо</th>
+<th>Телефон</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>ООО &quot;Ромашка&quot;</td>
+<td>123456789</td>
+<td>г. Москва, ул. Ленина, 10</td>
+<td>Иванов Иван</td>
+<td>+7 (495) 111-22-33</td>
+<td><a href="mailto:info@romashka.ru">info@romashka.ru</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>ЗАО &quot;Весна&quot;</td>
+<td>987654321</td>
+<td>г. Санкт-Петербург, Невский пр., 20</td>
+<td>Петрова Мария</td>
+<td>+7 (812) 444-55-66</td>
+<td><a href="mailto:contact@vesna.ru">contact@vesna.ru</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>ИП Сидоров А.А.</td>
+<td>112233445</td>
+<td>г. Екатеринбург, ул. Мира, 5</td>
+<td>Сидоров Алексей</td>
+<td>+7 (343) 777-88-99</td>
+<td><a href="mailto:sidorov@mail.ru">sidorov@mail.ru</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>ООО &quot;ТехноПрофи&quot;</td>
+<td>556677889</td>
+<td>г. Новосибирск, ул. Гагарина, 15</td>
+<td>Кузнецов Сергей</td>
+<td>+7 (383) 222-33-44</td>
+<td><a href="mailto:info@technoprofi.ru">info@technoprofi.ru</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>АО &quot;СтройМастер&quot;</td>
+<td>998877665</td>
+<td>г. Казань, ул. Пушкина, 30</td>
+<td>Федорова Ольга</td>
+<td>+7 (843) 555-66-77</td>
+<td><a href="mailto:stroymaster@yandex.ru">stroymaster@yandex.ru</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td>ООО &quot;ГлобалТрейд&quot;</td>
+<td>334455667</td>
+<td>г. Владивосток, ул. Советская, 45</td>
+<td>Смирнов Дмитрий</td>
+<td>+7 (423) 888-99-00</td>
+<td><a href="mailto:globaltrade@mail.ru">globaltrade@mail.ru</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td>ИП Козлова Е.В.</td>
+<td>778899001</td>
+<td>г. Краснодар, ул. Красная, 12</td>
+<td>Козлова Елена</td>
+<td>+7 (861) 333-44-55</td>
+<td><a href="mailto:kozlova@yandex.ru">kozlova@yandex.ru</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td>ООО &quot;АгроПром&quot;</td>
+<td>445566778</td>
+<td>г. Ростов-на-Дону, ул. Садовая, 8</td>
+<td>Николаев Андрей</td>
+<td>+7 (863) 666-77-88</td>
+<td><a href="mailto:agro@agroprom.ru">agro@agroprom.ru</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td>ЗАО &quot;МеталлСервис&quot;</td>
+<td>889900112</td>
+<td>г. Челябинск, ул. Металлургов, 25</td>
+<td>Васильев Павел</td>
+<td>+7 (351) 999-00-11</td>
+<td><a href="mailto:metalservice@mail.ru">metalservice@mail.ru</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td>ООО &quot;ТрансЛогистик&quot;</td>
+<td>223344556</td>
+<td>г. Уфа, ул. Транспортная, 3</td>
+<td>Галимов Руслан</td>
+<td>+7 (347) 222-33-44</td>
+<td><a href="mailto:translog@yandex.ru">translog@yandex.ru</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td>ИП Морозов С.И.</td>
+<td>667788990</td>
+<td>г. Воронеж, ул. Мира, 7</td>
+<td>Морозов Сергей</td>
+<td>+7 (473) 444-55-66</td>
+<td><a href="mailto:morozov@mail.ru">morozov@mail.ru</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td>ООО &quot;СтройГарант&quot;</td>
+<td>112233445</td>
+<td>г. Самара, ул. Строителей, 18</td>
+<td>Ковалева Анна</td>
+<td>+7 (846) 777-88-99</td>
+<td><a href="mailto:stroigarant@mail.ru">stroigarant@mail.ru</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td>АО &quot;ТехноИнжениринг&quot;</td>
+<td>998877665</td>
+<td>г. Нижний Новгород, ул. Горького, 22</td>
+<td>Петров Алексей</td>
+<td>+7 (831) 555-66-77</td>
+<td><a href="mailto:tech@engineering.ru">tech@engineering.ru</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td>ООО &quot;ФармаМед&quot;</td>
+<td>334455667</td>
+<td>г. Томск, ул. Медицинская, 14</td>
+<td>Соколова Ольга</td>
+<td>+7 (382) 888-99-00</td>
+<td><a href="mailto:farmamed@mail.ru">farmamed@mail.ru</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td>ИП Григорьев В.П.</td>
+<td>778899001</td>
+<td>г. Иркутск, ул. Байкальская, 9</td>
+<td>Григорьев Виктор</td>
+<td>+7 (395) 333-44-55</td>
+<td><a href="mailto:grigoriev@mail.ru">grigoriev@mail.ru</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td>ООО &quot;ЭнергоСервис&quot;</td>
+<td>445566778</td>
+<td>г. Хабаровск, ул. Энергетиков, 11</td>
+<td>Лебедев Игорь</td>
+<td>+7 (421) 666-77-88</td>
+<td><a href="mailto:energoservice@mail.ru">energoservice@mail.ru</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td>ЗАО &quot;ТехноЛаб&quot;</td>
+<td>889900112</td>
+<td>г. Омск, ул. Лабораторная, 6</td>
+<td>Кузьмин Денис</td>
+<td>+7 (381) 999-00-11</td>
+<td><a href="mailto:technolab@mail.ru">technolab@mail.ru</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td>ООО &quot;СтройРесурс&quot;</td>
+<td>223344556</td>
+<td>г. Тюмень, ул. Ресурсная, 4</td>
+<td>Захарова Татьяна</td>
+<td>+7 (345) 222-33-44</td>
+<td><a href="mailto:stroiresurs@mail.ru">stroiresurs@mail.ru</a></td>
+</tr>
+<tr>
+<td>19</td>
+<td>ИП Волков А.Н.</td>
+<td>667788990</td>
+<td>г. Калининград, ул. Балтийская, 13</td>
+<td>Волков Андрей</td>
+<td>+7 (401) 444-55-66</td>
+<td><a href="mailto:volkov@mail.ru">volkov@mail.ru</a></td>
+</tr>
+<tr>
+<td>20</td>
+<td>ООО &quot;АгроТех&quot;</td>
+<td>112233445</td>
+<td>г. Белгород, ул. Агрономическая, 2</td>
+<td>Семенова Екатерина</td>
+<td>+7 (472) 777-88-99</td>
+<td><a href="mailto:agrotech@mail.ru">agrotech@mail.ru</a></td>
+</tr>
+<tr>
+<td>21</td>
+<td>АО &quot;МеталлТрейд&quot;</td>
+<td>998877665</td>
+<td>г. Липецк, ул. Металлургическая, 17</td>
+<td>Фролов Михаил</td>
+<td>+7 (474) 555-66-77</td>
+<td><a href="mailto:metaltrade@mail.ru">metaltrade@mail.ru</a></td>
+</tr>
+<tr>
+<td>22</td>
+<td>ООО &quot;ТрансТех&quot;</td>
+<td>334455667</td>
+<td>г. Курск, ул. Транспортная, 5</td>
+<td>Козлов Сергей</td>
+<td>+7 (471) 888-99-00</td>
+<td><a href="mailto:transtech@mail.ru">transtech@mail.ru</a></td>
+</tr>
+<tr>
+<td>23</td>
+<td>ИП Сорокин П.В.</td>
+<td>778899001</td>
+<td>г. Тверь, ул. Центральная, 10</td>
+<td>Сорокин Павел</td>
+<td>+7 (482) 333-44-55</td>
+<td><a href="mailto:sorokin@mail.ru">sorokin@mail.ru</a></td>
+</tr>
+<tr>
+<td>24</td>
+<td>ООО &quot;СтройПроект&quot;</td>
+<td>445566778</td>
+<td>г. Сочи, ул. Проектная, 8</td>
+<td>Михайлова Анна</td>
+<td>+7 (862) 666-77-88</td>
+<td><a href="mailto:stroiproject@mail.ru">stroiproject@mail.ru</a></td>
+</tr>
+<tr>
+<td>25</td>
+<td>ЗАО &quot;ТехноСтрой&quot;</td>
+<td>889900112</td>
+<td>г. Волгоград, ул. Строителей, 12</td>
+<td>Новиков Дмитрий</td>
+<td>+7 (844) 999-00-11</td>
+<td><a href="mailto:technostroy@mail.ru">technostroy@mail.ru</a></td>
+</tr>
+<tr>
+<td>26</td>
+<td>ООО &quot;АгроПродукт&quot;</td>
+<td>223344556</td>
+<td>г. Пермь, ул. Продуктовая, 3</td>
+<td>Павлова Ольга</td>
+<td>+7 (342) 222-33-44</td>
+<td><a href="mailto:agroproduct@mail.ru">agroproduct@mail.ru</a></td>
+</tr>
+<tr>
+<td>27</td>
+<td>ИП Крылов В.С.</td>
+<td>667788990</td>
+<td>г. Ульяновск, ул. Крылова, 15</td>
+<td>Крылов Владимир</td>
+<td>+7 (842) 444-55-66</td>
+<td><a href="mailto:krylov@mail.ru">krylov@mail.ru</a></td>
+</tr>
+<tr>
+<td>28</td>
+<td>ООО &quot;ЭнергоТех&quot;</td>
+<td>112233445</td>
+<td>г. Ярославль, ул. Энергетиков, 9</td>
+<td>Степанова Ирина</td>
+<td>+7 (485) 777-88-99</td>
+<td><a href="mailto:energotech@mail.ru">energotech@mail.ru</a></td>
+</tr>
+<tr>
+<td>29</td>
+<td>АО &quot;МеталлПрофи&quot;</td>
+<td>998877665</td>
+<td>г. Брянск, ул. Металлистов, 20</td>
+<td>Гусев Александр</td>
+<td>+7 (483) 555-66-77</td>
+<td><a href="mailto:metalprofi@mail.ru">metalprofi@mail.ru</a></td>
+</tr>
+<tr>
+<td>30</td>
+<td>ООО &quot;ТрансЛогик&quot;</td>
+<td>334455667</td>
+<td>г. Саратов, ул. Логистическая, 7</td>
+<td>Федотов Игорь</td>
+<td>+7 (845) 888-99-00</td>
+<td><a href="mailto:translogic@mail.ru">translogic@mail.ru</a></td>
+</tr>
+<tr>
+<td>31</td>
+<td>ИП Медведев А.А.</td>
+<td>778899001</td>
+<td>г. Тольятти, ул. Медведева, 11</td>
+<td>Медведев Алексей</td>
+<td>+7 (848) 333-44-55</td>
+<td><a href="mailto:medvedev@mail.ru">medvedev@mail.ru</a></td>
+</tr>
+<tr>
+<td>32</td>
+<td>ООО &quot;СтройГарант&quot;</td>
+<td>445566778</td>
+<td>г. Иваново, ул. Гарантийная, 4</td>
+<td>Куликова Мария</td>
+<td>+7 (493) 666-77-88</td>
+<td><a href="mailto:stroigarant@mail.ru">stroigarant@mail.ru</a></td>
+</tr>
+<tr>
+<td>33</td>
+<td>ЗАО &quot;ТехноПрофи&quot;</td>
+<td>889900112</td>
+<td>г. Владимир, ул. Профильная, 6</td>
+<td>Соловьев Андрей</td>
+<td>+7 (492) 999-00-11</td>
+<td><a href="mailto:technoprofi@mail.ru">technoprofi@mail.ru</a></td>
+</tr>
+<tr>
+<td>34</td>
+<td>ООО &quot;АгроТрейд&quot;</td>
+<td>223344556</td>
+<td>г. Чита, ул. Трейдовая, 8</td>
+<td>Тихонова Елена</td>
+<td>+7 (302) 222-33-44</td>
+<td><a href="mailto:agrotrade@mail.ru">agrotrade@mail.ru</a></td>
+</tr>
+<tr>
+<td>35</td>
+<td>ИП Зимин Д.В.</td>
+<td>667788990</td>
+<td>г. Смоленск, ул. Зимняя, 12</td>
+<td>Зимин Дмитрий</td>
+<td>+7 (481) 444-55-66</td>
+<td><a href="mailto:zimin@mail.ru">zimin@mail.ru</a></td>
+</tr>
+<tr>
+<td>36</td>
+<td>ООО &quot;ЭнергоСистемы&quot;</td>
+<td>112233445</td>
+<td>г. Курган, ул. Системная, 10</td>
+<td>Калинин Павел</td>
+<td>+7 (352) 777-88-99</td>
+<td><a href="mailto:energosystems@mail.ru">energosystems@mail.ru</a></td>
+</tr>
+<tr>
+<td>37</td>
+<td>АО &quot;МеталлИнвест&quot;</td>
+<td>998877665</td>
+<td>г. Оренбург, ул. Инвестиционная, 14</td>
+<td>Макаров Сергей</td>
+<td>+7 (353) 555-66-77</td>
+<td><a href="mailto:metallinvest@mail.ru">metallinvest@mail.ru</a></td>
+</tr>
+<tr>
+<td>38</td>
+<td>ООО &quot;ТрансСервис&quot;</td>
+<td>334455667</td>
+<td>г. Пенза, ул. Сервисная, 16</td>
+<td>Орлова Анна</td>
+<td>+7 (841) 888-99-00</td>
+<td><a href="mailto:transservice@mail.ru">transservice@mail.ru</a></td>
+</tr>
+<tr>
+<td>39</td>
+<td>ИП Романов В.И.</td>
+<td>778899001</td>
+<td>г. Рязань, ул. Романова, 18</td>
+<td>Романов Виктор</td>
+<td>+7 (491) 333-44-55</td>
+<td><a href="mailto:romanov@mail.ru">romanov@mail.ru</a></td>
+</tr>
+<tr>
+<td>40</td>
+<td>ООО &quot;СтройРесурс&quot;</td>
+<td>445566778</td>
+<td>г. Астрахань, ул. Ресурсная, 20</td>
+<td>Григорьева Ольга</td>
+<td>+7 (851) 666-77-88</td>
+<td><a href="mailto:stroiresurs@mail.ru">stroiresurs@mail.ru</a></td>
+</tr>
+<tr>
+<td>41</td>
+<td>ЗАО &quot;ТехноЛаб&quot;</td>
+<td>889900112</td>
+<td>г. Киров, ул. Лабораторная, 22</td>
+<td>Семенов Денис</td>
+<td>+7 (833) 999-00-11</td>
+<td><a href="mailto:technolab@mail.ru">technolab@mail.ru</a></td>
+</tr>
+<tr>
+<td>42</td>
+<td>ООО &quot;АгроТех&quot;</td>
+<td>223344556</td>
+<td>г. Вологда, ул. Агрономическая, 24</td>
+<td>Кузнецова Елена</td>
+<td>+7 (817) 222-33-44</td>
+<td><a href="mailto:agrotech@mail.ru">agrotech@mail.ru</a></td>
+</tr>
+<tr>
+<td>43</td>
+<td>ИП Лебедев А.С.</td>
+<td>667788990</td>
+<td>г. Магадан, ул. Лебедева, 26</td>
+<td>Лебедев Алексей</td>
+<td>+7 (413) 444-55-66</td>
+<td><a href="mailto:lebedev@mail.ru">lebedev@mail.ru</a></td>
+</tr>
+<tr>
+<td>44</td>
+<td>ООО &quot;ЭнергоТех&quot;</td>
+<td>112233445</td>
+<td>г. Мурманск, ул. Энергетиков, 28</td>
+<td>Соколов Игорь</td>
+<td>+7 (815) 777-88-99</td>
+<td><a href="mailto:energotech@mail.ru">energotech@mail.ru</a></td>
+</tr>
+<tr>
+<td>45</td>
+<td>АО &quot;МеталлПрофи&quot;</td>
+<td>998877665</td>
+<td>г. Тамбов, ул. Металлистов, 30</td>
+<td>Васильева Мария</td>
+<td>+7 (475) 555-66-77</td>
+<td><a href="mailto:metalprofi@mail.ru">metalprofi@mail.ru</a></td>
+</tr>
+<tr>
+<td>46</td>
+<td>ООО &quot;ТрансЛогик&quot;</td>
+<td>334455667</td>
+<td>г. Кемерово, ул. Логистическая, 32</td>
+<td>Федорова Анна</td>
+<td>+7 (384) 888-99-00</td>
+<td><a href="mailto:translogic@mail.ru">translogic@mail.ru</a></td>
+</tr>
+<tr>
+<td>47</td>
+<td>ИП Медведев А.А.</td>
+<td>778899001</td>
+<td>г. Новокузнецк, ул. Медведева, 34</td>
+<td>Медведев Алексей</td>
+<td>+7 (384) 333-44-55</td>
+<td><a href="mailto:medvedev@mail.ru">medvedev@mail.ru</a></td>
+</tr>
+<tr>
+<td>48</td>
+<td>ООО &quot;СтройГарант&quot;</td>
+<td>445566778</td>
+<td>г. Томск, ул. Гарантийная, 36</td>
+<td>Куликова Мария</td>
+<td>+7 (382) 666-77-88</td>
+<td><a href="mailto:stroigarant@mail.ru">stroigarant@mail.ru</a></td>
+</tr>
+<tr>
+<td>49</td>
+<td>ЗАО &quot;ТехноПрофи&quot;</td>
+<td>889900112</td>
+<td>г. Барнаул, ул. Профильная, 38</td>
+<td>Соловьев Андрей</td>
+<td>+7 (385) 999-00-11</td>
+<td><a href="mailto:technoprofi@mail.ru">technoprofi@mail.ru</a></td>
+</tr>
+<tr>
+<td>50</td>
+<td>ООО &quot;АгроТрейд&quot;</td>
+<td>223344556</td>
+<td>г. Чита, ул. Трейдовая, 40</td>
+<td>Тихонова Елена</td>
+<td>+7 (302) 222-33-44</td>
+<td><a href="mailto:agrotrade@mail.ru">agrotrade@mail.ru</a></td>
+</tr>
+</tbody>
+</table>
+
+            
+            
+        </body>
+        </html>

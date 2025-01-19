@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Урок 9 - Волшебство Python и Turtle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 1 - Погружение в мир программирования!</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-1">Урок 1</h1>
+  <p><strong>Погружение в мир программирования! 🎮💻</strong></p>
+  <h2 id="-обзор-языков-программирования">🌐 Обзор языков программирования</h2>
+  <p>Программирование — это как суперсила для создания игр, приложений, сайтов и даже роботов! 🤖</p>
+  <p><strong>Интересные факты из Octoverse 2024:</strong></p>
+  <ul>
+    <li>💡 <em>Python</em> — самый популярный язык для новичков и профессионалов. Почему? Он простой, мощный и подходит
+      почти для всего!</li>
+    <li>🕹 <em>JavaScript</em> — магия, которая оживляет сайты.</li>
+    <li>🚀 <em>C++</em> — основа для игр, которые ты любишь, например Minecraft и Fortnite.</li>
+  </ul>
+  <p><strong>Вопрос к вам:</strong> А какой язык программирования ты хотел бы выучить?</p>
+  <h2 id="-front-end-и-back-end-что-это-такое">🔥 Front End и Back End: что это такое?</h2>
+  <ul>
+    <li><strong>Front End</strong> — всё, что вы видите на сайте или в приложении: кнопки, картинки, меню. Это как
+      обложка книги. 📖</li>
+    <li><strong>Back End</strong> — то, что работает за кулисами: хранение данных, логика. Это как двигатель в машине.
+      🚗</li>
+    <li>Вместе они как супергеройская команда, создающая классные приложения!</li>
+  </ul>
+  <h2 id="-инсталляция-давайте-подготовимся">🛠 Инсталляция: давайте подготовимся!</h2>
+  <h3 id="1-устанавливаем-python-">1. Устанавливаем Python 🐍</h3>
+  <ul>
+    <li>Зайдите на сайт <a href="https://www.python.org">python.org</a>.</li>
+    <li>Скачайте программу и установите её (это как нажать пару кнопок, ничего сложного).
+      <ul>
+        <li>нужно отметить опцию <strong>Add Python to PATH</strong>, чтобы Python работал в командной строке.</li>
+      </ul>
+    </li>
+    <li>Проверьте, как Python «оживает» в интерактивном режиме. Откройте терминал и напишите:
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет, мир!&quot;</span>)  
+</code></pre>
+    </li>
+  </ul>
+  <h3 id="2-устанавливаем-vs-code-">2. Устанавливаем VS Code ✨</h3>
+  <ul>
+    <li>Зайдите на сайт <a href="https://code.visualstudio.com">code.visualstudio.com</a>.</li>
+    <li>Установите VS Code — ваш новый инструмент суперпрограммиста!</li>
+    <li>Настройка:
+      <ul>
+        <li>Познакомьтесь с интерфейсом (где писать код, как запускать программы).
+          <ul>
+            <li>главное меню</li>
+            <li>левая панель (папки и файлы, поиск, расширения, и пр.)</li>
+            <li>главное окно для редактирования кода</li>
+            <li>нижнее окно - Терминал</li>
+            <li>строка состояния</li>
+          </ul>
+        </li>
+        <li>Создайте свою первую папку, и в ней файл: <code>Hello.py</code>. Это ваша первая программа!
+          <ul>
+            <li>Можете добавить такой код:
+              <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello, World!&quot;</span>)  
+</code></pre>
+            </li>
+          </ul>
+        </li>
+        <li>Установите расширение Python. После этого появится кнопка &quot;Run&quot; в правом верхнем углу. Запустите
+          программу нажатием на эту кнопку, и посмотрите результат. Он появится в нижней часте в окне терминала.</li>
+      </ul>
+    </li>
+  </ul>
+  <h2 id="-первая-программа-привет-мир">✍ Первая программа: «Привет, мир!»</h2>
+  <p>Создадим нашу первую программу — это как отправить своё первое сообщение в чате программирования. 📨</p>
+  <h3 id="что-нужно-знать">Что нужно знать:</h3>
+  <ul>
+    <li><strong>Команды</strong> — это инструкции компьютеру. Например:
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Я учусь программировать!&quot;</span>)  
+</code></pre>
+    </li>
+    <li><strong>Комментарии</strong> — заметки для себя (или других программистов). Они начинаются с <code>#</code>.
+      <pre><code class="language-python"><span class="hljs-comment"># Это комментарий, компьютер его игнорирует  </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет!&quot;</span>)  
+</code></pre>
+    </li>
+  </ul>
+  <p>🎯 <strong>Челлендж для тебя:</strong></p>
+  <ol>
+    <li>
+      <p>Напиши программу, которая приветствует тебя по имени.<br>
+        Пример:</p>
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет, Даня!&quot;</span>)  
+</code></pre>
+    </li>
+    <li>
+      <p>Добавь комментарий, где ты напишешь, зачем хочешь учить Python.</p>
+    </li>
+    <li>
+      <p>Создай новый файл Python, скопируй в него следующий код:</p>
+    </li>
+  </ol>
+  <pre><code class="language-python">x = <span class="hljs-number">25</span>
+y = <span class="hljs-number">8</span>
+
+<span class="hljs-comment"># Сложение</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Сумма:&quot;</span>, x + y)
+
+<span class="hljs-comment"># Вычитание</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Разность:&quot;</span>, x - y)
+
+<span class="hljs-comment"># Умножение</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Произведение:&quot;</span>, x * y)
+
+<span class="hljs-comment"># Деление</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Частное:&quot;</span>, x / y)
+</code></pre>
+  <p>Запусти этот файл и посмотри результат.</p>
+  <p>💡 <strong>Совет:</strong> Ошибки — это нормально! Они как подсказки, помогающие стать круче.</p>
+  <p>Скоро ты начнёшь создавать свои программы и почувствуешь себя настоящим кодером! 🚀</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3 - Синтаксис Python</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-3">Урок 3</h1>
+  <p>Продолжаем погружаться в Python!</p>
+  <h2 id="повтор-материала">Повтор материала</h2>
+  <p>Прежде чем двигаться дальше, давай убедимся, что ты понимаешь основные термины. Если что-то непонятно, не стесняйся
+    задавать вопросы!</p>
+  <ul>
+    <li><strong>Литеральные значения</strong> — это конкретные значения, которые ты используешь в коде, например, число
+      <code>5</code> или строка <code>&quot;Привет&quot;</code>.</li>
+    <li><strong>Операторы</strong> — это символы, которые выполняют операции над значениями, например, <code>+</code>
+      (сложение) или <code>==</code> (проверка равенства).</li>
+    <li><strong>Переменные</strong> — это &quot;контейнеры&quot; для хранения данных. Например, <code>x = 10</code>
+      создаёт переменную <code>x</code> и присваивает ей значение <code>10</code>.</li>
+    <li><strong>Функции</strong> — это блоки кода, у которого есть имя, и который выполняют определённую задачу.
+      Например, <code>print(&quot;Привет&quot;)</code> выводит текст на экран.</li>
+    <li><strong>Выражения</strong> — это комбинации значений, переменных и операторов, которые вычисляются в одно
+      значение. Например, <code>x + 5</code> — это выражение.</li>
+    <li><strong>Ключевые слова</strong> — это специальные слова в Python, которые имеют определённое значение и не могут
+      быть использованы как имена переменных. Например, <code>if</code>, <code>else</code>, <code>for</code>.</li>
+    <li><strong>Управляющие конструкции</strong> — это конструкции, которые управляют выполнением программы, например,
+      <code>if</code>, <code>for</code>, <code>while</code>.</li>
+    <li><strong>Комментарии</strong> — это текст в коде, который игнорируется Python. Они начинаются с символа
+      <code>#</code> и используются для объяснения кода.</li>
+  </ul>
+  <h2 id="значения-функций">Значения функций</h2>
+  <p>Функции могут возвращать значения. Например, функции <code>round</code>, <code>len</code> или <code>input</code>.
+    Это значение можно присвоить переменной:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Присвоение результата функции переменной</span>
+number = <span class="hljs-built_in">round</span>(<span class="hljs-number">3.14159</span>, <span class="hljs-number">2</span>)  <span class="hljs-comment"># number будет равно 3.14</span>
+<span class="hljs-built_in">print</span>(number)
+
+length = <span class="hljs-built_in">len</span>(<span class="hljs-string">&quot;Привет!&quot;</span>)     <span class="hljs-comment"># length будет равно 7</span>
+<span class="hljs-built_in">print</span>(length)
+
+user_input = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите что-нибудь: &quot;</span>)  <span class="hljs-comment"># Сохраняем введённое значение</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Вы ввели:&quot;</span>, user_input)
+</code></pre>
+  <p>Возвращённое значение можно также использовать сразу, без сохранения в переменной:</p>
+  <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-number">3.14159</span>, <span class="hljs-number">2</span>))  <span class="hljs-comment"># Выведет 3.14</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(<span class="hljs-string">&quot;Привет!&quot;</span>))     <span class="hljs-comment"># Выведет 7</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите что-нибудь: &quot;</span>))  <span class="hljs-comment"># Выведет введённое пользователем значение</span>
+</code></pre>
+  <h2 id="упражнение-вывод-строк-и-чисел">Упражнение: вывод строк и чисел</h2>
+  <h3 id="использование-print-с-разным-количеством-аргументов">Использование <code>print</code> с разным количеством
+    аргументов</h3>
+  <p>Функция <code>print</code> может выводить на экран несколько значений одновременно. Например:</p>
+  <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет&quot;</span>, <span class="hljs-string">&quot;мир&quot;</span>, <span class="hljs-string">&quot;!&quot;</span>)  <span class="hljs-comment"># Выведет: Привет мир !</span>
+</code></pre>
+  <h3 id="конкатенация-строк">Конкатенация строк</h3>
+  <p>Конкатенация — это сложение строк. Например:</p>
+  <pre><code class="language-python">name = <span class="hljs-string">&quot;Аня&quot;</span>
+greeting = <span class="hljs-string">&quot;Привет, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>
+<span class="hljs-built_in">print</span>(greeting)  <span class="hljs-comment"># Выведет: Привет, Аня!</span>
+</code></pre>
+  <h3 id="комбинирование-строк-и-чисел-при-помощи-str">Комбинирование строк и чисел при помощи <code>str</code></h3>
+  <p>Чтобы вывести число вместе с текстом, нужно преобразовать число в строку с помощью функции <code>str</code>:</p>
+  <pre><code class="language-python">age = <span class="hljs-number">13</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Мне &quot;</span> + <span class="hljs-built_in">str</span>(age) + <span class="hljs-string">&quot; лет.&quot;</span>)  <span class="hljs-comment"># Выведет: Мне 13 лет.</span>
+</code></pre>
+  <h3 id="f-строки">F-строки</h3>
+  <p>F-строки — это удобный способ вставлять значения переменных в строку. Например:</p>
+  <pre><code class="language-python">name = <span class="hljs-string">&quot;Аня&quot;</span>
+age = <span class="hljs-number">13</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Меня зовут <span class="hljs-subst">{name}</span> и мне <span class="hljs-subst">{age}</span> лет.&quot;</span>)  <span class="hljs-comment"># Выведет: Меня зовут Аня и мне 13 лет.</span>
+</code></pre>
+  <h3 id="переносы-строки-и-тройные-кавычки">Переносы строки и тройные кавычки</h3>
+  <p>Если нужно вывести текст с переносами строк, можно использовать тройные кавычки:</p>
+  <pre><code class="language-python">text = <span class="hljs-string">&quot;&quot;&quot;Привет!
+Это многострочный текст.
+Ура!&quot;&quot;&quot;</span>
+<span class="hljs-built_in">print</span>(text)
+</code></pre>
+  <h2 id="управляющие-конструкции">Управляющие конструкции</h2>
+  <h3 id="оператор-if">Оператор <code>if</code></h3>
+  <p>Оператор <code>if</code> позволяет выполнять код только при выполнении определённого условия. Например:</p>
+  <pre><code class="language-python">age = <span class="hljs-number">13</span>
+<span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">12</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ты можешь смотреть фильмы с рейтингом PG-13!&quot;</span>)
+</code></pre>
+  <p>Если условие не выполняется, можно использовать оператор <code>else</code>, чтобы выполнить альтернативный блок
+    кода:</p>
+  <pre><code class="language-python">age = <span class="hljs-number">10</span>
+<span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">12</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ты можешь смотреть фильмы с рейтингом PG-13!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Прости, ты ещё слишком мал для фильмов с рейтингом PG-13.&quot;</span>)
+</code></pre>
+  <p>Также можно добавить дополнительные условия с помощью <code>elif</code>:</p>
+  <pre><code class="language-python">age = <span class="hljs-number">18</span>
+<span class="hljs-keyword">if</span> age &lt; <span class="hljs-number">12</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ты можешь смотреть только фильмы с рейтингом G или PG.&quot;</span>)
+<span class="hljs-keyword">elif</span> age &lt; <span class="hljs-number">18</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ты можешь смотреть фильмы с рейтингом PG-13!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ты можешь смотреть фильмы с любым рейтингом!&quot;</span>)
+</code></pre>
+  <p>В итоге конструкции <code>if</code>, <code>elif</code> и <code>else</code> позволяют создавать сложные ветвления
+    логики в зависимости от разных условий.</p>
+  <p>Диаграмма для этого примера:</p>
+  <img src="flowchart.svg" />
+  <h3 id="операторы-сравнения">Операторы сравнения</h3>
+  <p>Операторы сравнения используются для сравнения значений:</p>
+  <ul>
+    <li><code>==</code> — равно</li>
+    <li><code>!=</code> — не равно</li>
+    <li><code>&gt;</code> — больше</li>
+    <li><code>&lt;</code> — меньше</li>
+    <li><code>&gt;=</code> — больше или равно</li>
+    <li><code>&lt;=</code> — меньше или равно</li>
+  </ul>
+  <p>Пример:</p>
+  <pre><code class="language-python">x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">20</span>
+<span class="hljs-keyword">if</span> x &lt; y:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;x меньше y&quot;</span>)
+</code></pre>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <ol>
+    <li>
+      <p><strong>Вывод строк и чисел:</strong></p>
+      <ul>
+        <li>Создай переменную с твоим именем и выведи приветствие, используя конкатенацию строк.</li>
+        <li>Используй f-строку, чтобы вывести сообщение о твоём возрасте.</li>
+        <li>Создай многострочный текст с помощью тройных кавычек и выведи его.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Оператор <code>if</code>:</strong></p>
+      <ul>
+        <li>Напиши программу, которая проверяет, больше ли твой возраст 12 лет, и выводит сообщение в зависимости от
+          результата.</li>
+        <li>Создай две переменные с числами и используй операторы сравнения, чтобы вывести результат сравнения.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Дополнительное задание:</strong></p>
+    </li>
+  </ol>
+  <p>Ниже программа, которая спрашивает у пользователя его имя и возраст, а затем выводит персонализированное сообщение,
+    используя f-строку.</p>
+  <pre><code class="language-python">name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Как тебя зовут? &quot;</span>)
+age = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Сколько тебе лет? &quot;</span>))
+<span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">12</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Привет, <span class="hljs-subst">{name}</span>! Ты уже большой, тебе <span class="hljs-subst">{age}</span> лет!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Привет, <span class="hljs-subst">{name}</span>! Ты ещё маленький, тебе всего <span class="hljs-subst">{age}</span> лет.&quot;</span>)
+</code></pre>
+  <p>Проанализируй код, и найди в нём:</p>
+  <ul>
+    <li>значения</li>
+    <li>операторы</li>
+    <li>переменные</li>
+    <li>функции и их аргументы</li>
+    <li>управляющие конструкции</li>
+    <li>какая функция возвращает значение, и в какой переменной оно хранится?</li>
+  </ul>
+  <p>Удачи! Если возникнут вопросы, - обращайся к преподавателю! 😊</p>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

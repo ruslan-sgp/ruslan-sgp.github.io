@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2 - Исследуем Python</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <p>Продолжаем исследовать Python</p>
+  <h2 id="компьютер---более-навороченный-калькулятор">Компьютер - более навороченный калькулятор!</h2>
+  <p>Компьютер — это, по сути, продвинутый калькулятор, который умеет не только считать, но и управлять информацией,
+    графикой и процессами. (на самом деле, английские слова compute и calculate - синонимы)</p>
+  <p>В чём они отличаются?</p>
+  <p>На калькуляторе:</p>
+  <ul>
+    <li>вы вводите числа</li>
+    <li>вводите операторы (или функции, такие как <code>log</code> или <code>sin</code>)</li>
+    <li>нажимаете <code>=</code></li>
+    <li>он считает и показывает результат</li>
+    <li>можно запомнить результаты (кнопка <code>M</code>, англ. <em>Memory</em>) и использовать их в дальнейших
+      расчетах</li>
+  </ul>
+  <p>На компьютере:</p>
+  <ul>
+    <li>вы пишете код на языке программирования и сохраняете его в файле</li>
+    <li>компьютер понимает не только числа, но и текст, и логические значения, и другое</li>
+    <li><a
+        href="../py3/les02.html#%D0%B4%D0%BE%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F">больше
+        разных операторов</a></li>
+    <li>намного больше функций, и можно добавлять свои</li>
+    <li>есть управляющие команды: например проверки условия - <code>if</code>, циклов - <code>for</code>, и другие</li>
+    <li>для запоминания результатов используются переменные</li>
+    <li>есть и другие конструкции, например комментарии</li>
+  </ul>
+  <p>Рассмотрим подробнее как устроены программы на Python.</p>
+  <h2 id="как-устроен-код-python">Как устроен код Python</h2>
+  <h3 id="значения-данные">Значения (данные)</h3>
+  <p>Помимо чисел, Python поддерживает и другие типы данных:</p>
+  <ul>
+    <li>текст (строки). Заключаются в кавычки.</li>
+    <li>логические значения: <code>True</code> и <code>False</code></li>
+    <li>тип <code>None</code> (пустое значение)</li>
+    <li>коллекции - списки, кортежи и словари</li>
+    <li>объекты</li>
+  </ul>
+  <p><a
+      href="#%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D1%8B-%D1%80%D0%B0%D0%B7%D0%BD%D1%8B%D1%85-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">В
+      конце этого конспекта</a> типы описаны более подробно.</p>
+  <h3 id="операторы">Операторы</h3>
+  <p>Операторы - это действия, которые можно выполнить над значениями. Например, сложение, вычитание, умножение,
+    деление, и другие. В Python есть много разных операторов.</p>
+  <p>В зависимости от типа данных, можно применять различные операторы, и они могут работать по-разному.</p>
+  <p>Например, сравни чему равны следующие выражения:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># сложение чисел</span>
+<span class="hljs-number">1</span> + <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># сложение строк</span>
+<span class="hljs-string">&quot;1&quot;</span> + <span class="hljs-string">&quot;2&quot;</span>
+</code></pre>
+  <h3 id="выражения">Выражения</h3>
+  <p>Выражения используются чтобы что-то посчитать. Примеры выражений:</p>
+  <pre><code class="language-python">(<span class="hljs-number">1</span> + <span class="hljs-number">2</span>) ** <span class="hljs-number">3</span>          <span class="hljs-comment"># равно 27</span>
+<span class="hljs-number">123</span> * <span class="hljs-number">456</span> &gt; <span class="hljs-number">55_000</span>    <span class="hljs-comment"># равно True</span>
+</code></pre>
+  <p>Вопрос: а как написать следующие выражения на Python?</p>
+  <img src="formulae.png" />
+  <h3 id="переменные">Переменные</h3>
+  <p>Переменные используются чтобы сохранить значения и использовать их позже. Например:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># присваиваем значение 5 переменной x</span>
+x = <span class="hljs-number">5</span>
+
+<span class="hljs-comment"># присваиваем значение выражения переменной y</span>
+y = <span class="hljs-number">123</span> * <span class="hljs-number">45</span>
+
+<span class="hljs-comment"># используем значение x</span>
+<span class="hljs-built_in">print</span>(x)      <span class="hljs-comment"># выводит 5</span>
+
+<span class="hljs-comment"># используем значение y</span>
+<span class="hljs-built_in">print</span>(y)      <span class="hljs-comment"># выводит 5535</span>
+</code></pre>
+  <p>В отличие от строк, имена переменных записываются без кавычек.</p>
+  <h3 id="управляющие-конструкции">Управляющие конструкции</h3>
+  <p>Позволяют изменить ход выполнения программы. Например, <code>if</code> выполняет действие в зависимости от условия,
+    а <code>for</code> позволяет повторить действие несколько раз.</p>
+  <pre><code class="language-python"><span class="hljs-comment"># если x больше 100, то выводим сообщение</span>
+<span class="hljs-keyword">if</span> x &gt; <span class="hljs-number">100</span>:
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;x больше 100&quot;</span>)
+
+<span class="hljs-comment"># повторяем действие 5 раз</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+  <span class="hljs-built_in">print</span>(i)
+</code></pre>
+  <p>Для записи управляющих конструкций используются <strong>ключевые слова</strong>. Они записываются без кавычек, и их
+    нельзя использовать в качестве имён переменных.</p>
+  <h3 id="функции">Функции</h3>
+  <p>Функции - это блок кода Python (то есть набор команд), у которого есть имя. Функции можно вызывать, чтобы этот код
+    выполнился. Для этого нужно добавить <strong>скобки</strong> к имени функции. У функций могут быть аргументы.
+    Например:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># функция print</span>
+<span class="hljs-comment"># вызвать без аргументов</span>
+<span class="hljs-built_in">print</span>()          <span class="hljs-comment"># выводит пустую строку</span>
+
+<span class="hljs-comment"># вызвать с аргументом</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>)
+
+<span class="hljs-comment"># вызвать с двумя аргументами</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Два плюс два равно&quot;</span>, <span class="hljs-number">4</span>)
+</code></pre>
+  <p>Можно создавать свои функции:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># функция, которая выводит приветствие</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">say_hello</span>():
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет!&quot;</span>)
+
+<span class="hljs-comment"># вызываем функцию</span>
+say_hello()  <span class="hljs-comment"># выводит &quot;Привет!&quot;</span>
+</code></pre>
+  <p>Имена функций записываются без кавычек.</p>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <h3 id="задание-1">Задание 1</h3>
+  <p>В следующем коде найдите:</p>
+  <ul>
+    <li>значения (данные)</li>
+    <li>операторы</li>
+    <li>выражения</li>
+    <li>переменные</li>
+    <li>управляющие конструкции</li>
+    <li>ключевые слова</li>
+    <li>комментарии</li>
+    <li>вывод значений на экран</li>
+    <li>проверку условий (условный оператор)</li>
+    <li>повтор команд (цикл)</li>
+    <li>целые числа (тип <code>int</code>)</li>
+    <li>числа с плавающей точкой (тип <code>float</code>)</li>
+  </ul>
+  <pre><code class="language-python"><span class="hljs-comment"># Assign values to variables</span>
+x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">5</span>
+
+<span class="hljs-comment"># Perform arithmetic operations</span>
+sum_result = x + y
+product_result = x * y
+division_result = x / y
+
+<span class="hljs-comment"># Print the results</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The sum of&quot;</span>, x, <span class="hljs-string">&quot;and&quot;</span>, y, <span class="hljs-string">&quot;is:&quot;</span>, sum_result)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The product of&quot;</span>, x, <span class="hljs-string">&quot;and&quot;</span>, y, <span class="hljs-string">&quot;is:&quot;</span>, product_result)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The division of&quot;</span>, x, <span class="hljs-string">&quot;and&quot;</span>, y, <span class="hljs-string">&quot;is:&quot;</span>, division_result)
+
+<span class="hljs-comment"># sum numbers from 0 to 5</span>
+a = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+  a = a + i
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;The sum of numbers from 0 to 5 is:&quot;</span>, a)
+
+<span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">10</span>:
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a is greater than 10&quot;</span>)
+<span class="hljs-keyword">else</span>:
+  <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;a is less than or equal to 10&quot;</span>)
+</code></pre>
+  <h3 id="задание-2">Задание 2</h3>
+  <p>Сохраните код из предыдущего задания в файле и запустите его. Посмотрите на результат.</p>
+  <p>Вопрос: что нужно изменить в коде, чтобы посчитать сумму чисел от 1 до 10?</p>
+  <h2 id="дополнительный-материал">Дополнительный материал</h2>
+  <h3 id="примеры-разных-типов-данных">Примеры разных типов данных</h3>
+  <h3 id="1-текст-строки">1. <strong>Текст (строки)</strong></h3>
+  <p>Строки — это текст. Это может быть имя, сообщение или что-то ещё. Строки заключаются в кавычки: <code>'</code>,
+    <code>&quot;</code>, или <code>&quot;&quot;&quot;</code> для длинного текста.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Примеры строк</span>
+name = <span class="hljs-string">&quot;Alex&quot;</span>
+greeting = <span class="hljs-string">&#x27;Hello, world!&#x27;</span>
+long_text = <span class="hljs-string">&quot;&quot;&quot;This is
+a really long
+piece of text.&quot;&quot;&quot;</span>
+
+<span class="hljs-built_in">print</span>(name)  <span class="hljs-comment"># Вывод: Alex</span>
+<span class="hljs-built_in">print</span>(greeting)  <span class="hljs-comment"># Вывод: Hello, world!</span>
+</code></pre>
+  <h3 id="2-логические-значения-true-и-false">2. <strong>Логические значения (True и False)</strong></h3>
+  <p><code>True</code> означает &quot;Да&quot;, а <code>False</code> — &quot;Нет&quot;. Эти значения полезны для
+    проверки условий.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># True и False</span>
+is_sunny = <span class="hljs-literal">True</span>
+is_raining = <span class="hljs-literal">False</span>
+
+<span class="hljs-keyword">if</span> is_sunny:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;На улице солнечно! Идём гулять!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Лучше остаться дома.&quot;</span>)
+</code></pre>
+  <h3 id="3-none-пустое-значение">3. <strong>None (пустое значение)</strong></h3>
+  <p><code>None</code> — это как пустая коробка. Оно означает &quot;ничего&quot;.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Пример None</span>
+gift = <span class="hljs-literal">None</span>
+
+<span class="hljs-keyword">if</span> gift <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Подарка пока нет!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Смотри, что я получил:&quot;</span>, gift)
+</code></pre>
+  <h3 id="4-коллекции-списки-кортежи-и-словари">4. <strong>Коллекции: списки, кортежи и словари</strong></h3>
+  <p>Эти структуры данных помогают хранить группы элементов.</p>
+  <h4 id="списки"><strong>Списки</strong></h4>
+  <p>Списки — это как рюкзак: туда можно добавлять, убирать или менять вещи.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Пример списка</span>
+backpack = [<span class="hljs-string">&quot;notebook&quot;</span>, <span class="hljs-string">&quot;pen&quot;</span>, <span class="hljs-string">&quot;sandwich&quot;</span>]
+backpack.append(<span class="hljs-string">&quot;water bottle&quot;</span>)  <span class="hljs-comment"># Добавляем элемент</span>
+<span class="hljs-built_in">print</span>(backpack)  <span class="hljs-comment"># [&#x27;notebook&#x27;, &#x27;pen&#x27;, &#x27;sandwich&#x27;, &#x27;water bottle&#x27;]</span>
+</code></pre>
+  <h4 id="кортежи"><strong>Кортежи</strong></h4>
+  <p>Кортежи — это как запечатанный сундук: можно посмотреть, что внутри, но менять нельзя.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Пример кортежа</span>
+treasures = (<span class="hljs-string">&quot;gold&quot;</span>, <span class="hljs-string">&quot;jewels&quot;</span>, <span class="hljs-string">&quot;map&quot;</span>)
+<span class="hljs-built_in">print</span>(treasures[<span class="hljs-number">0</span>])  <span class="hljs-comment"># Вывод: gold</span>
+</code></pre>
+  <h4 id="словари"><strong>Словари</strong></h4>
+  <p>Словари — это как телефонная книга: у каждой записи есть имя (ключ) и значение.<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Пример словаря</span>
+phone_book = {
+    <span class="hljs-string">&quot;Alice&quot;</span>: <span class="hljs-string">&quot;123-4567&quot;</span>,
+    <span class="hljs-string">&quot;Bob&quot;</span>: <span class="hljs-string">&quot;987-6543&quot;</span>,
+}
+
+<span class="hljs-built_in">print</span>(phone_book[<span class="hljs-string">&quot;Alice&quot;</span>])  <span class="hljs-comment"># Вывод: 123-4567</span>
+phone_book[<span class="hljs-string">&quot;Charlie&quot;</span>] = <span class="hljs-string">&quot;555-6789&quot;</span>  <span class="hljs-comment"># Добавляем новую запись</span>
+<span class="hljs-built_in">print</span>(phone_book)  <span class="hljs-comment"># {&#x27;Alice&#x27;: &#x27;123-4567&#x27;, &#x27;Bob&#x27;: &#x27;987-6543&#x27;, &#x27;Charlie&#x27;: &#x27;555-6789&#x27;}</span>
+</code></pre>
+  <h3 id="5-объекты-составные-или-сложные-типы">5. <strong>Объекты (составные или сложные типы)</strong></h3>
+  <p>Объекты - это модели существующих в жизни вещей. Другие типы данных (строки, числа, и пр.) тоже можно рассматривать
+    как объекты. У объектов есть свойства (данные) и методы (то, что они умеют делать).<br>
+    Пример:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># Объект &quot;Книга&quot;</span>
+book.title = <span class="hljs-string">&quot;Гарри Поттер и философский камень&quot;</span>
+book.author = <span class="hljs-string">&quot;Дж. К. Роулинг&quot;</span>
+book.year = <span class="hljs-number">1997</span>
+</code></pre>
+  <h3 id="итог">Итог</h3>
+  <p>Python — это как волшебный ящик с инструментами. Используй строки, списки, словари и многое другое, чтобы создать
+    свои проекты. Удачи! 🎉🐍</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

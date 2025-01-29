@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4 - Циклы</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4-циклы-и-форматирование-строк">Урок 4: Циклы и Форматирование строк</h1>
+  <p>Сегодня мы сделаем нашу программу умнее и короче! Познакомимся с циклами и научимся красиво выводить текст с
+    помощью форматирования строк.</p>
+  <img src="loop.png" />
+  <h2 id="1-циклы">1. Циклы</h2>
+  <p>Представь, что тебе нужно 10 раз написать &quot;Hello World!&quot;. Можно, конечно, скопировать
+    <code>print(&quot;Hello World!&quot;)</code> 10 раз... но это скучно и долго! А что, если 1000 раз? ⏳
+  </p>
+  <p>Для таких случаев в программировании есть <strong>циклы</strong> (по-английски loop — &quot;петля&quot;). Они
+    позволяют <strong>повторять один и тот же код автоматически</strong>. Каждый повтор называется итерацией.</p>
+  <p>Мы рассмотрим одну из команд цикла: <code>for</code>.</p>
+  <h3 id="-цикл-for">🔄 Цикл <code>for</code></h3>
+  <p>Цикл <code>for</code> помогает повторить команду заданное число раз.
+    Вот как это выглядит:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{i + <span class="hljs-number">1</span>}</span>. Привет, мир!&quot;</span>)
+</code></pre>
+  <p>🖥 <strong>Результат:</strong></p>
+  <pre><code>1. Привет, мир!
+2. Привет, мир!
+3. Привет, мир!
+4. Привет, мир!
+5. Привет, мир!
+6. Привет, мир!
+7. Привет, мир!
+8. Привет, мир!
+9. Привет, мир!
+10. Привет, мир!
+</code></pre>
+  <p>🔹 <strong>Что тут происходит?</strong></p>
+  <ul>
+    <li><code>for</code> - ключевое слово цикла</li>
+    <li><code>i</code> - переменная цикла, - счётчик. Её значение будет меняться в каждой итерации.</li>
+    <li><code>in</code> - ключевое слово, оно должно быть вместе с <code>for</code> по правилам синтаксиса Python</li>
+    <li><code>range(10):</code> — вызываем функцию <code>range</code> чтобы повторить цикл 10 раз
+      <ul>
+        <li>данная функция будет возвращать значения от 0 до 9 по очереди</li>
+      </ul>
+    </li>
+    <li>команды, которые нужно повторять, записываются после двоеточия с отступом
+      <ul>
+        <li>в данному случае повторяется команда <code>print(f&quot;{i + 1}. Привет, мир!&quot;)</code></li>
+        <li>эта команда выводит текст, добавляя номер строки.</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="-пример-с-фруктами">🍎 Пример с фруктами</h3>
+  <p>Цикл <code>for</code> работает не только с числами, но и со списками!</p>
+  <pre><code class="language-python"><span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> (<span class="hljs-string">&#x27;🍏 apple&#x27;</span>, <span class="hljs-string">&#x27;🍌 banana&#x27;</span>, <span class="hljs-string">&#x27;🍒 cherry&#x27;</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;I like <span class="hljs-subst">{fruit}</span>!&quot;</span>)
+</code></pre>
+  <p>🖥 <strong>Результат:</strong></p>
+  <pre><code>I like 🍏 apple!
+I like 🍌 banana!
+I like 🍒 cherry!
+</code></pre>
+  <p><strong>Попробуй сам!</strong> Измени список фруктов на свои любимые!</p>
+  <p>Выражение <code>('🍏 apple', '🍌 banana', '🍒 cherry')</code> называется кортеж. Кортежи нужны чтобы хранить
+    коллекции данных.</p>
+  <p>Можно завести переменную <code>fruits</code> и присвоить ей значение кортежа. Затем использовать переменную
+    <code>fruits</code> в цикле. Результат будет таким же. Вот как это сделать:
+  </p>
+  <pre><code class="language-python">fruits = (<span class="hljs-string">&#x27;🍏 apple&#x27;</span>, <span class="hljs-string">&#x27;🍌 banana&#x27;</span>, <span class="hljs-string">&#x27;🍒 cherry&#x27;</span>)
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> fruits:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;I like <span class="hljs-subst">{fruit}</span>!&quot;</span>)
+</code></pre>
+  <h2 id="2-форматирование-строк-">2. Форматирование строк ✨</h2>
+  <p>Иногда нужно вставить значения переменных в строку. Это можно сделать так:</p>
+  <pre><code class="language-python">name = <span class="hljs-string">&quot;Артём&quot;</span>
+age = <span class="hljs-number">13</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Привет! Меня зовут <span class="hljs-subst">{name}</span>, мне <span class="hljs-subst">{age}</span> лет.&quot;</span>)
+</code></pre>
+  <p>🖥 <strong>Результат:</strong></p>
+  <pre><code>Привет! Меня зовут Артём, мне 13 лет.
+</code></pre>
+  <p>🔹 <strong>Как это работает?</strong></p>
+  <ul>
+    <li>Буква <code>f</code> перед кавычками позволяет вставлять переменные прямо в текст.</li>
+    <li>В фигурных скобках <code>{}</code> указываем переменные или выражения.</li>
+  </ul>
+  <p>Попробуй присвоить <code>name</code> и <code>age</code> другие значения, и посмотри результат!</p>
+  <p>Чтобы вывести данные в виде таблицы, можно указать ширину столбцов и выравнивание после двоеточия. Проанализируй
+    этот пример:</p>
+  <pre><code class="language-python">cart = [
+    (<span class="hljs-string">&quot;🍎 Яблоки&quot;</span>, <span class="hljs-number">2</span>, <span class="hljs-number">30</span>),
+    (<span class="hljs-string">&quot;🍌 Бананы&quot;</span>, <span class="hljs-number">3</span>, <span class="hljs-number">20</span>),
+    (<span class="hljs-string">&quot;🍐 Груши&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">25</span>)
+]
+
+total = <span class="hljs-number">0</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;🛒 Корзина:&quot;</span>)
+<span class="hljs-keyword">for</span> i, (item, qty, price) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(cart, <span class="hljs-number">1</span>):
+    cost = qty * price
+    total += cost
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{i}</span>. <span class="hljs-subst">{item:&lt;<span class="hljs-number">12</span>}</span> <span class="hljs-subst">{qty}</span> шт.  <span class="hljs-subst">{price}</span> руб/шт  <span class="hljs-subst">{cost}</span> руб&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;-&quot;</span> * <span class="hljs-number">40</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;💰 Итоговая стоимость: <span class="hljs-subst">{total}</span> руб&quot;</span>)
+</code></pre>
+  <h2 id="-домашнее-задание">🎒 Домашнее задание</h2>
+  <ol>
+    <li>
+      <p>Напиши программу, которая спрашивает имя и возраст у пользователя, а затем выводит сообщение: <em>&quot;Привет,
+          [Имя]! Через год тебе будет [Возраст+1] лет.&quot;</em> ⏳</p>
+    </li>
+    <li>
+      <p>Напиши цикл <code>for</code>, который выводит таблицу умножения на 5 (от 1×5 до 10×5).</p>
+      <p>🚀 <strong>Бонус:</strong> Пусть программа спрашивает число у пользователя и выводит таблицу умножения для
+        этого числа!</p>
+    </li>
+  </ol>
+  <p>Удачи! 💡</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

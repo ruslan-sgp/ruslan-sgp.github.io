@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4 - Рисование с Python Turtle</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4">Урок 4</h1>
+  <p>Сегодня узнаем как сделать рисунок <strong>при помощи программирования</strong>.
+    Давайте познакомимся с модулем turtle в Python. Мы научимся создавать рисунки и экспериментировать.</p>
+  <img src="../pyles/shapes.svg" />
+  <h2 id="другой-способ-рисовать">Другой способ рисовать</h2>
+  <p>Будем использовать команды Turtle на языке программирования Python.</p>
+  <p>Turtle - это черепашка. Перемещаясь по экрану она рисует линии. Мы можем давать ей команды - двигайся вперёд
+    (<code>forward</code>), повернись направо (<code>right</code>) или налево (<code>left</code>), и т.д.</p>
+  <p>Давай нарисуем простые фигуры.</p>
+  <h2 id="квадрат">Квадрат</h2>
+  <p>У квадрата 4 стороны, соединенные под прямым углом. Чтобы его нарисовать, нам нужен алгоритм:</p>
+  <ul>
+    <li>продвинуться вперед (и нарисовать первую сторону)</li>
+    <li>повернуться налево (на 90 градусов)</li>
+    <li>повторить эти два шага еще 3 раза</li>
+  </ul>
+  <p>Используем также команду color чтобы выбрать цвет.</p>
+  <p>Вот код:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># нарисовать синий квадрат</span>
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+forward(<span class="hljs-number">350</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">350</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">350</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">350</span>)
+</code></pre>
+  <p>Результат:</p>
+  <img src="square.svg" />
+  <h2 id="треугольник">Треугольник</h2>
+  <p>Треугольник может быть правильной или неправильной формы. Нарисовав первую сторону, будем поворачиваться и
+    двигаться прямо еще два раза. Подберём углы и длины сторон так, чтобы треугольник замкнулся:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># нарисовать красный треугольник</span>
+color(<span class="hljs-string">&quot;red&quot;</span>)
+forward(<span class="hljs-number">450</span>)
+left(<span class="hljs-number">150</span>)
+forward(<span class="hljs-number">450</span>)
+left(<span class="hljs-number">102</span>)
+forward(<span class="hljs-number">238</span>)
+</code></pre>
+  <p>Результат:</p>
+  <img src="triangle.svg" />
+  <p>Треугольник правильной формы называется равносторонний. В нём все углы и стороны равны. Как его нарисовать?</p>
+  <p>Нужно поворачиваться на один и тот же угол, равный 120 градусов. Заведём переменную <code>angle = 120</code>.</p>
+  <p>Используем команды <code>begin_fill</code> и <code>end_fill</code> чтобы закрасить треугольник.</p>
+  <p>Вот что получается:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># нарисовать голубой правильный треугольник</span>
+color(<span class="hljs-string">&quot;SkyBlue&quot;</span>)
+angle = <span class="hljs-number">120</span>
+begin_fill()
+forward(<span class="hljs-number">480</span>)
+left(angle)
+forward(<span class="hljs-number">480</span>)
+left(angle)
+
+forward(<span class="hljs-number">480</span>)
+end_fill()
+</code></pre>
+  <p>Реузультат:</p>
+  <img src="triangle2.svg" />
+  <h2 id="звезда">Звезда</h2>
+  <pre><code class="language-python"><span class="hljs-comment"># нарисовать звезду</span>
+color(<span class="hljs-string">&quot;OrangeRed&quot;</span>)
+begin_fill()
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+    forward(<span class="hljs-number">350</span>)
+    left(<span class="hljs-number">144</span>)
+end_fill()
+</code></pre>
+  <p>Реузультат:</p>
+  <img src="star.svg" />
+  <h2 id="узор">Узор</h2>
+  <p>Чтобы нарисовать узор, будем повторять один и тот же элемент много раз.</p>
+  <p>Для повторения команд используем цикл <code>for</code>.</p>
+  <pre><code class="language-python"><span class="hljs-comment"># нарисовать узор</span>
+color(<span class="hljs-string">&quot;green&quot;</span>)
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">15</span>):
+    circle(<span class="hljs-number">130</span>)
+    left(<span class="hljs-number">24</span>)
+</code></pre>
+  <p>Реузультат:</p>
+  <img src="pattern.svg" />
+  <h2 id="задание">Задание</h2>
+  <p>Подумай какие нужны команды чтобы сделать такие рисунки:</p>
+  <h3 id="дом">Дом</h3>
+  <img src="house.svg" />
+  <h3 id="снежинка">Снежинка</h3>
+  <img src="../pyles/snowflake.svg" />
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

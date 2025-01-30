@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 1 - Работа с данными в Excel и VBA</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-1">Урок 1</h1>
+  <p><strong>Работа с данными в Excel и VBA</strong></p>
+  <h2 id="техники-для-таблиц-excel">Техники для таблиц Excel</h2>
+  <ol>
+    <li>
+      <p><strong>Импорт данных с веб-страниц</strong>:</p>
+      <ul>
+        <li>
+          <p>Импорт данных с веб-страницы через вкладку &quot;Данные&quot; &gt; &quot;Из Интернета&quot;.</p>
+        </li>
+        <li>
+          <p>Редактор Power Query позволяет загружать, очищать и трансформировать данные перед их импортом в Excel,
+            облегчая работу с наборами данных.</p>
+        </li>
+        <li>
+          <p>Данные можно обновлять после загрузки.</p>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Форматирование таблиц</strong>:</p>
+      <ul>
+        <li>Применение стилей к таблицам - не только визуальное оформление, но создание объекта таблицы.</li>
+        <li>Автоматическая ширина столбца при двойном щелчке на границе между названиями.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Горячие клавиши</strong>:</p>
+      <ul>
+        <li><code>Ctrl + Space</code> — выделение столбца.</li>
+        <li><code>Shift + Arrow Keys</code> — для выбора нескольких столбцов (влево-вправо).</li>
+        <li><code>Ctrl + A</code> — для выделения текущего блока, всей таблицы или данных (нажимать последовательно).
+          <ul>
+            <li>стрелки с нажатым <code>Ctrl</code> - прыжок в конец блока</li>
+            <li>с нажатым <code>Shift</code> - выделение ячеек</li>
+          </ul>
+        </li>
+        <li><code>Ctrl + C</code> и <code>Ctrl + V</code> — для копирования и вставки.</li>
+      </ul>
+    </li>
+  </ol>
+  <h2 id="техники-vba">Техники VBA</h2>
+  <ol>
+    <li>
+      <p><strong>Запись макросов</strong> для автоматизации действий.</p>
+      <ul>
+        <li>Для запуска записи макроса используйте &quot;Разработчик&quot; &gt; &quot;Запись макроса&quot;, либо
+          <code>Alt + T + M + R</code>.</li>
+        <li>Просмотр и редактирование VBA-кода.</li>
+        <li>Чтобы увидеть список макросов и запустить их, используйте &quot;Разработчик&quot; &gt; &quot;Макросы&quot;
+          или нажмите <code>Alt + F8</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Доступ к редактору VBA</strong>:</p>
+      <ul>
+        <li>В редактор кода можно перейти через редактирование макроса либо сочетания клавиш <code>Alt + F11</code>.
+        </li>
+        <li>В окне проекта (Project Explorer) выберите необходимый лист, модуль или форму.</li>
+        <li>Добавление нового модуля через &quot;Вставка&quot; &gt; &quot;Модуль&quot;.</li>
+        <li>Код в редакторе можно запустить с помощью <code>F5</code>.</li>
+      </ul>
+    </li>
+  </ol>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wM7zB6U3qrA?si=wp3Vxu6zcqlXL1n-"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

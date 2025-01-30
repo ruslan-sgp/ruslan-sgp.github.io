@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3 - Работа с данными в Excel и VBA</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-3">Урок 3</h1>
+  <h2 id="техники-excel-и-vba">Техники Excel и VBA</h2>
+  <p>Продолжаем эксперименты!</p>
+  <h3 id="1-добавление-кнопок-и-кода">1. Добавление кнопок и кода</h3>
+  <ul>
+    <li>Добавляем кнопки и другие элементы управления (controls) через команду Вставить на вкладке
+      &quot;Разработчик&quot;. Подробности <a
+        href="https://support.microsoft.com/en-us/office/how-to-use-the-forms-controls-on-a-worksheet-in-excel-e7e33c0c-f080-4443-b565-d21b1bdbcf43">на
+        сайте Microsoft</a>.</li>
+    <li>Правый щелчок на кнопке, команда &quot;Назначить макрос&quot; для привязки существующего макроса к кнопке.</li>
+  </ul>
+  <h3 id="2-структура-кода-vba">2. Структура кода VBA</h3>
+  <ul>
+    <li>Используем цикл <code>For Each...Next</code> и свойство Selection для итерации по выделенному диапазону ячеек.
+    </li>
+    <li>Оформляйте ваш код ясным образом. Это облегчит вам работу и поиск ошибок. Например, используйте отступы,
+      выразительные - при этом краткие - названия переменных, функций, аргументов, а также комментарии.</li>
+  </ul>
+  <h3 id="3-функции-и-методы-vba">3. Функции и методы VBA</h3>
+  <ul>
+    <li>Создание пользовательских функций в VBA (User-Defined Functions, UDF).
+      <ul>
+        <li>Например, создали функцию <code>replEnglish</code> для замены английских букв на русские.</li>
+        <li>Использовали её в коде и для условного форматирования.</li>
+      </ul>
+    </li>
+    <li>Использование функции <code>Replace</code> для замены символов в строке.</li>
+    <li>Использование функции <code>InStr</code> для поиска подстроки в строке.</li>
+    <li>Использование <code>Exit For</code> для прерывания цикла.</li>
+    <li>Использование именованных аргументов в функциях VBA.</li>
+  </ul>
+  <h3 id="4-работа-с-диапазонами-и-ячейками">4. Работа с диапазонами и ячейками</h3>
+  <ul>
+    <li>Именованые диапазоны - мощное и удобное стредство</li>
+    <li>В VBA можно находить ячейки и диапазоны по адресу или заданному пользователем имени.</li>
+    <li>Метод <code>Offset</code> позволяет адресовать соседние ячейки.</li>
+  </ul>
+  <h3 id="5-условное-форматирование">5. Условное форматирование</h3>
+  <ul>
+    <li>Применение условного форматирования на основе пользовательских функций VBA.</li>
+    <li>Создание пользовательской функции (<code>hasEnglishLetters</code>) для проверки наличия английских букв в
+      ячейке.</li>
+  </ul>
+  <h3 id="6-отладка-и-тестирование">6. Отладка и тестирование</h3>
+  <ul>
+    <li>Использование окна Immediate (<code>Ctrl+G</code>) для тестирования и отладки кода VBA.</li>
+    <li>Использование <code>Debug.Print</code> для вывода значений в окно Immediate.</li>
+    <li>Установка точек останова и пошаговое выполнение кода для отладки.</li>
+  </ul>
+  <h3 id="7-обработка-ошибок">7. Обработка ошибок</h3>
+  <ul>
+    <li>Определение и исправление синтаксических ошибок в коде VBA.</li>
+    <li>Понимание и устранение ошибок времени выполнения.</li>
+  </ul>
+  <h3 id="8-оптимизация-производительности">8. Оптимизация производительности</h3>
+  <ul>
+    <li>Оптимизация кода VBA для повышения производительности, особенно при работе с большими объемами данных.</li>
+    <li>Использование <code>Exit For</code> для повышения эффективности циклов.</li>
+  </ul>
+  <h3 id="9-общие-советы">9. Общие советы</h3>
+  <ul>
+    <li>Использование онлайн-ресурсов и документации для изучения и устранения проблем VBA.</li>
+    <li>Эксперименты с различными функциями и методами VBA для понимания их работы.</li>
+  </ul>
+  <h2 id="запись-занятия">Запись занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/K_sDxChBLk0?si=_SbKZ_86eUxLMCS8"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4 - Поиск и замена значений</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4">Урок 4</h1>
+  <h2 id="поиск-и-замена-значений-в-данных">Поиск и замена значений в данных</h2>
+  <p>Два способа замены:</p>
+  <ol>
+    <li>Макрос</li>
+    <li>PowerQuery</li>
+  </ol>
+  <h3 id="замена-при-помощи-макроса">Замена при помощи макроса</h3>
+  <ol>
+    <li>Включим запись макроса, затем вручную найдем и заменим несколько значений. Например, заменим &quot;улица&quot;
+      на &quot;ул.&quot;</li>
+    <li>Остановим запись макроса, и найдем ёго код в VBA</li>
+    <li>Используйте этот код в качестве образца, добавьте в него необходимые значения.</li>
+    <li>Добавьте кнопку на лист и привяжите к ней макрос для его удобного запуска.</li>
+  </ol>
+  <h3 id="работа-с-данными-листа---чтение">Работа с данными листа - чтение</h3>
+  <p>Разные способы получить данные из листа:</p>
+  <ol>
+    <li>Свойство <code>Selection</code> - текущие выделенные ячейки</li>
+    <li>Свойство <code>Range</code> - поиск диапазона по адресу (номера строк и столбцов)</li>
+    <li>Именованный диапазон</li>
+  </ol>
+  <p>Итерация по значениям: при помощи цикла <code>For Each</code></p>
+  <h3 id="работа-с-данными-листа---запись">Работа с данными листа - запись</h3>
+  <ol>
+    <li>Находим диапазон, в который хотим записать данные, при помощи <code>Range</code>, именованного диапазона, и т.п.
+    </li>
+    <li>Смещение ячейки при помощи метода Offset
+      <ol>
+        <li>Сместиться в конец области данных можно при помощи метода <code>End</code>, например:
+          <code>Range(&quot;A1&quot;).End(xlDown).Offset(1, 0)</code>
+        </li>
+      </ol>
+    </li>
+    <li>Запись значения через свойство ячейки <code>Value</code></li>
+  </ol>
+  <h3 id="функции-vba-для-работы-со-строками">Функции VBA для работы со строками</h3>
+  <p>Следующие функции могут пригодиться при работе со строками. См. также список функций <a
+      href="https://learn.microsoft.com/en-us/office/vba/access/concepts/criteria-expressions/functions-category-list#text">на
+      сайте Microsoft</a>.</p>
+  <ol>
+    <li>
+      <p><strong><code>InStr</code></strong>:</p>
+      <ul>
+        <li>Находит позицию подстроки в строке.</li>
+        <li>Пример: <code>InStr(address, &quot;д.&quot;)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>Left</code></strong>:</p>
+      <ul>
+        <li>Извлекает указанное количество символов с левой стороны строки.</li>
+        <li>Пример: <code>Left(address, housePos - 1)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>Mid</code></strong>:</p>
+      <ul>
+        <li>Извлекает подстроку из строки, начиная с указанной позиции.</li>
+        <li>Пример: <code>Mid(address, housePos + 3, apartmentPos - housePos - 3)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>Right</code></strong>:</p>
+      <ul>
+        <li>Извлекает указанное количество символов с правой стороны строки.</li>
+        <li>Пример: <code>Right(address, Len(address) - apartmentPos - 3)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>Trim</code></strong>:</p>
+      <ul>
+        <li>Удаляет начальные и конечные пробелы из строки.</li>
+        <li>Пример: <code>Trim(street)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>Len</code></strong>:</p>
+      <ul>
+        <li>Возвращает длину строки.</li>
+        <li>Пример: <code>Len(address)</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Replace</strong>:</p>
+      <ul>
+        <li>Заменяет подстроку в строке на другую.</li>
+        <li>Пример: <code>Replace(address, &quot;  &quot;, &quot; &quot;)</code>.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

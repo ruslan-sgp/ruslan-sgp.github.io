@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы Python - Магазин фруктов</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="практическая-работа">Практическая работа</h1>
+  <h2 id="магазин-фруктов">Магазин фруктов</h2>
+  <p>В этом задании сделаем магазин фруктов с такими возможностями:</p>
+  <ul>
+    <li>отображение меню</li>
+    <li>выбор товаров из меню</li>
+    <li>ввод количества</li>
+    <li>сохранение товара в корзине</li>
+    <li>отображение корзины с подсчётом суммы</li>
+  </ul>
+  <h3 id="код-программы">Код программы:</h3>
+  <pre><code class="language-python"><span class="hljs-comment"># используем коллекцию (кортеж) для фруктов</span>
+menu = (
+    (<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;Красное яблоко&quot;</span>, <span class="hljs-number">100</span>),
+    (<span class="hljs-string">&quot;🍏&quot;</span>, <span class="hljs-string">&quot;Зеленое яблоко&quot;</span>, <span class="hljs-number">120</span>),
+    (<span class="hljs-string">&quot;🍌&quot;</span>, <span class="hljs-string">&quot;Банан&quot;</span>, <span class="hljs-number">50</span>),
+    (<span class="hljs-string">&quot;🍒&quot;</span>, <span class="hljs-string">&quot;Вишня&quot;</span>, <span class="hljs-number">300</span>),
+    (<span class="hljs-string">&quot;🍇&quot;</span>, <span class="hljs-string">&quot;Виноград&quot;</span>, <span class="hljs-number">250</span>),
+    (<span class="hljs-string">&quot;🍓&quot;</span>, <span class="hljs-string">&quot;Клубника&quot;</span>, <span class="hljs-number">200</span>),
+    (<span class="hljs-string">&quot;🍉&quot;</span>, <span class="hljs-string">&quot;Арбуз&quot;</span>, <span class="hljs-number">400</span>),
+    (<span class="hljs-string">&quot;🍑&quot;</span>, <span class="hljs-string">&quot;Персик&quot;</span>, <span class="hljs-number">150</span>),
+    (<span class="hljs-string">&quot;🍍&quot;</span>, <span class="hljs-string">&quot;Ананас&quot;</span>, <span class="hljs-number">350</span>),
+    (<span class="hljs-string">&quot;🥭&quot;</span>, <span class="hljs-string">&quot;Манго&quot;</span>, <span class="hljs-number">280</span>),
+    (<span class="hljs-string">&quot;🍊&quot;</span>, <span class="hljs-string">&quot;Апельсин&quot;</span>, <span class="hljs-number">110</span>),
+    (<span class="hljs-string">&quot;🍋&quot;</span>, <span class="hljs-string">&quot;Лимон&quot;</span>, <span class="hljs-number">80</span>),
+    (<span class="hljs-string">&quot;🍈&quot;</span>, <span class="hljs-string">&quot;Дыня&quot;</span>, <span class="hljs-number">320</span>),
+    (<span class="hljs-string">&quot;🥝&quot;</span>, <span class="hljs-string">&quot;Киви&quot;</span>, <span class="hljs-number">130</span>),
+    (<span class="hljs-string">&quot;🍐&quot;</span>, <span class="hljs-string">&quot;Груша&quot;</span>, <span class="hljs-number">140</span>),
+    (<span class="hljs-string">&quot;🫐&quot;</span>, <span class="hljs-string">&quot;Черника&quot;</span>, <span class="hljs-number">90</span>),
+    (<span class="hljs-string">&quot;🥥&quot;</span>, <span class="hljs-string">&quot;Кокос&quot;</span>, <span class="hljs-number">360</span>)
+)
+
+<span class="hljs-comment"># Напечатаем приветствие</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#x27;&#x27;Добро пожаловать в Фруктовый Магазин! 🛒
+Вот наше меню:&#x27;&#x27;&#x27;</span>)
+
+<span class="hljs-comment"># используем цикл для вывода фруктов</span>
+number = <span class="hljs-number">0</span>
+<span class="hljs-keyword">for</span> fruit <span class="hljs-keyword">in</span> menu:
+    icon = fruit[<span class="hljs-number">0</span>]
+    name = fruit[<span class="hljs-number">1</span>]
+    price = fruit[<span class="hljs-number">2</span>]
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">{number + <span class="hljs-number">1</span>:<span class="hljs-number">3</span>}</span>. <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:<span class="hljs-number">14</span>}</span> <span class="hljs-subst">{price:&gt;<span class="hljs-number">5</span>}</span> руб&#x27;</span>)
+    number = number + <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># получить номер товара</span>
+num_product = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Выберите номер товара который вы хотели бы приобрести: &quot;</span>))
+quantity = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Сколько килограмм товара вы хотели бы купить: &quot;</span>))
+
+<span class="hljs-comment"># добавить товар в корзину</span>
+basket = []
+purchase = (num_product, quantity)
+basket.append(purchase)
+
+<span class="hljs-comment"># показать корзину</span>
+<span class="hljs-keyword">for</span> basket_item <span class="hljs-keyword">in</span> basket:
+    num_product = basket_item[<span class="hljs-number">0</span>]
+    qty = basket_item[<span class="hljs-number">1</span>]
+    product_details = menu[num_product - <span class="hljs-number">1</span>]
+    product_icon = product_details[<span class="hljs-number">0</span>]
+    product_name = product_details[<span class="hljs-number">1</span>]
+    product_price = product_details[<span class="hljs-number">2</span>]
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;Ваша корзина содержит:
+    <span class="hljs-subst">{qty}</span> x <span class="hljs-subst">{product_name}</span> <span class="hljs-subst">{qty * product_price}</span>&quot;&quot;&quot;</span>)
+</code></pre>
+  <h3 id="примечания">Примечания:</h3>
+  <ul>
+    <li>переменная <code>menu</code> содержит <em>кортеж</em> кортежей
+      <ul>
+        <li>другими словами, элементами кортежа являются другие кортежи</li>
+        <li>каждый внутренний кортеж содержит данные о фрукте: иконку, название и цену</li>
+      </ul>
+    </li>
+    <li>переменная <code>basket</code> содержит <em>список</em> кортежей
+      <ul>
+        <li>каждый внутренний кортеж содержит информацию о покупке: номер товара и количество</li>
+        <li>использование списка (<code>list</code>) вместо кортежа (<code>tuple</code>) позволяет изменять содержимое
+          корзины</li>
+      </ul>
+    </li>
+    <li>цикл <code>for basket_item in basket</code> используется для вывода содержимого корзины
+      <ul>
+        <li>сначала из <code>basket_item</code> получаем номер товара и количество</li>
+        <li>затем в <code>menu</code> находим данные о товаре <code>product_details</code> по номеру</li>
+        <li>из <code>product_details</code> получаем иконку <code>product_icon</code>, название
+          <code>product_name</code> и цену <code>product_price</code></li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="вопросы-для-размышления">Вопросы для размышления:</h3>
+  <ul>
+    <li>Почему мы используем кортеж (<code>tuple</code>) для хранения данных о фруктах, а не список (<code>list</code>)?
+      В чем разница между ними?</li>
+    <li>Как работает строка <code>print(f'{number + 1:3}. {icon} {name:14} {price:&gt;5} руб')</code>? Что означают
+      символы <code>:3</code>, <code>:14</code> и <code>:&gt;5</code>?</li>
+    <li>Почему мы используем <code>menu[num_product - 1]</code> для получения данных о товаре? Зачем нужно вычитать
+      единицу?</li>
+    <li>Как можно изменить программу, чтобы она показывала общую сумму всех товаров в корзине?</li>
+    <li>Как можно изменить программу, чтобы пользователь мог добавлять несколько товаров в корзину, а не только один?
+    </li>
+    <li>Что произойдет, если пользователь введет номер товара, которого нет в меню? Как можно улучшить программу, чтобы
+      она не ломалась в таком случае?</li>
+    <li>Что будет, если пользователь введет отрицательное количество товаров? Как это можно исправить?</li>
+    <li>Что нужно добавить в программу, чтобы пользователь мог удалять товары из корзины, если передумал?</li>
+    <li>Как можно сделать так, чтобы программа запоминала покупки и показывала историю заказов?</li>
+    <li>Представь, что ты владелец этого магазина. Как бы ты улучшил программу, чтобы покупателям было удобнее выбирать
+      товары?</li>
+    <li>Если бы ты мог создать магазин не только фруктов, но и других товаров (например, овощей, сладостей или игрушек),
+      как бы выглядело меню?</li>
+  </ul>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

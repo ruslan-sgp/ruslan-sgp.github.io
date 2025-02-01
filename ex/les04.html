@@ -172,9 +172,9 @@
   <h3 id="замена-при-помощи-макроса">Замена при помощи макроса</h3>
   <ol>
     <li>Включим запись макроса</li>
-    <li>Вручную найдем и заменим несколько значений.
+    <li>Выполним поиск и замену обычным образом.
       <ol>
-        <li>Например, заменим &quot;улица&quot; на &quot;ул.&quot;</li>
+        <li>Например, заменим &quot;улица&quot; на &quot;ул.&quot; при помощи поиска и замены</li>
       </ol>
     </li>
     <li>Остановим запись макроса, и найдем ёго код, автоматически сгенерированный Excel, в редакторе VBA</li>
@@ -225,58 +225,68 @@
     <li>
       <p><strong><code>InStr</code></strong>:</p>
       <ul>
-        <li>Находит позицию подстроки в строке.</li>
-        <li>Пример: <code>InStr(address, &quot;д.&quot;)</code>.</li>
+        <li>Используется для поиска позиции подстроки в строке. Если подстрока найдена, возвращает ее начальную позицию,
+          иначе – 0.</li>
+        <li>Пример: <code>InStr(address, &quot;д.&quot;)</code> – находит, на какой позиции в <code>address</code>
+          находится &quot;д.&quot;.</li>
       </ul>
     </li>
     <li>
       <p><strong><code>Left</code></strong>:</p>
       <ul>
-        <li>Извлекает указанное количество символов с левой стороны строки.</li>
-        <li>Пример: <code>Left(address, housePos - 1)</code>.</li>
+        <li>Извлекает указанное количество символов с левого края строки.</li>
+        <li>Пример: <code>Left(address, housePos - 1)</code> – берет часть строки <code>address</code> от начала до
+          <code>housePos - 1</code>, исключая символ &quot;д.&quot;.</li>
       </ul>
     </li>
     <li>
       <p><strong><code>Mid</code></strong>:</p>
       <ul>
-        <li>Извлекает подстроку из строки, начиная с указанной позиции.</li>
-        <li>Пример: <code>Mid(address, housePos + 3, apartmentPos - housePos - 3)</code>.</li>
+        <li>Извлекает подстроку, начиная с заданной позиции и длиной в указанное количество символов.</li>
+        <li>Пример: <code>Mid(address, housePos + 3, apartmentPos - housePos - 3)</code> – берет подстроку, начиная с
+          <code>housePos + 3</code>, пропуская &quot;д. &quot;, и заканчивая перед <code>apartmentPos</code>.</li>
       </ul>
     </li>
     <li>
       <p><strong><code>Right</code></strong>:</p>
       <ul>
-        <li>Извлекает указанное количество символов с правой стороны строки.</li>
-        <li>Пример: <code>Right(address, Len(address) - apartmentPos - 3)</code>.</li>
+        <li>Возвращает последние <code>N</code> символов строки.</li>
+        <li>Пример: <code>Right(address, Len(address) - apartmentPos - 3)</code> – извлекает часть строки
+          <code>address</code>, начиная с позиции <code>apartmentPos + 3</code> и до конца.</li>
       </ul>
     </li>
     <li>
       <p><strong><code>Trim</code></strong>:</p>
       <ul>
-        <li>Удаляет начальные и конечные пробелы из строки.</li>
-        <li>Пример: <code>Trim(street)</code>.</li>
+        <li>Удаляет пробелы в начале и конце строки.</li>
+        <li>Пример: <code>Trim(street)</code> – убирает лишние пробелы в <code>street</code>.</li>
       </ul>
     </li>
     <li>
       <p><strong><code>Len</code></strong>:</p>
       <ul>
-        <li>Возвращает длину строки.</li>
-        <li>Пример: <code>Len(address)</code>.</li>
+        <li>Возвращает количество символов в строке, включая пробелы.</li>
+        <li>Пример: <code>Len(address)</code> – дает длину строки <code>address</code>.</li>
       </ul>
     </li>
     <li>
-      <p><strong>Replace</strong>:</p>
+      <p><strong><code>Replace</code></strong>:</p>
       <ul>
-        <li>Заменяет подстроку в строке на другую.</li>
-        <li>Пример: <code>Replace(address, &quot;  &quot;, &quot; &quot;)</code>.</li>
+        <li>Позволяет заменить одну подстроку на другую в заданной строке.</li>
+        <li>Пример: <code>Replace(address, &quot;  &quot;, &quot; &quot;)</code> – заменяет двойные пробелы на
+          одиночные, убирая лишние пробелы.</li>
       </ul>
     </li>
   </ol>
+  <h2 id="запись-занятия">Запись    занятия</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/RFnI4cJTkgg?si=Cb5o5UVhtqNkHMGI"
+ title="YouTube video player" frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
   <footer>
     <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
   </footer>
-
 
 </body>
 

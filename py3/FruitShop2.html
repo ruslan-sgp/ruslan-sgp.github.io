@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин фруктов - часть 2</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="практическая-работа---2">Практическая работа - 2</h1>
+  <p>Продолжаем работать над магазином фруктов и узнаём больше о возможностях Python.</p>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <h3 id="1-особенности-индексации-коллекций-в-python">1. <strong>Особенности индексации коллекций в Python</strong>
+  </h3>
+  <h4 id="отрицательные-индексы">Отрицательные индексы</h4>
+  <ul>
+    <li>В Python можно использовать отрицательные индексы для доступа к элементам коллекции с конца.</li>
+    <li>Например, индекс <code>-1</code> указывает на последний элемент, <code>-2</code> — на предпоследний и так далее.
+    </li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python">fruits = [<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;🍏&quot;</span>, <span class="hljs-string">&quot;🍌&quot;</span>, <span class="hljs-string">&quot;🍒&quot;</span>]
+<span class="hljs-built_in">print</span>(fruits[-<span class="hljs-number">1</span>])  <span class="hljs-comment"># 🍒 (последний элемент)</span>
+<span class="hljs-built_in">print</span>(fruits[-<span class="hljs-number">2</span>])  <span class="hljs-comment"># 🍌 (предпоследний элемент)</span>
+</code></pre>
+  <h4 id="срезы">Срезы</h4>
+  <ul>
+    <li>Срезы позволяют извлекать часть коллекции (подсписок) по начальному и конечному индексам.</li>
+    <li>Синтаксис: <code>коллекция[начало:конец:шаг]</code>.</li>
+    <li>Если не указать <code>начало</code>, срез начнется с первого элемента.</li>
+    <li>Если не указать <code>конец</code>, срез закончится на последнем элементе.</li>
+    <li>Шаг позволяет пропускать элементы (например, <code>шаг=2</code> берет каждый второй элемент).</li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python">fruits = [<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;🍏&quot;</span>, <span class="hljs-string">&quot;🍌&quot;</span>, <span class="hljs-string">&quot;🍒&quot;</span>, <span class="hljs-string">&quot;🍇&quot;</span>, <span class="hljs-string">&quot;🍓&quot;</span>]
+<span class="hljs-built_in">print</span>(fruits[<span class="hljs-number">1</span>:<span class="hljs-number">4</span>])  <span class="hljs-comment"># [&quot;🍏&quot;, &quot;🍌&quot;, &quot;🍒&quot;] (элементы с индексами 1, 2, 3)</span>
+<span class="hljs-built_in">print</span>(fruits[:<span class="hljs-number">3</span>])   <span class="hljs-comment"># [&quot;🍎&quot;, &quot;🍏&quot;, &quot;🍌&quot;] (первые три элемента)</span>
+<span class="hljs-built_in">print</span>(fruits[::<span class="hljs-number">2</span>])  <span class="hljs-comment"># [&quot;🍎&quot;, &quot;🍌&quot;, &quot;🍇&quot;] (каждый второй элемент)</span>
+</code></pre>
+  <h3 id="2-одновременное-присваивание-переменных">2. <strong>Одновременное присваивание переменных</strong></h3>
+  <ul>
+    <li>В Python можно присваивать значения нескольким переменным одной командой.</li>
+    <li>Это удобно для обмена значениями между переменными или распаковки коллекций.</li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python">x, y = <span class="hljs-number">10</span>, <span class="hljs-number">20</span>
+<span class="hljs-built_in">print</span>(x, y)  <span class="hljs-comment"># 10 20</span>
+
+<span class="hljs-comment"># Обмен значениями</span>
+x, y = y, x
+<span class="hljs-built_in">print</span>(x, y)  <span class="hljs-comment"># 20 10</span>
+
+<span class="hljs-comment"># Распаковка списка</span>
+fruits = [<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;🍌&quot;</span>]
+apple, banana = fruits
+<span class="hljs-built_in">print</span>(apple, banana)  <span class="hljs-comment"># 🍎 🍌</span>
+</code></pre>
+  <h3 id="3-функция-enumerate">3. <strong>Функция <code>enumerate</code></strong></h3>
+  <ul>
+    <li>Функция <code>enumerate</code> позволяет одновременно получать индекс и значение элемента при итерации по
+      коллекции.</li>
+    <li>Удобно, когда нужно работать как с индексами, так и с элементами.</li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python">fruits = [<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;🍏&quot;</span>, <span class="hljs-string">&quot;🍌&quot;</span>]
+<span class="hljs-keyword">for</span> index, fruit <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(fruits):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Индекс: <span class="hljs-subst">{index}</span>, Фрукт: <span class="hljs-subst">{fruit}</span>&quot;</span>)
+
+<span class="hljs-comment"># Вывод:</span>
+<span class="hljs-comment"># Индекс: 0, Фрукт: 🍎</span>
+<span class="hljs-comment"># Индекс: 1, Фрукт: 🍏</span>
+<span class="hljs-comment"># Индекс: 2, Фрукт: 🍌</span>
+</code></pre>
+  <h3 id="4-цикл-while">4. <strong>Цикл <code>while</code></strong></h3>
+  <ul>
+    <li>Цикл <code>while</code> повторяет блок кода, пока выполняется условие.</li>
+    <li>Условие проверяется перед каждой итерацией.</li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python">count = <span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span> count &lt; <span class="hljs-number">3</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Счетчик: <span class="hljs-subst">{count}</span>&quot;</span>)
+    count += <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># Вывод:</span>
+<span class="hljs-comment"># Счетчик: 0</span>
+<span class="hljs-comment"># Счетчик: 1</span>
+<span class="hljs-comment"># Счетчик: 2</span>
+</code></pre>
+  <h3 id="5-прерывание-цикла-при-помощи-break">5. <strong>Прерывание цикла при помощи <code>break</code></strong></h3>
+  <ul>
+    <li>Команда <code>break</code> позволяет досрочно завершить цикл, даже если условие цикла еще не стало ложным.</li>
+    <li>Часто используется для выхода из бесконечного цикла или при выполнении определенного условия.</li>
+  </ul>
+  <p><strong>Пример:</strong></p>
+  <pre><code class="language-python"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    user_input = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите &#x27;стоп&#x27; для выхода: &quot;</span>)
+    <span class="hljs-keyword">if</span> user_input == <span class="hljs-string">&quot;стоп&quot;</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Цикл завершен.&quot;</span>)
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Вы ввели: <span class="hljs-subst">{user_input}</span>&quot;</span>)
+</code></pre>
+  <h2 id="совершенствуем-код">Совершенствуем код</h2>
+  <p>Улучшим наш код магазина фруктов при помощи новых знаний:</p>
+  <ul>
+    <li>Используем функцию <code>enumerate</code> чтобы получить номер и данные продукта.</li>
+    <li>Создадим все переменные цикла в одной строке: <code>for number, (icon, name, price) in enumerate(menu)</code>
+    </li>
+    <li>используем цикл <code>while</code> чтобы добавлять более одного продукта в корзину.</li>
+    <li>используем условный оператор <code>if</code> и команду <code>break</code> чтобы выйти из вечного цикла</li>
+    <li>присваиваем номер и количество товара при помощи команды <code>for num, qty in basket</code></li>
+    <li>получаем данные товара при помощи команды <code>icon, name, price = menu[num - 1]</code></li>
+  </ul>
+  <p>Результат:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># используем коллекцию (кортеж) для фруктов</span>
+menu = (
+    (<span class="hljs-string">&quot;🍎&quot;</span>, <span class="hljs-string">&quot;Красное яблоко&quot;</span>, <span class="hljs-number">100</span>),
+    (<span class="hljs-string">&quot;🍏&quot;</span>, <span class="hljs-string">&quot;Зеленое яблоко&quot;</span>, <span class="hljs-number">120</span>),
+    (<span class="hljs-string">&quot;🍌&quot;</span>, <span class="hljs-string">&quot;Банан&quot;</span>, <span class="hljs-number">50</span>),
+    (<span class="hljs-string">&quot;🍒&quot;</span>, <span class="hljs-string">&quot;Вишня&quot;</span>, <span class="hljs-number">300</span>),
+    (<span class="hljs-string">&quot;🍇&quot;</span>, <span class="hljs-string">&quot;Виноград&quot;</span>, <span class="hljs-number">250</span>),
+    (<span class="hljs-string">&quot;🍓&quot;</span>, <span class="hljs-string">&quot;Клубника&quot;</span>, <span class="hljs-number">200</span>),
+    (<span class="hljs-string">&quot;🍉&quot;</span>, <span class="hljs-string">&quot;Арбуз&quot;</span>, <span class="hljs-number">400</span>),
+    (<span class="hljs-string">&quot;🍑&quot;</span>, <span class="hljs-string">&quot;Персик&quot;</span>, <span class="hljs-number">150</span>),
+    (<span class="hljs-string">&quot;🍍&quot;</span>, <span class="hljs-string">&quot;Ананас&quot;</span>, <span class="hljs-number">350</span>),
+    (<span class="hljs-string">&quot;🥭&quot;</span>, <span class="hljs-string">&quot;Манго&quot;</span>, <span class="hljs-number">280</span>),
+    (<span class="hljs-string">&quot;🍊&quot;</span>, <span class="hljs-string">&quot;Апельсин&quot;</span>, <span class="hljs-number">110</span>),
+    (<span class="hljs-string">&quot;🍋&quot;</span>, <span class="hljs-string">&quot;Лимон&quot;</span>, <span class="hljs-number">80</span>),
+    (<span class="hljs-string">&quot;🍈&quot;</span>, <span class="hljs-string">&quot;Дыня&quot;</span>, <span class="hljs-number">320</span>),
+    (<span class="hljs-string">&quot;🥝&quot;</span>, <span class="hljs-string">&quot;Киви&quot;</span>, <span class="hljs-number">130</span>),
+    (<span class="hljs-string">&quot;🍐&quot;</span>, <span class="hljs-string">&quot;Груша&quot;</span>, <span class="hljs-number">140</span>),
+    (<span class="hljs-string">&quot;🫐&quot;</span>, <span class="hljs-string">&quot;Черника&quot;</span>, <span class="hljs-number">90</span>),
+    (<span class="hljs-string">&quot;🥥&quot;</span>, <span class="hljs-string">&quot;Кокос&quot;</span>, <span class="hljs-number">360</span>)
+)
+
+<span class="hljs-comment"># Напечатаем приветствие</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#x27;&#x27;Добро пожаловать в Фруктовый Магазин! 🛒
+Вот наше меню:&#x27;&#x27;&#x27;</span>)
+
+<span class="hljs-comment"># используем цикл для вывода фруктов</span>
+<span class="hljs-keyword">for</span> number, (icon, name, price) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(menu):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">{number + <span class="hljs-number">1</span>:<span class="hljs-number">3</span>}</span>. <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:<span class="hljs-number">14</span>}</span> <span class="hljs-subst">{price:&gt;<span class="hljs-number">5</span>}</span> руб&#x27;</span>)
+
+<span class="hljs-comment"># добавить товар в корзину</span>
+basket = []
+
+<span class="hljs-comment"># получить номер товара</span>
+<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:
+    num_product = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Выберите номер товара который вы хотели бы приобрести: &quot;</span>))
+    <span class="hljs-keyword">if</span> num_product == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">break</span>    
+    quantity = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Сколько килограмм товара вы хотели бы купить: &quot;</span>))
+    basket.append((num_product, quantity))
+
+<span class="hljs-comment"># показать корзину</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ваша корзина содержит:&quot;</span>)
+<span class="hljs-keyword">for</span> num, qty <span class="hljs-keyword">in</span> basket:
+    icon, name, price = menu[num - <span class="hljs-number">1</span>]
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot;<span class="hljs-subst">{qty}</span> x <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:.&lt;<span class="hljs-number">15</span>}</span> <span class="hljs-subst">{qty * price:,}</span> руб&quot;&quot;&quot;</span>)
+</code></pre>
+  <p>Теперь можно добавить несколько товаров в корзину. Кроме того, наш код короче и понятнее!</p>
+  <p>Результат выполнения программы:</p>
+  <pre><code>Добро пожаловать в Фруктовый Магазин! 🛒
+Вот наше меню:
+  1. 🍎 Красное яблоко   100 руб
+  2. 🍏 Зеленое яблоко   120 руб
+  3. 🍌 Банан             50 руб
+  4. 🍒 Вишня            300 руб
+  5. 🍇 Виноград         250 руб
+  6. 🍓 Клубника         200 руб
+  7. 🍉 Арбуз            400 руб
+  8. 🍑 Персик           150 руб
+  9. 🍍 Ананас           350 руб
+ 10. 🥭 Манго            280 руб
+ 11. 🍊 Апельсин         110 руб
+ 12. 🍋 Лимон             80 руб
+ 13. 🍈 Дыня             320 руб
+ 14. 🥝 Киви             130 руб
+ 15. 🍐 Груша            140 руб
+ 16. 🫐 Черника           90 руб
+ 17. 🥥 Кокос            360 руб
+Выберите номер товара который вы хотели бы приобрести:  10
+Сколько килограмм товара вы хотели бы купить:  20
+Выберите номер товара который вы хотели бы приобрести:  5
+Сколько килограмм товара вы хотели бы купить:  30
+Выберите номер товара который вы хотели бы приобрести:  6
+Сколько килограмм товара вы хотели бы купить:  15
+Выберите номер товара который вы хотели бы приобрести:  0
+Ваша корзина содержит:
+20 x 🥭 Манго.......... 5,600 руб
+30 x 🍇 Виноград....... 7,500 руб
+15 x 🍓 Клубника....... 3,000 руб
+</code></pre>
+  <h2 id="запись-урока">Запись урока</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hacsy_Mvg5s?si=J4EWAPzg3uZMLwjd"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="вопросы-для-проверки">Вопросы для проверки</h2>
+  <p>Проверь своё понимание при помощи вопросов ниже:</p>
+  <h3 id="1-цикл-for-и-функция-enumerate">1. <strong>Цикл <code>for</code> и функция <code>enumerate</code></strong>
+  </h3>
+  <ul>
+    <li>В программе используется цикл <code>for</code> с функцией <code>enumerate</code>. Объясните, как работает
+      <code>enumerate</code> и что делает строка:
+      <pre><code class="language-python"><span class="hljs-keyword">for</span> number, (icon, name, price) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(menu):
+</code></pre>
+    </li>
+    <li>Что будет выведено, если заменить <code>number + 1</code> на <code>number</code> в строке
+      <code>print(f'{number + 1:3}. {icon} {name:14} {price:&gt;5} руб')</code>?</li>
+  </ul>
+  <details>
+    <summary>Объяснение</summary>
+    <ul>
+      <li><code>enumerate</code> возвращает пары (индекс, элемент) для каждого элемента коллекции. В данном случае
+        <code>number</code> — это индекс, а <code>(icon, name, price)</code> — это кортеж с данными о фрукте.</li>
+      <li>Если заменить <code>number + 1</code> на <code>number</code>, нумерация в меню начнется с 0 вместо 1.</li>
+    </ul>
+  </details>
+  <h3 id="2-срезы">2. <strong>Срезы</strong></h3>
+  <ul>
+    <li>Как можно изменить программу, чтобы вывести только первые 5 фруктов из меню? Используйте срезы.</li>
+  </ul>
+  <details>
+    <summary>Объяснение</summary>
+    <pre><code class="language-python"><span class="hljs-keyword">for</span> number, (icon, name, price) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(menu[:<span class="hljs-number">5</span>]):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">{number + <span class="hljs-number">1</span>:<span class="hljs-number">3</span>}</span>. <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:<span class="hljs-number">14</span>}</span> <span class="hljs-subst">{price:&gt;<span class="hljs-number">5</span>}</span> руб&#x27;</span>)
+</code></pre>
+  </details>
+  <h3 id="3-цикл-while-и-прерывание-цикла">3. <strong>Цикл <code>while</code> и прерывание цикла</strong></h3>
+  <ul>
+    <li>В программе используется цикл <code>while</code> для добавления товаров в корзину. Объясните, как работает
+      условие выхода из цикла (<code>if num_product == 0: break</code>). Что произойдет, если пользователь введет
+      <code>0</code>?</li>
+  </ul>
+  <details>
+    <summary>Объяснение</summary>
+    <ul>
+      <li>Если пользователь введет <code>0</code>, цикл прервется, и программа перейдет к выводу содержимого корзины.
+        Это позволяет пользователю завершить выбор товаров.</li>
+    </ul>
+  </details>
+  <h3 id="4-одновременное-присваивание">4. <strong>Одновременное присваивание</strong></h3>
+  <ul>
+    <li>В программе используется одновременное присваивание в строке:
+      <pre><code class="language-python">icon, name, price = menu[num - <span class="hljs-number">1</span>]
+</code></pre>
+    </li>
+    <li>Объясните, как работает эта строка. Что произойдет, если пользователь введет номер товара, которого нет в меню
+      (например, 100)?</li>
+  </ul>
+  <details>
+    <summary>Объяснение</summary>
+    <ul>
+      <li>Строка извлекает данные о фрукте из кортежа <code>menu</code> по индексу <code>num - 1</code> и присваивает их
+        переменным <code>icon</code>, <code>name</code> и <code>price</code>.</li>
+      <li>Если пользователь введет номер товара, которого нет в меню (например, 100), программа завершится с ошибкой
+        <code>IndexError</code>, так как индекс будет выходить за пределы кортежа.</li>
+    </ul>
+  </details>
+  <h3 id="5-форматирование-строк">5. <strong>Форматирование строк</strong></h3>
+  <ul>
+    <li>В программе используется форматирование строк, например:
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">{number + <span class="hljs-number">1</span>:<span class="hljs-number">3</span>}</span>. <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:<span class="hljs-number">14</span>}</span> <span class="hljs-subst">{price:&gt;<span class="hljs-number">5</span>}</span> руб&#x27;</span>)
+</code></pre>
+    </li>
+    <li>Объясните, что означают выражения <code>:3</code>, <code>:14</code> и <code>:&gt;5</code> в этом контексте. Как
+      изменить форматирование, чтобы цены выравнивались по левому краю?</li>
+  </ul>
+  <details>
+    <summary>Объяснение</summary>
+    <ul>
+      <li><code>:3</code> — выделяет 3 символа для номера товара.</li>
+      <li><code>:14</code> — выделяет 14 символов для названия фрукта.</li>
+      <li><code>:&gt;5</code> — выравнивает цену по правому краю в поле шириной 5 символов.</li>
+      <li>Чтобы выровнять цены по левому краю, можно использовать <code>:&lt;5</code>:
+        <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">{number + <span class="hljs-number">1</span>:<span class="hljs-number">3</span>}</span>. <span class="hljs-subst">{icon}</span> <span class="hljs-subst">{name:<span class="hljs-number">14</span>}</span> <span class="hljs-subst">{price:&lt;<span class="hljs-number">5</span>}</span> руб&#x27;</span>)
+</code></pre>
+      </li>
+    </ul>
+  </details>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <h3 id="задание-1---работа-с-коллекциями">Задание 1 - работа с коллекциями</h3>
+  <ol>
+    <li>Напиши программу, которая создаёт список длиной 10, и заполняет его числами от 1 до 10.</li>
+    <li>Добавь код, чтобы вывести элементы массива в обратном порядке (от 10 до 1).</li>
+  </ol>
+  <h3 id="задание-2---улучшаем-магазин-фруктов">Задание 2 - Улучшаем магазин фруктов</h3>
+  <ol start="3">
+    <li>В программе Магазин Фруктов добавь подсчёт и вывод общей суммы покупок (для всех товаров в корзине).</li>
+  </ol>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

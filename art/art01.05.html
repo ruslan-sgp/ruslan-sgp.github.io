@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наложение цвета - рисуем попугая</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-5">Урок 5</h1>
+  <p>Рисуем попугая, и узнаём про режимы наложения цвета.</p>
+  <img src="les05.parrot.jpg" />
+  <p>Давай разберем, что такое <strong>Blending Mode</strong> (режимы наложения) в рисовании на iPad. Это как волшебные
+    кисточки, которые меняют цвета и делают твои рисунки интереснее!</p>
+  <hr>
+  <h3 id="что-такое-blending-mode">Что такое Blending Mode?</h3>
+  <p>Blending Mode — это специальные настройки, которые говорят программе, как смешивать цвета слоев. Например, если ты
+    рисуешь один цвет поверх другого, Blending Mode решает, как эти цвета будут взаимодействовать: станут ярче, темнее
+    или вообще поменяют оттенок.</p>
+  <hr>
+  <h3 id="основные-режимы-наложения">Основные режимы наложения</h3>
+  <p>Вот таблица с самыми популярными режимами:</p>
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Режим</strong></th>
+        <th><strong>Что делает</strong></th>
+        <th><strong>Пример</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Normal</strong></td>
+        <td>Просто рисует цвет поверх другого, ничего не меняет.</td>
+        <td>Как краска на бумаге.</td>
+      </tr>
+      <tr>
+        <td><strong>Multiply</strong></td>
+        <td>Делает цвета темнее. Подходит для теней.</td>
+        <td>Как если бы ты наложил прозрачную черную пленку на рисунок.</td>
+      </tr>
+      <tr>
+        <td><strong>Screen</strong></td>
+        <td>Делает цвета светлее. Подходит для света или бликов.</td>
+        <td>Как если бы ты добавил свет фонариком.</td>
+      </tr>
+      <tr>
+        <td><strong>Overlay</strong></td>
+        <td>Смешивает цвета, делая светлые участки светлее, а темные — темнее.</td>
+        <td>Как если бы ты добавил контраст.</td>
+      </tr>
+      <tr>
+        <td><strong>Add (Glow)</strong></td>
+        <td>Делает цвета ярче и светлее, как будто они светятся.</td>
+        <td>Как неоновая лампа.</td>
+      </tr>
+      <tr>
+        <td><strong>Difference</strong></td>
+        <td>Показывает разницу между цветами, создавая необычные эффекты.</td>
+        <td>Как если бы цвета &quot;спорили&quot; друг с другом.</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h3 id="как-это-работает">Как это работает?</h3>
+  <p>Представь, что у тебя есть два слоя:</p>
+  <ol>
+    <li><strong>Нижний слой</strong> — это фон, например, синее небо.</li>
+    <li><strong>Верхний слой</strong> — это облако, которое ты рисуешь.</li>
+  </ol>
+  <p>Если ты выберешь режим <strong>Multiply</strong>, облако станет темнее и будет выглядеть, как тень на небе. А если
+    выберешь <strong>Screen</strong>, облако станет светлее, как будто оно светится.</p>
+  <hr>
+  <h3 id="пример">Пример</h3>
+  <p>Давай попробуем на практике:</p>
+  <ol>
+    <li>Нарисуй желтый круг.</li>
+    <li>Сверху нарисуй красный круг, но выбери режим <strong>Multiply</strong>.</li>
+    <li>Увидишь, что там, где круги пересекаются, цвет станет оранжевым и темнее!</li>
+  </ol>
+  <hr>
+  <h3 id="задание-для-тебя">Задание для тебя</h3>
+  <p>Попробуй поэкспериментировать:</p>
+  <ol>
+    <li>Нарисуй фон (например, зеленую траву).</li>
+    <li>Добавь новый слой и нарисуй что-то сверху (например, солнце).</li>
+    <li>Меняй Blending Mode на верхнем слое и смотри, как меняется картинка!</li>
+  </ol>
+  <hr>
+  <h3 id="почему-это-круто">Почему это круто?</h3>
+  <p>Blending Mode помогает создавать красивые эффекты: свет, тени, блики, свечение. Это как волшебство, которое делает
+    твои рисунки живее и интереснее!</p>
+  <p>Попробуй, и ты увидишь, как твои рисунки станут еще круче! 😊</p>
+  <h3 id="пример-1">Пример</h3>
+  <p>Рисунок попугая после наложения тени:</p>
+  <img src="parrot2.jpg" />
+  <p>Ты отлично поработал. Так держать!</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

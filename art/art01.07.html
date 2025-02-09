@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 7 - Еще о Python Turtle</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-7">Урок 7</h1>
+  <p>Привет, юный программист! Сегодня мы продолжим изучать мир Python Turtle и дополним красивый рисунок снеговика с
+    фоном неба. На этом уроке ты научишься использовать Python Turtle для рисования фигур, линий и даже цветов. Давай
+    начнем!</p>
+  <img src="snowman.jpg" />
+  <h2 id="основные-понятия-python-turtle"><strong>Основные понятия Python Turtle</strong></h2>
+  <p>Вот список всех важных концепций, которые используются в сегодняшнем коде:</p>
+  <ol>
+    <li>
+      <p><strong>Импорт модуля Turtle</strong></p>
+      <ul>
+        <li><code>from turtle import *</code>: Эта строка импортирует все функции из модуля <code>turtle</code>, что
+          позволяет нам рисовать с помощью команд, таких как <code>forward</code>, <code>backward</code> и других.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Настройка черепашки</strong></p>
+      <ul>
+        <li><code>speed(0)</code>: Устанавливает скорость рисования на самую быструю.</li>
+        <li><code>shapesize(2, 2, 1)</code>: Изменяет размер черепашки (ширина, длина, контур).</li>
+        <li><code>shape(&quot;turtle&quot;)</code>: Меняет внешний вид курсора черепашки на форму черепахи
+          (необязательно).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Движение черепашки</strong></p>
+      <ul>
+        <li><code>forward(расстояние)</code>: Перемещает черепашку вперед на указанное расстояние.</li>
+        <li><code>backward(расстояние)</code>: Перемещает черепашку назад на указанное расстояние.</li>
+        <li><code>goto(x, y)</code>: Перемещает черепашку в конкретную точку <code>(x, y)</code> на экране.</li>
+        <li><code>setheading(угол)</code>: Устанавливает направление черепашки на указанный угол (например, 0 = Восток,
+          90 = Север).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Рисование линий и фигур</strong></p>
+      <ul>
+        <li><code>left(угол)</code> и <code>right(угол)</code>: Поворачивают черепашку влево или вправо на указанный
+          угол.</li>
+        <li><code>circle(радиус, длина)</code>: Рисует круг с заданным радиусом и необязательной длиной (часть круга).
+        </li>
+        <li><code>stamp()</code>: Оставляет копию формы черепашки в текущей позиции.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Настройка пера</strong></p>
+      <ul>
+        <li><code>width(размер)</code>: Изменяет толщину пера.</li>
+        <li><code>color(r, g, b)</code> или <code>color(&quot;название_цвета&quot;)</code>: Устанавливает цвет пера и
+          заливки.</li>
+        <li><code>colormode(255)</code>: Позволяет использовать значения RGB (0-255) для цветов.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Заливка фигур</strong></p>
+      <ul>
+        <li><code>begin_fill()</code> и <code>end_fill()</code>: Используются вместе для заливки фигуры текущим цветом
+          пера.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Поднятие пера</strong></p>
+      <ul>
+        <li><code>penup()</code>: Поднимает перо, чтобы черепашка могла двигаться без рисования.</li>
+        <li><code>pendown()</code>: Опускает перо, чтобы черепашка начала рисовать снова.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Циклы для повторения</strong></p>
+      <ul>
+        <li><code>for i in range(n)</code>: Повторяет блок кода <code>n</code> раз. В этом коде циклы используются для
+          рисования горизонтальных и вертикальных линий сетки.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Экспорт рисунка</strong></p>
+      <ul>
+        <li><code>getcanvas().postscript(file=&quot;имя_файла.eps&quot;, x=-500, width=1000, height=1000)</code>:
+          Сохраняет рисунок в формате EPS.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Завершение рисования</strong></p>
+      <ul>
+        <li><code>done()</code>: Держит окно открытым до тех пор, пока ты его не закроешь.</li>
+      </ul>
+    </li>
+  </ol>
+  <h2 id="анализ-кода"><strong>Анализ кода</strong></h2>
+  <p>Разберем код пошагово:</p>
+  <h3 id="шаг-1-создание-сетки"><strong>Шаг 1: Создание сетки</strong></h3>
+  <pre><code class="language-python"><span class="hljs-comment"># Рисуем горизонтальную шкалу</span>
+width(<span class="hljs-number">4</span>)
+forward(<span class="hljs-number">450</span>)
+stamp()
+backward(<span class="hljs-number">900</span>)
+
+<span class="hljs-comment"># Рисуем вертикальную шкалу</span>
+forward(<span class="hljs-number">450</span>)
+left(<span class="hljs-number">90</span>)
+forward(<span class="hljs-number">450</span>)
+stamp()
+backward(<span class="hljs-number">900</span>)
+</code></pre>
+  <ul>
+    <li>Черепашка рисует горизонтальную линию и оставляет метку своей формы.</li>
+    <li>Затем она поворачивается влево и рисует вертикальную линию, также оставляя метку.</li>
+  </ul>
+  <h3 id="шаг-2-рисование-горизонтальных-и-вертикальных-линий"><strong>Шаг 2: Рисование горизонтальных и вертикальных
+      линий</strong></h3>
+  <pre><code class="language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">19</span>):
+    setheading(<span class="hljs-number">0</span>)
+    forward(<span class="hljs-number">450</span>)
+    write(i * <span class="hljs-number">50</span> - <span class="hljs-number">450</span>)
+    backward(<span class="hljs-number">900</span>)
+    forward(<span class="hljs-number">450</span>)
+    left(<span class="hljs-number">90</span>)
+    forward(<span class="hljs-number">50</span>)
+    right(<span class="hljs-number">90</span>)
+</code></pre>
+  <ul>
+    <li>Цикл рисует 19 горизонтальных линий и пишет числа рядом с ними.</li>
+    <li>Аналогично, другой цикл рисует вертикальные линии.</li>
+  </ul>
+  <h3 id="шаг-3-рисование-неба"><strong>Шаг 3: Рисование неба</strong></h3>
+  <pre><code class="language-python">colormode(<span class="hljs-number">255</span>)
+color(<span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>)
+penup()
+goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+pendown()
+setheading(<span class="hljs-number">160</span>)
+circle(<span class="hljs-number">700</span>, <span class="hljs-number">40</span>)
+begin_fill()
+circle(<span class="hljs-number">620</span>, <span class="hljs-number">40</span>)
+goto(-<span class="hljs-number">450</span>, <span class="hljs-number">450</span>)
+goto(<span class="hljs-number">450</span>, <span class="hljs-number">450</span>)
+goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+end_fill()
+</code></pre>
+  <ul>
+    <li>Черепашка меняет цвет на синий и использует <code>begin_fill()</code> и <code>end_fill()</code> для рисования и
+      заливки неба.</li>
+  </ul>
+  <h3 id="шаг-4-рисование-снеговика"><strong>Шаг 4: Рисование снеговика</strong></h3>
+  <pre><code class="language-python"><span class="hljs-comment"># Первый круг</span>
+color(<span class="hljs-number">121</span>, <span class="hljs-number">186</span>, <span class="hljs-number">254</span>)
+penup()
+goto(<span class="hljs-number">0</span>, -<span class="hljs-number">50</span>)
+pendown()
+begin_fill()
+circle(<span class="hljs-number">150</span>)
+end_fill()
+
+<span class="hljs-comment"># Второй круг</span>
+goto(<span class="hljs-number">0</span>, -<span class="hljs-number">60</span>)
+setheading(<span class="hljs-number">0</span>)
+begin_fill()
+circle(<span class="hljs-number">110</span>)
+end_fill()
+
+<span class="hljs-comment"># Третий круг</span>
+goto(<span class="hljs-number">0</span>, <span class="hljs-number">150</span>)
+begin_fill()
+circle(<span class="hljs-number">70</span>)
+end_fill()
+</code></pre>
+  <ul>
+    <li>Рисуются три круга и заливаются, чтобы создать тело снеговика.</li>
+  </ul>
+  <h3 id="шаг-5-добавление-глаз"><strong>Шаг 5: Добавление глаз</strong></h3>
+  <pre><code class="language-python"><span class="hljs-comment"># Левый глаз</span>
+goto(-<span class="hljs-number">25</span>, <span class="hljs-number">250</span>)
+color(<span class="hljs-string">&quot;black&quot;</span>)
+begin_fill()
+circle(<span class="hljs-number">7</span>)
+end_fill()
+
+<span class="hljs-comment"># Правый глаз</span>
+penup()
+goto(<span class="hljs-number">25</span>, <span class="hljs-number">250</span>)
+pendown()
+begin_fill()
+circle(<span class="hljs-number">7</span>)
+end_fill()
+</code></pre>
+  <ul>
+    <li>Рисуются два маленьких черных круга для глаз снеговика.</li>
+  </ul>
+  <h3 id="шаг-6-сохранение-рисунка"><strong>Шаг 6: Сохранение рисунка</strong></h3>
+  <pre><code class="language-python">getcanvas().postscript(file=<span class="hljs-string">&quot;snowman.eps&quot;</span>, x=-<span class="hljs-number">500</span>, width=<span class="hljs-number">1000</span>, height=<span class="hljs-number">1000</span>)
+done()
+</code></pre>
+  <ul>
+    <li>Рисунок сохраняется в формате EPS, и программа ждет, пока мы закроем окно.</li>
+  </ul>
+  <p>Вот что у нас получилось сегодня:</p>
+  <img src="snowman2.svg" />
+  <p>Отличная работа! Мы продолжим на одном из следующих занятий.</p>
+  <h3 id="интересные-факты"><strong>Интересные факты</strong></h3>
+  <ul>
+    <li>Функция <code>stamp()</code> оставляет копию формы черепашки там, где она вызывается.</li>
+    <li>Ты можешь экспериментировать с разными цветами, меняя значения RGB в <code>color(r, g, b)</code>.</li>
+    <li>Циклы (<code>for</code>) делают легким повторение действий, таких как рисование многих линий или кругов.</li>
+  </ul>
+  <h3 id="твоя-очередь"><strong>Твоя очередь!</strong></h3>
+  <p>Попробуй изменить код:</p>
+  <ol>
+    <li>Измени цвет неба или снеговика.</li>
+    <li>Добавь шарф или шапку снеговику.</li>
+    <li>Попробуй нарисовать другие фигуры или узоры.</li>
+  </ol>
+  <p>Удачи в программировании! 🎉</p>
+  <h2 id="что-такое-rgb">Что такое RGB</h2>
+  <p>Давай поговорим о том, как компьютер создает все эти красивые цвета, которые ты видишь на экране. Ты же знаешь, что
+    художники используют краски для смешивания разных цветов? Например, если смешать желтый и синий, получится зеленый.
+    А если взять красный и синий, выйдет фиолетовый. Так вот, компьютер делает то же самое, только он использует три
+    основных цвета: <strong>красный (Red)</strong>, <strong>зеленый (Green)</strong> и <strong>синий (Blue)</strong>.
+    Именно поэтому этот способ называется <strong>RGB</strong>.</p>
+  <h3 id="как-это-работает"><strong>Как это работает?</strong></h3>
+  <ol>
+    <li>
+      <p><strong>Красный, Зеленый и Синий – это основные цвета.</strong></p>
+      <ul>
+        <li>Представь, что у тебя есть три карандаша: красный, зеленый и синий.</li>
+        <li>Смешивая эти цвета на экране компьютера, можно получить практически любой цвет!</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Цвета можно &quot;смешивать&quot;.</strong></p>
+    </li>
+  </ol>
+  <img src="rgb.png" />
+  <ul>
+    <li>Когда ты рисуешь, ты можешь использовать больше одного цвета и меньше другого. Например:
+      <ul>
+        <li>Если взять много красного и совсем чуть-чуть зеленого и синего, получится ярко-красный.</li>
+        <li>Если смешать красный и зеленый поровну, получится желтый.</li>
+        <li>Если смешать все три цвета в равных частях, получится белый!</li>
+      </ul>
+    </li>
+  </ul>
+  <ol start="3">
+    <li>
+      <p><strong>Цифры вместо карандашей.</strong></p>
+      <ul>
+        <li>В компьютере каждый цвет (красный, зеленый, синий) имеет свое число от <strong>0 до 255</strong>. Чем больше
+          число, тем ярче цвет.</li>
+        <li>Например:
+          <ul>
+            <li><code>(255, 0, 0)</code> — это чистый красный (полностью красный, без зеленого и синего).</li>
+            <li><code>(0, 255, 0)</code> — это чистый зеленый.</li>
+            <li><code>(0, 0, 255)</code> — это чистый синий.</li>
+            <li><code>(255, 255, 255)</code> — это белый (все цвета вместе на максимуме).</li>
+            <li><code>(0, 0, 0)</code> — это черный (никаких цветов).</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Экспериментируй!</strong></p>
+      <ul>
+        <li>Вот несколько примеров цветов, которые ты можешь попробовать:
+          <ul>
+            <li><code>(255, 165, 0)</code> — это оранжевый.</li>
+            <li><code>(135, 206, 250)</code> — это светло-голубой.</li>
+            <li><code>(255, 192, 203)</code> — это розовый.</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <h3 id="почему-это-важно-для-рисования-в-python-turtle"><strong>Почему это важно для рисования в Python
+      Turtle?</strong></h3>
+  <p>В Python Turtle ты можешь использовать RGB, чтобы создавать свои собственные цвета. Например:</p>
+  <pre><code class="language-python">color(<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># Ярко-красный</span>
+color(<span class="hljs-number">0</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># Ярко-зеленый</span>
+color(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>)  <span class="hljs-comment"># Ярко-синий</span>
+color(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>)  <span class="hljs-comment"># Желтый</span>
+</code></pre>
+  <p>Теперь ты можешь выбрать любой цвет, который захочешь, просто меняя числа!</p>
+  <h3 id="забавный-факт"><strong>Забавный факт</strong></h3>
+  <p>Компьютер может создать более <strong>16 миллионов разных цветов</strong> с помощью RGB! Это потому, что каждому из
+    трех цветов (красный, зеленый, синий) можно задать 256 различных значений (от 0 до 255). И если перемножить эти
+    значения:<br>
+    <code>256 × 256 × 256 = 16 777 216</code> — вот сколько цветов можно получить!
+  </p>
+  <h3 id="твоя-очередь-1"><strong>Твоя очередь!</strong></h3>
+  <p>Попробуй придумать свой уникальный цвет! Напиши три числа от 0 до 255 и посмотри, какой цвет получится. Например:
+  </p>
+  <ul>
+    <li>Какой цвет будет, если взять <code>(100, 50, 200)</code>?</li>
+    <li>А если <code>(50, 200, 100)</code>?</li>
+  </ul>
+  <p>Рисуй, экспериментируй и твори! 😊</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

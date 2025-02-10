@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Знакомство с Python Turtle</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="python-turtle">Python Turtle</h1>
+  <p>Сегодня познакомимся с Python Turtle для рисования. Этот урок основан на том, что ты уже знаешь, и откроет тебе
+    новые идеи. Давай начнем!</p>
+  <h2 id="основные-понятия-python-turtle"><strong>Основные понятия Python Turtle</strong></h2>
+  <p>Вот некоторые важные концепции, используемые в коде сегодняшнего урока:</p>
+  <ol>
+    <li>
+      <p><strong>Импорт модуля Turtle</strong></p>
+      <ul>
+        <li><code>import turtle</code>: Импортирует модуль <code>turtle</code>. Это делает его доступным для нашей
+          программы.</li>
+        <li><code>from turtle import *</code>: Импортирует все функции из модуля <code>turtle</code> в текущий модуль,
+          чтобы не использовать префикс <code>turtle.</code>.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Создание нескольких черепашек</strong></p>
+      <ul>
+        <li><code>t = turtle.Turtle()</code>: Создает новую черепашку с именем <code>t</code>.</li>
+        <li>Ты можешь создать несколько черепашек (например, <code>t1</code>, <code>t2</code>). Каждая может иметь свои
+          свойства.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Базовые команды движения</strong></p>
+      <ul>
+        <li><code>forward(расстояние)</code>: Перемещает черепашку вперед на указанное расстояние.</li>
+        <li><code>backward(расстояние)</code>: Перемещает черепашку назад на указанное расстояние.</li>
+        <li><code>left(угол)</code> и <code>right(угол)</code>: Поворачивают черепашку влево или вправо на указанный
+          угол.</li>
+      </ul>
+      <p>Эти команды действуют <strong>относительно текущего положения</strong> и направления черепашки.</p>
+    </li>
+    <li>
+      <p><strong>Настройка пера</strong></p>
+      <ul>
+        <li><code>color(&quot;название_цвета&quot;)</code> или <code>color(r, g, b)</code>: Устанавливает цвет пера.
+        </li>
+        <li><code>width(размер)</code>: Изменяет толщину пера.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Дополнительные команды движения</strong></p>
+      <ul>
+        <li><code>home()</code>: Возвращает черепашку в исходную точку <code>(0, 0)</code> без изменения направления.
+        </li>
+        <li><code>setheading(угол)</code>: Устанавливает направление черепашки на указанный угол.</li>
+        <li><code>goto(x, y)</code>: Перемещает черепашку в конкретную координату <code>(x, y)</code>.</li>
+      </ul>
+      <p>Данные команды изменяют положение черепашки <strong>независимо от её текущего положения</strong>.</p>
+    </li>
+    <li>
+      <p><strong>Написание текста</strong></p>
+      <ul>
+        <li><code>write(&quot;текст&quot;)</code>: Пишет текст на экране.</li>
+        <li><code>write(&quot;текст&quot;, font=('Arial', размер, 'normal'))</code>: Пишет текст указанным шрифтом.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Отпечаток черепашки</strong></p>
+      <ul>
+        <li><code>stamp()</code>: Оставляет копию формы черепашки в текущей позиции.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Циклы для повторения</strong></p>
+      <ul>
+        <li><code>for i in range(n)</code>: Повторяет блок кода <code>n</code> раз. Широко используется для рисования
+          узоров.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Управление скоростью</strong></p>
+      <ul>
+        <li><code>speed(n)</code>: Устанавливает скорость рисования от 1 (медленно) до 10 (быстро); 0 - рисовать без
+          задержки (самая быстрая скорость).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Формы и размеры</strong></p>
+      <ul>
+        <li><code>shape(&quot;arrow&quot;)</code>, <code>shape(&quot;turtle&quot;)</code>, и т.д.: Меняет внешний вид
+          черепашки.</li>
+        <li><code>shapesize(stretch_wid, stretch_len, outline)</code>: Изменяет размер черепашки - длину, высоту, и
+          контур (в относительных единицах, например 2, 3).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Задержка и тайминг</strong></p>
+      <ul>
+        <li><code>delay(milliseconds)</code>: Приостанавливает программу на указанное время.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Отслеживание позиции</strong></p>
+      <ul>
+        <li><code>pos()</code>: Возвращает текущую позицию черепашки как <code>(x, y)</code> (кортеж!).</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Рисование сложных фигур</strong></p>
+      <ul>
+        <li>Используй циклы и углы для рисования многоугольников, зигзагов, звезд и других сложных узоров.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Циклическая смена цветов</strong></p>
+      <ul>
+        <li>Используй списки цветов и арифметику (<code>i % n</code>) для динамической смены цветов.</li>
+      </ul>
+    </li>
+  </ol>
+  <h2 id="анализ-кода"><strong>Анализ кода</strong></h2>
+  <p>Разберем код пошагово:</p>
+  <h3 id="пример-1-базовое-движение-с-двумя-черепашками"><strong>Пример 1: Базовое движение с двумя черепашками</strong>
+  </h3>
+  <img src="TurtleIntro.svg" />
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> turtle
+t = turtle.Turtle()
+t.forward(<span class="hljs-number">100</span>)
+t.left(<span class="hljs-number">90</span>)
+t.color(<span class="hljs-string">&quot;blue&quot;</span>)
+t.width(<span class="hljs-number">5</span>)
+t.forward(<span class="hljs-number">200</span>)
+
+t1 = turtle.Turtle()
+t1.color(<span class="hljs-string">&quot;red&quot;</span>)
+t1.forward(<span class="hljs-number">200</span>)
+t.right(<span class="hljs-number">45</span>)
+t.forward(<span class="hljs-number">150</span>)
+
+turtle.done()
+</code></pre>
+  <p>Что здесь происходит:</p>
+  <ul>
+    <li>Создание двух отдельных черепашек (<code>t</code> и <code>t1</code>) с разным цветом пера.</li>
+    <li>Базовые команды движения (<code>forward</code>, <code>left</code>, <code>right</code>).</li>
+    <li>Настройка пера (<code>color</code>, <code>width</code>).</li>
+  </ul>
+  <h3 id="пример-2-упрощенный-код-с-использованием-from-turtle-import-"><strong>Пример 2: Упрощенный код с
+      использованием <code>from turtle import *</code></strong></h3>
+  <img src="TurtleIntro2.svg" />
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+forward(<span class="hljs-number">100</span>)
+left(<span class="hljs-number">90</span>)
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+width(<span class="hljs-number">5</span>)
+forward(<span class="hljs-number">200</span>)
+color(<span class="hljs-string">&quot;red&quot;</span>)
+forward(<span class="hljs-number">200</span>)
+right(<span class="hljs-number">45</span>)
+forward(<span class="hljs-number">150</span>)
+done()
+</code></pre>
+  <p>Что здесь происходит:</p>
+  <ul>
+    <li>Упрощает код за счет импорта всего содержимого из <code>turtle</code>.</li>
+    <li>Здесь у нас только одна черепашка, поэтому она меняет цвет на красный во время рисования.</li>
+  </ul>
+  <h3 id="пример-3-продвинутое-движение-и-отпечатки"><strong>Пример 3: Продвинутое движение и отпечатки</strong></h3>
+  <img src="TurtleIntro3.svg" />
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+speed(<span class="hljs-number">0</span>)
+width(<span class="hljs-number">5</span>)
+shapesize(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>)
+shape()
+<span class="hljs-comment"># stamp()</span>
+forward(<span class="hljs-number">500</span>)
+home()
+left(<span class="hljs-number">135</span>)
+right(<span class="hljs-number">90</span>)
+setheading(<span class="hljs-number">45</span>)
+font14 = (<span class="hljs-string">&#x27;Arial&#x27;</span>, <span class="hljs-number">14</span>, <span class="hljs-string">&#x27;normal&#x27;</span>)
+write(<span class="hljs-number">100</span>, font=font14)
+angles = (<span class="hljs-number">0</span>, <span class="hljs-number">360</span>, <span class="hljs-number">45</span>, <span class="hljs-number">90</span>, -<span class="hljs-number">90</span>, <span class="hljs-number">180</span>)
+<span class="hljs-keyword">for</span> i, angle <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(angles):
+    home()
+    delay(<span class="hljs-number">2000</span>)
+    setheading(angle)
+    forward(<span class="hljs-number">100</span> + <span class="hljs-number">25</span> * i)
+    stamp()
+    write(angle, font=font14)
+color(<span class="hljs-string">&quot;red&quot;</span>)
+font16 = (<span class="hljs-string">&#x27;Arial&#x27;</span>, <span class="hljs-number">16</span>, <span class="hljs-string">&#x27;normal&#x27;</span>)
+write(pos(), font=font16)
+goto(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+write(pos(), font=font16)
+goto(-<span class="hljs-number">100</span>, <span class="hljs-number">100</span>)
+write(pos(), font=font16)
+goto(-<span class="hljs-number">500</span>, -<span class="hljs-number">500</span>)
+write(pos(), font=font16)
+done()
+</code></pre>
+  <p>Что здесь происходит:</p>
+  <ul>
+    <li>Дополнительные команды движения: <code>home</code> (вернуться в центр) и <code>setheading</code> (установить
+      угол поворота черепашки).</li>
+    <li>Написание текста с пользовательскими шрифтами.</li>
+    <li>Использование циклов для повторения действий (например, рисование линий под разными углами).</li>
+    <li>Отслеживание позиции с помощью <code>pos()</code>.</li>
+  </ul>
+  <h3 id="пример-4-цветные-круговые-узоры"><strong>Пример 4: Цветные круговые узоры</strong></h3>
+  <img src="TurtleIntro4.svg" />
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+speed(<span class="hljs-number">0</span>)
+colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;yellow&#x27;</span>, <span class="hljs-string">&#x27;purple&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>]
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">120</span>):
+    color(colors[i % <span class="hljs-number">6</span>])
+    setheading(i * <span class="hljs-number">3</span>)
+    circle(<span class="hljs-number">200</span>)
+done()
+</code></pre>
+  <p>Что здесь происходит:</p>
+  <ul>
+    <li>Динамическая смена цветов с использованием списка и арифметики деления с остатком.</li>
+    <li>Рисование кругов с поворотом для создания узора.</li>
+  </ul>
+  <h3 id="пример-5-многоугольники-зигзаги-и-звезды"><strong>Пример 5: Многоугольники, зигзаги и звезды</strong></h3>
+  <img src="TurtleIntro5.svg" />
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+shapesize(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>)
+speed(<span class="hljs-number">10</span>)
+width(<span class="hljs-number">5</span>)
+colors = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;yellow&#x27;</span>, <span class="hljs-string">&#x27;purple&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>]
+<span class="hljs-comment"># Пятиугольник</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+    forward(<span class="hljs-number">150</span>)
+    left(<span class="hljs-number">72</span>)
+<span class="hljs-comment"># Зигзаг</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">6</span>):
+    setheading(<span class="hljs-number">45</span>)
+    forward(<span class="hljs-number">50</span>)
+    setheading(-<span class="hljs-number">45</span>)
+    forward(<span class="hljs-number">50</span>)
+<span class="hljs-comment"># Звезда</span>
+color(<span class="hljs-string">&quot;OrangeRed&quot;</span>)
+penup()
+home()
+pendown()
+
+goto(<span class="hljs-number">100</span>, <span class="hljs-number">300</span>)
+goto(<span class="hljs-number">200</span>, <span class="hljs-number">0</span>)
+goto(-<span class="hljs-number">50</span>, <span class="hljs-number">250</span>)
+goto(<span class="hljs-number">250</span>, <span class="hljs-number">250</span>)
+home()
+done()
+</code></pre>
+  <p>Что здесь происходит:</p>
+  <ul>
+    <li>Рисование многоугольников (например, пятиугольника) с помощью циклов и углов.</li>
+    <li>Создание зигзага при чередованием направления.</li>
+    <li>Рисование звезды путем соединения точек.</li>
+  </ul>
+  <h3 id="интересные-факты"><strong>Интересные факты</strong></h3>
+  <ul>
+    <li>Функция <code>circle()</code> также может рисовать дуги, если указать их протяженность (например,
+      <code>circle(100, 90)</code> нарисует четверть круга).
+    </li>
+    <li>Функция <code>stamp()</code> оставляет копию формы черепашки там, где она вызывается, что отлично подходит для
+      создания узоров.</li>
+    <li>Остаток деления (<code>i % n</code>) — мощный инструмент для циклического прохождения списков, таких как цвета
+      или углы.</li>
+  </ul>
+  <h3 id="твоя-очередь"><strong>Твоя очередь!</strong></h3>
+  <p>Попробуй изменить код:</p>
+  <ol>
+    <li>Измени цвета в Файле 4, чтобы создать свой уникальный спиральный узор.</li>
+    <li>Добавь больше фигур в Файл 5, такие как шестиугольники или треугольники.</li>
+    <li>Попробуй разные шрифты и размеры в Файле 3, чтобы сделать текст более заметным.</li>
+  </ol>
+  <p>Удачи в программировании! 🚀</p>
+  <h2 id="дополнительный-материал">Дополнительный материал</h2>
+  <p>Ещё примеры <a href="https://ruslan-sgp.github.io/pyles/turtle.html">здесь</a></p>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <p>Напиши код для следующих фигур:</p>
+  <img src="../pyles/shapes.svg" />
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+\<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практика Turtle</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="практика-turtle">Практика Turtle</h1>
+  <p>Нарисуем городской пейзаж при помощи Turtle.</p>
+  <img src="CitySkape2.png" />
+  <h2 id="создание-пользовательских-функций">Создание пользовательских функций</h2>
+  <p>При создании рисунков нам часто приходится перемещать черепашку в нужное место, не рисуя при этом линию. Для этого
+    повторяется один и тот же алгоритм:</p>
+  <ol>
+    <li>Поднять перо</li>
+    <li>Переместить черепашку</li>
+    <li>Опустить перо</li>
+  </ol>
+  <p>Чтобы не повторять одни и те же команды снова и снова, можно создать функцию:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">move</span>(<span class="hljs-params">x,y</span>):
+    <span class="hljs-string">&quot;&quot;&quot;Move turtle without drawing&quot;&quot;&quot;</span>
+    penup()
+    goto(x,y)
+    pendown() 
+</code></pre>
+  <p>Теперь можно перемещать черепашку при помощи одной команды:</p>
+  <pre><code class="language-python">move(x,y):
+</code></pre>
+  <p>Это не только удобно, но и делает код проще и понятнее.</p>
+  <p>💡Строка в тройных кавычках называется docstring. Она содержит пояснение к функции, - является частью документации.
+    В Python можно вызвать функцию help() с именем функции, например: <code>help(print)</code> покажет документацию к
+    функции print(), а <code>help(move)</code> покажет документацию к нашей функции move(). Выполни эти команды и
+    посмотри что получится.</p>
+  <h2 id="как-создать-координатную-сетку">Как создать координатную сетку?</h2>
+  <p>Координатная сетка помогает лучше ориентироваться на холсте. Вот как мы можем её создать:</p>
+  <ol>
+    <li>Определяем размер сетки (size) и шаг между линиями (step).</li>
+    <li>Рисуем оси X и Y.</li>
+    <li>Добавляем горизонтальные и вертикальные линии с отметками.</li>
+  </ol>
+  <p>Пример кода:</p>
+  <pre><code class="language-python">size = <span class="hljs-number">500</span>
+step = <span class="hljs-number">50</span>
+size_extra = size + step * <span class="hljs-number">0.5</span>
+
+<span class="hljs-comment"># draw Ox</span>
+width(<span class="hljs-number">2</span>)
+move(-size_extra, <span class="hljs-number">0</span>)
+goto(size_extra, <span class="hljs-number">0</span>)
+stamp()
+
+<span class="hljs-comment"># draw Oy</span>
+move(<span class="hljs-number">0</span>, -size_extra)
+goto(<span class="hljs-number">0</span>, size_extra)
+setheading(<span class="hljs-number">90</span>)
+stamp()
+
+<span class="hljs-comment"># draw other lines</span>
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+width(<span class="hljs-number">1</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(size // step):
+    <span class="hljs-comment"># positive horizontal lines</span>
+    y = step + i * step
+    move(-size_extra, y)
+    goto(size_extra, y)
+    write(y)
+    <span class="hljs-comment"># negative horizontal lines</span>
+    move(-size_extra, -y)
+    goto(size_extra, -y)
+    write(-y)
+    <span class="hljs-comment"># positive vertical lines</span>
+    x = step + i * step
+    move(x, -size_extra)
+    goto(x, size_extra)
+    write(x)
+    <span class="hljs-comment"># negative vertical lines</span>
+    x = step + i * step
+    move(-x, -size_extra)
+    goto(-x, size_extra)
+    write(-x)
+</code></pre>
+  <h2 id="как-нарисовать-городской-пейзаж">Как нарисовать городской пейзаж?</h2>
+  <p>Для создания городского пейзажа можно начать с простых зданий, затем добавить детали, такие как окна, крыши и
+    дороги. Вот примерный план действий:</p>
+  <ol>
+    <li>Нарисуйте прямоугольники для зданий.</li>
+    <li>Добавьте окна внутри зданий.</li>
+    <li>Создайте фон (например, небо или горизонт).</li>
+  </ol>
+  <p>Пример кода для здания:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">house_1</span>():
+    <span class="hljs-comment"># initialize variables</span>
+    x, y = pos()
+    width = step * <span class="hljs-number">2</span>
+    height = step * <span class="hljs-number">2.6</span>
+    window_width = width / <span class="hljs-number">4</span>
+    window_height = window_width * <span class="hljs-number">0.9</span>
+    spacing_x = (width - window_width) / <span class="hljs-number">4.5</span>
+    spacing_y = spacing_x * <span class="hljs-number">0.9</span>
+    <span class="hljs-comment"># house box</span>
+    fillcolor(<span class="hljs-string">&quot;yellow&quot;</span>)
+    begin_fill()
+    setheading(<span class="hljs-number">90</span>)
+    box(width, height)
+    end_fill()
+    <span class="hljs-comment"># window 1</span>
+    penup()
+    goto(x + spacing_x, y + height - spacing_y)
+    setheading(<span class="hljs-number">0</span>)
+    fillcolor(<span class="hljs-string">&quot;white&quot;</span>)
+    begin_fill()
+    box(window_width, window_height)
+    end_fill()
+    <span class="hljs-comment"># window 2</span>
+    penup()
+    goto(x + spacing_x * <span class="hljs-number">2</span> + window_width, y + height - spacing_y)
+    setheading(<span class="hljs-number">0</span>)
+    begin_fill()
+    box(window_width, window_height)
+    end_fill()
+    <span class="hljs-comment"># window 3</span>
+    penup()
+    goto(x + spacing_x, y + height - spacing_y * <span class="hljs-number">2</span> - window_height)
+    setheading(<span class="hljs-number">0</span>)
+    begin_fill()
+    box(window_width, window_height)
+    end_fill()
+</code></pre>
+  <h2 id="исходный-код">Исходный код</h2>
+  <p>Вот полный исходный код нашего занятия:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">move</span>(<span class="hljs-params">x,y</span>):
+    <span class="hljs-string">&quot;&quot;&quot;Move turtle without drawing&quot;&quot;&quot;</span>
+    penup()
+    goto(x,y)
+    pendown() 
+
+
+speed(<span class="hljs-number">0</span>)
+size = <span class="hljs-number">500</span>
+step = <span class="hljs-number">50</span>
+size_extra = size + step * <span class="hljs-number">0.5</span>
+
+<span class="hljs-comment"># draw Ox</span>
+width(<span class="hljs-number">2</span>)
+move(-size_extra, <span class="hljs-number">0</span>)
+goto(size_extra, <span class="hljs-number">0</span>)
+stamp()
+
+<span class="hljs-comment"># draw Oy</span>
+move(<span class="hljs-number">0</span>, -size_extra)
+goto(<span class="hljs-number">0</span>, size_extra)
+setheading(<span class="hljs-number">90</span>)
+stamp()
+
+<span class="hljs-comment"># draw other lines</span>
+color(<span class="hljs-string">&quot;blue&quot;</span>)
+width(<span class="hljs-number">1</span>)
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(size // step):
+    <span class="hljs-comment"># positive horizontal lines</span>
+    y = step + i * step
+    move(-size_extra, y)
+    goto(size_extra, y)
+    write(y)
+    <span class="hljs-comment"># negative horizontal lines</span>
+    move(-size_extra, -y)
+    goto(size_extra, -y)
+    write(-y)
+    <span class="hljs-comment"># positive vertical lines</span>
+    x = step + i * step
+    move(x, -size_extra)
+    goto(x, size_extra)
+    write(x)
+    <span class="hljs-comment"># negative vertical lines</span>
+    x = step + i * step
+    move(-x, -size_extra)
+    goto(-x, size_extra)
+    write(-x)
+
+
+done()
+</code></pre>
+  <h2 id="дальнейшие-шаги">Дальнейшие шаги</h2>
+  <p>Добавим функции для создания других элементов рисунка - дома, деревья, машины, облака, и т.п.</p>
+  <p>Можем работать командой, а затем объединить различные элементы вместе на одном рисунке.</p>
+  <h2 id="запись-урока">Запись урока</h2>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <p>Нарисуй свои объекты городского пейзажа.</p>
+  <p>Образцы рисунков можно найти в Интернет. Как составить запрос:</p>
+  <ul>
+    <li>искать по запросу &quot;city skyline&quot;</li>
+    <li>переключиться в режим поиска изображений</li>
+    <li>выбрать дополнительный параметр &quot;Vector&quot;, также &quot;&quot;</li>
+    <li>вот <a
+        href="https://www.istockphoto.com/uk/search/2/image?mediatype=illustration&amp;phrase=city+illustration">примеры
+        графики</a></li>
+  </ul>
+  <img src="CitySkape.png" />
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

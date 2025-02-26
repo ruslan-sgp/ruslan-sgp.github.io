@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пейзаж 2 - Turtle</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-8">Урок 8</h1>
+  <p>Мы продолжаем рисовать городской пейзаж с помощью модуля <code>turtle</code>.</p>
+  <h2 id="код-модуля-coordpy">Код модуля <a href="http://coord.py">coord.py</a></h2>
+  <p>Вот усовершенствованный код модуля <code>coord.py</code>, который содержит функцию для рисования системы координат:
+  </p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_coordinates</span>(<span class="hljs-params">size = <span class="hljs-number">250</span>, step = <span class="hljs-number">50</span></span>):
+    <span class="hljs-string">&quot;&quot;&quot;Draws a coordinate system with the given size.&quot;&quot;&quot;</span>
+    initial_pos = pos()
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(-size, size + <span class="hljs-number">1</span>, step):
+        <span class="hljs-comment"># vertical lines</span>
+        penup()
+        goto(i, -size)
+        pendown()
+        <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+            <span class="hljs-comment"># main axis</span>
+            width(<span class="hljs-number">2</span>)
+            goto(i, size)
+            setheading(<span class="hljs-number">90</span>)
+            stamp()
+            width(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">else</span>:
+            goto(i, size)
+        write(i)
+
+        <span class="hljs-comment"># horizontal lines</span>
+        penup()
+        goto(-size, i)
+        pendown()
+        <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+            <span class="hljs-comment"># main axis</span>
+            width(<span class="hljs-number">2</span>)
+            goto(size, i)
+            setheading(<span class="hljs-number">0</span>)
+            stamp()
+            width(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">else</span>:
+            goto(size, i)
+        write(i)
+    penup()
+    goto(initial_pos)
+    pendown()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    speed(<span class="hljs-number">0</span>)
+    draw_coordinates(<span class="hljs-number">500</span>)
+    done()
+</code></pre>
+  <p>Этот файл можно также найти в <a href="https://github.com/ruslan-sgp/ExPy/blob/main/coord.py">GitHub</a>.</p>
+  <h2 id="объяснение">Объяснение</h2>
+  <h4 id="1-импорт-модуля-в-программу"><strong>1. Импорт модуля в программу</strong></h4>
+  <p>Данный модуль уже содержит команду <code>from turtle import *</code>. Это значит, что все функции и переменные из
+    этого модуля будут добавлены в текущий модель.</p>
+  <p>В нашей программе достаточно указать <code>from coord import *</code> в начале файла, чтобы использовать все
+    функции и переменные из модуля <code>coord.py</code>, а также модуля <code>turtle</code>:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> coord <span class="hljs-keyword">import</span> *
+</code></pre>
+  <h4 id="2-функция-draw_coordinates"><strong>2. Функция <code>draw_coordinates</code></strong></h4>
+  <pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_coordinates</span>(<span class="hljs-params">size=<span class="hljs-number">250</span>, step=<span class="hljs-number">50</span></span>):
+    <span class="hljs-string">&quot;&quot;&quot;Draws a coordinate system with the given size.&quot;&quot;&quot;</span>
+</code></pre>
+  <p>Эта функция рисует систему координат. У нее есть два параметра:</p>
+  <ul>
+    <li><code>size</code>: размер сетки (по умолчанию 250).</li>
+    <li><code>step</code>: расстояние между линиями сетки (по умолчанию 50).</li>
+  </ul>
+  <h4 id="3-сохраняем-начальную-позицию-черепашки"><strong>3. Сохраняем начальную позицию черепашки</strong></h4>
+  <pre><code class="language-python">initial_pos = pos()
+</code></pre>
+  <p>Функция <code>pos()</code> возвращает текущую позицию черепашки (координаты x и y). Мы сохраняем эту позицию в
+    переменной <code>initial_pos</code>, чтобы потом вернуться туда после завершения рисования.</p>
+  <h4 id="4-цикл-для-рисования-вертикальных-линий"><strong>4. Цикл для рисования вертикальных линий</strong></h4>
+  <pre><code class="language-python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(-size, size + <span class="hljs-number">1</span>, step):
+    <span class="hljs-comment"># vertical lines</span>
+    penup()
+    goto(i, -size)
+    pendown()
+    <span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+        <span class="hljs-comment"># main axis</span>
+        width(<span class="hljs-number">2</span>)
+        goto(i, size)
+        setheading(<span class="hljs-number">90</span>)
+        stamp()
+        width(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">else</span>:
+        goto(i, size)
+    write(i)
+</code></pre>
+  <p>Здесь мы рисуем вертикальные линии сетки:</p>
+  <ul>
+    <li><code>range(-size, size + 1, step)</code> создает последовательность чисел от <code>-size</code> до
+      <code>size</code> с шагом <code>step</code>.</li>
+    <li>Для каждого значения <code>i</code>:
+      <ol>
+        <li>Поднимаем карандаш (<code>penup()</code>) и перемещаемся в точку <code>(i, -size)</code> — начало
+          вертикальной линии.</li>
+        <li>Опускаем карандаш (<code>pendown()</code>) и рисуем линию до точки <code>(i, size)</code> — конца
+          вертикальной линии.</li>
+        <li>Если <code>i == 0</code>, то это главная вертикальная ось (ось Y). Мы делаем ее толще
+          (<code>width(2)</code>) и добавляем стрелку (<code>stamp()</code>), указывающую направление.</li>
+        <li>Пишем значение <code>i</code> рядом с линией (<code>write(i)</code>), чтобы пометить координаты.</li>
+      </ol>
+    </li>
+  </ul>
+  <h4 id="5-рисование-горизонтальных-линий"><strong>5. Рисование горизонтальных линий</strong></h4>
+  <pre><code class="language-python"><span class="hljs-comment"># horizontal lines</span>
+penup()
+goto(-size, i)
+pendown()
+<span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+    <span class="hljs-comment"># main axis</span>
+    width(<span class="hljs-number">2</span>)
+    goto(size, i)
+    setheading(<span class="hljs-number">0</span>)
+    stamp()
+    width(<span class="hljs-number">1</span>)
+<span class="hljs-keyword">else</span>:
+    goto(size, i)
+write(i)
+</code></pre>
+  <p>Аналогично предыдущему блоку, здесь мы рисуем горизонтальные линии:</p>
+  <ul>
+    <li>Начинаем с точки <code>(-size, i)</code> и рисуем линию до <code>(size, i)</code>.</li>
+    <li>Если <code>i == 0</code>, то это главная горизонтальная ось (ось X). Мы делаем ее толще и добавляем стрелку.
+    </li>
+    <li>Пишем значение <code>i</code> рядом с линией.</li>
+  </ul>
+  <h4 id="6-возвращение-в-начальную-позицию"><strong>6. Возвращение в начальную позицию</strong></h4>
+  <pre><code class="language-python">penup()
+goto(initial_pos)
+pendown()
+</code></pre>
+  <p>После завершения рисования, мы поднимаем перо, возвращаемся в начальную позицию (<code>initial_pos</code>) и снова
+    опускаем перо.</p>
+  <h4 id="7-проверка-запущенного-модуля"><strong>7. Проверка запущенного модуля</strong></h4>
+  <pre><code class="language-python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    speed(<span class="hljs-number">0</span>)
+    draw_coordinates(<span class="hljs-number">500</span>)
+    done()
+</code></pre>
+  <p>Здесь проверяем, запущен ли файл напрямую (главная программа - <code>main</code>) или импортируется как модуль.
+    <code>__name__</code> - это специальная переменная в Python, которая равна <code>&quot;__main__&quot;</code> при
+    запуске файла напрямую, или содержит имя модуля при импорте.</p>
+  <p>Если значение переменной <code>__name__</code> равно <code>__main__</code>, значит файл запущен в качестве главной
+    программы, то есть нужно нарисовать только сетку координат и оставить окно октрытым. В этом случае выполняем
+    следующие команды:</p>
+  <ul>
+    <li><code>speed(0)</code> устанавливает максимальную скорость черепашки.</li>
+    <li><code>draw_coordinates(500)</code> вызывает функцию рисования координат с размером сетки 500.</li>
+    <li><code>done()</code> останавливает программу, чтобы окно не закрылось сразу после выполнения.</li>
+  </ul>
+  <h3 id="вопросы-для-проверки-понимания"><strong>Вопросы для проверки понимания</strong></h3>
+  <ol>
+    <li>Что произойдет, если изменить значение <code>step</code> на 100?</li>
+    <li>Как изменится картинка, если задать <code>size=300</code> вместо <code>500</code>?</li>
+  </ol>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <ul>
+    <li>Продолжи рисовать городской пейзаж.</li>
+    <li>Добавь дополнительные элементы к зданию на выбор</li>
+    <li>Можешь добавить другие объекты: деревья, облака, солнце, и пр.</li>
+  </ul>
+  <p>Успехов!</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

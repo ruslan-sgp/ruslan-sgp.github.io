@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рисуем снеговика</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="снеговик">Снеговик</h1>
+  <p>Сегодня мы закончили рисовать голову, и добавили снег и звёздное небо.</p>
+  <p>Вот результат:</p>
+  <p><img src="snowman4.svg" alt="alt text"></p>
+  <p>А вот исходный код:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> turtle <span class="hljs-keyword">import</span> *
+<span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint
+
+<span class="hljs-comment"># shape(&quot;turtle&quot;)</span>
+speed(<span class="hljs-number">0</span>)
+shapesize(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-comment"># goto(-400, 0)</span>
+<span class="hljs-comment"># goto(400, 0)</span>
+<span class="hljs-comment"># goto(0, 0)</span>
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_coordinates</span>():
+    <span class="hljs-comment"># рисуем горизонтальную шкалу</span>
+    width(<span class="hljs-number">4</span>)
+    forward(<span class="hljs-number">450</span>)
+    stamp()
+    backward(<span class="hljs-number">900</span>)
+
+    <span class="hljs-comment"># рисуем вертикальную шкалу</span>
+    forward(<span class="hljs-number">450</span>)
+    left(<span class="hljs-number">90</span>)
+    forward(<span class="hljs-number">450</span>)
+    stamp()
+    backward(<span class="hljs-number">900</span>)
+
+    <span class="hljs-comment"># горизонатальные линии</span>
+    color(<span class="hljs-string">&quot;blue&quot;</span>)
+    width(<span class="hljs-number">1</span>)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">19</span>):
+        setheading(<span class="hljs-number">0</span>)
+        forward(<span class="hljs-number">450</span>)
+        write(i * <span class="hljs-number">50</span> - <span class="hljs-number">450</span>)
+        backward(<span class="hljs-number">900</span>)
+        forward(<span class="hljs-number">450</span>)
+        left(<span class="hljs-number">90</span>)
+        forward(<span class="hljs-number">50</span>)
+        right(<span class="hljs-number">90</span>)
+
+    <span class="hljs-comment"># вертикальные линии</span>
+    right(<span class="hljs-number">90</span>)
+    forward(<span class="hljs-number">50</span>)
+    right(<span class="hljs-number">90</span>)
+    forward(<span class="hljs-number">450</span>)
+    left(<span class="hljs-number">90</span>)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">9</span>):
+        forward(<span class="hljs-number">900</span>)
+        write(i * <span class="hljs-number">50</span> * <span class="hljs-number">2</span> - <span class="hljs-number">450</span>)
+        left(<span class="hljs-number">90</span>)
+        forward(<span class="hljs-number">50</span>)
+        left(<span class="hljs-number">90</span>)
+        forward(<span class="hljs-number">900</span>)
+        right(<span class="hljs-number">90</span>)
+        forward(<span class="hljs-number">50</span>)
+        right(<span class="hljs-number">90</span>)
+    forward(<span class="hljs-number">900</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_sky</span>():
+    <span class="hljs-comment"># небо - 1я половина</span>
+    colormode(<span class="hljs-number">255</span>)
+    color(<span class="hljs-number">0</span>, <span class="hljs-number">128</span>, <span class="hljs-number">255</span>)
+    penup()
+    goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+    pendown()
+    setheading(<span class="hljs-number">160</span>)
+    begin_fill()
+    circle(<span class="hljs-number">700</span>, <span class="hljs-number">40</span>)
+
+    <span class="hljs-comment"># небо - 2я половина</span>
+    setheading(<span class="hljs-number">160</span>)
+    circle(<span class="hljs-number">620</span>, <span class="hljs-number">40</span>)
+    goto(-<span class="hljs-number">450</span>, <span class="hljs-number">450</span>)
+    goto(<span class="hljs-number">450</span>, <span class="hljs-number">450</span>)
+    goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+    end_fill()
+
+    <span class="hljs-comment"># снег</span>
+    color(<span class="hljs-string">&quot;White&quot;</span>)
+    penup()
+    goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+    begin_fill()
+    pendown()
+    setheading(<span class="hljs-number">160</span>)
+    circle(<span class="hljs-number">700</span>, <span class="hljs-number">40</span>)
+    setheading(<span class="hljs-number">160</span>)
+    circle(<span class="hljs-number">620</span>, <span class="hljs-number">40</span>)
+    goto(-<span class="hljs-number">450</span>, -<span class="hljs-number">450</span>)
+    goto(<span class="hljs-number">450</span>, -<span class="hljs-number">450</span>)
+    goto(<span class="hljs-number">450</span>, <span class="hljs-number">0</span>)
+    end_fill()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">draw_snowman</span>():
+    colormode(<span class="hljs-number">255</span>)
+    <span class="hljs-comment"># нарисовать круг</span>
+    setheading(<span class="hljs-number">180</span>)
+    color(<span class="hljs-number">121</span>, <span class="hljs-number">186</span>, <span class="hljs-number">254</span>)
+    penup()
+    goto(<span class="hljs-number">0</span>, -<span class="hljs-number">50</span>)
+    pendown()
+
+    begin_fill()
+    circle(<span class="hljs-number">150</span>)
+    end_fill()
+
+    <span class="hljs-comment"># нарисовать второй круг</span>
+    goto(<span class="hljs-number">0</span>, -<span class="hljs-number">60</span>)
+    setheading(<span class="hljs-number">0</span>)
+    begin_fill()
+    circle(<span class="hljs-number">110</span>)
+    end_fill()
+
+    <span class="hljs-comment"># третий круг</span>
+    goto(<span class="hljs-number">0</span>, <span class="hljs-number">150</span>)
+    begin_fill()
+    circle(<span class="hljs-number">70</span>)
+    end_fill()
+
+    <span class="hljs-comment"># левый глаз</span>
+    goto(-<span class="hljs-number">25</span>, <span class="hljs-number">245</span>)
+    color(<span class="hljs-string">&quot;black&quot;</span>)
+    begin_fill()
+    circle(<span class="hljs-number">7</span>)
+    end_fill()
+
+    <span class="hljs-comment"># правый глаз</span>
+    penup()
+    goto(<span class="hljs-number">25</span>, <span class="hljs-number">245</span>)
+    pendown()
+    begin_fill()
+    circle(<span class="hljs-number">7</span>)
+    end_fill()
+
+    <span class="hljs-comment"># рот</span>
+    penup()
+    goto(-<span class="hljs-number">30</span>, <span class="hljs-number">200</span>)
+    right(<span class="hljs-number">50</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">8</span>):
+        dot()
+        circle(<span class="hljs-number">50</span>, <span class="hljs-number">9</span>)
+
+    <span class="hljs-comment"># нос</span>
+    fillcolor(<span class="hljs-string">&quot;OrangeRed&quot;</span>)
+    goto(<span class="hljs-number">10</span>, <span class="hljs-number">232</span>)
+    begin_fill()
+    pendown()
+    setheading(-<span class="hljs-number">8</span>)
+    forward(<span class="hljs-number">90</span>)
+    setheading(-<span class="hljs-number">172</span>)
+    forward(<span class="hljs-number">90</span>)
+    circle(-<span class="hljs-number">13</span>, <span class="hljs-number">180</span>)
+    end_fill()
+
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">stars</span>():
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">star</span>(<span class="hljs-params">x, y, size, c</span>):
+        color(c)
+        penup()
+        goto(x, y)
+        pendown()
+        begin_fill()
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+            forward(size)
+            left(<span class="hljs-number">53</span>)
+            forward(size)
+            right(<span class="hljs-number">125</span>)
+        end_fill()
+
+    star_colors = (<span class="hljs-string">&quot;Cyan&quot;</span>, <span class="hljs-string">&quot;Yellow&quot;</span>, <span class="hljs-string">&quot;Magenta&quot;</span>, <span class="hljs-string">&quot;Lime&quot;</span>, <span class="hljs-string">&quot;White&quot;</span>)
+
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">4</span>):
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>):
+            <span class="hljs-comment"># сделать случайное положение</span>
+            x = randint(-<span class="hljs-number">70</span>, <span class="hljs-number">70</span>) - <span class="hljs-number">380</span> + i * <span class="hljs-number">190</span>
+            y = randint(-<span class="hljs-number">30</span>, <span class="hljs-number">30</span>) + <span class="hljs-number">400</span> - j * <span class="hljs-number">100</span>
+            <span class="hljs-comment"># сделать случайный цвет</span>
+            color_number = randint(<span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(star_colors) - <span class="hljs-number">1</span>)
+            c = star_colors[color_number]
+            star(x, y, <span class="hljs-number">8</span>, c)
+
+
+draw_coordinates()
+draw_sky()
+stars()
+draw_snowman()
+
+
+done()
+</code></pre>
+  <p>Отличная работа!</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

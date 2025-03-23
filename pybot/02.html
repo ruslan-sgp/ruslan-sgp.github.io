@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2 - Words Bot</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <h2 id="углубляемся-в-telegram-bot-api">Углубляемся в Telegram Bot API</h2>
+  <p>В нашей программе есть два важных объекта - <code>bot</code> (его мы создаём сами), и <code>message</code> - его
+    получаем в функции-обработчике сообщений.
+    Давайте рассмотрим эти объекты подбробнее.
+    Как это можно сделать:</p>
+  <ul>
+    <li>в VS Code после <code>bot</code> и после <code>message</code> поставьте точку, и в окне подсказки просмотрите
+      свойства и методы этих объектов.</li>
+    <li>с нажатой клавишей <code>Ctrl</code>, щелкните мышью на названии класса: <code>TeleBot</code> или
+      <code>Message</code>. Это откроет окно с исходным кодом этих классов.</li>
+    <li>создать точку останова (breakpoint) и исследовать объекты в режиме отладки.</li>
+  </ul>
+  <h2 id="получение-сообщений-объект-message">Получение сообщений: объект <code>message</code></h2>
+  <p>Можно также вывести объект <code>message</code> на консоль (при помощи <code>print</code>). Вот как он выглядит:
+  </p>
+  <pre><code class="language-javascript">{
+    <span class="hljs-string">&quot;content_type&quot;</span>: <span class="hljs-string">&quot;text&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">39</span>,
+    <span class="hljs-string">&quot;message_id&quot;</span>: <span class="hljs-number">39</span>,
+    <span class="hljs-string">&quot;from_user&quot;</span>: {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">417281713</span>,
+        <span class="hljs-string">&quot;is_bot&quot;</span>: <span class="hljs-title class_">False</span>,
+        <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Ruslan&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;ruslan_aol&quot;</span>,
+        <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Popov&quot;</span>,
+        <span class="hljs-string">&quot;language_code&quot;</span>: <span class="hljs-string">&quot;en&quot;</span>,
+        <span class="hljs-string">&quot;can_join_groups&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;can_read_all_group_messages&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;supports_inline_queries&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;is_premium&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;added_to_attachment_menu&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;can_connect_to_business&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_main_web_app&quot;</span>: <span class="hljs-title class_">None</span>,
+    },
+    <span class="hljs-string">&quot;date&quot;</span>: <span class="hljs-number">1742713520</span>,
+    <span class="hljs-string">&quot;chat&quot;</span>: {
+        <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">417281713</span>,
+        <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;private&quot;</span>,
+        <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;ruslan_aol&quot;</span>,
+        <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Ruslan&quot;</span>,
+        <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Popov&quot;</span>,
+        <span class="hljs-string">&quot;is_forum&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;max_reaction_count&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;photo&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;bio&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;join_to_send_messages&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;join_by_request&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_private_forwards&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_restricted_voice_and_video_messages&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;description&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;invite_link&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;pinned_message&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;permissions&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;slow_mode_delay&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;message_auto_delete_time&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_protected_content&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;sticker_set_name&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;can_set_sticker_set&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;linked_chat_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;location&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;active_usernames&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;emoji_status_custom_emoji_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_hidden_members&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_aggressive_anti_spam_enabled&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;emoji_status_expiration_date&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;available_reactions&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;accent_color_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;background_custom_emoji_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;profile_accent_color_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;profile_background_custom_emoji_id&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;has_visible_history&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;unrestrict_boost_count&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;custom_emoji_sticker_set_name&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;business_intro&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;business_location&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;business_opening_hours&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;personal_chat&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;birthdate&quot;</span>: <span class="hljs-title class_">None</span>,
+        <span class="hljs-string">&quot;can_send_paid_media&quot;</span>: <span class="hljs-title class_">None</span>,
+    },
+    <span class="hljs-string">&quot;sender_chat&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;is_automatic_forward&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;reply_to_message&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;via_bot&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;edit_date&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;has_protected_content&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;media_group_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;author_signature&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Привет&quot;</span>,
+    <span class="hljs-string">&quot;entities&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;caption_entities&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;audio&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;document&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;photo&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;sticker&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video_note&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;voice&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;contact&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;location&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;venue&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;animation&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;dice&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;new_chat_members&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;left_chat_member&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;new_chat_title&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;new_chat_photo&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;delete_chat_photo&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;group_chat_created&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;supergroup_chat_created&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;channel_chat_created&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;migrate_to_chat_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;migrate_from_chat_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;pinned_message&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;invoice&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;successful_payment&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;connected_website&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;reply_markup&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;message_thread_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;is_topic_message&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;chat_background_set&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;forum_topic_created&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;forum_topic_closed&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;forum_topic_reopened&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;has_media_spoiler&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;forum_topic_edited&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;general_forum_topic_hidden&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;general_forum_topic_unhidden&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;write_access_allowed&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;users_shared&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;chat_shared&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;story&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;external_reply&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;quote&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;link_preview_options&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;giveaway_created&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;giveaway&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;giveaway_winners&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;giveaway_completed&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;forward_origin&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;boost_added&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;sender_boost_count&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;reply_to_story&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;sender_business_bot&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;business_connection_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;is_from_offline&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;effect_id&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;show_caption_above_media&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;paid_media&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;refunded_payment&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;proximity_alert_triggered&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video_chat_scheduled&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video_chat_started&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video_chat_ended&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;video_chat_participants_invited&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;web_app_data&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;message_auto_delete_timer_changed&quot;</span>: <span class="hljs-title class_">None</span>,
+    <span class="hljs-string">&quot;json&quot;</span>: {
+        <span class="hljs-string">&quot;message_id&quot;</span>: <span class="hljs-number">39</span>,
+        <span class="hljs-string">&quot;from&quot;</span>: {
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">417281713</span>,
+            <span class="hljs-string">&quot;is_bot&quot;</span>: <span class="hljs-title class_">False</span>,
+            <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Ruslan&quot;</span>,
+            <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Popov&quot;</span>,
+            <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;ruslan_aol&quot;</span>,
+            <span class="hljs-string">&quot;language_code&quot;</span>: <span class="hljs-string">&quot;en&quot;</span>,
+        },
+        <span class="hljs-string">&quot;chat&quot;</span>: {
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-number">417281713</span>,
+            <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Ruslan&quot;</span>,
+            <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Popov&quot;</span>,
+            <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;ruslan_aol&quot;</span>,
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;private&quot;</span>,
+        },
+        <span class="hljs-string">&quot;date&quot;</span>: <span class="hljs-number">1742713520</span>,
+        <span class="hljs-string">&quot;text&quot;</span>: <span class="hljs-string">&quot;Привет&quot;</span>,
+    },
+}
+</code></pre>
+  <p>Этот формат называется JSON (JavaScript Object Notation), он содержит свойства объектов и их значения.</p>
+  <p>Вот некоторые свойств объекта <code>message</code>:</p>
+  <ul>
+    <li><code>message_id</code>: уникальный идентификатор сообщения</li>
+    <li><code>from_user</code>: информация о пользователе, отправившем сообщение</li>
+    <li><code>chat</code>: информация о чате, в котором было отправлено сообщение</li>
+    <li><code>text</code>: текст сообщения</li>
+  </ul>
+  <p>Свойство <code>from_user</code> содержит данные пользователя, например:</p>
+  <ul>
+    <li><code>id</code>: уникальный идентификатор пользователя</li>
+    <li><code>first_name</code>, <code>last_name</code>: имя и фамилия пользователя</li>
+    <li><code>username</code>: логин пользователя</li>
+  </ul>
+  <h2 id="отправка-сообщений">Отправка сообщений</h2>
+  <p>Рассмотрим различные способы отправки сообщений и взаимодействия с пользователем в Telegram боте.
+    Вы можете комбинировать их для создания различных сценариев взаимодействия с пользователями.</p>
+  <h3 id="1-отправка-простого-текстового-сообщения">1. <strong>Отправка простого текстового сообщения</strong></h3>
+  <pre><code class="language-python">bot.send_message(message.chat.<span class="hljs-built_in">id</span>, <span class="hljs-string">&#x27;Привет, мир!&#x27;</span>)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Отправляет текстовое сообщение в чат пользователя.</li>
+    <li><strong>Параметры</strong>:
+      <ul>
+        <li><code>chat_id</code>: ID чата, куда отправляется сообщение.</li>
+        <li><code>text</code>: Текст сообщения.</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="2-использование-сообщения-пользователя">2. <strong>Использование сообщения пользователя</strong></h3>
+  <pre><code class="language-python">bot.send_message(message.chat.<span class="hljs-built_in">id</span>, <span class="hljs-string">&quot;Вы написали: &quot;</span> + message.text)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Отправляет сообщение с текстом, который включает в себя исходное сообщение
+      пользователя (цитату).</li>
+    <li><strong>Примечание</strong>: Можно использовать форматирование, например, Markdown:</li>
+  </ul>
+  <pre><code class="language-python">bot.send_message(message.chat.<span class="hljs-built_in">id</span>, <span class="hljs-string">f&quot;Вы написали: `<span class="hljs-subst">{message.text}</span>`&quot;</span>, parse_mode=<span class="hljs-string">&quot;Markdown&quot;</span>)
+</code></pre>
+  <h3 id="3-использование-цитированиея-сообщения-пользователя">3. <strong>Использование цитированиея сообщения
+      пользователя</strong></h3>
+  <pre><code class="language-python">bot.reply_to(message, <span class="hljs-string">&quot;Сообщение получено: &quot;</span> + message.text)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Отправляет ответ на сообщение пользователя с цитированием его исходного сообщения.
+    </li>
+  </ul>
+  <h3 id="4-кнопки-внизу-чата">4. <strong>Кнопки внизу чата</strong></h3>
+  <p>Данные кнопки создаются при помощи класса <code>ReplyKeyboardMarkup</code>, который нужно импортировать из
+    <code>telebot.types</code>.</p>
+  <pre><code class="language-python">keyboard = ReplyKeyboardMarkup(row_width=<span class="hljs-number">2</span>)
+button1 = telebot.types.KeyboardButton(<span class="hljs-string">&quot;Кнопка 1&quot;</span>)
+button2 = telebot.types.KeyboardButton(<span class="hljs-string">&quot;Кнопка 2&quot;</span>)
+keyboard.add(button1, button2)
+
+bot.send_message(
+    chat_id=message.chat.<span class="hljs-built_in">id</span>,
+    text=<span class="hljs-string">&quot;Вы написали: &quot;</span> + message.text,
+    reply_markup=keyboard
+)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Создает &quot;клавиатуру&quot; с кнопками, которые пользователь может нажать. (внизу
+      чата)</li>
+    <li><strong>Параметры</strong>:
+      <ul>
+        <li><code>row_width</code>: Количество кнопок в строке.</li>
+        <li><code>reply_markup</code>: здесь передаём объект клавиатуры.</li>
+      </ul>
+    </li>
+  </ul>
+  <p>При нажатии на такую кнопку в бот отправляется сообщения с текстом кнопки.</p>
+  <h3 id="5-кнопки-в-сообщении">5. <strong>Кнопки в сообщении</strong></h3>
+  <p>Такие кнопки называются inline-клавиатурой и создаются при помощи <code>InlineKeyboardMarkup</code>.</p>
+  <pre><code class="language-python">keyboard = InlineKeyboardMarkup()
+button1 = InlineKeyboardButton(<span class="hljs-string">&quot;Вариант 1&quot;</span>, callback_data=<span class="hljs-string">&quot;Вариант 1&quot;</span>)
+button2 = InlineKeyboardButton(<span class="hljs-string">&quot;Вариант 2&quot;</span>, callback_data=<span class="hljs-string">&quot;Вариант 2&quot;</span>)
+keyboard.add(button1, button2)
+
+bot.send_message(
+    chat_id=message.chat.<span class="hljs-built_in">id</span>,
+    text=<span class="hljs-string">&quot;Выберите вариант:&quot;</span>,
+    reply_markup=keyboard
+)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Создает inline-клавиатуру, которая позволяет пользователю выбирать варианты без
+      отправки нового сообщения.</li>
+    <li><strong>Примечание</strong>: Для обработки нажатий на inline-кнопки используйте
+      <code>callback_query_handler</code>.</li>
+  </ul>
+  <p>Для получения нажатий на inline-кнопки, используйте такой обработчик:</p>
+  <pre><code class="language-python"><span class="hljs-meta">@bot.callback_query_handler()</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">handle_callback</span>(<span class="hljs-params">call</span>):
+    bot.answer_callback_query(call.<span class="hljs-built_in">id</span>, <span class="hljs-string">&quot;Вы выбрали: &quot;</span> + call.data)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Обрабатывает нажатия на inline-кнопки и отправляет ответ пользователю.</li>
+    <li><strong>Параметры</strong>:
+      <ul>
+        <li><code>call.id</code>: ID callback-запроса.</li>
+        <li><code>call.data</code>: Данные, переданные с кнопки.</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="6-отправка-изображения">6. <strong>Отправка изображения</strong></h3>
+  <p>А) загрузка файла с компьютера</p>
+  <pre><code class="language-python"><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;image.jpg&#x27;</span>, <span class="hljs-string">&#x27;rb&#x27;</span>) <span class="hljs-keyword">as</span> my_file:
+    bot.send_photo(
+        chat_id=message.chat.<span class="hljs-built_in">id</span>,
+        photo=my_file, 
+        caption=<span class="hljs-string">&quot;Посмотри на это!&quot;</span>
+    )
+</code></pre>
+  <p>Б) указание URL файла</p>
+  <pre><code class="language-python">  bot.send_photo(
+      chat_id=message.chat.<span class="hljs-built_in">id</span>,
+      photo=<span class="hljs-string">&quot;https://picsum.photos/200/300&quot;</span>, 
+      caption=<span class="hljs-string">&quot;Посмотри на это!&quot;</span>
+  )
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Отправляет фото в чат.</li>
+    <li><strong>Параметры</strong>:
+      <ul>
+        <li><code>photo</code>: Файл или URL изображения.</li>
+        <li><code>caption</code>: Подпись к фото.</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="7-другие-способы">7. <strong>Другие способы</strong></h3>
+  <p>Есть разные другие способы отправки сообщений пользователю. Как правило, названия этих методов в telebot начинаются
+    с <code>send_</code>, поэтому вы можете видеть названия этих методов в всплывающем окне подсказки (наберите
+    <code>bot.</code>, затем нажмите <code>Ctrl+Space</code>).</p>
+  <p>Например, следующий метод отправляет анимацию игрального кубика:</p>
+  <pre><code class="language-python">bot.send_dice(message.chat.<span class="hljs-built_in">id</span>)
+</code></pre>
+  <ul>
+    <li><strong>Описание</strong>: Отправляет анимацию, например, кубик или дартс.</li>
+    <li><strong>Примечание</strong>: Пользователь увидит случайный результат.</li>
+  </ul>
+  <h2 id="запись-урока">Запись урока</h2>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/0g9CXdgOaME?si=JrY_SkU8on3MdbKh"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <h2 id="дополнительный-материал">Дополнительный материал</h2>
+  <ul>
+    <li>Более подробно о <a href="02.components.html">Telegram API</a>.</li>
+  </ul>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <p>Напишите бота, который в ответ на отправленное сообщение присылает такую информацию:</p>
+  <pre><code>```
+Вы написали: &lt;исходное сообщение пользователя&gt;
+user id: &lt;идентификатор пользователя&gt;
+```
+</code></pre>
+
+<footer>
+  <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+</footer>
+
+
+</body>
+
+</html>

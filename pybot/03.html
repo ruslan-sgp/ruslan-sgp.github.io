@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3 - Развёртывание бота</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-3">Урок 3</h1>
+  <p>В прошлый раз мы научили бот получать и отправлять сообщения. Например, пусть код простого бота выглядит так:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> telebot
+<span class="hljs-keyword">from</span> telebot.types <span class="hljs-keyword">import</span> Message
+
+bot = telebot.TeleBot(<span class="hljs-string">&#x27;... ваш токен ...&#x27;</span>)
+
+
+<span class="hljs-meta">@bot.message_handler()</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">handle_message</span>(<span class="hljs-params">message: Message</span>):
+    info = <span class="hljs-string">f&quot;&quot;&quot;Вы написали: `<span class="hljs-subst">{message.text}</span>`
+Пользователь: `<span class="hljs-subst">{message.from_user.username}</span>`
+Чат: `<span class="hljs-subst">{message.chat.<span class="hljs-built_in">id</span>}</span>`&quot;&quot;&quot;</span>
+    <span class="hljs-built_in">print</span>(info)
+    bot.send_message(message.chat.<span class="hljs-built_in">id</span>, info, parse_mode=<span class="hljs-string">&quot;Markdown&quot;</span>)
+
+
+bot.infinity_polling()
+</code></pre>
+  <p>Когда бот запущен, он будет отправлять ответы на сообщения в Telegram. Если бот остановлен, то ответы на сообщения
+    не приходят.</p>
+  <p>Вы не можете всё время держать бот запущенным на вашем компьютере. Вместо этого используется сервер. Сегодня
+    рассмотрим как запустить ваш бот на сервере.</p>
+  <h2 id="выбор-хостинга">Выбор хостинга</h2>
+  <p>Размещение бота на сервере - обычно платная услуга, которая называется хостингом. В интернет можно найти множество
+    провайдеров хостинга, которые предлагают различные услуги. Вот некоторые из популярных хостинг-провайдеров в России:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Провайдер</strong></th>
+        <th><strong>Основные услуги</strong></th>
+        <th><strong>Особенности</strong></th>
+        <th><strong>Сайт</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Selectel</strong></td>
+        <td>VPS, облачные серверы, колокация</td>
+        <td>Высокая производительность, поддержка 24/7</td>
+        <td><a href="https://selectel.ru">selectel.ru</a></td>
+      </tr>
+      <tr>
+        <td><strong>RUVDS</strong></td>
+        <td>VPS, облачный хостинг</td>
+        <td>Доступные цены, масштабируемость</td>
+        <td><a href="https://ruvds.com">ruvds.com</a></td>
+      </tr>
+      <tr>
+        <td><strong>Timeweb</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Простой интерфейс, надежная поддержка</td>
+        <td><a href="https://timeweb.com">timeweb.com</a></td>
+      </tr>
+      <tr>
+        <td><strong>Beget</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Автоматические резервные копии, бесплатный SSL</td>
+        <td><a href="https://beget.com">beget.com</a></td>
+      </tr>
+      <tr>
+        <td><strong>Hoster</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Защита от DDoS, гибкие тарифы</td>
+        <td><a href="https://hoster.by">hoster.by</a></td>
+      </tr>
+      <tr>
+        <td><strong>Majordomo</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Долгая история, широкий выбор услуг</td>
+        <td><a href="https://majordomo.ru">majordomo.ru</a></td>
+      </tr>
+      <tr>
+        <td><strong><a href="http://Reg.ru">Reg.ru</a></strong></td>
+        <td>Хостинг, регистрация доменов</td>
+        <td>Надёжная защита, удобное управление доменами</td>
+        <td><a href="https://reg.ru">reg.ru</a></td>
+      </tr>
+      <tr>
+        <td><strong>FirstVDS</strong></td>
+        <td>VPS</td>
+        <td>SSD-накопители, KVM-виртуализация</td>
+        <td><a href="https://firstvds.ru">firstvds.ru</a></td>
+      </tr>
+      <tr>
+        <td><strong>Jino</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Доступные цены, простая настройка</td>
+        <td><a href="https://jino.ru">jino.ru</a></td>
+      </tr>
+      <tr>
+        <td><strong>ITLand</strong></td>
+        <td>Виртуальный хостинг, VPS</td>
+        <td>Защита от DDoS, круглосуточная поддержка</td>
+        <td><a href="https://itland.ru">itland.ru</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Для данного курса мы будем использовать иностранный провайдер <a href="https://railway.com/">Railway</a>. Он
+    отличается простотой запуска бота, интеграцией с GitHub, и имеет бесплатный тарифный план.</p>
+  <p>Для того чтобы запустить бот на Railway, сначала нужно сохранить его код на GitHub.</p>
+  <h2 id="переменные-окружения">Переменные окружения</h2>
+  <p>Токен бота является конфиденциальной информацией. Поэтому не следует сохранять его в коде, поскольку там он открыт
+    для всех. Вместо этого, сохраним его в переменной окружения.</p>
+  <p>Вот как это сделать:</p>
+  <ol>
+    <li>чтение переменной окружения</li>
+  </ol>
+  <p>Для примера получим значение переменной окружения <code>Path</code> и выведем его на экран:</p>
+  <pre><code class="language-python"><span class="hljs-comment"># модуль os позволяет получать данные из операционной системы</span>
+<span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> getenv
+
+<span class="hljs-comment"># функция getenv получает значение переменной окружения</span>
+path = getenv(<span class="hljs-string">&quot;Path&quot;</span>) 
+
+<span class="hljs-comment"># выводим на экран</span>
+<span class="hljs-built_in">print</span>(path)
+</code></pre>
+  <ol start="2">
+    <li>Использование <code>.env</code></li>
+  </ol>
+  <p>Можно добавить переменную окружения <code>token</code> в <a
+      href="https://remontka.pro/environment-variables-windows/">настройках</a> системы Windows.</p>
+  <p>Однако на компьютере разработчика удобнее использовать файл <code>.env</code>. Для этого сначала установите
+    библиотеку <code>python-dot</code> при помощи команды: <code>pip install python-dotenv</code>.</p>
+  <p>Затем создайте файл <code>.env</code> в папке проекта в VS Code. Данный файл служит для сохранения дополнительных
+    переменных. Этот файл <strong>не добавляется</strong> в GitHub, поэтому можно использовать его для хранения токена.
+  </p>
+  <p>Добавьте в файл переменную <code>token</code> таким образом:</p>
+  <pre><code>TOKEN=... ваш токен ...
+</code></pre>
+  <p>Затем испольуйте функцию <code>load_dotenv</code>:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> getenv
+
+<span class="hljs-comment"># импорт модуля dotenv</span>
+<span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv
+
+<span class="hljs-comment"># загрузить переменные окружения из файла</span>
+load_dotenv()
+
+<span class="hljs-comment"># получаем значение переменной окружения TOKEN</span>
+bot_token = getenv(<span class="hljs-string">&quot;TOKEN&quot;</span>)
+</code></pre>
+  <p>Вот как может выглядеть полный код бота с использованием переменной окружения для хранения токена бота:</p>
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> telebot
+<span class="hljs-keyword">from</span> telebot.types <span class="hljs-keyword">import</span> Message
+<span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> getenv
+<span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv
+
+load_dotenv()
+bot_token = getenv(<span class="hljs-string">&quot;TOKEN&quot;</span>)
+
+<span class="hljs-comment"># выведем на экран не весь токен, а его последние 5 символов</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Используем токен бота ...&quot;</span>, bot_token[-<span class="hljs-number">5</span>:])
+
+bot = telebot.TeleBot(bot_token)
+
+<span class="hljs-meta">@bot.message_handler()</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">handle_message</span>(<span class="hljs-params">message: Message</span>):
+    info = <span class="hljs-string">f&quot;&quot;&quot;Вы написали: `<span class="hljs-subst">{message.text}</span>`
+Пользователь: `<span class="hljs-subst">{message.from_user.username}</span>`
+Чат: `<span class="hljs-subst">{message.chat.<span class="hljs-built_in">id</span>}</span>`&quot;&quot;&quot;</span>
+    <span class="hljs-built_in">print</span>(info)
+    bot.send_message(message.chat.<span class="hljs-built_in">id</span>, info, parse_mode=<span class="hljs-string">&quot;Markdown&quot;</span>)
+
+bot.infinity_polling()
+</code></pre>
+  <h2 id="создание-requirementstxt">Создание <code>requirements.txt</code></h2>
+  <p>Файл <code>requirements.txt</code> используется в Python чтобы указать библиотеки необходимые для запуска проекта -
+    зависимости. Cоздадим этот файл, чтобы сервер мог автоматически установить нужные версии библиотек. Вот как это
+    делается:</p>
+  <ul>
+    <li>команда <code>pip freeze</code> определяет зависимости вашего проекта и показывает их на экране</li>
+    <li>чтобы сохранить список зависимостей в файл, используйте команду <code>pip freeze &gt; requirements.txt</code>
+    </li>
+  </ul>
+  <p>Для нашего бота достаточно указать две библиотеки:</p>
+  <pre><code>python-dotenv==1.0.0
+pyTelegramBotAPI==4.12.0
+</code></pre>
+  <p>Для указания номера версии можно использовать <code>~=</code>, чтобы автоматически установились текущие (более
+    новые) версии библиотек:</p>
+  <pre><code>pyTelegramBotAPI~=4.23.0
+python-dotenv~=1.0.1
+</code></pre>
+  <h2 id="добавление-бота-в-github">Добавление бота в GitHub</h2>
+  <p>Мы рассматривали использование GitHub на первому курсе, так что у вас уже должна быть учетная запись. Вот что нужно
+    для добавления кода вашего бота в GitHub:</p>
+  <ul>
+    <li>создайте новую репозиторию</li>
+    <li>добавьте в неё файлы <code>bot.py</code> и <code>requirements.txt</code></li>
+  </ul>
+  <h2 id="размещение-бота-на-сервере">Размещение бота на сервере</h2>
+  <ul>
+    <li>Зарегистрируйтесь на <a href="http://Railway.com">Railway.com</a>. Можно использовать акаунт GitHub для
+      авторизации.</li>
+    <li>Примите условия использования. Вам будет подключен пробный план и добавлено $5 на счёт.</li>
+    <li>Нажмите кнопку для создания нового проекта, и подключите ваш акаунт GitHub.</li>
+    <li>Укажите репозиторию GitHub вашего бота.</li>
+    <li>После этого запустится сборка (build) и развёртывание (deploy) вашего бота.</li>
+    <li>Первое развёртывание будет неудачным - вы увидите сообщение об ошибке.</li>
+    <li>Необходимо нажать на ссылку в этом сообщении и в настройках проекта добавить команду запуска:
+      <code>python bot.py</code>.
+    </li>
+    <li>Также в настройках проекта необходимо добавить переменную окружения <code>TOKEN</code> - токен вашего бота.</li>
+    <li>После этих двух изменений нужно снова сделать Deploy нажав на кнопку.</li>
+    <li>На этот раз бот должен запуститься без ошибок, после чего он станет доступным в Telegram.</li>
+  </ul>
+  <h2 id="термины">Термины</h2>
+  <table>
+    <thead>
+      <tr>
+        <th><strong>Термин (EN)</strong></th>
+        <th><strong>Перевод (RU)</strong></th>
+        <th><strong>Краткое пояснение</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Hosting</strong></td>
+        <td>Хостинг</td>
+        <td>Услуга размещения и обслуживания серверов</td>
+      </tr>
+      <tr>
+        <td><strong>Deployment</strong></td>
+        <td>Развертывание</td>
+        <td>Процесс выгрузки приложения на сервер</td>
+      </tr>
+      <tr>
+        <td><strong>Service</strong></td>
+        <td>Сервис</td>
+        <td>Программный сервис или услуга</td>
+      </tr>
+      <tr>
+        <td><strong>Provider</strong></td>
+        <td>Провайдер</td>
+        <td>Компания, предоставляющая услуги</td>
+      </tr>
+      <tr>
+        <td><strong>Dashboard</strong></td>
+        <td>Панель управления</td>
+        <td>Интерфейс для управления сервисом</td>
+      </tr>
+      <tr>
+        <td><strong>Dependencies</strong></td>
+        <td>Зависимости</td>
+        <td>Внешние библиотеки, необходимые для работы</td>
+      </tr>
+      <tr>
+        <td><strong>Build</strong></td>
+        <td>Сборка</td>
+        <td>Процесс компиляции и подготовки приложения</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

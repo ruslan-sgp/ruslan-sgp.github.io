@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Информатика - Урок 4</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4">Урок 4</h1>
+  <h2 id="материалы-урока">Материалы урока</h2>
+  <p>Единицы измерения информации:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Название</th>
+        <th>Обозначение</th>
+        <th>Объём</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Бит</td>
+        <td><code>бит</code></td>
+        <td>1 бит</td>
+      </tr>
+      <tr>
+        <td>Байт</td>
+        <td><code>Б</code></td>
+        <td>1 Б = <strong>8 бит</strong></td>
+      </tr>
+      <tr>
+        <td>Килобайт</td>
+        <td><code>КБ</code></td>
+        <td>1 КБ = <strong>1024 Б</strong></td>
+      </tr>
+      <tr>
+        <td>Мегабайт</td>
+        <td><code>МБ</code></td>
+        <td>1 МБ = <strong>1024 КБ</strong></td>
+      </tr>
+      <tr>
+        <td>Гигабайт</td>
+        <td><code>ГБ</code></td>
+        <td>1 ГБ = <strong>1024 МБ</strong></td>
+      </tr>
+      <tr>
+        <td>Терабайт</td>
+        <td><code>ТБ</code></td>
+        <td>1 ТБ = <strong>1024 ГБ</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="таблица-перевода-двоичная-система">Таблица перевода (двоичная система)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Из</th>
+        <th>В</th>
+        <th>Умножить на</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Бит → Байт</td>
+        <td>÷ 8</td>
+        <td><code>1 Б = 8 бит</code></td>
+      </tr>
+      <tr>
+        <td>Байт → КБ</td>
+        <td>÷ 1024</td>
+        <td><code>1 КБ = 1024 Б</code></td>
+      </tr>
+      <tr>
+        <td>КБ → МБ</td>
+        <td>÷ 1024</td>
+        <td><code>1 МБ = 1024 КБ</code></td>
+      </tr>
+      <tr>
+        <td>МБ → ГБ</td>
+        <td>÷ 1024</td>
+        <td><code>1 ГБ = 1024 МБ</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="пример-перевода">Пример перевода:</h4>
+  <p><strong>Сколько бит в 2 КБ?</strong></p>
+  <ol>
+    <li>2 КБ = 2 × 1024 Б = 2048 Б (это кол-во байт)</li>
+    <li>2048 Б × 8 = <strong>16384 бит</strong> (ответ)</li>
+  </ol>
+  <p>Всегда обращай внимание, в каких единицах дано и что просят (Биты? Байт?).</p>
+  <p>Практика — ключ к успеху!</p>
+  <h2 id="доска-урока">Доска урока</h2>
+  <p><img src="kirill04.png" alt="Слайды урока"></p>
+  <h2 id="дополнительные-материалы">Дополнительные материалы</h2>
+  <ol>
+    <li>Способы кодирования:</li>
+  </ol>
+  <table>
+    <thead>
+      <tr>
+        <th>Кодировка</th>
+        <th>Кол-во бит на символ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ASCII</td>
+        <td>7 или 8</td>
+      </tr>
+      <tr>
+        <td>Unicode (UTF-8)</td>
+        <td>от 8 до 32</td>
+      </tr>
+      <tr>
+        <td>KOИ-8, Windows-1251</td>
+        <td>8</td>
+      </tr>
+    </tbody>
+  </table>
+  <ol start="2">
+    <li>Разные виды <a href="https://www.printerbase.co.uk/news/how-does-a-printer-work/">принтеров</a> (на английском,
+      требует VPN)</li>
+  </ol>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <p>Задача №6 на доске</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Информатика - Урок 2</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <h2 id="материалы-урока">Материалы урока</h2>
+  <p>Решали <a href="https://inf-ege.sdamgia.ru/problem?id=14688">Задание 2</a></p>
+  <p>Задание можно решить логически - путем рассуждений, либо написать программу.</p>
+  <p>Решение при помощи Python:</p>
+  <ul>
+    <li>записываем функцию F на языке Python</li>
+    <li>перебираем все возможные значения переменных</li>
+    <li>считаем значение F для данных значений переменных</li>
+    <li>проверяем что F равно 0 (как в последней колонке таблицы)</li>
+    <li>печатаем значения переменных на экране</li>
+  </ul>
+  <pre><code class="language-python"><span class="hljs-comment"># F задаётся выражением (x ∨ y) → (z ≡ x)</span>
+
+<span class="hljs-comment"># берём все возможные значения x</span>
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>, <span class="hljs-number">1</span>:
+
+    <span class="hljs-comment"># берём все возможные значения y</span>
+    <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>, <span class="hljs-number">1</span>:
+
+        <span class="hljs-comment"># берём все возможные значения z</span>
+        <span class="hljs-keyword">for</span> z <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>, <span class="hljs-number">1</span>:
+
+            <span class="hljs-comment"># переписали функциию из задания по правилам Python</span>
+            <span class="hljs-comment"># и считаем её значение при данных значениях x, y, z</span>
+            F = (x <span class="hljs-keyword">or</span> y) &lt;= (z == x)
+
+            <span class="hljs-comment"># нам нужны только значения, при которых F == 0</span>
+            <span class="hljs-keyword">if</span> F == <span class="hljs-number">0</span>:
+                <span class="hljs-comment"># выводим значения x, y, z</span>
+                <span class="hljs-built_in">print</span>(x, y, z, F)
+</code></pre>
+  <h2 id="доска-урока">Доска урока</h2>
+  <p><img src="bogdan02.png" alt="slides"></p>
+  <h2 id="полезные-ссылки">Полезные ссылки</h2>
+  <ul>
+    <li><a href="https://examer.ru/ege_po_informatike/teoriya/logicheskie_vyrazheniya">Логические выражения</a></li>
+  </ul>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <ul>
+    <li>Разобраться с логическими функциями и выражениями</li>
+    <li>сделать практику заданий</li>
+  </ul>
+  <h2 id="шпаргалка-по-логическим-функциям">Шпаргалка по логическим функциям</h2>
+  <h3 id="логические-значения">Логические значения</h3>
+  <ul>
+    <li><code>0</code> — ложь (False)</li>
+    <li><code>1</code> — истина (True)</li>
+  </ul>
+  <h3 id="логические-операции">Логические операции</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Операция</th>
+        <th>Обозначение</th>
+        <th>Описание</th>
+        <th>Пример</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>НЕ</td>
+        <td><code>¬A</code> или <code>!A</code></td>
+        <td>Отрицание (инверсия)</td>
+        <td>¬1 = 0</td>
+      </tr>
+      <tr>
+        <td>И</td>
+        <td><code>A ∧ B</code> или <code>A &amp; B</code></td>
+        <td>Конъюнкция (логическое И)</td>
+        <td>1 ∧ 0 = 0</td>
+      </tr>
+      <tr>
+        <td>ИЛИ</td>
+        <td><code>A ∨ B</code> или `A</td>
+        <td>B`</td>
+        <td>Дизъюнкция (логическое ИЛИ)</td>
+      </tr>
+      <tr>
+        <td>ИСКЛЮЧАЮЩЕЕ ИЛИ</td>
+        <td><code>A ⊕ B</code> или <code>A ^ B</code></td>
+        <td>Исключающее ИЛИ (XOR)</td>
+        <td>1 ⊕ 1 = 0</td>
+      </tr>
+      <tr>
+        <td>ИМПЛИКАЦИЯ</td>
+        <td><code>A → B</code></td>
+        <td>Если A, то B</td>
+        <td>1 → 0 = 0</td>
+      </tr>
+      <tr>
+        <td>ЭКВИВАЛЕНТНОСТЬ</td>
+        <td><code>A ≡ B</code></td>
+        <td>Равносильность</td>
+        <td>1 ≡ 1 = 1</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="таблицы-истинности">Таблицы истинности</h3>
+  <h4 id="a--b-и">A ∧ B (И)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A ∧ B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="a--b-или">A ∨ B (ИЛИ)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A ∨ B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="a--b-импликация">A → B (Импликация)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A → B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+    </tbody>
+  </table>
+  <h4 id="a--b-xor">A ⊕ B (XOR)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A ⊕ B</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="приоритет-логических-операций-от-высокого-к-низкому">Приоритет логических операций (от высокого к низкому)
+  </h3>
+  <ol>
+    <li>НЕ (<code>¬</code>)</li>
+    <li>И (<code>∧</code>)</li>
+    <li>ИЛИ (<code>∨</code>)</li>
+    <li>ИМПЛИКАЦИЯ (<code>→</code>)</li>
+    <li>ЭКВИВАЛЕНТНОСТЬ (<code>≡</code>)</li>
+  </ol>
+  <h3 id="полезные-преобразования">Полезные преобразования</h3>
+  <ul>
+    <li><code>A → B</code> эквивалентно <code>¬A ∨ B</code></li>
+    <li><code>A ≡ B</code> эквивалентно <code>(A ∧ B) ∨ (¬A ∧ ¬B)</code></li>
+  </ul>
+  <h4 id="пример-таблица-истинности-для-выражения-a--b">Пример: Таблица истинности для выражения ¬(A ∨ B)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>A</th>
+        <th>B</th>
+        <th>A ∨ B</th>
+        <th>¬(A ∨ B)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>0</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>📝 <strong>Советы по решению задач:</strong></p>
+  <ul>
+    <li>Тренируйтесь составлять таблицы истинности.</li>
+    <li>Учитесь упрощать выражения.</li>
+    <li>Запоминайте стандартные логические тождества.</li>
+    <li>Внимательно читайте условие задачи!</li>
+  </ul>
+  <p>Удачи!</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

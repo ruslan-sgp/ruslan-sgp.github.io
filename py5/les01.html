@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Основы Python - Урок 1</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-1">Урок 1</h1>
+  <ul>
+    <li>знакомство и оценка знаний</li>
+    <li>знакомство с <a href="https://code.visualstudio.com/">VS Code</a></li>
+    <li>запуск Python в VS Code</li>
+  </ul>
+  <h2 id="дальнейшие-шаги">Дальнейшие шаги</h2>
+  <ul>
+    <li>изучение основ Python</li>
+    <li>разбор контрольных</li>
+  </ul>
+  <h2 id="пример-кода">Пример кода</h2>
+  <p>Просмотри этот код. Найди в нем примеры следующего:</p>
+  <ul>
+    <li>числовые значения</li>
+    <li>строковые значения</li>
+    <li>структуры данных</li>
+    <li>математические и арифметические выражения</li>
+    <li>комментарии</li>
+  </ul>
+  <p>Запусти этот код в VS Code и просмотри результат.</p>
+  <pre><code class="language-python"><span class="hljs-comment"># ==================================================</span>
+<span class="hljs-comment"># Задача 1</span>
+<span class="hljs-comment"># ==================================================</span>
+
+Pairs = {
+    <span class="hljs-number">6</span>: <span class="hljs-string">&quot;принтер&quot;</span>,
+    <span class="hljs-number">11</span>: <span class="hljs-string">&quot;плоттер&quot;</span>,
+    <span class="hljs-number">3</span>: <span class="hljs-string">&quot;сканер&quot;</span>,
+    <span class="hljs-number">7</span>: <span class="hljs-string">&quot;монитор&quot;</span>,
+    <span class="hljs-number">15</span>: <span class="hljs-string">&quot;микрофон&quot;</span>
+}
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Задача 1&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Значения где ключ однозначное число:&quot;</span>)
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> Pairs.items():
+    <span class="hljs-keyword">if</span> <span class="hljs-number">0</span> &lt;= key &lt;= <span class="hljs-number">9</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{key}</span> — <span class="hljs-subst">{value}</span>&quot;</span>)
+
+
+<span class="hljs-comment"># ==================================================</span>
+<span class="hljs-comment"># Задача 2</span>
+<span class="hljs-comment"># ==================================================</span>
+
+M = {
+    <span class="hljs-number">6</span>: <span class="hljs-string">&quot;принтер&quot;</span>,
+    <span class="hljs-number">11</span>: <span class="hljs-string">&quot;плоттер&quot;</span>,
+    <span class="hljs-number">3</span>: <span class="hljs-string">&quot;сканер&quot;</span>,
+    <span class="hljs-number">7</span>: <span class="hljs-string">&quot;монитор&quot;</span>,
+    <span class="hljs-number">15</span>: <span class="hljs-string">&quot;микрофон&quot;</span>
+}
+
+<span class="hljs-comment"># Получаем список ключей</span>
+keys = <span class="hljs-built_in">list</span>(M.keys())
+
+<span class="hljs-comment"># Первый и последний ключ</span>
+first_key = keys[<span class="hljs-number">0</span>]
+last_key = keys[-<span class="hljs-number">1</span>]
+
+<span class="hljs-comment"># Меняем местами значения по этим ключам</span>
+M[first_key], M[last_key] = M[last_key], M[first_key]
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nЗадача 2&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Обновленный словарь:&quot;</span>)
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> M.items():
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{key}</span>: <span class="hljs-subst">{value}</span>&quot;</span>)
+
+
+<span class="hljs-comment"># ==================================================</span>
+<span class="hljs-comment"># Задача 3</span>
+<span class="hljs-comment"># ==================================================</span>
+
+<span class="hljs-comment"># Создаём словарь</span>
+M = {
+    <span class="hljs-number">10</span>: [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+    <span class="hljs-number">15</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>],
+    <span class="hljs-number">12</span>: [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>],
+    <span class="hljs-number">17</span>: [<span class="hljs-number">5</span>, <span class="hljs-number">2</span>]
+}
+
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nЗадача 3&quot;</span>)
+
+<span class="hljs-comment"># Вывод всех ключей</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ключи словаря:&quot;</span>)
+<span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> M.keys():
+    <span class="hljs-built_in">print</span>(key)
+
+<span class="hljs-comment"># Вывод всех значений</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Значения словаря:&quot;</span>)
+<span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> M.values():
+    <span class="hljs-built_in">print</span>(value)
+
+
+<span class="hljs-comment"># ==================================================</span>
+<span class="hljs-comment"># Задача 4</span>
+<span class="hljs-comment"># ==================================================</span>
+
+<span class="hljs-comment"># Создаём словарь с кодами работ и оценками</span>
+RD = {
+    <span class="hljs-string">&quot;P24&quot;</span>: <span class="hljs-string">&quot;хорошо&quot;</span>,
+    <span class="hljs-string">&quot;D3&quot;</span>: <span class="hljs-string">&quot;отлично&quot;</span>,
+    <span class="hljs-string">&quot;P21&quot;</span>: <span class="hljs-string">&quot;хорошо&quot;</span>,
+    <span class="hljs-string">&quot;P18&quot;</span>: <span class="hljs-string">&quot;удовлетворительно&quot;</span>,
+    <span class="hljs-string">&quot;P9&quot;</span>: <span class="hljs-string">&quot;удовлетворительно&quot;</span>,
+    <span class="hljs-string">&quot;D7&quot;</span>: <span class="hljs-string">&quot;хорошо&quot;</span>,
+    <span class="hljs-string">&quot;D11&quot;</span>: <span class="hljs-string">&quot;хорошо&quot;</span>
+}
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nЗадача 4&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Работы с оценками &#x27;хорошо&#x27; и &#x27;отлично&#x27;:&quot;</span>)
+
+<span class="hljs-comment"># Фильтруем и выводим только те работы, которые оценены на &#x27;хорошо&#x27; или &#x27;отлично&#x27;</span>
+<span class="hljs-keyword">for</span> code, grade <span class="hljs-keyword">in</span> RD.items():
+    <span class="hljs-keyword">if</span> grade <span class="hljs-keyword">in</span> (<span class="hljs-string">&quot;хорошо&quot;</span>, <span class="hljs-string">&quot;отлично&quot;</span>):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{code}</span>: <span class="hljs-subst">{grade}</span>&quot;</span>)
+</code></pre>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

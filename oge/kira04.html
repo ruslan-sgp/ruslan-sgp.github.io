@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Информатика - Урок 4</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-4">Урок 4</h1>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <h3 id="1-почему-python"><strong>1. Почему Python?</strong></h3>
+  <p>Python — один из самых популярных языков программирования (на графике видно, что он лидирует на GitHub).</p>
+  <p>Его используют для:</p>
+  <ul>
+    <li>ИИ и машинного обучения,</li>
+    <li>Научных вычислений,</li>
+    <li>Веб-разработки,</li>
+    <li>Автоматизации задач.</li>
+  </ul>
+  <p><a href="https://www.python.org/">Официальный сайт Python</a></p>
+  <h3 id="2-как-запустить-python"><strong>2. Как запустить Python?</strong></h3>
+  <p>Чтобы писать код на Python, нужны специальные программы или среды:</p>
+  <ul>
+    <li><strong>VS Code</strong>: универсальный редактор кода с поддержкой Python.</li>
+    <li><strong>PyCharm</strong>: мощная среда разработки (IDE) специально для Python.</li>
+    <li><strong>IDLE</strong>: простой редактор, который идёт вместе с Python.</li>
+    <li><strong>Командная строка</strong>: можно запустить Python прямо в терминале (например, через <code>py</code> или
+      <code>python</code>).
+    </li>
+  </ul>
+  <h3 id="3-что-такое-ide"><strong>3. Что такое IDE?</strong></h3>
+  <p>IDE (Integrated Development Environment) — это программа, которая помогает писать код:</p>
+  <ul>
+    <li><strong>Integrated</strong>: объединяет редактор, компилятор, отладчик.</li>
+    <li><strong>Development</strong>: помогает разрабатывать проекты.</li>
+    <li><strong>Environment</strong>: создаёт удобное окружение для работы.</li>
+  </ul>
+  <h3 id="4-основы-синтаксиса-python"><strong>4. Основы синтаксиса Python</strong></h3>
+  <h4 id="присваивание-переменных"><strong>Присваивание переменных:</strong></h4>
+  <pre><code class="language-python">x = <span class="hljs-number">5</span>  <span class="hljs-comment"># Записываем число 5 в переменную x</span>
+name = <span class="hljs-string">&quot;John&quot;</span>  <span class="hljs-comment"># Записываем строку &quot;John&quot; в переменную name</span>
+</code></pre>
+  <h4 id="вывод-данных"><strong>Вывод данных:</strong></h4>
+  <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hey&quot;</span>)  <span class="hljs-comment"># Печатаем текст &quot;Hey&quot; на экран</span>
+<span class="hljs-built_in">print</span>(x)  <span class="hljs-comment"># Печатаем значение переменной x (5)</span>
+</code></pre>
+  <h4 id="условия"><strong>Условия:</strong></h4>
+  <pre><code class="language-python"><span class="hljs-keyword">if</span> hungry == <span class="hljs-literal">True</span>:  <span class="hljs-comment"># Если переменная hungry равна True</span>
+    eat()  <span class="hljs-comment"># Выполняем функцию eat()</span>
+</code></pre>
+  <h4 id="комментарии"><strong>Комментарии:</strong></h4>
+  <pre><code class="language-python"><span class="hljs-comment"># Все, что после # — комментарий. Компьютер его игнорирует</span>
+</code></pre>
+  <h3 id="5-пример-работы-с-python-в-командной-строке-repl"><strong>5. Пример работы с Python в командной строке
+      (REPL)</strong></h3>
+  <p>REPL — интерактивная оболочка, где можно быстро проверять код:</p>
+  <ul>
+    <li><strong>R</strong>ead — прочитать команду.</li>
+    <li><strong>E</strong>valuate — выполнить её.</li>
+    <li><strong>P</strong>rint — вывести результат.</li>
+    <li><strong>L</strong>oop — повторить цикл.</li>
+  </ul>
+  <p><strong>Примеры:</strong></p>
+  <pre><code class="language-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> + <span class="hljs-number">20</span>  <span class="hljs-comment"># Сложение</span>
+<span class="hljs-number">30</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello World&quot;</span>)  <span class="hljs-comment"># Вывод текста</span>
+Hello World
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;Hello &quot;</span> * <span class="hljs-number">5</span>  <span class="hljs-comment"># Умножение строки</span>
+<span class="hljs-string">&#x27;Hello Hello Hello Hello Hello &#x27;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">1024</span> &gt; <span class="hljs-number">15</span> * <span class="hljs-number">35</span>  <span class="hljs-comment"># Сравнение чисел</span>
+<span class="hljs-literal">True</span>
+</code></pre>
+  <p><strong>Домашнее задание:</strong></p>
+  <ol>
+    <li>Установите Python и выберите среду разработки (VS Code или PyCharm).</li>
+    <li>Попробуйте выполнить примеры в REPL.</li>
+    <li>Напишите программу, которая выводит ваше имя и возраст.</li>
+  </ol>
+  <hr>
+  <p><em>Python — это просто и весело! 😊</em></p>
+  <h2 id="доска-урока">Доска урока</h2>
+  <p><img src="kira04.png" alt="доска"></p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

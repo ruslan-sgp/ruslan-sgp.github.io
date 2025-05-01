@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Информатика - Урок 5</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-5">Урок 5</h1>
+  <h2 id="что-мы-узнали">Что мы узнали</h2>
+  <ul>
+    <li>диаграммы используются для описания шагов алгоритма</li>
+    <li>командная строка - окно, где можно выполнять команды
+      <ul>
+        <li>например, <code>dir</code> — просмотр содержимого папки</li>
+        <li>запуск интерактивного интерпретатора Python через командную строку:
+      <pre><code class="language-bash">py  <span class="hljs-comment"># Запускает интерпретатор Python</span>
+&gt;&gt;&gt; <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>)  <span class="hljs-comment"># Выполняем команду</span>
+Hello
+</code></pre>
+    </li>
+  </ul>
+    </li>
+  </ul>
+  <h3 id="пример-программы-периметр-треугольника">Пример программы: Периметр треугольника</h3>
+  <h4 id="алгоритм"><strong>Алгоритм:</strong></h4>
+  <ol>
+    <li>Получить длины трёх сторон (<code>a</code>, <code>b</code>, <code>c</code>).</li>
+    <li>Проверить, можно ли построить треугольник:
+      <ul>
+        <li><code>c + b &gt; a</code></li>
+        <li><code>a + c &gt; b</code></li>
+        <li><code>a + b &gt; c</code></li>
+      </ul>
+    </li>
+    <li>Если да — вывести периметр (<code>p = a + b + c</code>).</li>
+    <li>Иначе — сообщить, что треугольник невозможен.</li>
+  </ol>
+  <pre><code class="language-python">a = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите длину первой стороны: &quot;</span>))
+b = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите длину второй стороны: &quot;</span>))
+c = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите длину третьей стороны: &quot;</span>))
+
+x1 = c + b &gt; a
+x2 = a + c &gt; b
+x3 = a + b &gt; c
+
+<span class="hljs-keyword">if</span> x1 <span class="hljs-keyword">and</span> x2 <span class="hljs-keyword">and</span> x3:
+    p = a + b + c
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Периметр треугольника:&quot;</span>, p)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Невозможно создать треугольник&quot;</span>)
+</code></pre>
+  <h3 id="типы-данных-в-python">Типы данных в Python</h3>
+  <ul>
+    <li>
+      <p><strong>Простые типы:</strong></p>
+      <ul>
+        <li><strong>Целые числа (int):</strong> <code>10</code>, <code>-5</code>.</li>
+        <li><strong>Вещественные (float):</strong> <code>3.14</code>, <code>0.5</code>.</li>
+        <li><strong>Булевы (bool):</strong> <code>True</code>, <code>False</code>.</li>
+        <li><strong>Строки (str):</strong> <code>&quot;Hello&quot;</code>, <code>'Python'</code>.</li>
+        <li><strong>None:</strong> Отсутствие значения.</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Контейнеры:</strong></p>
+      <ul>
+        <li><strong>Списки (list):</strong> <code>[1, 2, 3]</code>.</li>
+        <li><strong>Кортежи (tuple):</strong> <code>(1, 2, 3)</code> (неизменяемые).</li>
+        <li><strong>Словари (dict):</strong> <code>{&quot;key&quot;: &quot;value&quot;}</code>.</li>
+        <li><strong>Множества (set):</strong> <code>{1, 2, 3}</code> (уникальные элементы).</li>
+      </ul>
+    </li>
+  </ul>
+  <p>(эти типы изучим позже)</p>
+  <h3 id="синтаксис-python">Синтаксис Python</h3>
+  <p>Синтаксис - правила написания кода.</p>
+  <ul>
+    <li><strong>Отступы:</strong> Важны для определения блоков кода (например, внутри условий).</li>
+    <li><strong>Комментарии:</strong> Начинаются с <code>#</code>.</li>
+    <li><strong>Форматирование строк:</strong>
+      <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;Сумма: <span class="hljs-subst">{a + b}</span>&quot;</span>)  <span class="hljs-comment"># f-строки</span>
+</code></pre>
+    </li>
+  </ul>
+  <h3 id="обработка-ошибок">Обработка ошибок</h3>
+  <ul>
+    <li><strong>Пример:</strong>
+      <pre><code class="language-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;345&quot;</span>)  <span class="hljs-comment"># Корректно</span>
+<span class="hljs-number">345</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;a&quot;</span>)  <span class="hljs-comment"># Ошибка!</span>
+Traceback ... ValueError: invalid literal <span class="hljs-keyword">for</span> <span class="hljs-built_in">int</span>() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">&#x27;a&#x27;</span>
+</code></pre>
+      В сообщении об ошибке обрати внимание на следующее:
+      <ul>
+        <li>тип ошибки (например, <code>ValueError</code>)</li>
+        <li>сообщение (например, <code>invalid literal for int() with base 10: 'a'</code>)</li>
+        <li>место ошибки - файл, строка, и место в строке</li>
+        <li></li>
+      </ul>
+    </li>
+    <li><strong>Как исправить:</strong><br>
+      Проверяйте тип данных перед преобразованием.</li>
+  </ul>
+  <hr>
+  <h3 id="полезные-функции-и-методы-python">Полезные функции и методы Python</h3>
+  <ul>
+    <li><strong>Функции:</strong> <code>abs()</code>, <code>len()</code>, <code>print()</code>.</li>
+    <li><strong>Методы:</strong> <code>.upper()</code>, <code>.split()</code>.</li>
+  </ul>
+  <p><strong>Домашнее задание:</strong></p>
+  <ol>
+    <li>Напишите программу, которая считывает три числа и проверяет, можно ли построить треугольник.</li>
+    <li>Изучите, как работают списки и словари в Python.</li>
+  </ol>
+  <hr>
+  <p><em>Помните: Python — язык, который любит чистоту и лаконичность! 😊</em></p>
+  <h2 id="доска-урока">Доска урока</h2>
+  <p><img src="kira05.png" alt="доска"></p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

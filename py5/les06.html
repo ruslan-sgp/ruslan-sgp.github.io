@@ -162,7 +162,90 @@
 
 <body class="vscode-body vscode-light">
   <h1 id="урок-6">Урок 6</h1>
-  <p>Некоторые полезные функции Python:</p>
+  <p>Исследуем на практике гибкость Python при работе с данными и некоторые ошибки, которые могут возникнуть.</p>
+  <p>Вот некоторые идеи урока:</p>
+  <h3 id="1-повторение-последовательностей">1. <strong>Повторение последовательностей</strong></h3>
+  <pre><code class="language-python">[<span class="hljs-number">0</span>] * <span class="hljs-number">10</span>  <span class="hljs-comment"># Создает список из 10 нулей</span>
+<span class="hljs-string">&#x27;a&#x27;</span> * <span class="hljs-number">10</span>  <span class="hljs-comment"># Создает строку из 10 букв &#x27;a&#x27;</span>
+</code></pre>
+  <ul>
+    <li>Показывает работу оператора <code>*</code> с последовательностями</li>
+  </ul>
+  <h3 id="2-исследование-модулей">2. <strong>Исследование модулей</strong></h3>
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> random
+<span class="hljs-built_in">dir</span>(random)  <span class="hljs-comment"># Выводит все атрибуты/методы модуля random</span>
+</code></pre>
+  <ul>
+    <li>Демонстрирует инспекцию модулей с помощью <code>dir()</code></li>
+  </ul>
+  <h3 id="3-типичные-ошибки-с-модулями">3. <strong>Типичные ошибки с модулями</strong></h3>
+  <pre><code class="language-python">random(<span class="hljs-number">10</span>)  <span class="hljs-comment"># Ошибка: модуль нельзя вызывать</span>
+random.random(<span class="hljs-number">10</span>)  <span class="hljs-comment"># Ошибка: random() не принимает аргументы</span>
+</code></pre>
+  <ul>
+    <li>Показывает частые ошибки при работе с модулями и функциями</li>
+  </ul>
+  <h3 id="4-генерация-случайных-чисел">4. <strong>Генерация случайных чисел</strong></h3>
+  <pre><code class="language-python">random.random()  <span class="hljs-comment"># Число от 0.0 до 1.0</span>
+random.random() * <span class="hljs-number">24</span> - <span class="hljs-number">12</span>  <span class="hljs-comment"># Масштабирование в [-12, 12)</span>
+random.randint(-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>)  <span class="hljs-comment"># Целое число в диапазоне</span>
+</code></pre>
+  <ul>
+    <li>Различные техники генерации случайных чисел</li>
+  </ul>
+  <h3 id="5-операции-со-списками">5. <strong>Операции со списками</strong></h3>
+  <pre><code class="language-python">l.index(<span class="hljs-number">2</span>)  <span class="hljs-comment"># Находит первое вхождение</span>
+<span class="hljs-string">&quot;Hello World&quot;</span>.index(<span class="hljs-string">&#x27;o&#x27;</span>)  <span class="hljs-comment"># Работает и со строками</span>
+<span class="hljs-string">&quot;Hello World&quot;</span>.index(<span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-number">5</span>)  <span class="hljs-comment"># Поиск с начальной позиции</span>
+</code></pre>
+  <ul>
+    <li>Поиск элементов в последовательностях</li>
+  </ul>
+  <h3 id="6-функция-max-и-её-вариации">6. <strong>Функция max() и её вариации</strong></h3>
+  <pre><code class="language-python"><span class="hljs-built_in">max</span>(<span class="hljs-string">&#x27;Hello World&#x27;</span>)  <span class="hljs-comment"># &#x27;r&#x27; (макс. символ по ASCII)</span>
+<span class="hljs-built_in">max</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])  <span class="hljs-comment"># 3</span>
+<span class="hljs-built_in">max</span>(a, b, <span class="hljs-number">30</span>, <span class="hljs-number">40</span>, <span class="hljs-number">50</span>)  <span class="hljs-comment"># Работает с несколькими аргументами</span>
+</code></pre>
+  <ul>
+    <li>Гибкость функции <code>max()</code> с разными аргументами</li>
+  </ul>
+  <h3 id="7-словари-и-списковое-включение">7. <strong>Словари и списковое включение</strong></h3>
+  <pre><code class="language-python">[name <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> PD]  <span class="hljs-comment"># Получает ключи</span>
+[name <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> PD <span class="hljs-keyword">if</span> PD[name] == <span class="hljs-number">2</span>]  <span class="hljs-comment"># Фильтрация по значению</span>
+</code></pre>
+  <ul>
+    <li>Итерация и фильтрация словарей</li>
+  </ul>
+  <h3 id="8-конкатенация-списков">8. <strong>Конкатенация списков</strong></h3>
+  <pre><code class="language-python">[<span class="hljs-number">1</span>, <span class="hljs-number">23</span>, <span class="hljs-number">45</span>] + [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>]  <span class="hljs-comment"># Объединение списков</span>
+l + l  <span class="hljs-comment"># Дублирование списка</span>
+</code></pre>
+  <ul>
+    <li>Объединение последовательностей через <code>+</code></li>
+  </ul>
+  <h3 id="9-обновление-словарей">9. <strong>Обновление словарей</strong></h3>
+  <pre><code class="language-python">PD.update({<span class="hljs-string">&quot;Иванов&quot;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&quot;Сидоров&quot;</span>: <span class="hljs-number">5</span>})  <span class="hljs-comment"># Правильно</span>
+PD + PD  <span class="hljs-comment"># Ошибка: нельзя складывать словари</span>
+</code></pre>
+  <ul>
+    <li>Правильные и неправильные способы изменения словарей</li>
+  </ul>
+  <h3 id="10-генераторы-списков-с-условиями">10. <strong>Генераторы списков с условиями</strong></h3>
+  <pre><code class="language-python">[x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> l]  <span class="hljs-comment"># Квадраты всех элементов</span>
+[x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> l <span class="hljs-keyword">if</span> x != <span class="hljs-number">0</span>]  <span class="hljs-comment"># Квадраты ненулевых элементов</span>
+</code></pre>
+  <ul>
+    <li>Фильтрация и преобразование элементов</li>
+  </ul>
+  <h3 id="выводы">Выводы:</h3>
+  <ol>
+    <li>Перегрузка операторов (<code>*</code> и <code>+</code> работают по-разному для разных типов)</li>
+    <li>Важность правильных аргументов функций</li>
+    <li>Способы работы с последовательностями</li>
+    <li>Различия в поведении словарей и списков</li>
+    <li>Отладка ошибок через эксперименты</li>
+  </ol>
+  <h2 id="некоторые-полезные-функции-python">Некоторые полезные функции Python:</h2>
   <table>
     <thead>
       <tr>
@@ -223,13 +306,13 @@
       </tr>
       <tr>
         <td>9</td>
-        <td><strong><code>dir()</code></strong></td>
+        <td><code>dir()</code></td>
         <td>Список атрибутов и методов объекта</td>
         <td><code>dir(str)</code> → <br><em>(список методов строки)</em></td>
       </tr>
       <tr>
         <td>10</td>
-        <td><strong><code>help()</code></strong></td>
+        <td><code>help()</code></td>
         <td>Показывает документацию для функции/класса</td>
         <td><code>help(str.upper)</code> → <br><em>(описание метода <code>upper</code>)</em></td>
       </tr>

@@ -162,6 +162,7 @@
 
 <body class="vscode-body vscode-light">
   <h1 id="урок-6">Урок 6</h1>
+  <p>Некоторые полезные функции Python:</p>
   <table>
     <thead>
       <tr>
@@ -234,6 +235,40 @@
       </tr>
     </tbody>
   </table>
+  <h2 id="код">Код</h2>
+  <p>Задание 4.4</p>
+  <pre><code class="language-py"><span class="hljs-keyword">from</span> random <span class="hljs-keyword">import</span> randint
+
+l = []
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):
+    x = randint(-<span class="hljs-number">12</span>, <span class="hljs-number">12</span>)
+    l.append(x)
+<span class="hljs-built_in">print</span>(l)
+maxl = <span class="hljs-built_in">max</span>(l)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Макс. значение: &quot;</span>, maxl, <span class="hljs-string">&quot;с индексом&quot;</span>, l.index(maxl))
+</code></pre>
+  <p>Задание 4.5</p>
+  <pre><code class="language-py">PD = {
+    <span class="hljs-string">&quot;Кузьмин&quot;</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-string">&quot;Круглов&quot;</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-string">&quot;Кашина&quot;</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-string">&quot;Лобова&quot;</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">&quot;Лукин&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&quot;Озеров&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&quot;Орехов&quot;</span>: <span class="hljs-number">3</span>,
+}
+
+l = []
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> PD:
+    mark = PD[name]
+    <span class="hljs-keyword">if</span> mark == <span class="hljs-number">2</span>:
+        l.append(name)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Неуспевающие студенты:&quot;</span>)
+<span class="hljs-built_in">print</span>(l)
+
+<span class="hljs-comment"># вариант со списковым включением</span>
+<span class="hljs-built_in">print</span>([name <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> PD <span class="hljs-keyword">if</span> PD[name] == <span class="hljs-number">2</span>])
+</code></pre>
   <h2 id="доска-урока">Доска урока</h2>
   <p><img src="denis06.png" alt="доска"></p>
   <h2 id="шпаргалка-по-python">Шпаргалка по Python</h2>

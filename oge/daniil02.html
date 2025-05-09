@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Информатика - Урок 2</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="урок-2">Урок 2</h1>
+  <h2 id="темы-урока">Темы урока</h2>
+  <h3 id="базовые-понятия-программирования">Базовые понятия программирования</h3>
+  <ul>
+    <li><strong>Программа</strong> (Program) — набор инструкций, которые выполняются компьютером для решения
+      определенной задачи.</li>
+    <li><strong>Входные данные</strong> (Input) — информация, которая подается на вход программы.</li>
+    <li><strong>Выходные данные</strong> (Output) — результат работы программы.</li>
+    <li><strong>Алгоритм</strong> (Algorithm) — последовательность действий, необходимых для решения задачи.</li>
+  </ul>
+  <h3 id="блок-схемы">Блок-схемы</h3>
+  <p>Блок-схемы используются для визуального представления алгоритмов. Вот их основные символы:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Символ</th>
+        <th>Значение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🟤 Круг</td>
+        <td>Начало/Конец</td>
+      </tr>
+      <tr>
+        <td>🟦 Прямоугольник</td>
+        <td>Процесс</td>
+      </tr>
+      <tr>
+        <td>🟧 Параллелограмм</td>
+        <td>Ввод/Вывод</td>
+      </tr>
+      <tr>
+        <td>🔺 Ромб</td>
+        <td>Условие (ветвление)</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="создание-файла-python">Создание файла Python</h3>
+  <h4 id="1-с-помощью-idle"><strong>1. С помощью IDLE</strong></h4>
+  <p>IDLE — это стандартная среда разработки для Python, которая включает:</p>
+  <ul>
+    <li><strong>Python Shell</strong>: окно для интерактивного выполнения кода.</li>
+    <li><strong>Файл с программой</strong>: возможность сохранять и запускать программы.</li>
+  </ul>
+  <p>Годится для простейших программ и небольших экспериментов.</p>
+  <h4 id="2-с-помощью-ide-integrated-development-environment"><strong>2. С помощью IDE (Integrated Development
+      Environment)</strong></h4>
+  <p>IDE — это программа, которая помогает писать, отлаживать и тестировать код.</p>
+  <p>Функции IDE:</p>
+  <ul>
+    <li><strong>Write</strong>: написание кода</li>
+    <li><strong>Run</strong>: выполнение программы</li>
+    <li><strong>Debug</strong>: отладка кода</li>
+    <li><strong>Translate</strong>: перевод ошибок и документация</li>
+  </ul>
+  <p>На доске показаны популярные IDE, например:</p>
+  <ul>
+    <li><strong>Visual Studio Code</strong>: универсальная и самя популярная</li>
+    <li><strong>PyCharm</strong>: специализированная для Python</li>
+    <li><strong>Jupyter</strong>: работает в окне браузера</li>
+  </ul>
+  <h3 id="создание-простых-программ">Создание простых программ</h3>
+  <p>Напишем программы для вычисления математических выражений или функций.</p>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <h4 id="задача-1-вычисление-функции"><strong>Задача 1: Вычисление функции</strong></h4>
+  <p>Функция:</p>
+  <p>
+    \( Z(x) = x - \frac{x^3}{3(x - 3)} \)
+  </p>
+  <p>Решение:</p>
+  <pre><code class="language-python">x = <span class="hljs-number">10</span>
+
+<span class="hljs-comment"># Вариант 1: со скобками</span>
+<span class="hljs-comment"># z = x - x ** 3 / (3 * (x - 3))</span>
+
+<span class="hljs-comment"># Вариант 2: без скобок в знаменателе</span>
+z = x - x ** <span class="hljs-number">3</span> / <span class="hljs-number">3</span> / (x - <span class="hljs-number">3</span>)
+
+<span class="hljs-built_in">print</span>(z)
+</code></pre>
+  <h4 id="задача-2-вычисление-функции"><strong>Задача 2: Вычисление функции</strong></h4>
+  <p>Функция:</p>
+  <p>
+    \( y = \frac{2x^2 + 5}{x + 1} - \frac{(x - 3)^2}{x} \)
+  </p>
+  <p>Решение:</p>
+  <pre><code class="language-python">x = <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># Вычисляем значение y</span>
+y = (<span class="hljs-number">2</span> * x ** <span class="hljs-number">2</span> + <span class="hljs-number">5</span>) / (x + <span class="hljs-number">1</span>) - ((x - <span class="hljs-number">3</span>) ** <span class="hljs-number">2</span>) / x
+
+<span class="hljs-built_in">print</span>(y)
+</code></pre>
+  <p>❗Важно: при вычислении выражений важно учитывать приоритет операций:</p>
+  <ul>
+    <li>Сначала выполняются операции в скобках.</li>
+    <li>Затем возведение в степень (<code>**</code>).</li>
+    <li>Далее умножение и деление (<code>*</code>, <code>/</code>).</li>
+    <li>Наконец, сложение и вычитание (<code>+</code>, <code>-</code>).</li>
+  </ul>
+  <h3 id="ввод-и-вывод-данных">Ввод и вывод данных</h3>
+  <ul>
+    <li>
+      <p><strong>Ввод данных</strong>:</p>
+      <ul>
+        <li>Используется функция <code>input()</code>.</li>
+        <li>Числовые значения конвертируем при помощи <code>int()</code>, <code>float()</code>.</li>
+        <li>Пример:
+          <pre><code class="language-python">name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите ваше имя: &quot;</span>)
+age = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите ваш возраст: &quot;</span>))
+</code></pre>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p><strong>Вывод данных</strong>:</p>
+      <ul>
+        <li>Используется функция <code>print()</code>.</li>
+        <li>Пример:
+          <pre><code class="language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Привет, &quot;</span> + name + <span class="hljs-string">&quot;!&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Ваш возраст:&quot;</span>, age)
+</code></pre>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="проверка-условий">Проверка условий</h3>
+  <p>Пример программы с ветвлением:</p>
+  <pre><code class="language-python">age = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;Введите ваш возраст: &quot;</span>))
+
+<span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">70</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Вы достигли совершенства!&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Вы еще молоды!&quot;</span>)
+</code></pre>
+  <p>Блок-схема для этой программы показана на <a href="daniil02.png">доске</a>.</p>
+  <p>💡Полезные советы:</p>
+  <ul>
+    <li><strong>Пишите комментарии</strong> в коде.</li>
+    <li><strong>Тестируйте программу</strong> на разных входных данных.</li>
+    <li><strong>Используйте IDE</strong> для удобной работы с кодом.</li>
+    <li><strong>Обучайтесь на ошибках</strong> и внимательно изучайте сообщения об ошибках.</li>
+  </ul>
+  <h3 id="заключение"><strong>Заключение</strong></h3>
+  <p>На данном уроке были рассмотрены основные концепции программирования, такие как алгоритмы, ввод/вывод данных,
+    математические вычисления и работа с IDE. Эти знания будут полезны при решении задач ЕГЭ по информатике.</p>
+  <h2 id="доска-урока">Доска урока</h2>
+  <p><img src="daniil02.png" alt="доска урока"></p>
+  <h2 id="домашнее-задание">Домашнее задание</h2>
+  <p>Выбери любое простое задание ЕГЭ и напиши алгоритм для его решения.</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

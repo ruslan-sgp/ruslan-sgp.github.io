@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ОГЭ Информатика — Единицы измерения</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      font-size: 1em;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .correct {
+      background-color: #d4edda;
+      border-color: #28a745;
+      color: #155724;
+    }
+
+    .wrong {
+      background-color: #f8d7da;
+      border-color: #dc3545;
+      color: #721c24;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .stats {
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #333;
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body>
+  <h1 id="урок-1">Биты байты ...</h1>
+  <h2>Единицы измерения информации</h2>
+  <div class="question" id="question"></div>
+  <div class="options" id="options"></div>
+  <div class="nav-buttons">
+    <button onclick="prevQuestion()">⟵ Назад</button>
+    <button onclick="nextQuestion()">Вперёд ⟶</button>
+  </div>
+  <div class="stats" id="stats"></div>
+
+  <script>
+    const questions = [
+      { q: "24 бит", a: "3 байта", options: ["3 байта", "4 байта", "6 байт", "2 байта"] },
+      { q: "20 байт", a: "160 бит", options: ["160 бит", "200 бит", "20 бит", "180 бит"] },
+      { q: "512 бит", a: "64 байта", options: ["64 байта", "128 байт", "32 байта", "16 байт"] },
+      { q: "2 Кбайт", a: "2048 байт", options: ["2048 байт", "1024 байт", "4096 байт", "512 байт"] },
+      { q: "768 байт", a: "0.75 Кбайт", options: ["0.75 Кбайт", "1 Кбайт", "768 Кбайт", "0.5 Кбайт"] },
+      { q: "4096 бит", a: "512 байт", options: ["512 байт", "256 байт", "128 байт", "1024 байта"] },
+      { q: "1 Мбайт", a: "1024 Кбайт", options: ["1024 Кбайт", "1000 Кбайт", "2048 Кбайт", "512 Кбайт"] },
+      { q: "512 Кбайт", a: "0.5 Мбайт", options: ["0.5 Мбайт", "1 Мбайт", "256 Мбайт", "512 Мбайт"] },
+      { q: "8 Гбайт", a: "8192 Мбайт", options: ["8192 Мбайт", "4096 Мбайт", "8000 Мбайт", "1024 Мбайт"] },
+      { q: "1024 Мбайт", a: "1 Гбайт", options: ["1 Гбайт", "1024 Гбайт", "1 Тбайт", "10 Гбайт"] },
+    ];
+
+    let current = 0;
+    let firstAttempt = true;
+    let answeredCorrectly = false;
+    let history = [];
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const statsEl = document.getElementById("stats");
+    let timeoutId = null;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function showQuestion(index) {
+      clearTimeout(timeoutId);
+      const q = questions[index];
+      questionEl.textContent = `Сколько составляет: ${q.q}?`;
+      optionsEl.innerHTML = "";
+      firstAttempt = true;
+      answeredCorrectly = false;
+
+      const shuffledOptions = [...q.options];
+      shuffle(shuffledOptions);
+
+      shuffledOptions.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.onclick = () => selectAnswer(btn, option === q.a);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(button, isCorrect) {
+      if (button.classList.contains('wrong') || button.classList.contains('correct')) return;
+
+      if (isCorrect) {
+        button.classList.add("correct");
+        if (firstAttempt) updateStats(true);
+        disableOptions();
+        timeoutId = setTimeout(nextQuestion, 2000);
+        answeredCorrectly = true;
+      } else {
+        button.classList.add("wrong");
+        if (firstAttempt) updateStats(false);
+        firstAttempt = false;
+      }
+    }
+
+    function disableOptions() {
+      const buttons = optionsEl.querySelectorAll("button");
+      buttons.forEach(btn => btn.disabled = true);
+    }
+
+    function updateStats(result) {
+      history.push(result);
+      if (history.length > 10) history.shift();
+      const correct = history.filter(r => r).length;
+      const wrong = history.length - correct;
+      statsEl.textContent = `Последние 10 ответов: верных — ${correct}, неверных — ${wrong}`;
+    }
+
+    function nextQuestion() {
+      current = (current + 1) % questions.length;
+      showQuestion(current);
+    }
+
+    function prevQuestion() {
+      current = (current - 1 + questions.length) % questions.length;
+      showQuestion(current);
+    }
+
+    showQuestion(current);
+  </script>
+  
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+</body>
+
+</html>

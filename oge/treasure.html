@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Охота за сокровищем</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #9ccdff;
+        }
+
+        h1 {
+            color: #c101d2;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(20, 30px);
+            grid-template-rows: repeat(15, 30px);
+            gap: 2px;
+            margin: 20px auto;
+            width: max-content;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+
+        .cell.guess {
+            background-color: #d0ebff;
+        }
+
+        .cell.treasure {
+            background-color: #c3f584;
+            font-size: 20px;
+        }
+
+        #info {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        #restart {
+            margin-top: 15px;
+            padding: 8px 16px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        #restart:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🗺️ Охота за сокровищем</h1>
+    <p>Кликните по клетке, чтобы сделать попытку. У вас есть 10 попыток.</p>
+
+    <div id="board"></div>
+    <div id="info">Попыток: 0 из 10</div>
+    <button id="restart">🔄 Начать заново</button>
+
+    <script>
+        const rows = 15;
+        const cols = 20;
+        const maxAttempts = 10;
+
+        const board = document.getElementById("board");
+        const info = document.getElementById("info");
+        const restartBtn = document.getElementById("restart");
+
+        let treasureX, treasureY, attempts, gameOver, cells;
+
+        function distance(x1, y1, x2, y2) {
+            return Math.hypot(x1 - x2, y1 - y2).toFixed(2);
+        }
+
+        function revealTreasure() {
+            const index = treasureY * cols + treasureX;
+            const cell = cells[index];
+            cell.classList.add("treasure");
+            cell.textContent = "△";
+        }
+
+        function handleClick(x, y, cell) {
+            if (gameOver || cell.classList.contains("guess")) return;
+
+            attempts++;
+            if (x === treasureX && y === treasureY) {
+                cell.classList.add("treasure");
+                cell.textContent = "△";
+                info.textContent = `🎉 Вы нашли клад за ${attempts} попыток!`;
+                gameOver = true;
+            } else {
+                cell.classList.add("guess");
+                const d = distance(x, y, treasureX, treasureY);
+                cell.textContent = attempts;
+                info.textContent = `Попыток: ${attempts} из ${maxAttempts} — Расстояние до клада: ${d}`;
+            }
+
+            if (attempts >= maxAttempts && !gameOver) {
+                info.textContent = `❌ Попытки закончились! Клад был в клетке (${treasureX + 1}, ${treasureY + 1})`;
+                revealTreasure();
+                gameOver = true;
+            }
+        }
+
+        function createBoard() {
+            board.innerHTML = "";
+            cells = [];
+            for (let y = 0; y < rows; y++) {
+                for (let x = 0; x < cols; x++) {
+                    const cell = document.createElement("div");
+                    cell.classList.add("cell");
+                    cell.dataset.x = x;
+                    cell.dataset.y = y;
+                    cell.addEventListener("click", () => handleClick(x, y, cell));
+                    board.appendChild(cell);
+                    cells.push(cell);
+                }
+            }
+        }
+
+        function startGame() {
+            treasureX = Math.floor(Math.random() * cols);
+            treasureY = Math.floor(Math.random() * rows);
+            attempts = 0;
+            gameOver = false;
+            info.textContent = `Попыток: 0 из ${maxAttempts}`;
+            createBoard();
+        }
+
+        restartBtn.addEventListener("click", startGame);
+
+        // Запуск при загрузке страницы
+        startGame();
+    </script>
+
+</body>
+
+</html>

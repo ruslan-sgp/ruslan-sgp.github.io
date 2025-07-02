@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>&Scy;&ocy;&zcy;&dcy;&acy;&ncy;&icy;&iecy; &icy;&gcy;&rcy;&ycy;
+    &Kcy;&rcy;&iecy;&scy;&tcy;&icy;&kcy;&icy;-&Ncy;&ocy;&lcy;&icy;&kcy;&icy;</title>
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="создание-игры-крестики-нолики">Создание игры Крестики-Нолики</h1>
+  <p>Английское название: Tic-Tac-Toe</p>
+  <h2 id="алгоритм-программы">Алгоритм программы</h2>
+  <p>Запуск игры:</p>
+  <ul>
+    <li>пользователь видит поле игры</li>
+    <li>выбрать X или O, либо назначить по умолчанию</li>
+    <li>выбрать игру с компьютером или 2 человека</li>
+  </ul>
+  <h3 id="примеры-отображения-поля">Примеры отображения поля:</h3>
+  <p>Начальное состояние:</p>
+  <pre><code>| ¹ | ² | ³ |
+-------------
+| ⁴ | ⁵ | ⁶ |
+-------------
+| ⁷ | ⁸ | ⁹ |
+</code></pre>
+  <p>После ходов игроков:</p>
+  <pre><code>| ¹ | ² | O |
+-------------
+| X | ⁵ | ⁶ |
+-------------
+| ⁷ | ⁸ | ⁹ |
+</code></pre>
+  <h3 id="игра-двух-человек">Игра двух человек</h3>
+  <ul>
+    <li>пользователь X и пользователь O чередуют ходы</li>
+    <li>ходы отображаются на поле</li>
+    <li>программа определяет выигрыш игрока либо ничью</li>
+  </ul>
+  <h3 id="игра-с-компьютером">Игра с компьютером</h3>
+  <p>...</p>
+  <h2 id="ресурсы-и-полезные-ссылки">Ресурсы и полезные ссылки</h2>
+  <ul>
+    <li><a href="https://creately.com/diagram/example/hnfh7cj21/tic-tac-toe">Блок-схема 1</a></li>
+    <li><a href="https://www.scribd.com/document/329310573/Tic-Tac-Toe-Project">Блок-схема 2</a></li>
+    <li><a href="https://wiki.appstudio.dev/TicTacToe">Блок-схема 3</a></li>
+  </ul>
+  <h2 id="полезные-термины">Полезные термины</h2>
+  <ul>
+    <li>markup language - язык разметки, например HTML</li>
+    <li>markdown - упрощенный язык разметки</li>
+  </ul>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="lesson-1">Lesson 1</h1>
+  <h2 id="python-ecosystem-for-machine-learning">Python Ecosystem for Machine Learning</h2>
+  <p><img src="01.png" alt="Lesson Notes"></p>
+  <p>Terms:</p>
+  <ul>
+    <li><strong>ML/AI</strong>: Machine Learning / Artificial Intelligence</li>
+    <li><strong>HTML + CSS + JavaScript</strong>: Content / Structure, Style, and Programming for the web</li>
+    <li><strong>IDE</strong>: Integrated Development Environment, such as VS Code</li>
+    <li><strong>GitHub</strong>: Code hosting &amp; collaboration platform</li>
+  </ul>
+  <hr>
+  <h3 id="-tools--environments">🧰 Tools &amp; Environments</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Tool/Concept</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>VS Code</strong></td>
+        <td>IDE for coding and debugging</td>
+      </tr>
+      <tr>
+        <td><strong>Jupyter Lab</strong></td>
+        <td>Interactive coding environment</td>
+      </tr>
+      <tr>
+        <td><strong>Virtualenv</strong></td>
+        <td>Python environment manager</td>
+      </tr>
+      <tr>
+        <td><strong>Conda</strong></td>
+        <td>Environment &amp; package manager for Anaconda</td>
+      </tr>
+      <tr>
+        <td><strong>Markdown (MD)</strong></td>
+        <td>Lightweight documentation format</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h3 id="-python-libraries">🧪 Python Libraries</h3>
+  <ul>
+    <li><strong>NumPy</strong>: Numerical computing</li>
+    <li><strong>Pandas</strong>: Data manipulation</li>
+    <li><strong>Matplotlib</strong>: Plotting</li>
+    <li><strong>Scikit-learn</strong>: ML algorithms</li>
+    <li><strong>Keras / TensorFlow</strong>: Deep learning frameworks</li>
+  </ul>
+  <hr>
+  <h3 id="-numpy-essentials">📊 NumPy Essentials</h3>
+  <h4 id="vectors-and-matrices">Vectors and Matrices</h4>
+  <ul>
+    <li><strong>Vector</strong>: <code>v = [1, 2, 3]</code></li>
+    <li><strong>Matrix</strong>: <code>m = [[1, 2], [3, 4]]</code></li>
+    <li><strong>Tensor</strong>: <code>t[i, j, k]</code> → multi-dimensional array
+      <ul>
+        <li>Example shape: <code>(10, 20, 3)</code></li>
+      </ul>
+    </li>
+  </ul>
+  <h4 id="slicing">Slicing</h4>
+  <ul>
+    <li>Extract subsets of arrays using slice notation
+      <ul>
+        <li>Example: <code>array[0:5]</code> or <code>array[:, 1]</code></li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <h3 id="-workflow-summary">🔁 Workflow Summary</h3>
+  <ol>
+    <li>Write code in <strong>VS Code</strong> or <strong>Jupyter Lab</strong></li>
+    <li>Use <strong>Markdown</strong> for documentation</li>
+    <li>Manage environments with <strong>virtualenv</strong> or <strong>conda</strong></li>
+    <li>Track and share code via <strong>GitHub</strong></li>
+    <li>Apply ML using <strong>NumPy</strong>, <strong>Pandas</strong>, <strong>Scikit-learn</strong>, etc.</li>
+  </ol>
+  <hr>
+  <h2 id="further-steps">Further Steps</h2>
+  <p>Install VS Code:</p>
+  <ul>
+    <li>add Python plugin</li>
+    <li>check AI plugins, such as CoPilot, BlackBox</li>
+  </ul>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

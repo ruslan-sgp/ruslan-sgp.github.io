@@ -214,6 +214,27 @@
     <li><strong>Keras / TensorFlow</strong>: Deep learning frameworks</li>
   </ul>
   <hr>
+  <h3 id="-python-diagnostic-tools">🔦 Python Diagnostic Tools</h3>
+  <pre><code class="language-bash"><span class="hljs-comment"># check Python installation</span>
+python -V
+<span class="hljs-built_in">where</span> python        <span class="hljs-comment"># Windows</span>
+<span class="hljs-built_in">which</span> python        <span class="hljs-comment"># macOS/Linux</span>
+
+<span class="hljs-comment"># list Python packages</span>
+pip list
+
+<span class="hljs-comment"># list Jupyter kernels</span>
+jupyter kernelspec list
+
+<span class="hljs-comment"># Conda environments</span>
+conda <span class="hljs-built_in">env</span> list
+
+conda create -n myenv python=3.12
+conda activate myenv
+
+conda install -c conda-forge jupyterlab
+</code></pre>
+  <hr>
   <h3 id="-numpy-essentials">📊 NumPy Essentials</h3>
   <h4 id="vectors-and-matrices">Vectors and Matrices</h4>
   <ul>

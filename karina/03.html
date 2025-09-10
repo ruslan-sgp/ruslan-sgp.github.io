@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="lesson-3">Lesson 3</h1>
+  <h2 id="1-lists-vs-numpy-np-vs-pandas-pd">1. <strong>Lists vs NumPy (<code>np</code>) vs Pandas
+      (<code>pd</code>)</strong></h2>
+  <ul>
+    <li><strong>Lists</strong>: General-purpose, can hold mixed data types. Slower for large data.</li>
+    <li><strong>NumPy Arrays (<code>np.array</code>)</strong>: Homogeneous, optimized for numerical operations.</li>
+    <li><strong>Pandas (<code>pd</code>)</strong>: Built on NumPy, adds labeled data (Series, DataFrame) for structured
+      analysis.</li>
+  </ul>
+  <pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+<span class="hljs-comment"># Python list</span>
+lst = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+
+<span class="hljs-comment"># NumPy array</span>
+arr = np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+
+<span class="hljs-comment"># Pandas Series</span>
+ser = pd.Series([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+</code></pre>
+  <hr>
+  <h2 id="2-zip">2. <strong><code>zip</code></strong></h2>
+  <ul>
+    <li>Combines iterables element-wise.</li>
+  </ul>
+  <pre><code class="language-python">names = [<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;Bob&quot;</span>]
+scores = [<span class="hljs-number">90</span>, <span class="hljs-number">85</span>]
+<span class="hljs-built_in">list</span>(<span class="hljs-built_in">zip</span>(names, scores))  
+<span class="hljs-comment"># → [(&#x27;Alice&#x27;, 90), (&#x27;Bob&#x27;, 85)]</span>
+</code></pre>
+  <hr>
+  <h2 id="3-loading-and-understanding-data-with-pandas">3. <strong>Loading and Understanding Data with Pandas</strong>
+  </h2>
+  <h3 id="a-csv">a) <strong>CSV</strong></h3>
+  <pre><code class="language-python">df = pd.read_csv(<span class="hljs-string">&quot;data.csv&quot;</span>)  <span class="hljs-comment"># load dataset</span>
+</code></pre>
+  <h3 id="b-series">b) <strong>Series</strong></h3>
+  <ul>
+    <li>1D labeled array</li>
+  </ul>
+  <pre><code class="language-python">pd.Series([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>], index=[<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>])
+</code></pre>
+  <h3 id="c-dataframe">c) <strong>DataFrame</strong></h3>
+  <ul>
+    <li>2D table with rows &amp; columns</li>
+  </ul>
+  <pre><code class="language-python">data = {<span class="hljs-string">&quot;Name&quot;</span>: [<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;Bob&quot;</span>], <span class="hljs-string">&quot;Age&quot;</span>: [<span class="hljs-number">25</span>, <span class="hljs-number">30</span>]}
+df = pd.DataFrame(data)
+</code></pre>
+  <hr>
+  <h3 id="d-head--tail">d) <strong>Head &amp; Tail</strong></h3>
+  <pre><code class="language-python">df.head()   <span class="hljs-comment"># first 5 rows</span>
+df.tail(<span class="hljs-number">3</span>)  <span class="hljs-comment"># last 3 rows</span>
+</code></pre>
+  <h3 id="e-info--describe">e) <strong>Info &amp; Describe</strong></h3>
+  <pre><code class="language-python">df.info()       <span class="hljs-comment"># column types, null counts</span>
+df.describe()   <span class="hljs-comment"># summary stats (mean, std, min, etc.)</span>
+</code></pre>
+  <h3 id="f-columns">f) <strong>Columns</strong></h3>
+  <pre><code class="language-python">df.columns      <span class="hljs-comment"># list of column names</span>
+df[<span class="hljs-string">&quot;Age&quot;</span>]       <span class="hljs-comment"># access a single column</span>
+df[[<span class="hljs-string">&quot;Name&quot;</span>,<span class="hljs-string">&quot;Age&quot;</span>]]  <span class="hljs-comment"># multiple columns</span>
+</code></pre>
+  <h3 id="g-nulls">g) <strong>Nulls</strong></h3>
+  <pre><code class="language-python">df.isnull().<span class="hljs-built_in">sum</span>()   <span class="hljs-comment"># count missing values</span>
+df.dropna()         <span class="hljs-comment"># remove rows with nulls</span>
+df.fillna(<span class="hljs-number">0</span>)        <span class="hljs-comment"># replace nulls</span>
+</code></pre>
+  <h3 id="h-locating-rows">h) <strong>Locating Rows</strong></h3>
+  <pre><code class="language-python">df.loc[<span class="hljs-number">0</span>]      <span class="hljs-comment"># by index label</span>
+df.iloc[<span class="hljs-number">1</span>]     <span class="hljs-comment"># by row position</span>
+</code></pre>
+  <h3 id="i-filtering">i) <strong>Filtering</strong></h3>
+  <pre><code class="language-python">df[df[<span class="hljs-string">&quot;Age&quot;</span>] &gt; <span class="hljs-number">25</span>]       <span class="hljs-comment"># conditional filter</span>
+df[df[<span class="hljs-string">&quot;Name&quot;</span>] == <span class="hljs-string">&quot;Bob&quot;</span>]  <span class="hljs-comment"># match filter</span>
+</code></pre>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

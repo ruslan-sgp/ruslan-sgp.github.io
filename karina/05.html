@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&ast;&ast;Data Analysis &amp; Modeling Concepts&ast;&ast;</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="data-analysis--modeling-concepts"><strong>Data Analysis &amp; Modeling Concepts</strong></h1>
+  <h4 id="1-measures-of-central-tendency-and-variation"><strong>1. Measures of Central Tendency and Variation</strong>
+  </h4>
+  <ul>
+    <li><strong>Central Tendency:</strong> A single value that describes the center of a dataset.
+      <ul>
+        <li><strong>Mean:</strong> The average (sum of all values / number of values).</li>
+        <li><strong>Median:</strong> The middle value when data is sorted.</li>
+        <li><strong>Mode:</strong> The most frequently occurring value.</li>
+      </ul>
+    </li>
+    <li><strong>Variation (Dispersion):</strong> Describes how spread out the data is.
+      <ul>
+        <li><strong>Range:</strong> Max value - Min value.</li>
+        <li><strong>Variance:</strong> The average of the squared differences from the Mean.</li>
+        <li><strong>Standard Deviation:</strong> The square root of the Variance. The most common measure of spread.
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h4 id="2-correlation"><strong>2. Correlation</strong></h4>
+  <ul>
+    <li>Measures the strength and direction of the <strong>linear relationship</strong> between two variables.</li>
+    <li>Value ranges from <strong>-1 to +1</strong>.
+      <ul>
+        <li><strong>+1:</strong> Perfect positive correlation (as one goes up, the other goes up).</li>
+        <li><strong>-1:</strong> Perfect negative correlation (as one goes up, the other goes down).</li>
+        <li><strong>0:</strong> No linear correlation.</li>
+      </ul>
+    </li>
+    <li><strong>Note:</strong> Correlation does not imply causation.</li>
+  </ul>
+  <h4 id="3-regression"><strong>3. Regression</strong></h4>
+  <ul>
+    <li>A technique to model the <strong>relationship between a dependent variable (Y)</strong> and <strong>one or more
+        independent variables (X)</strong>.</li>
+    <li>The goal is to find a function (a line or curve) that best predicts Y from X.</li>
+    <li><strong>Simple Linear Regression:</strong> <code>Y = β₀ + β₁*X</code> (a straight line).</li>
+  </ul>
+  <h4 id="4-one-factor-vs-multi-factor-models"><strong>4. One-Factor vs. Multi-Factor Models</strong></h4>
+  <ul>
+    <li><strong>One-Factor (Univariate) Model:</strong> A model that uses only <strong>one</strong> independent variable
+      (feature) to predict an outcome.
+      <ul>
+        <li>Example: Predicting house price based only on its size.</li>
+      </ul>
+    </li>
+    <li><strong>Multi-Factor (Multivariate) Model:</strong> A model that uses <strong>multiple</strong> independent
+      variables to predict an outcome.
+      <ul>
+        <li>Example: Predicting house price based on size, number of bedrooms, age, and location.</li>
+      </ul>
+    </li>
+  </ul>
+  <h4 id="5-error-metrics-how-good-is-the-model"><strong>5. Error Metrics (How good is the model?)</strong></h4>
+  <p>Used to evaluate the difference between a model's predictions and the actual values.</p>
+  <ul>
+    <li><strong>MAE (Mean Absolute Error):</strong> The average of the absolute errors. Easy to understand.</li>
+    <li><strong>MSE (Mean Squared Error):</strong> The average of the squared errors. Punishes large errors more than
+      MAE.</li>
+    <li><strong>RMSE (Root Mean Squared Error):</strong> The square root of MSE. Punishes large errors and is in the
+      same units as the target variable (often more interpretable than MSE).</li>
+  </ul>
+  <h4 id="6-accuracy"><strong>6. Accuracy</strong></h4>
+  <ul>
+    <li>Primarily used for <strong>classification</strong> models (predicting categories, e.g., spam/not spam).</li>
+    <li>Defined as: <code>(Number of Correct Predictions) / (Total Predictions)</code></li>
+  </ul>
+  <h4 id="7-train--test-split"><strong>7. Train &amp; Test Split</strong></h4>
+  <ul>
+    <li>A fundamental best practice to evaluate a model's performance fairly.</li>
+    <li><strong>Training Set:</strong> The portion of the data (e.g., 70-80%) used to <strong>build (train)</strong> the
+      model.</li>
+    <li><strong>Test Set:</strong> The withheld portion of the data (e.g., 20-30%) used to <strong>evaluate</strong> the
+      model's performance on unseen data. This tests how well the model generalizes.</li>
+  </ul>
+  <h4 id="8-fit--predict"><strong>8. Fit &amp; Predict</strong></h4>
+  <ul>
+    <li><strong><code>fit(X_train, y_train)</code>:</strong> The core training process. The algorithm <strong>learns the
+        parameters</strong> (e.g., the slope <code>β₁</code> and intercept <code>β₀</code> of a line) from the training
+      data.</li>
+    <li><strong><code>predict(X_test)</code>:</strong> Using the learned model/parameters to <strong>make
+        predictions</strong> on new data (e.g., the test set).</li>
+    <li><strong>Parameters:</strong> These are the <strong>model's coefficients</strong> learned during the
+      <code>fit()</code> process (e.g., the weights in a regression equation). They are internal to the model.
+    </li>
+  </ul>
+  <h4 id="9-key-functions-in-python-scikit-learn-library"><strong>9. Key Functions in Python (<code>scikit-learn</code>
+      library)</strong></h4>
+  <pre><code class="language-python"><span class="hljs-comment"># Import libraries</span>
+<span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> train_test_split
+<span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LinearRegression
+<span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error, accuracy_score
+
+<span class="hljs-comment"># 1. Load your data (X features, y target)</span>
+<span class="hljs-comment"># 2. Split data into Train/Test sets</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="hljs-number">0.2</span>)
+
+<span class="hljs-comment"># 3. Create and train (FIT) the model</span>
+model = LinearRegression()
+model.fit(X_train, y_train) <span class="hljs-comment"># Learning parameters</span>
+
+<span class="hljs-comment"># 4. Use model to PREDICT</span>
+y_pred = model.predict(X_test)
+
+<span class="hljs-comment"># 5. Evaluate model performance (e.g., for regression)</span>
+mse = mean_squared_error(y_test, y_pred)
+rmse = mse ** <span class="hljs-number">0.5</span>
+
+<span class="hljs-comment"># For a classification model, you might use:</span>
+<span class="hljs-comment"># accuracy = accuracy_score(y_test, y_pred)</span>
+</code></pre>
+
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+</body>
+
+</html>

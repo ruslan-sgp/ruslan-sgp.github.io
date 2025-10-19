@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>&Icy;&ncy;&fcy;&ocy;&rcy;&mcy;&acy;&tscy;&icy;&yacy;</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кодировки символов</title>
+
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(99155810, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/99155810" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+  <style>
+    /* From extension vscode.github */
+    /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+    .vscode-dark img[src$=\#gh-light-mode-only],
+    .vscode-light img[src$=\#gh-dark-mode-only],
+    .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+    .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+      pointer-events: none;
+    }
+  </style>
+  <style>
+    :root {
+      --color-note: #0969da;
+      --color-tip: #1a7f37;
+      --color-warning: #9a6700;
+      --color-severe: #bc4c00;
+      --color-caution: #d1242f;
+      --color-important: #8250df;
+    }
+  </style>
+  <style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-note: #2f81f7;
+        --color-tip: #3fb950;
+        --color-warning: #d29922;
+        --color-severe: #db6d28;
+        --color-caution: #f85149;
+        --color-important: #a371f7;
+      }
+    }
+  </style>
+  <style>
+    .markdown-alert {
+      padding: 0.5rem 1rem;
+      margin-bottom: 16px;
+      color: inherit;
+      border-left: .25em solid #888;
+    }
+
+    .markdown-alert>:first-child {
+      margin-top: 0
+    }
+
+    .markdown-alert>:last-child {
+      margin-bottom: 0
+    }
+
+    .markdown-alert .markdown-alert-title {
+      display: flex;
+      font-weight: 500;
+      align-items: center;
+      line-height: 1
+    }
+
+    .markdown-alert .markdown-alert-title .octicon {
+      margin-right: 0.5rem;
+      display: inline-block;
+      overflow: visible !important;
+      vertical-align: text-bottom;
+      fill: currentColor;
+    }
+
+    .markdown-alert.markdown-alert-note {
+      border-left-color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-note .markdown-alert-title {
+      color: var(--color-note);
+    }
+
+    .markdown-alert.markdown-alert-important {
+      border-left-color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-important .markdown-alert-title {
+      color: var(--color-important);
+    }
+
+    .markdown-alert.markdown-alert-warning {
+      border-left-color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-warning .markdown-alert-title {
+      color: var(--color-warning);
+    }
+
+    .markdown-alert.markdown-alert-tip {
+      border-left-color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-tip .markdown-alert-title {
+      color: var(--color-tip);
+    }
+
+    .markdown-alert.markdown-alert-caution {
+      border-left-color: var(--color-caution);
+    }
+
+    .markdown-alert.markdown-alert-caution .markdown-alert-title {
+      color: var(--color-caution);
+    }
+  </style>
+
+  <link rel="stylesheet" href="../les.css">
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="информация">Информация</h1>
+  <p>Как измерить информацию?</p>
+  <p><img src="1-bits.png" alt="alt text"></p>
+  <ul>
+    <li><strong>Бит</strong> — это самая маленькая единица информации.</li>
+    <li>Он может принимать только <strong>два значения</strong>: <code>ДА</code> или <code>НЕТ</code> (0 или 1).</li>
+    <li>Как если бы ты отвечала на вопрос, где возможны только эти два варианта ответа.</li>
+  </ul>
+  <p>Но что если информации больше? Как это посчитать?</p>
+  <p>Например, какой объём информации в значении кубика?</p>
+  <p><img src="2-dice.png" alt="alt text"></p>
+  <ul>
+    <li>
+      <p>Чтобы угадать число на кубике, можно задавать вопросы, на которые можно ответить &quot;да&quot; или
+        &quot;нет&quot;.</p>
+    </li>
+    <li>
+      <p>Этот метод позволяет находить ответ, отсекая неподходящие варианты. (Это основа для более сложных алгоритмов.)
+      </p>
+    </li>
+  </ul>
+  <p>Необязательно задавать 6 вопросов!</p>
+  <p>Мы можем поступить более умно, если будем задавать вопросы специалным образом.</p>
+  <p>Чтобы узнать число на кубике, достаточно не более 3 вопросов!</p>
+  <p>А если нужно отгадать число от 1 до 10?</p>
+  <p><img src="3-guess10.png" alt="alt text"></p>
+  <ul>
+    <li>Тогда достаточно не более 4х вопросов!</li>
+  </ul>
+  <p><img src="4-guess100.png" alt="alt text"></p>
+  <ul>
+    <li>Чтобы быстро угадать число от 1 до 100, нужно всего <strong>6-7 вопросов</strong>.</li>
+    <li>Секрет в том, чтобы каждый раз делить диапазон возможных чисел <strong>пополам</strong>.</li>
+    <li>Этот эффективный способ называется <strong>бинарный (двоичный) поиск</strong>.</li>
+  </ul>
+  <p><img src="5-binary.png" alt="alt text"></p>
+  <ul>
+    <li>Количество вариантов, которые можно закодировать, зависит от количества бит и подчиняется степеням двойки.</li>
+    <li><strong>Формула:</strong> <code>Количество вариантов = 2ⁿ</code>, где <code>n</code> — количество бит.</li>
+    <li><strong>Пример:</strong>
+      <ul>
+        <li>1 бит = 2¹ = 2 варианта (0 или 1)</li>
+        <li>3 бита = 2³ = 8 вариантов</li>
+        <li>8 бит = 2⁸ = 256 вариантов</li>
+      </ul>
+    </li>
+  </ul>
+  <p><img src="6-degrees2.png" alt="alt text"></p>
+  <ul>
+    <li>Чем больше бит мы используем, тем больше различных чисел или комбинаций мы можем закодировать.</li>
+    <li>Например, с помощью 3 битов можно создать 8 разных значений
+      <ul>
+        <li>например, этого достаточно, чтобы записать числа от 0 до 7.</li>
+      </ul>
+    </li>
+  </ul>
+  <p><img src="7-numpeople.png" alt="alt text"></p>
+  <p>Сколько нужно бит, чтобы создать уникальное значение для каждого жителя Земли?</p>
+  <p>Можем написать программу на Python!</p>
+  <p><img src="8-pic.png" alt="alt text"></p>
+  <p>Можно закодировать не только числа, но любую информацию. Например, изображения!</p>
+  <ul>
+    <li>Любое изображение состоит из маленьких точек — <strong>пикселей</strong>.</li>
+    <li>Цвет каждого пикселя кодируется с помощью битов.</li>
+    <li><strong>Пример:</strong> Если в картинке 4 цвета, то на каждый пиксель нужно 2 бита (так как 2² = 4).</li>
+    <li>Размер файла изображения зависит от общего количества пикселей и количества бит на цвет.</li>
+  </ul>
+  <p><img src="9-units.png" alt="alt text"></p>
+  <p>А есть большие единицы измерения информации, чем бит?</p>
+  <ul>
+    <li><strong>1 Байт = 8 Бит.</strong> Байт — это основная единица.</li>
+    <li>Все последующие единицы образуются умножением на 1024 (2¹⁰):
+      <ul>
+        <li>1 Килобайт (КБ) = 1024 Байт</li>
+        <li>1 Мегабайт (МБ) = 1024 Килобайт</li>
+        <li>1 Гигабайт (ГБ) = 1024 Мегабайт</li>
+        <li>1 Терабайт (ТБ) = 1024 Гигабайт</li>
+      </ul>
+    </li>
+  </ul>
+  <p>В таблице также показаны степени двойки, которые полезно знать для понимания объемов информации.</p>
+  <hr>
+  <p><strong>Вывод:</strong> Вся информация в компьютере (тексты, картинки, звуки) в конечном счете представлена в виде
+    двоичного кода — последовательности нулей и единиц (битов). Понимание битов и байтов — это основа информатики</p>
+
+  <footer>
+    <p><a href="https://t.me/MLSimplified">Изучаем IT Вместе</a></p>
+  </footer>
+
+
+</body>
+
+</html>

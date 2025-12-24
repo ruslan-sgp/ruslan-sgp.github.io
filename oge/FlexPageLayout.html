@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox для начинающих</title>
+
+    <!-- Простой и понятный CSS -->
+    <style>
+        /* ===== БАЗОВЫЕ НАСТРОЙКИ ===== */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #678f99;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== НАВИГАЦИЯ ===== */
+        nav {
+            display: flex;
+            /* Включаем flex */
+            justify-content: space-between;
+            align-items: center;
+            background: #0c8dc4;
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ===== ШАПКА ===== */
+        header {
+            display: flex;
+            gap: 3rem;
+            padding: 3rem;
+            background: #3ba7eb;
+            align-items: center;
+        }
+
+        header img {
+            width: 250px;
+        }
+
+        header input {
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        header button {
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        /* ===== КАРТОЧКИ ===== */
+        .boxes {
+            display: flex;
+            gap: 2rem;
+            padding: 3rem;
+        }
+
+        .box {
+            background: #57ad7f;
+            padding: 2rem;
+            border-radius: 6px;
+            flex: 1;
+            /* Все блоки одинаковой ширины */
+            text-align: center;
+        }
+
+        .box img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #256980;
+            color: #cfe8ee;
+        }
+
+        footer a {
+            color: #9dd6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- НАВИГАЦИЯ -->
+        <nav>
+            <div><strong>Изучаем Вместе</strong></div>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <!-- ШАПКА -->
+        <header>
+            <div>
+                <h2>Flexbox</h2>
+                <p>
+                    Flexbox — это способ удобно располагать элементы на странице.
+                    Он отлично подходит для меню, карточек и адаптивных интерфейсов.
+                </p>
+
+                <input type="email" placeholder="Ваш email">
+                <button>Узнать больше</button>
+            </div>
+
+            <!-- Внешний SVG вместо inline -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS logo">
+        </header>
+
+        <!-- ОСНОВНЫЕ ПРЕИМУЩЕСТВА -->
+        <section class="boxes">
+
+            <div class="box">
+                <img src="https://www.svgrepo.com/show/532997/align-center.svg" alt="Выравнивание">
+                <h3>Выравнивание</h3>
+                <p>
+                    Свойства <code>justify-content</code> и <code>align-items</code>
+                    позволяют легко центрировать элементы.
+                </p>
+            </div>
+
+            <div class="box">
+                <img src="https://www.svgrepo.com/show/532998/arrow-right.svg" alt="Направление">
+                <h3>Направление</h3>
+                <p>
+                    <code>flex-direction</code> управляет тем,
+                    располагаются элементы в строку или в колонку.
+                </p>
+            </div>
+
+            <div class="box">
+                <img src="https://www.svgrepo.com/show/533003/resize.svg" alt="Размер">
+                <h3>Размеры</h3>
+                <p>
+                    <code>flex-grow</code> и <code>flex-shrink</code>
+                    помогают элементам адаптироваться к размеру экрана.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- ПОДВАЛ -->
+        <footer>
+            <span>Изучаем Вместе</span>
+            <a href="https://изучаемвместе.рф">Сайт</a>
+            <a href="https://t.me/MLSimplified">Telegram</a>
+        </footer>
+
+    </div>
+</body>
+
+</html>

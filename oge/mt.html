@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Turing Machine Tape</title>
+    <style>
+        :root {
+            --cell-size: 42px;
+            /* swapped colors: 0 <-> λ */
+            --c0: #fde68a;
+            /* λ color before */
+            --c1: #dbeafe;
+            --cl: #f2f2f2;
+            /* 0 color before */
+            --border: #cbd5e1;
+            --text: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            color: var(--text);
+            background: #ffffff;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        button {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        button:hover {
+            background: #f8fafc;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+            align-items: center;
+        }
+
+        .rows {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .cells {
+            display: grid;
+            gap: 4px;
+        }
+
+        .cell {
+            width: var(--cell-size);
+            height: var(--cell-size);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .cell[data-val="0"] {
+            background: var(--c0);
+        }
+
+        .cell[data-val="1"] {
+            background: var(--c1);
+        }
+
+        .cell[data-val="λ"] {
+            background: var(--cl);
+        }
+
+        .row-controls {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Turing Machine Tape</h1>
+
+    <div class="controls">
+        <span>Cells:</span>
+        <button onclick="changeCells(-1)">−</button>
+        <button onclick="changeCells(1)">+</button>
+        <span>Rows:</span>
+        <button onclick="changeRows(-1)">−</button>
+        <button onclick="changeRows(1)">+</button>
+    </div>
+
+    <div id="rows" class="rows"></div>
+
+    <script>
+        let cellCount = 10;
+        const symbols = ['0', '1', 'λ'];
+        const rowsEl = document.getElementById('rows');
+
+        function rotate(cell) {
+            const i = symbols.indexOf(cell.dataset.val);
+            const next = symbols[(i + 1) % symbols.length];
+            cell.dataset.val = next;
+            cell.textContent = next;
+        }
+
+        function createCell(val = '0') {
+            const cell = document.createElement('div');
+            cell.className = 'cell';
+            cell.dataset.val = val;
+            cell.textContent = val;
+            cell.onclick = () => rotate(cell);
+            return cell;
+        }
+
+        function createRow(existing = []) {
+            const row = document.createElement('div');
+            row.className = 'row';
+
+            let headPos = 0;
+
+            const cells = document.createElement('div');
+            cells.className = 'cells';
+            cells.style.gridTemplateColumns = `repeat(${cellCount}, var(--cell-size))`;
+
+            function updateHead() {
+                cells.querySelectorAll('.cell').forEach((c, i) => {
+                    c.style.outline = i === headPos ? '2px solid #0f172a' : 'none';
+                });
+            }
+
+            for (let i = 0; i < cellCount; i++) {
+                const cell = createCell(existing[i] || '0');
+                cell.onclick = () => {
+                    rotate(cell);
+                    headPos = i;
+                    updateHead();
+                };
+                cells.appendChild(cell);
+            }
+
+            const controls = document.createElement('div');
+            controls.className = 'row-controls';
+
+            controls.innerHTML = `
+        <button data-move="-1">◀</button>
+        <button data-move="1">▶</button>
+        <button data-act="0">Reset 0</button>
+        <button data-act="1">Reset 1</button>
+        <button data-act="λ">Reset λ</button>
+        <button data-act="rnd">Randomize 0/1</button>
+      `;
+
+            controls.onclick = e => {
+                if (e.target.dataset.move) {
+                    headPos = Math.max(0, Math.min(cellCount - 1, headPos + Number(e.target.dataset.move)));
+                    updateHead();
+                }
+                if (e.target.dataset.act) {
+                    const act = e.target.dataset.act;
+                    cells.querySelectorAll('.cell').forEach(c => {
+                        let v = act;
+                        if (act === 'rnd') v = Math.random() < 0.5 ? '0' : '1';
+                        c.dataset.val = v;
+                        c.textContent = v;
+                    });
+                }
+            };
+
+            row.appendChild(cells);
+            row.appendChild(controls);
+            updateHead();
+            return row;
+        }
+
+        function snapshot() {
+            return [...rowsEl.children].map(r =>
+                [...r.querySelectorAll('.cell')].map(c => c.dataset.val)
+            );
+        }
+
+        function render(from) {
+            rowsEl.innerHTML = '';
+            from.forEach(data => rowsEl.appendChild(createRow(data)));
+        }
+
+        function changeCells(d) {
+            const snap = snapshot();
+            cellCount = Math.max(1, cellCount + d);
+            render(snap);
+        }
+
+        function changeRows(d) {
+            const snap = snapshot();
+            if (d > 0) snap.push([]);
+            if (d < 0 && snap.length > 1) snap.pop();
+            render(snap);
+        }
+
+        render([[]]);
+    </script>
+</body>
+
+</html>

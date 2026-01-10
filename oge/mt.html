@@ -7,12 +7,9 @@
     <style>
         :root {
             --cell-size: 42px;
-            /* swapped colors: 0 <-> λ */
             --c0: #fde68a;
-            /* λ color before */
             --c1: #dbeafe;
             --cl: #f2f2f2;
-            /* 0 color before */
             --border: #cbd5e1;
             --text: #0f172a;
         }
@@ -51,7 +48,6 @@
         .controls {
             display: flex;
             gap: 8px;
-            flex-wrap: wrap;
             margin-bottom: 14px;
             align-items: center;
         }
@@ -59,7 +55,7 @@
         .rows {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
         .row {
@@ -103,6 +99,25 @@
             gap: 6px;
             flex-wrap: wrap;
         }
+
+        .info-box {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            align-items: center;
+        }
+
+        .info-seg {
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: #f1f5f9;
+        }
+
+        .label {
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            opacity: 0.85;
+        }
     </style>
 </head>
 
@@ -137,7 +152,6 @@
             cell.className = 'cell';
             cell.dataset.val = val;
             cell.textContent = val;
-            cell.onclick = () => rotate(cell);
             return cell;
         }
 
@@ -146,15 +160,66 @@
             row.className = 'row';
 
             let headPos = 0;
+            let state = 0;
+
+            const stateColors = [
+                '#1f2937', '#2563eb', '#16a34a', '#dc2626', '#7c3aed', '#ea580c',
+                '#0891b2', '#ca8a04', '#be123c', '#0f766e', '#4f46e5', '#9333ea',
+                '#15803d', '#b45309', '#0369a1'
+            ];
 
             const cells = document.createElement('div');
             cells.className = 'cells';
             cells.style.gridTemplateColumns = `repeat(${cellCount}, var(--cell-size))`;
 
-            function updateHead() {
-                cells.querySelectorAll('.cell').forEach((c, i) => {
-                    c.style.outline = i === headPos ? '2px solid #0f172a' : 'none';
+            const info = document.createElement('div');
+            info.className = 'info-box';
+
+            const stateEl = document.createElement('div');
+            stateEl.style.fontWeight = '700';
+
+            const leftEl = document.createElement('div');
+            leftEl.className = 'info-seg';
+
+            const rightEl = document.createElement('div');
+            rightEl.className = 'info-seg';
+
+            const totalEl = document.createElement('div');
+            totalEl.className = 'info-seg';
+
+            info.appendChild(stateEl);
+            info.appendChild(leftEl);
+            info.appendChild(rightEl);
+            info.appendChild(totalEl);
+
+            function count(list) {
+                let c0 = 0, c1 = 0;
+                list.forEach(c => {
+                    if (c.dataset.val === '0') c0++;
+                    if (c.dataset.val === '1') c1++;
                 });
+                return { c0, c1 };
+            }
+
+            function updateHead() {
+                [...cells.children].forEach((c, i) => {
+                    c.style.outline = i === headPos ? `2px solid ${stateColors[state % stateColors.length]}` : 'none';
+                });
+            }
+
+            function updateInfo() {
+                const all = [...cells.children];
+                const left = count(all.slice(0, headPos));
+                const right = count(all.slice(headPos + 1));
+                const total = count(all);
+                const color = stateColors[state % stateColors.length];
+
+                stateEl.textContent = `q${state}`;
+                stateEl.style.color = color;
+
+                leftEl.innerHTML = `<span class="label">L</span> <span class="label">0</span>: ${left.c0} <span class="label">1</span>: ${left.c1}`;
+                rightEl.innerHTML = `<span class="label">R</span> <span class="label">0</span>: ${right.c0} <span class="label">1</span>: ${right.c1}`;
+                totalEl.innerHTML = `<span class="label">T</span> <span class="label">0</span>: ${total.c0} <span class="label">1</span>: ${total.c1}`;
             }
 
             for (let i = 0; i < cellCount; i++) {
@@ -163,16 +228,18 @@
                     rotate(cell);
                     headPos = i;
                     updateHead();
+                    updateInfo();
                 };
                 cells.appendChild(cell);
             }
 
             const controls = document.createElement('div');
             controls.className = 'row-controls';
-
             controls.innerHTML = `
         <button data-move="-1">◀</button>
         <button data-move="1">▶</button>
+        <button data-state="-1">q−</button>
+        <button data-state="1">q+</button>
         <button data-act="0">Reset 0</button>
         <button data-act="1">Reset 1</button>
         <button data-act="λ">Reset λ</button>
@@ -180,24 +247,26 @@
       `;
 
             controls.onclick = e => {
-                if (e.target.dataset.move) {
-                    headPos = Math.max(0, Math.min(cellCount - 1, headPos + Number(e.target.dataset.move)));
-                    updateHead();
-                }
+                if (e.target.dataset.move) headPos = Math.max(0, Math.min(cellCount - 1, headPos + Number(e.target.dataset.move)));
+                if (e.target.dataset.state) state += Number(e.target.dataset.state);
                 if (e.target.dataset.act) {
                     const act = e.target.dataset.act;
-                    cells.querySelectorAll('.cell').forEach(c => {
+                    [...cells.children].forEach(c => {
                         let v = act;
                         if (act === 'rnd') v = Math.random() < 0.5 ? '0' : '1';
                         c.dataset.val = v;
                         c.textContent = v;
                     });
                 }
+                updateHead();
+                updateInfo();
             };
 
             row.appendChild(cells);
+            row.appendChild(info);
             row.appendChild(controls);
             updateHead();
+            updateInfo();
             return row;
         }
 
@@ -207,9 +276,9 @@
             );
         }
 
-        function render(from) {
+        function render(data) {
             rowsEl.innerHTML = '';
-            from.forEach(data => rowsEl.appendChild(createRow(data)));
+            data.forEach(r => rowsEl.appendChild(createRow(r)));
         }
 
         function changeCells(d) {
